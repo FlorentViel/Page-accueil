@@ -1,0 +1,1102 @@
+:root {
+    --imageCrespuscule : url(assets/images/background/Kollab_s_DrugStuck.png);
+    --white : white;
+
+
+    /* Mode nuit paramètre */
+
+    /* image-background */
+
+    --imageNuit : url(assets/images/background/dragon_and_katana.jpg);
+
+    /*block */
+
+    --menuNuit : linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuNuitwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuNuitmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuNuitlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuBgNuit: rgb(63,67,218);
+    --textShadowNuit : 0px 2px 1px #283966;
+    --menushadowNuit : 5px -4px 15px 5px #000; 
+    --entetenuitborder : 1px solid darkslateblue;
+    --entetenuitbg : rgba(75, 63, 246, 0.243);
+    --entetenuitshadow : 1px 2px 5px 2px #000;
+    --filternuit : progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+ 
+
+    /* btn hover*/
+
+
+    --btnShowNuit : linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShowNuitwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShownuitmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShownuitlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+
+    /* input text */
+
+    --menuTextNuit : linear-gradient(0deg, rgba(63,67,218,0.70) 0%, rgba(111,34,195,0.70) 100%);
+
+    /* Mode jour paramètre  */
+
+    /* image-background */
+
+    --imageJour : url(assets/images/background/japoness_anaya.png);
+
+        /*block */
+
+    
+    --menuBgJour : rgb(139,222,240);
+    --menuJourmoz : -moz-linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
+    --menuJourwebkit: -webkit-linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
+    --menuJour : linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
+    --filterjour: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8bdef0",endColorstr="#3686df",GradientType=1);
+    --menushadowJour : 5px -4px 15px 5px #ebf0ff; 
+    --entetejourborder : 1px solid rgb(225, 221, 255);
+    --entetejourbg : rgba(255, 118, 14, 0.35);
+    --entetejourshadow : 1px 2px 5px 2px #ffefbb;
+
+    /* btn hover*/
+
+    --btnShowBgJour : rgb(0,209,254);
+    --btnShowJourmoz : rgb(0,209,254);
+    --btnShowJourwebkit: -webkit-linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
+    --btnShowJour : linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
+    --filterShowjour:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#00d1fe",endColorstr="#80b8f7",GradientType=1);
+
+    /* Mode crépuscule */
+
+    --menuBgCrepuscule :rgb(254,166,84);
+    --menuCrepusculemoz: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+    --menuCrepusculewebkit: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+    --menuCrepuscule: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+    --menushadowCrepuscule : 5px -4px 15px 5px #ff8c21;
+    --btnshadowCrepuscule : 2px -2px 5px 2px #ff8c21 ;
+    --filtercrepuscule: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1);
+    --entetecrepusculeborder : 1px solid rgb(209, 224, 152);
+    --entetecrepusculebg : rgba(255, 118, 14, 0.35);
+    --entetecrepusculeshadow : 1px 2px 5px 2px #ff9e27;
+
+    /* btn hover */
+
+    --btnShowBgCrepuscule: rgb(255,183,115);
+    --btnShowCrepusculemoz: -moz-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
+    --btnShowCrepusculewebkit: -webkit-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
+    --btnShowCrepuscule: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
+    --filterShowCrepuscule: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffb773",endColorstr="#8980f7",GradientType=1);
+
+    /* text */
+
+    --textShadowCrepuscule :0px 1px 0px #a46d36;
+    --textCrepuscule : #020705; 
+    
+}
+
+
+* {
+    margin: 0 ;
+    padding: 0;
+
+}
+
+body {
+    background-size: contain;
+    background-color: #bfdff8;
+    background-size: auto;
+}
+
+/* class volatile */
+
+.menuModeNuit {
+    background : var(--menuBgNuit);
+    background: var(--menuNuit);
+    -webkit-box-shadow: 5px -5px 15px 5px #2132FF; 
+    box-shadow: 5px -2px 15px 5px #2132FF;
+}
+
+
+.flex{
+    display: flex!important;
+}
+
+.flex2 {
+    display: flex;
+}
+
+.block{
+    display: block!important;
+    
+}
+
+.none {
+    display: none!important;
+}
+
+.none2 {
+    display: none;
+}
+
+/* Background */
+
+#background-image {
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+
+}
+
+/* Date style */
+
+.navBar {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    }
+
+
+
+.flex-item:nth-child(1) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    }
+
+.flex-item:nth-child(2) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    }
+
+.flex-item:nth-child(3) {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 2;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: start;
+    align-self: center;
+    }
+
+
+/* flex météo */
+
+.flex-meteo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+#icon-meteo {
+    width: 48px;
+    height: 48px;
+}
+
+.flex-meteo-item:nth-child(1) {
+    flex: 0 0 2vw;
+
+    }
+
+.flex-meteo-item:nth-child(2) {
+    flex: 0 0 8vw;
+    }
+
+/*.navBar {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-content: center;
+
+
+}*/
+
+.item {
+    display: inline-block;
+    width: 35vw;
+    height: 95px;
+    font-size: calc(0.7rem + 0.5vw);
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    text-align: center;
+
+
+
+}
+
+.etat-soleil-bloc {
+    /*position: relative;
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    padding: 6px;
+    text-align: center;
+    */
+}
+
+.listsoleil{
+    list-style: none;
+}
+
+#bloc-horloge {
+    height: auto;
+    width: 180px;
+    position: fixed;
+    bottom: 0;
+    right: 2vw;
+    text-align: center;
+}
+
+.PM {
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    padding-left: 43px;
+}
+
+/* bloc horloge */
+
+
+/* cadre horloge */
+ 
+#horloge-background {
+    background-image: url('https://www.monhorloge.fr/wp-content/uploads/2020/01/free-clock-faces-template-1024x1024.png');
+    opacity: 0.5;
+    background-size: contain;
+    background-color: aliceblue;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+    transform: translate(10%, 0%);
+
+}
+
+/* aguille */
+
+/* Petit et grande Aiguille */
+
+.grande-aiguille, .petite-aiguille {
+    position: absolute;
+    height: 47px; width: 3.21px;
+    margin: auto;
+    top: -27%; left: 0;	bottom: 0; right: 0;
+    background: black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+}
+
+/* Uniquement grande Aiguille */
+
+.grande-aiguille {
+    position: absolute;
+    height: 67px;
+    width: 2.5px;
+    top: -38%;
+    left: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    transform: rotate(90deg);
+}
+
+/* L'aiguille des secondes */
+
+.seconde {
+    position: absolute;
+    height: 46px;
+    width: 2px;
+    margin: auto;
+    top: -26%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    background: #ff4b3e;
+    transform-origin: bottom center;
+    transform: rotate(180deg);
+}
+
+.dot {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 width: 2px;
+	 height: 2px;
+	 border-radius: 50%;
+	 background: white;
+	 border: 2px solid #1b1b1b;
+	 margin: auto;
+}
+
+
+/* Liste site */
+
+/* bloc logo */
+
+#fav-site-bloc {
+    position: relative;
+    flex-wrap: wrap;
+    margin: 1rem;
+    justify-content: space-between;
+}
+
+/* bloc site */
+
+#fav-site-bloc > div {
+    flex : 1 1 250px;
+}
+
+
+.logo {
+    width: 250px;
+    height: 80px;
+    opacity: 0.50;
+    border: 2px solid #1b1b1b;
+    z-index: 2;
+}
+
+.logo:hover {
+    opacity: 1;
+}
+
+/* bloc-video */
+
+#bloc-video {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* video-youtube block*/
+
+#video-youtube {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+
+/* bloc_group */
+
+#bloc_group {
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-evenly;
+    -ms-flex-pack: end;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+
+#content-video {
+    display: flex;
+} 
+
+
+/* The moon */
+
+#moon {
+
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative; 
+    margin-top: 5px;
+    background: #1b1b1b;
+    left: 150px;
+    
+}
+
+/* Foooter */
+
+/* Menu deroulant */
+
+#background-menu {
+    width: auto;
+    height: auto;
+    padding: 1.5rem;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+/* Item 1*/
+
+#menu-affichage {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 20vw;
+    -ms-flex: 0 00 20vw;
+    flex: 0 0 20vw;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+
+/* Item 2  */
+
+#menu-info {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 10vw;
+    -ms-flex: 0 0 10vw;
+    flex: 0 0 10vw;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+
+}
+
+.style-menu {
+    position: absolute;
+    list-style: none;
+}
+
+.menu-conteneur {
+    position: relative;
+    top : -55px
+}
+
+.menu-item {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.separator {
+    border: 2px dashed #d7e1ff;
+    width: auto;
+}
+
+#menu-video {
+    opacity: 1;
+}
+
+.fade {
+    -webkit-animation: fadeoutVideo ;
+    animation: fadeoutVideo;
+    animation-duration: 1.29s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeoutVideo {
+    from { opacity: 1; 
+    }
+      to { opacity: 0; 
+    }
+}
+@keyframes fadeoutVideo {
+    from { opacity: 1;  
+    }
+      to { opacity: 0; 
+    }
+}
+
+
+@-webkit-keyframes fadeout {
+    from { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    }
+      to { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px
+    }
+}
+@keyframes fadeout {
+    from { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    }
+      to { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px
+    }
+}
+
+@keyframes close {
+    from {display : block;
+    } 
+    to { display: none;}
+}
+
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px;
+    }
+      to { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px;
+    }
+      to { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    }
+}
+
+
+
+/* item menu-deroulant */
+
+
+.open {
+    -webkit-animation: fadeIn ;
+    animation: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    height: auto;
+    width: 150px;
+    opacity: 1;
+    text-align: center;
+}
+
+.close {
+    width: 0px;
+    top: 0px;
+    padding: 0px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    -webkit-animation: fadeout ;
+    animation: fadeout;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+#session-video {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+
+#video-youtube {
+    width: 1000px;
+    height: 562.57px;
+
+}
+
+#video-youtube iframe {
+    width: 100%;
+    height: 100%;
+
+}
+
+.simplescreen {
+    animation: simplescreenyoutube;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+.fullscreen {
+
+    animation: fullscreenvideo;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+
+}
+
+
+@keyframes fullscreenvideo {
+    from { width: 1000px; height: 562px;
+
+    }
+      to { width: 1249px; height: 702.5px;
+    }
+}
+
+@keyframes simplescreenyoutube {
+    from { width: 1249px; height: 702.5px;
+    }
+    to { width: 1000px; height: 562px;
+
+    }
+
+}
+
+@keyframes youtubetest {
+    from { 
+        width: 1000px; 
+        height: 562px;
+    }
+    to { 
+        width: 1249px!important; 
+        height: 702.5px!important;
+    }
+}
+
+
+
+#bloc-choix-video {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: aqua;
+    /*max-width: 85vw;*/
+    width: 1000px;
+    height: 562px;
+    overflow: auto;
+
+}
+
+
+/* style input / btn  */
+
+/* block btn show */
+
+#bloc-cacher {
+    position: absolute;
+    left: -15vw;
+    top: 140px;
+    -webkit-animation: btnhide ;
+    animation: btnhide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+/* btn "réafficher le formulaire" */
+
+/* Nuit */
+
+.nuit{
+    border : var(--entetenuitborder);
+    background: var(--entetenuitbg);
+    box-shadow: var(--entetenuitshadow);
+    color: var(--white);
+}
+
+
+.btn-show-night {
+	-moz-box-shadow: 16px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 16px 0px 0px 2px #9fb4f2;
+	box-shadow: var(--menushadowNuit);
+	background: var(--menuNuitwebkit);
+	background: var(--menuNuitmoz);
+	background: var(--menuNuitlinear);
+	background: var(--menuNuit);
+	filter: var(--filternuit);
+	background-color:var(--menuNuit);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow: var(--textShadowNuit);
+}
+.btn-show-night:hover {
+	background:var(--btnShowNuitwebkit);
+	background: var(--btnShowNuit);
+	background: var(--btnShowNuit);
+	background: var(--btnShowNuit);
+	background:var(--btnShownuitmoz);
+	background: var(--btnShowNuit);
+	background-color:var(--menuBgNuit);
+    filter: var(--filternuit);
+
+}
+.btn-show-night:active {
+	position:relative;
+	top:1px;
+}
+
+
+.block-night {
+        -moz-box-shadow: 16px 0px 0px 2px #000;
+        -webkit-box-shadow: 16px 0px 0px 2px #000;
+        box-shadow: var(--menushadowNuit);
+        background: var(--menuNuitwebkit);
+        background: var(--menuNuitmoz);
+        background: var(--menuNuitlinear);
+        background: var(--menuNuit);
+        filter: var(--filternuit);
+        background-color:var(--menuNuit);
+        -webkit-border-radius:8px;
+        -moz-border-radius:8px;
+        border-radius:8px;
+        border:1px solid #4e6096;
+        color:#ffffff;
+        font-family:Georgia;
+        font-size:16px;
+        font-weight:bold;
+        padding:8px 12px;
+        text-decoration:none;
+        text-shadow: var(--textShadowNuit);
+}
+
+/* input nuit */
+
+.integrationInputNight {
+    padding: 5px;
+    font-size: 16px;
+    border-radius:8px;
+    border:1px solid #000;
+    background: var(--menuTextNuit);
+    color: #ffffff;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.695);
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.695);
+    font-family:Georgia;
+
+}
+
+.integrationInputNight::placeholder {
+    color: #1b1b1b;
+    text-shadow: none;
+}
+.integrationInputNight:focus {
+    outline:none;
+}
+
+.labelNight {
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.695);
+    font-family:Georgia;
+
+}
+
+/* Classe Jour */
+
+.jour{
+    border-bottom : var(--entetejourborder );
+    background: var(--entetejourbg);
+    box-shadow: var(--entetejourshadow);
+    color: var(--white);
+}
+
+.btn-show-day {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuJourwebkit);
+    background: var(--menuJourmoz);
+    background: var(--menuBgJour);
+    background: var(--menuJour);
+    filter: var(--filterjour);
+    box-shadow: var(--menushadowJour);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #baefff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #f8ff71;
+}
+
+.btn-show-day:hover {
+    background: var(--btnShowBgJour);
+    background: var(--btnShowJourmoz );
+    background: var(--btnShowJourwebkit);
+    background: var(--btnShowJour);
+    filter: var(--filterShowjour);
+
+
+}
+
+.btn-show-day:active {
+	position:relative;
+	top:1px;
+}
+
+.block-day {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuJourwebkit);
+    background: var(--menuJourmoz);
+    background: var(--menuBgJour);
+    background: var(--menuJour);
+    filter: var(--filterjour);
+    box-shadow: var(--menushadowJour);
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+	border:1px solid #baefff;
+    color:#3575f6;
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    padding:8px 12px;
+    text-decoration:none;
+	text-shadow:0px 1px 0px #f8ff71;
+}
+
+.integrationInputDay {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 2px;
+    border-color: #baefff;
+    background-color: #fff;
+    color: #11d3ff;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(235,240,255,.72);
+    text-shadow: 0px 0px 5px rgba(248,255,113,.75);
+}
+.integrationInputDay:focus {
+    outline:none;
+}
+
+#label-integration-content {
+    flex: 0 0 207.6px;
+    text-align: center;
+}
+
+.integrationInputDay::placeholder {
+    color: #0088ff;
+    text-shadow: none;
+}
+
+
+/* Classe crépuscule */
+
+.sunset {
+
+    border-bottom : var(--entetecrepusculeborder);
+    background: var(--entetecrepusculebg);
+    box-shadow: var(--entetecrepusculeshadow);
+    color: var(--textCrepuscule);
+}
+
+.btn-show-sunset {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuCrepusculemoz);
+    background: var(--menuCrepusculewebkit);
+    background: var(--menuBgCrepuscule);
+    background: var(--menuCrepuscule);
+    filter: var(--filterCrepuscule);
+    box-shadow: var(--btnshadowCrepuscule);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border:1px solid #ffc003;
+	display:inline-block;
+	cursor:pointer;
+	color: var(--textCrepuscule);
+	font-family:Georgia;
+	font-size:12px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow: var(--textShadowCrepuscule);
+}
+
+.btn-show-sunset:hover {
+    background: var(--btnShowBgCrepuscule);
+    background: var(--btnShowCrepusculemoz );
+    background: var(--btnShowCrepusculewebkit);
+    background: var(--btnShowCrepuscule);
+    filter: var(--filterShowCrepuscule);
+
+
+}
+
+.btn-show-sunset:active {
+	position:relative;
+	top:1px;
+}
+
+/* block */
+
+.block-sunset {
+    -moz-box-shadow: var(--menushadowCrepuscule);
+	-webkit-box-shadow: var(--menushadowCrepuscule);
+    background: var(--menuCrepusculewebkit);
+    background: var(--menuCrepusculemoz);
+    background: var(--menuBgCrepuscule);
+    background: var(--menuCrepuscule);
+    filter: var(--filterCrepuscule);
+    box-shadow: var(--menushadowCrepuscule);
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+	border:1px solid #ffc13b;
+    color:var(--textCrepuscule);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    padding:8px 12px;
+    text-decoration:none;
+	text-shadow:0px 1px 0px var(--textShadowCrepuscule);
+}
+
+.menu-deroulant-sunset {
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+	border:1px solid #ffc13b;
+    color:var(--textCrepuscule);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    padding:8px 12px;
+    text-decoration:none;
+	text-shadow:0px 1px 0px var(--textShadowCrepuscule);
+    box-shadow:  3px -4px 10px 3px #ff8c21;
+    background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+}
+
+.integrationInputSunset {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 2px;
+    border-color: #07541e;
+    background-color: #ffb52b;
+    color: #ff0000;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 0px rgb(255, 166, 64);
+}
+.integrationInputSunset:focus {
+    outline:none;
+}
+
+#label-integration-content {
+    flex: 0 0 207.6px;
+    text-align: center;
+}
+
+.integrationInputSunset::placeholder {
+    text-shadow: 1px 2px 5px rgb(255, 213, 3);
+    color: #f3375dfb;
+    text-shadow: none;
+}
+
+
+
+/* thumbnail videi */
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 300px;
+    margin: auto;
+    cursor: url('../images/icon/cursor-sleep.png'), pointer;
+}
+
+#bloc-thumbnail { 
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.thumbnail {
+    max-width: 300px;
+    max-height: 168.66px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+#bloc-cacher input {
+}
+
+
+@-webkit-keyframes btnhide {
+    from { left: 1vw;
+    }
+      to {  left: -5vw;
+    }
+}
+@keyframes btnhide {
+    from { left: 1vw;
+    }
+      to {  left: -5vw;
+    }
+}
+
+
+@-webkit-keyframes btndshow {
+    from { left: -5vw;
+    }
+      to {  left: 1vw;
+    }
+}
+@keyframes btndshow {
+    from { left: -5vw;
+    }
+      to {  left: 1vw;
+    }
+}
+
+#bloc-cacher:hover {
+    left: 1vw;
+    -webkit-animation: btndshow ;
+    animation: btndshow;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+

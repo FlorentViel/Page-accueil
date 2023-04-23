@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
+    <title>Horloge</title>
+</head>
+<body>
+
+    <div id="background">
+        <div id="background-image">
+
+            <header>
+
+                <div class="navBar bg"> 
+        
+                 
+                    <div class="flex-item flex-meteo">
+        
+                        <div class="flex-meteo-item">
+                            <img id="icon-meteo"/>
+                        </div>
+        
+                        <div class="flex-meteo-item">
+        
+                            <h1 class="text-center mt-5">  Météo</h1>
+                            <span id="ville"></span>
+            
+                            <div id="temperature">
+                                <span id="temperature_label">
+                                Aucune donnée
+                                </span> °C
+                            </div>
+            
+                            <div>
+                                <span id ="wind"></span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="flex-item"><h1 class="date"></h1></div>
+        
+                        <div class="flex-item etat-soleil-bloc">
+                            <h1 class="etat-soleil"></h1>
+                        </div>
+        
+                    </div>
+            </header>
+        
+            <div id="fav-site-bloc" class="flex">
+                <div>
+                    <a target="_blank" href="https://www.youtube.com">
+                        <img class="logo"
+                        src="https://www.creads.com/wp-content/uploads/2021/05/youtube.jpg"
+                        alt="Youtube">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://www.twitch.tv">
+                        <img class="logo"
+                        src="https://www.meilleure-innovation.com/wp-content/uploads/2022/11/logo-twitch-image-a-la-une.png"
+                        alt="Twitch">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://twitter.com/home">
+                        <img class="logo"
+                        src="https://www.meilleure-innovation.com/wp-content/uploads/2022/04/logo-twitter.png"
+                        alt="Twitter">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://www.deviantart.com">
+                        <img class="logo"
+                        src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg"
+                        alt="Deviantart">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://technomagie.forumsrpg.com">
+                        <img class="logo"
+                        src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png"
+                        alt="Deviantart">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href=https://www.google.com/search?client=opera&q=intégrer+barre+de+recherche+google+html&sourceid=opera&ie=UTF-8&oe=UTF-8#imgrc=aYchgcsnxsBE4M">
+                        <img class="logo"
+                        src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/516hQjuaOFL._AC_SL1500_.jpg"
+                        alt="A garder">
+                    </a>
+                </div>
+
+                <div>
+                    <a target="_blank" href="http://www.pompage.net/traduction/javascript-rapide-et-efficace">
+                        <img class="logo"
+                        src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/516hQjuaOFL._AC_SL1500_.jpg"
+                        alt="A garder">
+                    </a>
+                </div>
+
+            </div>
+
+            <div id ="session-video" class="none">
+                
+                <div id="menu-video">
+                    
+                    <span id="integration-youtube" class="">
+                        <div class="flex">
+                            <label id="label-integration-content" for="video">Intégrer une vidéo</label>
+                        </div>
+    
+                        <input type="text" placeholder="Collez le lien d'intégration youtube" id="in">
+                        <input type="button" id="valide" value="Afficher vidéo youtube">
+                    </span>
+
+                    
+                    <input type="button" id="choix-video" class="none" value="Choissez une video">
+                    <input type="button" id="video-btn" value="Passez en mode video">
+                    <input type="button" id="hide" value="Cachez les formulaires">
+        
+                </div>
+
+                
+                <div id="bloc-video" class="none">
+                    <div id="content-video" class="">
+                        <video id="video" loading="lazy" controls width="1000" height="562.57">                    
+                            video.
+                        </video>
+                    </div>
+                    <div id="bloc-choix-video" class="none">
+                        <div>Choisez une vidéo</div>
+                        <div id="bloc-thumbnail">
+                            <figure><img id="Image1" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_day.png" alt="Détente jour">
+                                <figcaption>Détente jour</figcaption>
+                            </figure>
+                            <figure><img id="Image2" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_night.png" alt="Détente nuit">
+                                <figcaption>Détente nuit</figcaption>
+                            </figure>
+                            <figure><img id="Image3" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_rain.png" alt="Détente pluie">
+                                <figcaption>Détente pluie</figcaption>
+                            </figure>
+                            <figure><img id="Image4" class="thumbnail" src="assets/images/thumbnail/thumbnail_summer_forest.png" alt="Spyro forêt d'été">
+                                <figcaption>Détente pluie</figcaption>
+                            </figure>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div id="video-youtube">
+                    <iframe width="100%" height="100%" loading="lazy" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                
+                <div id="bloc-cacher" class="none">
+                    <input type="button" id="show" class="" value="Réafficher le formulaire">
+                </div>
+            </div>
+
+
+
+
+
+
+            <div id="bloc_group">
+
+                <div>
+                    <div id="bloc-horloge">
+                        <span class="PM"></span>
+                            <div id="horloge-background">
+                                <div id="cadre">
+                                    <span class="grande-aiguille"></span>
+                                    <span class="petite-aiguille"></span>
+                                    <span class="seconde"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                    </div>
+                </div>    
+            
+            </div>
+
+
+
+
+
+            <div class="moon">
+                <div class="moon-light"></div>
+                <div class="moon-shadow"></div>
+            </div>
+                 
+        </div>
+
+        <footer class="footer">
+            <div id="background-menu">
+                <div id ="menu-affichage">
+                    <span id="btn-menu-deroulant">Mode</span>
+                    <div class="menu-conteneur">
+                        <ul id="menu-deroulant" class="style-menu none close">
+                            <li class="menu-item" id="web-affiche">
+                                Affichage site web
+                            </li>
+                            <li class="separator"></li>
+                            <li class="menu-item" id="youtube-affiche">
+                                Affichage Youtube
+                            </li>                
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="menu-info">
+                    <span>Mode</span>
+                    <ul id="menu-deroulant-page" class="style-menu none close">
+                        <li id="web-affiche">
+                            Affichage site web
+                        </li>
+                        <li id="youtube-affiche">
+                            Affichage Youtube
+                        </li>                
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </footer>
+    </div>
+    <script src="assets/jquery/jquery-3.6.4.min.js"></script>
+    <script src="assets/js/suncalc-master/suncalc.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/meteo/meteo.js"></script>
+    <script src="assets/js/video.js"></script>
+</body>
+</html>
