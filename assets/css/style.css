@@ -1,7 +1,34 @@
 :root {
-    --imageCrespuscule : url(assets/images/background/Kollab_s_DrugStuck.png);
-    --white : white;
 
+    /* Paramètre jour/nuit/couché de soleil, par défaut valeur nuit */
+
+    /* entete class */
+
+    --enteteborder : 1px solid darkslateblue;
+    --entetebg : rgba(75, 63, 246, 0.243);
+    --enteteshadow : 1px 2px 5px 2px #000;
+    --colorentete: #ffffff;
+    --colorglobal : #ffffff;
+
+    /* menu / bloc class */
+
+    --menu: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menumoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menulinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menuBg: rgb(63,67,218);
+    --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+    --textShadow : 2px 1px 1px #283966;
+    --menushadow : 5px -4px 15px 5px #000; 
+    --menuBorder : 1px solid #4e6096; 
+
+    /* show btn */
+    
+    --btnShow: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShowwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShowmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShowlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    --btnShowBg :rgb(63,67,218);
 
     /* Mode nuit paramètre */
 
@@ -9,85 +36,20 @@
 
     --imageNuit : url(assets/images/background/dragon_and_katana.jpg);
 
-    /*block */
-
-    --menuNuit : linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menuNuitwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menuNuitmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menuNuitlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menuBgNuit: rgb(63,67,218);
-    --textShadowNuit : 0px 2px 1px #283966;
-    --menushadowNuit : 5px -4px 15px 5px #000; 
-    --entetenuitborder : 1px solid darkslateblue;
-    --entetenuitbg : rgba(75, 63, 246, 0.243);
-    --entetenuitshadow : 1px 2px 5px 2px #000;
-    --filternuit : progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
- 
-
-    /* btn hover*/
-
-
-    --btnShowNuit : linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShowNuitwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShownuitmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShownuitlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-
-    /* input text */
-
-    --menuTextNuit : linear-gradient(0deg, rgba(63,67,218,0.70) 0%, rgba(111,34,195,0.70) 100%);
-
     /* Mode jour paramètre  */
 
     /* image-background */
 
     --imageJour : url(assets/images/background/japoness_anaya.png);
 
-        /*block */
-
-    
-    --menuBgJour : rgb(139,222,240);
-    --menuJourmoz : -moz-linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
-    --menuJourwebkit: -webkit-linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
-    --menuJour : linear-gradient(90deg, rgba(139,222,240,1) 28%, rgba(54,134,223,1) 100%);
-    --filterjour: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8bdef0",endColorstr="#3686df",GradientType=1);
-    --menushadowJour : 5px -4px 15px 5px #ebf0ff; 
-    --entetejourborder : 1px solid rgb(225, 221, 255);
-    --entetejourbg : rgba(255, 118, 14, 0.35);
-    --entetejourshadow : 1px 2px 5px 2px #ffefbb;
-
-    /* btn hover*/
-
-    --btnShowBgJour : rgb(0,209,254);
-    --btnShowJourmoz : rgb(0,209,254);
-    --btnShowJourwebkit: -webkit-linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
-    --btnShowJour : linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
-    --filterShowjour:  progid:DXImageTransform.Microsoft.gradient(startColorstr="#00d1fe",endColorstr="#80b8f7",GradientType=1);
+     
 
     /* Mode crépuscule */
 
-    --menuBgCrepuscule :rgb(254,166,84);
-    --menuCrepusculemoz: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
-    --menuCrepusculewebkit: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
-    --menuCrepuscule: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
-    --menushadowCrepuscule : 5px -4px 15px 5px #ff8c21;
-    --btnshadowCrepuscule : 2px -2px 5px 2px #ff8c21 ;
-    --filtercrepuscule: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1);
-    --entetecrepusculeborder : 1px solid rgb(209, 224, 152);
-    --entetecrepusculebg : rgba(255, 118, 14, 0.35);
-    --entetecrepusculeshadow : 1px 2px 5px 2px #ff9e27;
+    /* image-background */
 
-    /* btn hover */
+    --imageCrespuscule : url(assets/images/background/Kollab_s_DrugStuck.png);
 
-    --btnShowBgCrepuscule: rgb(255,183,115);
-    --btnShowCrepusculemoz: -moz-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
-    --btnShowCrepusculewebkit: -webkit-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
-    --btnShowCrepuscule: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
-    --filterShowCrepuscule: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffb773",endColorstr="#8980f7",GradientType=1);
-
-    /* text */
-
-    --textShadowCrepuscule :0px 1px 0px #a46d36;
-    --textCrepuscule : #020705; 
     
 }
 
@@ -102,6 +64,10 @@ body {
     background-size: contain;
     background-color: #bfdff8;
     background-size: auto;
+}
+
+#background-image {
+    background-image: var(--Imagebg);
 }
 
 /* class volatile */
@@ -504,7 +470,6 @@ body {
 
 .menu-conteneur {
     position: relative;
-    top : -55px
 }
 
 .menu-item {
@@ -543,15 +508,15 @@ body {
 
 
 @-webkit-keyframes fadeout {
-    from { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    from { opacity: 1; height: auto;top: -120px; 
     }
-      to { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px
+      to { opacity: 0; height: 0; top: 0px;
     }
 }
 @keyframes fadeout {
-    from { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+    from { opacity: 1; height: auto;top: -120px;
     }
-      to { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px
+      to { opacity: 0; height: 0; top: 0px; 
     }
 }
 
@@ -563,15 +528,15 @@ body {
 
 
 @-webkit-keyframes fadeIn {
-    from { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px;
+    from { opacity: 0; height: 0; top: -60px; 
     }
-      to { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+      to { opacity: 1; height: auto;top: -120px;
     }
 }
 @keyframes fadeIn {
-    from { opacity: 0; height: 0; top: 0px; width: 0px; padding: 0px;
+    from { opacity: 0; height: 0; top: -60px;
     }
-      to { opacity: 1; height: auto;top: -120px; padding: 8px 12px;width: 150px;
+      to { opacity: 1; height: auto;top: -120px;
     }
 }
 
@@ -583,24 +548,27 @@ body {
 .open {
     -webkit-animation: fadeIn ;
     animation: fadeIn;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     height: auto;
     width: 150px;
     opacity: 1;
     text-align: center;
+    padding: 8px 12px;
+    top: 60px;
+
 }
 
 .close {
-    width: 0px;
-    top: 0px;
-    padding: 0px;
+    width: 150px;
+    top: 60px;
+    padding: 8px 12px;
     opacity: 0;
     height: 0;
     overflow: hidden;
     -webkit-animation: fadeout ;
     animation: fadeout;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -702,78 +670,120 @@ body {
 
 /* btn "réafficher le formulaire" */
 
-/* Nuit */
+/* reduction de class */
 
-.nuit{
-    border : var(--entetenuitborder);
-    background: var(--entetenuitbg);
-    box-shadow: var(--entetenuitshadow);
-    color: var(--white);
+.EnteteTimeday {
+    border-bottom : var(--enteteborder );
+    background: var(--entetebg);
+    box-shadow: var(--enteteshadow);
+    color: var(--colorentete);
 }
 
-
-.btn-show-night {
-	-moz-box-shadow: 16px 0px 0px 2px #9fb4f2;
+.btn-show-TimeDay{
+    -moz-box-shadow: 16px 0px 0px 2px #9fb4f2;
 	-webkit-box-shadow: 16px 0px 0px 2px #9fb4f2;
-	box-shadow: var(--menushadowNuit);
-	background: var(--menuNuitwebkit);
-	background: var(--menuNuitmoz);
-	background: var(--menuNuitlinear);
-	background: var(--menuNuit);
-	filter: var(--filternuit);
-	background-color:var(--menuNuit);
+	box-shadow: var(--menushadow);
+	background: var(--menuwebkit);
+	background: var(--menumoz);
+	background: var(--menulinear);
+	background: var(--menu);
+	filter: var(--filter);
+	background-color:var(--menu);
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	border-radius:8px;
-	border:1px solid #4e6096;
+	border: var(--menuBorder);
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:var(--colorglobal);
 	font-family:Georgia;
-	font-size:12px;
+	font-size:14px;
 	font-weight:bold;
 	padding:8px 12px;
 	text-decoration:none;
-	text-shadow: var(--textShadowNuit);
+	text-shadow: var(--textShadow);
 }
-.btn-show-night:hover {
-	background:var(--btnShowNuitwebkit);
+
+.btn-show-TimeDay:hover {
+	background:var(--btnShow);
+	background: var(--btnShowwebkit);
+	background: var(--btnShowmoz);
 	background: var(--btnShowNuit);
-	background: var(--btnShowNuit);
-	background: var(--btnShowNuit);
-	background:var(--btnShownuitmoz);
-	background: var(--btnShowNuit);
-	background-color:var(--menuBgNuit);
-    filter: var(--filternuit);
+	background:var(--btnShowlinear);
+	background: var(--btnShowBg);
+    filter: var(--filter);
 
 }
-.btn-show-night:active {
+
+.btn-show-TimeDay:active {
 	position:relative;
 	top:1px;
 }
 
 
-.block-night {
-        -moz-box-shadow: 16px 0px 0px 2px #000;
-        -webkit-box-shadow: 16px 0px 0px 2px #000;
-        box-shadow: var(--menushadowNuit);
-        background: var(--menuNuitwebkit);
-        background: var(--menuNuitmoz);
-        background: var(--menuNuitlinear);
-        background: var(--menuNuit);
-        filter: var(--filternuit);
-        background-color:var(--menuNuit);
-        -webkit-border-radius:8px;
-        -moz-border-radius:8px;
-        border-radius:8px;
-        border:1px solid #4e6096;
-        color:#ffffff;
-        font-family:Georgia;
-        font-size:16px;
-        font-weight:bold;
-        padding:8px 12px;
-        text-decoration:none;
-        text-shadow: var(--textShadowNuit);
+.btn-deroulant-style {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border: var(--menuBorder);
+	display:inline-block;
+	cursor:pointer;
+    color: var(--colorglobal);
+	font-family:Georgia;
+	font-size:16px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow:var( --textShadow);
+    width: 150px;
+    height: 35px;
+    cursor: pointer;    
+}
+
+
+.btn-deroulant-style:hover {
+    background: var(--btnShowBg);
+    background: var(--btnShowmoz );
+    background: var(--btnShowwebkit);
+    background: var(--btnShow);
+    filter: var(--filterShow);
+}
+
+.btn-deroulant-style:active {
+	position:relative;
+	top:1px;
+}
+
+
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+	border: var(--menuBorder);
+    color: var(--colorglobal);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    padding:8px 12px;
+    text-decoration:none;
+    text-shadow : var(--textShadow);
+	/*text-shadow:0px 1px 0px #f8ff71;*/
 }
 
 /* input nuit */
@@ -809,75 +819,9 @@ body {
 
 }
 
+
+
 /* Classe Jour */
-
-.jour{
-    border-bottom : var(--entetejourborder );
-    background: var(--entetejourbg);
-    box-shadow: var(--entetejourshadow);
-    color: var(--white);
-}
-
-.btn-show-day {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuJourwebkit);
-    background: var(--menuJourmoz);
-    background: var(--menuBgJour);
-    background: var(--menuJour);
-    filter: var(--filterjour);
-    box-shadow: var(--menushadowJour);
-	-webkit-border-radius:8px;
-	-moz-border-radius:8px;
-	border-radius:8px;
-	border:1px solid #baefff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Georgia;
-	font-size:12px;
-	font-weight:bold;
-	padding:8px 12px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #f8ff71;
-}
-
-.btn-show-day:hover {
-    background: var(--btnShowBgJour);
-    background: var(--btnShowJourmoz );
-    background: var(--btnShowJourwebkit);
-    background: var(--btnShowJour);
-    filter: var(--filterShowjour);
-
-
-}
-
-.btn-show-day:active {
-	position:relative;
-	top:1px;
-}
-
-.block-day {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuJourwebkit);
-    background: var(--menuJourmoz);
-    background: var(--menuBgJour);
-    background: var(--menuJour);
-    filter: var(--filterjour);
-    box-shadow: var(--menushadowJour);
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    border-radius:8px;
-	border:1px solid #baefff;
-    color:#3575f6;
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    padding:8px 12px;
-    text-decoration:none;
-	text-shadow:0px 1px 0px #f8ff71;
-}
 
 .integrationInputDay {
     padding: 5px;
@@ -908,92 +852,10 @@ body {
 
 /* Classe crépuscule */
 
-.sunset {
 
-    border-bottom : var(--entetecrepusculeborder);
-    background: var(--entetecrepusculebg);
-    box-shadow: var(--entetecrepusculeshadow);
-    color: var(--textCrepuscule);
-}
-
-.btn-show-sunset {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuCrepusculemoz);
-    background: var(--menuCrepusculewebkit);
-    background: var(--menuBgCrepuscule);
-    background: var(--menuCrepuscule);
-    filter: var(--filterCrepuscule);
-    box-shadow: var(--btnshadowCrepuscule);
-	-webkit-border-radius:8px;
-	-moz-border-radius:8px;
-	border-radius:8px;
-	border:1px solid #ffc003;
-	display:inline-block;
-	cursor:pointer;
-	color: var(--textCrepuscule);
-	font-family:Georgia;
-	font-size:12px;
-	font-weight:bold;
-	padding:8px 12px;
-	text-decoration:none;
-	text-shadow: var(--textShadowCrepuscule);
-}
-
-.btn-show-sunset:hover {
-    background: var(--btnShowBgCrepuscule);
-    background: var(--btnShowCrepusculemoz );
-    background: var(--btnShowCrepusculewebkit);
-    background: var(--btnShowCrepuscule);
-    filter: var(--filterShowCrepuscule);
-
-
-}
-
-.btn-show-sunset:active {
-	position:relative;
-	top:1px;
-}
 
 /* block */
 
-.block-sunset {
-    -moz-box-shadow: var(--menushadowCrepuscule);
-	-webkit-box-shadow: var(--menushadowCrepuscule);
-    background: var(--menuCrepusculewebkit);
-    background: var(--menuCrepusculemoz);
-    background: var(--menuBgCrepuscule);
-    background: var(--menuCrepuscule);
-    filter: var(--filterCrepuscule);
-    box-shadow: var(--menushadowCrepuscule);
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    border-radius:8px;
-	border:1px solid #ffc13b;
-    color:var(--textCrepuscule);
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    padding:8px 12px;
-    text-decoration:none;
-	text-shadow:0px 1px 0px var(--textShadowCrepuscule);
-}
-
-.menu-deroulant-sunset {
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    border-radius:8px;
-	border:1px solid #ffc13b;
-    color:var(--textCrepuscule);
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    padding:8px 12px;
-    text-decoration:none;
-	text-shadow:0px 1px 0px var(--textShadowCrepuscule);
-    box-shadow:  3px -4px 10px 3px #ff8c21;
-    background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
-}
 
 .integrationInputSunset {
     padding: 5px;

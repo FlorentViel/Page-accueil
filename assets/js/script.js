@@ -191,79 +191,53 @@ function clock(){
         
         if (date >= sunrise && date <= goldenHour) {
             background.css("background-image", "var(--imageJour)");
-            menu.addClass('block-day')
-            //menu.css("background-color", "#8bdeff");
-            //menu.css("box-shadow", "5px -4px 15px 5px #61b5ff");
-            entete.css("background-color", "rgba(251, 175, 44, 0.245)");
-            entete.addClass('jour');
-            btnShow.addClass('btn-show-day');
-            $('#hide').addClass('btn-show-day');
-            $('#show').addClass('btn-show-day');
             $('#in').addClass('integrationInputDay');
-            $('#video-btn').addClass('btn-show-day');
-            $('#valide').addClass('btn-show-day');
-            $('#choix-video').addClass('btn-show-day');
-            $('#bloc-choix-video').addClass('block-day');
-            $('.style-menu ').addClass('block-day');
+            $(':root').css("--colorentete", "#fff");
+            $(':root').css("--entetebg", "rgba(251, 175, 44, 0.245)");
+            $(':root').css("--enteteshadow", "1px 2px 5px 2px #ffefbb");
+            $(':root').css("--menu" , "linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%)");
+            $(':root').css("--menushadow" , "5px -4px 15px 5px #ebf0ff");
+            $(':root').css("--textShadow" , "2px 1px 1px #fff7a4");
+            $(':root').css("--menuBorder" , "1px solid #baefff");
+            $(':root').css("--colorglobal", "#256aff");
+            $(':root').css("--filter", "progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0)");
+            $(':root').css("--btnShow", " linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)");
+            $(':root').css("--btnShowwebkit", " -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)");
+            $(':root').css("--btnShowmoz", "-moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)");
+            $(':root').css("--btnShowlinear", "-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)");
+
             
         } else if (date >= goldenHour && date <= dusk) {
 
 
-            menu.css("box-shadow", "5px -4px 15px 5px rgba(255, 207, 162, 0.5)");
-            entete.addClass("sunset");
-            //entete.css("background-color", "rgba(255, 118, 14, 0.35)");
-            btnShow.removeClass('btn-show-day');
-            $('#hide').removeClass('btn-show-day');
-            $('#show').removeClass('btn-show-day');
-            $('#in').removeClass('integrationInputDay');
-            $('#video-btn').removeClass('btn-show-day');
-            $('#valide').removeClass('btn-show-day');
-            $('#choix-video').removeClass('btn-show-day');
-            $('#bloc-choix-video').removeClass('block-day');
-            $('.style-menu ').removeClass('block-day');
-            
 
             background.css("background-image", "var(--imageCrespuscule)");
-            menu.addClass("block-sunset");
-            btnShow.addClass('btn-show-sunset');
-            $('#hide').addClass('btn-show-sunset');
-            $('#show').addClass('btn-show-sunset');
+          
             $('#in').addClass('integrationInputSunset');
-            $('#video-btn').addClass('btn-show-sunset');
-            $('#valide').addClass('btn-show-sunset');
-            $('#choix-video').addClass('btn-show-sunset');
-            $('#bloc-choix-video').addClass('block-sunset');
-            $('.style-menu ').addClass('menu-deroulant-sunset');
-            $('#in').addClass('integrationInputSunset');
+
+
+            $(':root').css("--colorentete", "#020705");
+            $(':root').css("--entetebg", "rgba(255, 118, 14, 0.35)");
+            $(':root').css("--enteteshadow", "1px 2px 5px 2px #ff9e27");
+            $(':root').css("--menu" , " linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%)");
+            $(':root').css("--menushadow" , "5px -4px 15px 5px #ff8c21");
+            $(':root').css("--textShadow" , "2px 1px 1px #a46d36");
+            $(':root').css("--menuBorder" , "1px solid #ffc003");
+            $(':root').css("--colorglobal", "#020705");
+            $(':root').css("--filter", 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1)');
+            $(':root').css("--btnShowBg", "rgb(255,183,115)");
+            $(':root').css("--btnShow", " linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%)");
+            $(':root').css("--btnShowwebkit", "-webkit-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%)");
+            $(':root').css("--btnShowmoz", "-moz-linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%)");
+            $(':root').css("--btnShowlinear", "-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)");
+            $(':root').css("--enteteborder", "1px solid rgb(209, 224, 152)");
             }
             else{
             background.css("background-image", "var(--imageNuit)");
-            menu.addClass('block-night');
-            //menu.css("background-color", "var(--menuBgNuit), var(--menuNuit)");
-           // entete.css("background-color", "rgba(75, 63, 246, 0.245)");
-           entete.addClass('nuit');
-            btnShow.addClass('btn-show-night');
-            $('#hide').addClass('btn-show-night');
-            $('#show').addClass('btn-show-night');
-            $('#video-btn').addClass('btn-show-night');
-            $('#valide').addClass('btn-show-night');
-            $('#choix-video').addClass('btn-show-night');
-            $('#bloc-choix-video').addClass('block-night');
-            $('.style-menu ').addClass('block-night');
             $('#in').addClass('integrationInputNight');
             $('#label-integration-content').addClass('labelNight');
 
-            $('.style-menu ').removeClass('menu-deroulant-sunset');
-            $('#video-btn').removeClass('btn-show-sunset');
-            $('#hide').removeClass('btn-show-sunset');
-            $('#show').removeClass('btn-show-sunset');
-            $('#in').removeClass('integrationInputSunset');
-            $('#video-btn').removeClass('btn-show-sunset');
-            $('#valide').removeClass('btn-show-sunset');
-            $('#choix-video').removeClass('btn-show-sunset');
-            $('#bloc-choix-video').removeClass('block-sunset');
-            menu.remove('block-sunset');
-            entete.remove('sunset');
+     
             }
     // Vérification des valeurs pour dayName, date et monthName
     $('.date').html((dayName !== undefined && date.getDate !== undefined && monthName !== undefined) ? `${dayName + ' ' + date.getDate() + ' ' + monthName + ' ' + date.getFullYear()}` : "Une erreur est survenue");

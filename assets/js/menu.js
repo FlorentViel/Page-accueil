@@ -13,7 +13,7 @@ window.onload = function () {
 
     //all btn 
 
-    const elementMenu =$('#btn-menu-deroulant');
+    const elementMenu =$('#menu-deroulant-conteneur .menu-conteneur');
     const hide = $('#hide');
     const show =$('#show');
     const choixVideoBtn =$('#video-btn');
@@ -22,7 +22,7 @@ window.onload = function () {
     // menu footer
 
     const classMenu =$('#menu-deroulant');
-    const footerMenuitem = $('.menu-conteneur');
+    const footerMenuitem = $('#menu-deroulant-conteneur');
 
     const webcontener =$('#fav-site-bloc');
     const webAffiche =$('#web-affiche');
@@ -66,7 +66,8 @@ window.onload = function () {
 
     // EventListener
 
-    $(elementMenu).on('click', openCloseMenu)
+    $(footerMenuitem).on('mouseenter', openMenu);
+    $(footerMenuitem).on('click', closeMenu);
     $(accept).on('click', updateYoutubeBtn);
     $(hide).on('click', hideVideoBtn);
     $(show).on('click', showbtn);
@@ -79,31 +80,38 @@ window.onload = function () {
 
 // Assurez-vous que vous avez inclus la bibliothèque jQuery dans votre code
 
- function openCloseMenu() {
+ function openMenu() {
     
-    //classMenu.toggleClass("open close");
+    classMenu.removeClass("none");
+    classMenu.removeClass("close");
+    classMenu.addClass("open");
+    classMenu.addClass("block");
 
-
-    if(classMenu.hasClass("none")){
-        classMenu.toggleClass("open none close");
+    if(!classMenu.hasClass("none")){
+        classMenu.removeClass("close");
+        classMenu.addClass("open");
+        classMenu.removeClass("none");
     }
 
 
-    else if(!classMenu.hasClass("none")){
-
-        classMenu.toggleClass("open close");
-
-        setTimeout(function(){
-            classMenu.toggleClass("none");
-        
-            }, 1000);
-
-        }
+ };
 
 
-    };
+ 
+
+ function closeMenu() {
+
+    classMenu.addClass("close");
+    classMenu.removeClass('open');
 
 
+    setTimeout(function(){
+        classMenu.addClass("none");
+        classMenu.removeClass("block");
+    
+        }, 1000);
+
+    }
 
     webAffiche.on('click', function() {
 

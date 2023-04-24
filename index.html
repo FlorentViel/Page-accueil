@@ -11,11 +11,11 @@
 <body>
 
     <div id="background">
-        <div id="background-image">
+        <div id="background-image" class="">
 
             <header>
 
-                <div class="navBar bg"> 
+                <div class="navBar bg EnteteTimeday"> 
         
                  
                     <div class="flex-item flex-meteo">
@@ -114,13 +114,13 @@
                         </div>
     
                         <input type="text" placeholder="Collez le lien d'intégration youtube" id="in">
-                        <input type="button" id="valide" value="Afficher vidéo youtube">
+                        <input type="button" id="valide" class="btn-show-TimeDay" value="Afficher vidéo youtube">
                     </span>
 
                     
-                    <input type="button" id="choix-video" class="none" value="Choissez une video">
-                    <input type="button" id="video-btn" value="Passez en mode video">
-                    <input type="button" id="hide" value="Cachez les formulaires">
+                    <input type="button" id="choix-video" class="none btn-show-TimeDay" value="Choissez une video">
+                    <input type="button" id="video-btn" class="btn-show-TimeDay" value="Passez en mode video">
+                    <input type="button" id="hide" class="btn-show-TimeDay" value="Cachez les formulaires">
         
                 </div>
 
@@ -131,7 +131,7 @@
                             video.
                         </video>
                     </div>
-                    <div id="bloc-choix-video" class="none">
+                    <div id="bloc-choix-video" class="none blockTimeDay">
                         <div>Choisez une vidéo</div>
                         <div id="bloc-thumbnail">
                             <figure><img id="Image1" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_day.png" alt="Détente jour">
@@ -156,7 +156,7 @@
                 </div>
                 
                 <div id="bloc-cacher" class="none">
-                    <input type="button" id="show" class="" value="Réafficher le formulaire">
+                    <input type="button" id="show" class="btn-show-TimeDay" value="Réafficher le formulaire">
                 </div>
             </div>
 
@@ -195,25 +195,28 @@
         </div>
 
         <footer class="footer">
-            <div id="background-menu">
+            <div id="background-menu" class="blockTimeDay">
                 <div id ="menu-affichage">
-                    <span id="btn-menu-deroulant">Mode</span>
-                    <div class="menu-conteneur">
-                        <ul id="menu-deroulant" class="style-menu none close">
-                            <li class="menu-item" id="web-affiche">
-                                Affichage site web
-                            </li>
-                            <li class="separator"></li>
-                            <li class="menu-item" id="youtube-affiche">
-                                Affichage Youtube
-                            </li>                
-                        </ul>
+                    <div id="menu-deroulant-conteneur">
+                        <button class="btn-deroulant-style" id="btn-menu-deroulant">Mode</button>
+                        <div class="menu-conteneur">
+                            <ul id="menu-deroulant" class="style-menu blockTimeDay none close">
+                                <li class="menu-item" id="web-affiche">
+                                    Affichage site web
+                                </li>
+                                <li class="separator"></li>
+                                <li class="menu-item" id="youtube-affiche">
+                                    Affichage Youtube
+                                </li>                
+                            </ul>
+                        </div>
                     </div>
+
 
                 </div>
                 <div id="menu-info">
                     <span>Mode</span>
-                    <ul id="menu-deroulant-page" class="style-menu none close">
+                    <ul id="menu-deroulant-page" class="style-menu blockTimeDay none close">
                         <li id="web-affiche">
                             Affichage site web
                         </li>

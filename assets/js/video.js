@@ -34,26 +34,26 @@ function modifierVideo(event) {
 
   switch (thisVideo) {
     case "Image1":
-      source.attr('src', 'assets/video/sunny_video.mp4');
-      url.attr('href', 'assets/video/sunny_video.mp4');
+      source.attr('src', '../video/sunny_video.mp4');
+      url.attr('href', '../video/sunny_video.mp4');
       videoBalise.get(0).load();
       break;
 
     case "Image2":
-      source.attr('src', 'assets/video/night_video.mp4');
-      url.attr('href', 'assets/video/night_video.mp4');
+      source.attr('src', '../video/night_video.mp4');
+      url.attr('href', '../video/night_video.mp4');
       videoBalise.get(0).load();
       break;
 
     case "Image3":
-      source.attr('src', 'assets/video/rain_video.mp4');
-      url.attr('href', 'assets/video/rain_video.mp4');
+      source.attr('src', '../video/rain_video.mp4');
+      url.attr('href', '../video/rain_video.mp4');
       videoBalise.get(0).load();
       break;
 
     case "Image4":
-      source.attr('src', 'assets/video/summer_forest.mp4');
-      url.attr('href', 'assets/video/summer_forest.mp4');
+      source.attr('src', '../video/summer_forest.mp4');
+      url.attr('href', '../video/summer_forest.mp4');
       videoBalise.get(0).load();
       break;
 
@@ -82,7 +82,7 @@ function video(sol, meteo) {
       switch (sol) {
         case "Soleil":
           source.attr('src', '../video/sunny_video.mp4');
-          url.attr('href', '../video/sunny_default_video.mp4');
+          url.attr('href', '../video/sunny_video.mp4');
           break;
 
         case "Lune":
