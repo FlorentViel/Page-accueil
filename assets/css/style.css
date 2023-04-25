@@ -1,5 +1,9 @@
 :root {
 
+    --moon-color: #000000;
+    --moon-bg-color: #ffffff;
+    --moon-border-color: #ffffff;
+
     /* Paramètre jour/nuit/couché de soleil, par défaut valeur nuit */
 
     /* entete class */
@@ -237,7 +241,7 @@ body {
     height: auto;
     width: 180px;
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
     right: 2vw;
     text-align: center;
 }
@@ -391,96 +395,7 @@ body {
 } 
 
 
-/* The moon */
 
-#moon {
-
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    position: relative; 
-    margin-top: 5px;
-    background: #1b1b1b;
-    left: 150px;
-    
-}
-
-/* Foooter */
-
-/* Menu deroulant */
-
-#background-menu {
-    width: auto;
-    height: auto;
-    padding: 1.5rem;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-content: stretch;
-    -ms-flex-line-pack: stretch;
-    align-content: stretch;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start;
-}
-
-/* Item 1*/
-
-#menu-affichage {
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
-    -webkit-flex: 0 0 20vw;
-    -ms-flex: 0 00 20vw;
-    flex: 0 0 20vw;
-    -webkit-align-self: auto;
-    -ms-flex-item-align: auto;
-    align-self: auto;
-}
-
-
-/* Item 2  */
-
-#menu-info {
-    -webkit-order: 0;
-    -ms-flex-order: 0;
-    order: 0;
-    -webkit-flex: 0 0 10vw;
-    -ms-flex: 0 0 10vw;
-    flex: 0 0 10vw;
-    -webkit-align-self: auto;
-    -ms-flex-item-align: auto;
-    align-self: auto;
-
-}
-
-.style-menu {
-    position: absolute;
-    list-style: none;
-}
-
-.menu-conteneur {
-    position: relative;
-}
-
-.menu-item {
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-
-.separator {
-    border: 2px dashed #d7e1ff;
-    width: auto;
-}
 
 #menu-video {
     opacity: 1;
@@ -508,35 +423,28 @@ body {
 
 
 @-webkit-keyframes fadeout {
-    from { opacity: 1; height: auto;top: -120px; 
+    from { opacity: 1; height: auto;
     }
-      to { opacity: 0; height: 0; top: 0px;
+      to { opacity: 0; height: 0;
     }
 }
 @keyframes fadeout {
-    from { opacity: 1; height: auto;top: -120px;
+    from { opacity: 1; height: auto;
     }
-      to { opacity: 0; height: 0; top: 0px; 
+      to { opacity: 0; height: 0; 
     }
 }
-
-@keyframes close {
-    from {display : block;
-    } 
-    to { display: none;}
-}
-
 
 @-webkit-keyframes fadeIn {
-    from { opacity: 0; height: 0; top: -60px; 
+    from { opacity: 0; height: 0; 
     }
-      to { opacity: 1; height: auto;top: -120px;
+      to { opacity: 1; height: auto;
     }
 }
 @keyframes fadeIn {
-    from { opacity: 0; height: 0; top: -60px;
+    from { opacity: 0; height: 0;
     }
-      to { opacity: 1; height: auto;top: -120px;
+      to { opacity: 1; height: auto;
     }
 }
 
@@ -546,30 +454,20 @@ body {
 
 
 .open {
-    -webkit-animation: fadeIn ;
-    animation: fadeIn;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+
     height: auto;
     width: 150px;
     opacity: 1;
     text-align: center;
-    padding: 8px 12px;
-    top: 60px;
+    padding-top: 12px;
 
 }
 
 .close {
-    width: 150px;
-    top: 60px;
-    padding: 8px 12px;
     opacity: 0;
-    height: 0;
     overflow: hidden;
-    -webkit-animation: fadeout ;
-    animation: fadeout;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+    text-align: center;
+
 }
 
 
@@ -720,6 +618,106 @@ body {
 	top:1px;
 }
 
+/* Foooter */
+
+/* Menu deroulant */
+
+#background-menu {
+    width: auto;
+    height: auto;
+    padding: 1.8rem;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+	border: var(--menuBorder);
+    color: var(--colorglobal);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : var(--textShadow);
+}
+
+/* Item 1*/
+
+#menu-affichage {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 20vw;
+    -ms-flex: 0 00 20vw;
+    flex: 0 0 20vw;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+
+/* Item 2  */
+
+#menu-info {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 0 10vw;
+    -ms-flex: 0 0 10vw;
+    flex: 0 0 10vw;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+
+}
+
+.menu-conteneur {
+    position: relative;
+}
+
+.menu-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.separator {
+    border: 2px dashed #d7e1ff;
+    width: auto;
+}
+
+/* btn footer */
+
+.style-menu {
+    position: absolute;
+    list-style: none;
+    top: -165px;
+}
+
 
 .btn-deroulant-style {
     -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
@@ -730,9 +728,9 @@ body {
     background: var(--menu);
     filter: var(--filter);
     box-shadow: var(--menushadow);
-	-webkit-border-radius:8px;
-	-moz-border-radius:8px;
-	border-radius:8px;
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
 	border: var(--menuBorder);
 	display:inline-block;
 	cursor:pointer;
@@ -763,28 +761,7 @@ body {
 }
 
 
-.blockTimeDay {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuwebkit);
-    background: var(--menumoz);
-    background: var(--menuBg);
-    background: var(--menu);
-    filter: var(--filter);
-    box-shadow: var(--menushadow);
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    border-radius:8px;
-	border: var(--menuBorder);
-    color: var(--colorglobal);
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    padding:8px 12px;
-    text-decoration:none;
-    text-shadow : var(--textShadow);
-	/*text-shadow:0px 1px 0px #f8ff71;*/
-}
+
 
 /* input nuit */
 
@@ -793,7 +770,7 @@ body {
     font-size: 16px;
     border-radius:8px;
     border:1px solid #000;
-    background: var(--menuTextNuit);
+    background: var(--menu);
     color: #ffffff;
     border-style: groove;
     border-radius: 5px;
@@ -959,6 +936,12 @@ figcaption {
     animation: btndshow;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+}
+
+/* the moon */
+
+.test {
+    background-image: url(assets/image-background/);
 }
 
 

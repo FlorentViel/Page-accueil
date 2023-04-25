@@ -43,9 +43,7 @@ function clock(){
         const date = new Date();
         //const date = new Date('March 23, 2019 2:10:10');
         var background = $('#background-image');
-        var menu = $('#background-menu');
-        var entete = $('.bg');
-        var btnShow = $('#show')
+ 
 
         //console.log(moonTime);
 
