@@ -1,12 +1,100 @@
 
-
 // Function add event listener
 
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+var currentIdVideo = 'jfKfPfyJRdk';
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '1000px',
+    width: '562.57px',
+    videoId: currentIdVideo,
+    events: {
+      'onReady': onPlayerReady,
+      //'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+//var done = false;
+//function onPlayerStateChange(event) {
+  //if (event.data == YT.PlayerState.PLAYING && !done) {
+    //setTimeout(stopVideo, 6000);
+    //done = true;
+ // }
+//}
+function stopVideo() {
+  player.stopVideo();
+}
+
+function updateYoutubeBtn() {
+  // Sélectionner l'élément input et récupérer sa valeur
+
+  var youtubeUrl = $("#in").val();
 
 
-window.onload = function () {
+  if(getYoutubeVideoId(youtubeUrl) !== null ){
+    var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
+    console.log(youtubeVideoId); // Affiche youtubeVideoId
+
+    // Mettre à jour la variable currentIdVideo avec l'ID de la vidéo YouTube récupérée
+
+    currentIdVideo = youtubeVideoId;
+
+    // Sélectionner l'élément avec l'ID "videoYoutube" et mettre à jour son contenu HTML avec la valeur de l'input
+
+    player.loadVideoById(youtubeVideoId);
+
+  }
+
+  else if(getYoutubeVideoId(youtubeUrl) == null ) {
+
+    alert('Erreur de saisi');
+
+  }
 
 
+
+  // Extraire le nom de la vidéo à partir de l'URL
+  //var youtubeVideoName = youtubeUrl.match(/watch\?v=(.*)/)[1];
+
+  // Afficher la valeur de l'URL et le nom de la vidéo
+
+  function getYoutubeVideoId(url) {
+    var youtubeRegex = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
+    var match = url.match(youtubeRegex);
+    if (match && match[2]) {
+      return match[2];
+    } else {
+      return null;
+    }
+  }
+
+}
+
+
+  
+
+
+
+      
     // all const 
 
     //const menu 
@@ -35,6 +123,7 @@ window.onload = function () {
 
 
 
+    
     // add video youtube
 
     const videoYoutube =$ ('#video-youtube');
@@ -157,16 +246,6 @@ youtubeMenu.on('click', function(e) {
 
 
 
-function updateYoutubeBtn() {
-    // Sélectionner l'élément input et récupérer sa valeur
-    var input = $("#in").val();
-
-    // Sélectionner l'élément   avec l'ID "videoYoutube" et mettre à jour son contenu HTML avec la valeur de l'input
-    videoYoutube.html(input);
-
-    // Afficher la valeur
-    alert(input);
-}
 
 
 
@@ -229,6 +308,7 @@ function updateYoutubeBtn() {
             blocVideo.removeClass("none");
             btnChoixVideo.removeClass("none");
             integrationYoutube.addClass("none");
+            stopVideo();
             choixVideoBtn.val("Passez en mode youtube");
         } else if (!blocVideo.hasClass("none") && videoYoutube.hasClass("none")) {
             videoYoutube.removeClass("none");
@@ -259,11 +339,6 @@ function updateYoutubeBtn() {
             videoChoix.addClass("none");
         }
     }
-    
-
-
-};
-
 
 
 
