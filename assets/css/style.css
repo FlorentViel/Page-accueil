@@ -1,25 +1,21 @@
 :root {
 
-    --moon-color: #000000;
-    --moon-bg-color: #ffffff;
-    --moon-border-color: #ffffff;
-
     /* Paramètre jour/nuit/couché de soleil, par défaut valeur nuit */
 
     /* entete class */
 
-    --enteteborder : 1px solid darkslateblue;
-    --entetebg : rgba(75, 63, 246, 0.243);
-    --enteteshadow : 1px 2px 5px 2px #000;
-    --colorentete: #ffffff;
-    --colorglobal : #ffffff;
+    --enteteborder : ;
+    --entetebg : ;
+    --enteteshadow : rgba(255, 118, 14, 0.35) ;
+    --colorentete: #020705 ;
+    --colorglobal : ;
 
     /* menu / bloc class */
 
-    --menu: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menuwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menumoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --menulinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --menu: ;
+    --menuwebkit : ;
+    --menumoz : ;
+    --menulinear : ;
     --menuBg: rgb(63,67,218);
     --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
     --textShadow : 2px 1px 1px #283966;
@@ -33,26 +29,23 @@
     --btnShowmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
     --btnShowlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
     --btnShowBg :rgb(63,67,218);
+    
 
     /* Mode nuit paramètre */
 
     /* image-background */
 
-    --imageNuit : url(assets/images/background/dragon_and_katana.jpg);
 
     /* Mode jour paramètre  */
 
     /* image-background */
 
-    --imageJour : url(assets/images/background/japoness_anaya.png);
 
      
 
     /* Mode crépuscule */
 
-    /* image-background */
 
-    --imageCrespuscule : url(assets/images/background/Kollab_s_DrugStuck.png);
 
     
 }
@@ -70,9 +63,26 @@ body {
     background-size: auto;
 }
 
-#background-image {
-    background-image: var(--Imagebg);
+.background-jour {
+    background-image: url(assets/images/background/japoness_anaya.png);
+
 }
+
+.background-crepuscule{
+    background-image: url(assets/images/background/Kollab_s_DrugStuck.png);
+}
+
+.background-nuit{
+    background-image: url(../images/background/dragon_and_katana.jpg);
+}
+
+#background-image {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    
+}
+
 
 /* class volatile */
 
@@ -105,19 +115,10 @@ body {
     display: none;
 }
 
-/* Background */
-
-#background-image {
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-
-}
 
 /* Date style */
 
-.navBar {
+#navBar {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
@@ -521,9 +522,109 @@ body {
 }
 
 
-/* btn "réafficher le formulaire" */
+/* Jour */
 
-/* reduction de class */
+
+
+.EnteteTimeday {
+    border-bottom : var(--enteteborder );
+    background: var(--entetebg);
+    box-shadow: var(--enteteshadow);
+    color: var(--colorentete);
+}
+
+/* btn video  */
+
+
+.btn-show-TimeDay{
+    -moz-box-shadow: 16px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 16px 0px 0px 2px #9fb4f2;
+	box-shadow: var(--menushadow);
+	background: var(--menuwebkit);
+	background: var(--menumoz);
+	background: var(--menulinear);
+	background: var(--menu);
+	filter: var(--filter);
+	background-color:var(--menu);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border: var(--menuBorder);
+	display:inline-block;
+	cursor:pointer;
+	color:var(--colorglobal);
+	font-family:Georgia;
+	font-size:14px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow: var(--textShadow);
+}
+
+.btn-show-TimeDay:hover {
+    background: var(--btnShowBg);
+    background: var(--btnShowmoz );
+    background: var(--btnShowwebkit);
+    background: var(--btnShow);
+    filter: var(--filterShow);
+}
+
+.btn-show-TimeDay:active {
+	position:relative;
+	top:1px;
+}
+
+.integrationInputDay {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 2px;
+    border-color: #baefff;
+    background-color: #fff;
+    color: #11d3ff;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(235,240,255,.72);
+    text-shadow: 0px 0px 5px rgba(248,255,113,.75);
+}
+.integrationInputDay:focus {
+    outline:none;
+}
+
+#label-integration-content {
+    flex: 0 0 207.6px;
+    text-align: center;
+}
+
+.integrationInputDay::placeholder {
+    color: #0088ff;
+    text-shadow: none;
+}
+
+
+
+
+/* Foooter */
+
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: -webkit-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: -o-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: rgba(252,252,252,1);
+    background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+    box-shadow: 5px -4px 15px 5px #ebf0ff;
+	border: 1px solid #baefff;
+    color: #256aff;
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : 2px 1px 1px #fff7a4;
+}
+
+/* Crepuscule */
 
 .EnteteTimeday {
     border-bottom : var(--enteteborder );
@@ -558,14 +659,11 @@ body {
 }
 
 .btn-show-TimeDay:hover {
-	background:var(--btnShow);
-	background: var(--btnShowwebkit);
-	background: var(--btnShowmoz);
-	background: var(--btnShowNuit);
-	background:var(--btnShowlinear);
-	background: var(--btnShowBg);
-    filter: var(--filter);
-
+    background: var(--btnShowBg);
+    background: var(--btnShowmoz );
+    background: var(--btnShowwebkit);
+    background: var(--btnShow);
+    filter: var(--filterShow);
 }
 
 .btn-show-TimeDay:active {
@@ -573,9 +671,189 @@ body {
 	top:1px;
 }
 
-/* Foooter */
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+	border: var(--menuBorder);
+    color: var(--colorglobal);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : var(--textShadow);
+}
 
-/* Menu deroulant */
+
+
+
+
+
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+	border: var(--menuBorder);
+    color: var(--colorglobal);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : var(--textShadow);
+}
+
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: var(--menuwebkit);
+    background: var(--menumoz);
+    background: var(--menuBg);
+    background: var(--menu);
+    filter: var(--filter);
+    box-shadow: var(--menushadow);
+	border: var(--menuBorder);
+    color: var(--colorglobal);
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : var(--textShadow);
+}
+
+
+/* ---------------- Mode-Nuit ---------------------*/
+
+.EnteteTimeNight {
+    border-bottom : 1px solid rgb(6, 0, 10);
+    background: rgba(75, 63, 246, 0.243);
+    box-shadow: 1px 2px 5px 2px #000;
+    color: #ffffff;
+}
+
+.btn-show-TimeNight{
+    -moz-box-shadow: 5px -4px 15px 5px #000;
+	-webkit-box-shadow: 5px -4px 15px 5px #000;
+	box-shadow: 5px -4px 15px 5px #000;
+	background: -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: -o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+	background-color: rgb(63,67,218);
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	border: 1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Georgia;
+	font-size:14px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+	text-shadow: 2px 1px 1px #283966;
+}
+
+.btn-show-TimeNight:hover {
+    background: rgb(63,67,218);
+    background: -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    background: -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    background: -o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+
+    background: var(linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+}
+
+.btn-show-TimeNight:active {
+	position:relative;
+	top:1px;
+}
+
+.blockTimeNight {
+    -moz-box-shadow: 5px -4px 15px 5px #000;
+	-webkit-box-shadow: 5px -4px 15px 5px #000;
+	box-shadow: 5px -4px 15px 5px #000;
+	background: -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: -o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+	background-color: rgb(63,67,218);
+    color: #ffffff;
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+	text-shadow: 2px 1px 1px #283966;
+    border: 1px solid #4e6096;
+
+}
+
+#menu-deroulant{
+    
+    cursor: pointer;
+}
+
+.btn-deroulant-style {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+	display:inline-block;
+	font-family:Georgia;
+	font-size:16px;
+	font-weight:bold;
+	padding:8px 12px;
+	text-decoration:none;
+    width: 150px;
+    height: 35px;
+}
+
+/* input nuit */
+
+.integrationInputNight {
+    padding: 5px;
+    font-size: 16px;
+    border-radius:8px;
+    border:1px solid #000;
+    background: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%) ;
+    color: #ffffff;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.695);
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.695);
+    font-family:Georgia;
+
+}
+
+.integrationInputNight::placeholder {
+    color: #1b1b1b;
+    text-shadow: none;
+}
+.integrationInputNight:focus {
+    outline:none;
+}
+
+.labelNight {
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.695);
+    font-family:Georgia;
+
+}
+
+/* Footer */
+
 
 #background-menu {
     width: auto;
@@ -599,24 +877,6 @@ body {
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-}
-
-.blockTimeDay {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuwebkit);
-    background: var(--menumoz);
-    background: var(--menuBg);
-    background: var(--menu);
-    filter: var(--filter);
-    box-shadow: var(--menushadow);
-	border: var(--menuBorder);
-    color: var(--colorglobal);
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    text-decoration:none;
-    text-shadow : var(--textShadow);
 }
 
 /* Item 1*/
@@ -673,50 +933,6 @@ body {
     top: -165px;
 }
 
-
-.btn-deroulant-style {
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: var(--menuwebkit);
-    background: var(--menumoz);
-    background: var(--menuBg);
-    background: var(--menu);
-    filter: var(--filter);
-    box-shadow: var(--menushadow);
-	-webkit-border-radius:0px;
-	-moz-border-radius:0px;
-	border-radius:0px;
-	border: var(--menuBorder);
-	display:inline-block;
-	cursor:pointer;
-    color: var(--colorglobal);
-	font-family:Georgia;
-	font-size:16px;
-	font-weight:bold;
-	padding:8px 12px;
-	text-decoration:none;
-	text-shadow:var( --textShadow);
-    width: 150px;
-    height: 35px;
-    cursor: pointer;    
-}
-
-
-.btn-deroulant-style:hover {
-    background: var(--btnShowBg);
-    background: var(--btnShowmoz );
-    background: var(--btnShowwebkit);
-    background: var(--btnShow);
-    filter: var(--filterShow);
-}
-
-.btn-deroulant-style:active {
-	position:relative;
-	top:1px;
-}
-
-
-
 /* Gestion ouverture et fermeture du dropbutton */
 
 
@@ -738,68 +954,7 @@ body {
 }
 
 
-/* input nuit */
 
-.integrationInputNight {
-    padding: 5px;
-    font-size: 16px;
-    border-radius:8px;
-    border:1px solid #000;
-    background: var(--menu);
-    color: #ffffff;
-    border-style: groove;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.695);
-    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.695);
-    font-family:Georgia;
-
-}
-
-.integrationInputNight::placeholder {
-    color: #1b1b1b;
-    text-shadow: none;
-}
-.integrationInputNight:focus {
-    outline:none;
-}
-
-.labelNight {
-    font-size: 16px;
-    color: #ffffff;
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.695);
-    font-family:Georgia;
-
-}
-
-
-
-/* Classe Jour */
-
-.integrationInputDay {
-    padding: 5px;
-    font-size: 16px;
-    border-width: 2px;
-    border-color: #baefff;
-    background-color: #fff;
-    color: #11d3ff;
-    border-style: groove;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(235,240,255,.72);
-    text-shadow: 0px 0px 5px rgba(248,255,113,.75);
-}
-.integrationInputDay:focus {
-    outline:none;
-}
-
-#label-integration-content {
-    flex: 0 0 207.6px;
-    text-align: center;
-}
-
-.integrationInputDay::placeholder {
-    color: #0088ff;
-    text-shadow: none;
-}
 
 
 /* Classe crépuscule */

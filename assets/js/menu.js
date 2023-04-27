@@ -13,7 +13,7 @@ window.onload = function () {
 
     //all btn 
 
-    const elementMenu =$('#menu-deroulant-conteneur .menu-conteneur');
+    const elementMenu =$('#menu-affichage');
     const hide = $('#hide');
     const show =$('#show');
     const choixVideoBtn =$('#video-btn');
@@ -67,7 +67,7 @@ window.onload = function () {
     // EventListener
 
     $(footerMenuitem).on('mouseenter', openMenu);
-    $(footerMenuitem).on('click', closeMenu);
+    $(elementMenu).on('click', closeMenu);
     $(accept).on('click', updateYoutubeBtn);
     $(hide).on('click', hideVideoBtn);
     $(show).on('click', showbtn);
