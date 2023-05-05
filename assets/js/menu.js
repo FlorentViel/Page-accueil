@@ -19,16 +19,16 @@ function onYouTubeIframeAPIReady() {
     width: '562.57px',
     videoId: currentIdVideo,
     events: {
-      'onReady': onPlayerReady,
+      //'onReady': onPlayerReady,
       //'onStateChange': onPlayerStateChange
     }
   });
 }
 
 // 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.playVideo();
-}
+//function onPlayerReady(event) {
+  //event.target.playVideo();
+  //}
 
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
@@ -44,6 +44,8 @@ function stopVideo() {
   player.stopVideo();
 }
 
+
+
 function updateYoutubeBtn() {
   // Sélectionner l'élément input et récupérer sa valeur
 
@@ -52,7 +54,6 @@ function updateYoutubeBtn() {
 
   if(getYoutubeVideoId(youtubeUrl) !== null ){
     var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
-    console.log(youtubeVideoId); // Affiche youtubeVideoId
 
     // Mettre à jour la variable currentIdVideo avec l'ID de la vidéo YouTube récupérée
 
@@ -155,8 +156,15 @@ function updateYoutubeBtn() {
 
     // EventListener
 
-    $(footerMenuitem).on('mouseenter', openMenu);
-    $(elementMenu).on('click', closeMenu);
+
+    if (classMenu.hasClass('open')){
+      $(footerMenuitem).on('click', closeMenu);
+    }
+
+    else if(!classMenu.hasClass('open')){
+      $(footerMenuitem).on('click', openMenu);
+    }
+
     $(accept).on('click', updateYoutubeBtn);
     $(hide).on('click', hideVideoBtn);
     $(show).on('click', showbtn);
@@ -171,17 +179,7 @@ function updateYoutubeBtn() {
 
  function openMenu() {
     
-    classMenu.removeClass("none");
-    classMenu.removeClass("close");
-    classMenu.addClass("open");
-    classMenu.addClass("block");
-
-    if(!classMenu.hasClass("none")){
-        classMenu.removeClass("close");
-        classMenu.addClass("open");
-        classMenu.removeClass("none");
-    }
-
+    classMenu.toggleClass("close open none block");
 
  };
 
@@ -190,15 +188,12 @@ function updateYoutubeBtn() {
 
  function closeMenu() {
 
-    classMenu.addClass("close");
-    classMenu.removeClass('open');
+  classMenu.removeClass('open');
+  classMenu.addClass("close");
 
 
-    setTimeout(function(){
-        classMenu.addClass("none");
-        classMenu.removeClass("block");
-    
-        }, 1000);
+
+
 
     }
 

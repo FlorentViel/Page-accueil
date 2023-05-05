@@ -1,3 +1,5 @@
+
+
 var selectVideo1 = $('#Image1');
 var selectVideo2 = $('#Image2');
 var selectVideo3 = $('#Image3');
@@ -67,7 +69,7 @@ function modifierVideo(event) {
   videoBalise.append(url);
 }
 
-function video(sol, meteo) {
+function video(now, meteo) {
   var video = $('video');
   var source = $('<source>');
   var url = $('<a>');
@@ -79,7 +81,7 @@ function video(sol, meteo) {
       break;
 
     default:
-      switch (sol) {
+      switch (now) {
         case "Soleil":
           source.attr('src', '../video/sunny_video.mp4');
           url.attr('href', '../video/sunny_video.mp4');
