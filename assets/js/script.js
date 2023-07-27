@@ -6,7 +6,7 @@
     soleil();
    clock();
 
-   setInterval(soleil, 1);
+   setInterval(soleil, 1000);
    setInterval(clock, 1000);
 
 
@@ -42,19 +42,12 @@ function clock(){
 
     function soleil(){
 
-        //var times = SunCalc.getTimes(new Date(), 49.7534248, 3.3643912);
-        //const date = new Date();
+        var times = SunCalc.getTimes(new Date(), 49.7534248, 3.3643912);
+        const date = new Date();
         var background = $('#background-image');
 
-    
-
-        //console.log(times);
- 
-
-        //console.log(moonTime);
-
-        var times = SunCalc.getTimes(new Date('June 21, 2023 0:30:00'), 71.70237900000001, -42.17717450000001);
-        const date = new Date('June 21, 2023 15:30:00');
+        //var times = SunCalc.getTimes(new Date('May 6, 2023 0:52:00'), 49.7534248, 3.3643912);
+        //const date = new Date('May 6, 2023 0:52:00');
 
         var sunrise = times['sunrise'];
         var sunriseend= times['sunriseEnd']
@@ -89,6 +82,15 @@ function clock(){
         const monthIndex = date.getMonth();
         const monthName = months[monthIndex];
 
+        const Nowhours = date.getHours()
+        const Nowsminutes = date.getMinutes();
+        const Nowsseconds = date.getSeconds();
+
+
+        //console.log(Nowhours+''+Nowsminutes+''+Nowsseconds);
+        //console.log(times);
+
+
         const days = {
             0:'Dimanche',
             1:'Lundi',
@@ -99,22 +101,20 @@ function clock(){
             6:'Samedi'
         };
 
+
         const dayIndex = date.getDay();
         const dayName = days[dayIndex];
 
         var actuel = "";
         var etat = 0
 
-        //console.log(nightEnd);
-
-
-
-        if(date>= night && date<= nadir && nadir !== "Invalid Date"){
+        if(date>= night && date<= nadir &&  isNaN(night) == false  || isNaN(night) == false && date >= night && Nowhours <= 23){
             $(".etat-soleil").html(`Nuit`);
             actuel = 'Lune';
+
         }
 
-        if(date>= nadir && date <= nightEnd && isNaN(nightEnd) == false){
+        else if(date>= nadir && date <= nightEnd || isNaN(night) == true  && isNaN(nightEnd) == true && date <= nauticalDawn ){
         
             etat = 1;
             $(".etat-soleil").html(`Nadir`);
@@ -127,68 +127,75 @@ function clock(){
             }
         }
 
-        if (date >= nightEnd && date <= nauticalDawn == false && isNaN(nightEnd) == false) {
+        else if (date >= nightEnd && date <= nauticalDawn && isNaN(nauticalDawn) == false) {
             $(".etat-soleil").html("Aube astronomique");
             actuel = 'Lune';
             etat = 1;
         }
         
-        if (date >= nauticalDawn && date <= dawn  && isNaN(nauticalDawn) == false ) {
+        else if (date >= nauticalDawn && date <= dawn  && isNaN(dawn) == false ) {
             $(".etat-soleil").html("Aube nautique");
             actuel = 'Lune';
             etat = 1;
         }
         
-        if (date >= dawn && date >= sunrise == false  && isNaN(dawn) == false ) {
+        else if (date >= dawn && date <= sunrise && isNaN(sunrise) == false ) {
             $(".etat-soleil").html("Début de l'Aube");
             actuel = 'Soleil';
             etat = 2;
+            console.log('test');
+
         }
         
-        if (date >= sunrise && date >= sunriseend == false) {
+        else if (date >= sunrise && date <= sunriseend && isNaN(sunriseend) == false) {
             $(".etat-soleil").html("Lever du soleil");
             actuel = 'Soleil';
             etat = 2;
         }
         
-        if (date >= sunriseend && date >= goldenhourend == false) {
+        else if (date >= sunriseend && date <= goldenhourend) {
             $(".etat-soleil").html("Heure dorée matinale");
-            actuel = goldenhourend;
             actuel = 'Soleil';
             etat = 2;
         }
-        
-        if (date >= goldenhourend && date >= solarnoon == false) {
+         
+        else if (date >= goldenhourend && date <= solarnoon || isNaN(sunsetstart) == true && date <= solarnoon  ) {
             $(".etat-soleil").html("Matin");
             actuel = 'Soleil';
+
         }
         
-        if (date >= solarnoon && date >= goldenHour == false) {
+        else if (date >= solarnoon && date <= goldenHour) {
             $(".etat-soleil").html("Après midi");
             actuel = 'Soleil';
+
         }
         
-        if (date >= goldenHour && date >= sunsetstart) {
+        else if (date >= goldenHour && date <= sunsetstart) {
             $(".etat-soleil").html("Heure dorée du soir");
             actuel = 'Soleil';
         }
         
-        if (date >= sunsetstart && date >= sunset) {
+        else if (date >= sunsetstart && date <= sunset && isNaN(sunsetstart) == false ) {
             $(".etat-soleil").html("Couché de soleil");
             actuel = 'Soleil';
+            console.log('test');
+
         }
         
-        if (date >= sunset && date >= dusk) {
+        else if (date >= sunset && date <= dusk) {
             $(".etat-soleil").html("Crépuscule civil");
             actuel = 'Lune';
         }
+
         
-        if (date >= dusk && date >= nauticaldusk) {
+        else if (date >= dusk && date <= nauticaldusk) {
             $(".etat-soleil").html("Crépuscule nautique");
             actuel = 'Lune';
         }
         
-        if (date >= nauticaldusk && date >= night || isNaN(night) == true && date <= nadir) {
+        else if (date >= nauticaldusk && date <= night || isNaN(night) == true && date >= nauticaldusk 
+        && date <= nadir || isNaN(night) == true && Nowhours <= 23 ) {
             $(".etat-soleil").html("Crépuscule astronomique");
 
             if (isNaN(night) == true) {
@@ -229,6 +236,7 @@ function clock(){
             $('.btnStyle').addClass('btn-show-TimeDay');
             $('.btnStyle').removeClass('btn-show-TimeSunset');
             $('.btnStyle').removeClass('btn-show-TimeNight');
+            $('#bloc-tableau').addClass('tableau-jour');
 
         } else if (date >= goldenHour && date <= dusk) {
 
@@ -273,7 +281,12 @@ function clock(){
             $('#in').addClass('integrationInputSunset');
             $('#in').removeClass('integrationInputDay');
             $('#in').removeClass('integrationInputNight');
-        
+
+
+            $('#bloc-tableau').removeClass('tableau-jour');
+            $('#bloc-tableau').removeClass('tableauNight');
+            $('#bloc-tableau').addClass('tableauSunset');
+    
             }
 
             else{
@@ -302,6 +315,9 @@ function clock(){
             $('figcaption').addClass('figcaptionTimeNight');
             $('figcaption').removeClass('figcaptionTimeDay');
             $('figcaption').removeClass('figcaptionTimeSunset');
+
+            $('#bloc-tableau').addClass('tableauNight');
+            
             }
     // Vérification des valeurs pour dayName, date et monthName
     $('.date').html((dayName !== undefined && date.getDate !== undefined && monthName !== undefined) ? `${dayName + ' ' + date.getDate() + ' ' + monthName + ' ' + date.getFullYear()}` : "Une erreur est survenue");

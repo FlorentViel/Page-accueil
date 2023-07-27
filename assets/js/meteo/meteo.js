@@ -17,10 +17,23 @@ setInterval(function() {
 
 // Fonction pour recevoir la température et effectuer d'autres traitements
 function recevoirTemperature(ville, callback) {
-  const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=eb3e55ca0093756f2541d5ad27c5021c&units=metric';
+
+  let url;
+
+  if (url !== null) {
+    // Créez l'objet URL avec la valeur
+    url = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=eb3e55ca0093756f2541d5ad27c5021c&units=metric';
+    // Autres opérations avec l'objet URL
+  } else {
+    // Gérez le cas où la valeur est nulle
+    url = 'Aucune valeur';
+  }
+  
 
 
-  console.log(url);
+
+
+  //console.log(url);
 
 
 
@@ -354,8 +367,8 @@ function video(now, meteo) {
           break;
 
           default:
-          source.attr('src', '../video/default_video.mp4');
-          url.attr('href', '../video/default_video.mp4');
+            source.attr('src', '../video/summer_forest.mp4');
+            url.attr('href', '../video/summer_forest.mp4');
           break;
       }
   }

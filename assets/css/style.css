@@ -70,6 +70,7 @@ body {
 
 .background-crepuscule{
     background-image: url(../images/background/Kollab_s_DrugStuck.png);
+    
 }
 
 .background-nuit{
@@ -351,7 +352,7 @@ body {
 
 .logo {
     width: 250px;
-    height: 80px;
+    height: 250px;
     opacity: 0.50;
     border: 2px solid #1b1b1b;
     z-index: 2;
@@ -521,7 +522,61 @@ body {
 }
 
 
-/* Jour */
+/* Tableau */
+
+
+
+#session-tableau {
+
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 50px;
+
+}
+
+.table-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+
+#bloc-tableau {
+
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+
+
+th {
+    width: auto;
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: #000 2px solid;
+}
+
+td {
+    border: #000 1px solid;
+    text-align: center;
+    width: auto;
+    height: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+#bloc-mise-a-jour {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+
+
+/* ------------------------------------------------- Mode-Jour ---------------------------------------------------------------*/
 
 
 /* entete */
@@ -634,6 +689,47 @@ body {
 }
 
 
+/* Tableau Jour */
+
+.tableau-jour {
+    background-color: #0088ff40;
+    color : white;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    box-shadow: 0px 0px 5px #ffefbb;
+    border: 1px solid #baefff;
+
+}
+
+.tableau-jour a {
+    color: white;
+}
+
+.tableau-jour a:hover {
+    color: rgb(146, 241, 239);
+}
+
+.tableau-jour th {
+    font-style: normal;
+    font-size: 18px;
+}
+
+
+
+.tableau-jour th, td  {
+    background-color: #e5eeee46;
+
+}
+
+
+
+.tableau-nuit {
+    background-color: #0088ff1e;
+}
+
+ 
+
 
 
 /* Foooter */
@@ -657,7 +753,7 @@ body {
     text-shadow : 2px 1px 1px #fff7a4;
 }
 
-/* Crepuscule */
+/************************************************* Mode-Crepuscule ***********************************************************/
 
 .EnteteTimeSunset {
     border-bottom : 1px solid #bcff57;
@@ -758,8 +854,45 @@ body {
     text-shadow : 2px 1px 1px #a46d36;
 }
 
+.tableauSunset  {
+    background-color: rgba(255, 119, 0, 0.334);
+    border: solid 1px #bcff57;
+    color : rgb(27, 17, 17);
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    text-shadow : 2px 1px 1px #a46d36;
+    box-shadow: 1px 2px 5px 2px #ff9e27;
 
-/* ---------------- Mode-Nuit ---------------------*/
+}
+
+.tableauSunset th {
+    font-style: normal;
+    font-size: 18px;
+}
+
+
+
+.tableauSunset th, .tableauSunset td {
+    background-color: #e5eeee46;
+    color: rgb(0, 181, 42);
+    text-shadow : 1px 1px 1px #feffe0;
+}
+
+.tableauSunset th, .tableauSunset td a {
+    color: rgb(202, 255, 214);
+}
+
+
+.tableauSunset th, .tableauSunset td a:hover {
+    color: rgb(0, 255, 85);
+}
+.tableauSunset #bloc-mise-a-jour p {
+    color: rgb(0, 181, 42);
+    text-shadow : 1px 1px 1px #feffe0;
+}
+
+/* ------------------------------------------------- Mode-Nuit ---------------------------------------------------------------*/
 
 .EnteteTimeNight {
     border-bottom : 1px solid rgb(6, 0, 10);
@@ -915,7 +1048,42 @@ body {
 
 }
 
-/* Footer */
+/* Tableau nuit */
+
+.tableauNight  {
+    background-color: rgba(75, 63, 246, 0.243);
+    border: 1px solid rgb(6, 0, 10);
+    color : rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    box-shadow: 1px 2px 5px 2px #000000;
+
+}
+
+.tableauNight th {
+    font-style: normal;
+    font-size: 18px;
+}
+
+
+
+.tableauNight th, .tableauNight td  {
+    background-color: #30104a46;
+
+
+}
+
+ .tableauNight td a {
+    color: rgb(12, 0, 173);
+}
+
+ .tableauNight td a:hover {
+    color: rgb(60, 73, 255);
+
+}
+
+/*---------------------------------------------------FOOTER--------------------------------------------------------------*/
 
 
 #background-menu {
@@ -993,7 +1161,7 @@ body {
 .style-menu {
     position: absolute;
     list-style: none;
-    top: -165px;
+    top: -214px;
 }
 
 /* Gestion ouverture et fermeture du dropbutton */
@@ -1020,7 +1188,7 @@ body {
 
 
 
-/* Classe crépuscule */
+/* ------------------------------------------------- Mode-Crépuscule --------------------------------------------------------*/
 
 
 
@@ -1085,14 +1253,6 @@ figcaption {
 
 
 
-
-
-
-
-#bloc-cacher input {
-}
-
-
 @-webkit-keyframes btnhide {
     from { left: 1vw;
     }
@@ -1127,6 +1287,7 @@ figcaption {
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
+
 
 /* the moon */
 

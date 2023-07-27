@@ -93,8 +93,8 @@ function video(now, meteo) {
           break;
 
           default:
-          source.attr('src', '../video/default_video.mp4');
-          url.attr('href', '../video/default_video.mp4');
+          source.attr('src', '../video/summer_forest.mp4');
+          url.attr('href', '../video/summer_forest.mp4');
           break;
       }
   }
