@@ -25,7 +25,7 @@ const app = Vue.createApp({
     computed: {
       lastUpdateDate() {
         if (this.candidatures.length === 0) {
-          return "Aucune candidature disponible";
+          return "Aucune candidature de réalisé";
         }
   
         const sortedCandidatures = this.candidatures.slice().sort((a, b) =>
