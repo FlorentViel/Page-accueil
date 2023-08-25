@@ -36,8 +36,8 @@ function modifierVideo(event) {
 
   switch (thisVideo) {
     case "Image1":
-      source.attr('src', '../video/sunny_video.mp4');
-      url.attr('href', '../video/sunny_video.mp4');
+      source.attr('src', 'C:/Users/florv/OneDrive/video_drole/video2.mp4');
+      url.attr('href', 'C:/Users/florv/OneDrive/video_drole/video2.mp4');
       videoBalise.get(0).load();
       break;
 
@@ -76,15 +76,15 @@ function video(now, meteo) {
 
   switch (meteo) {
     case "Rain":
-      source.attr('src', '../video/rain_video.mp4');
-      url.attr('href', '../video/rain_video.mp4');
+      source.attr('src', 'C:\Users\florv\OneDrive\video_drole\video2.mp4');
+      url.attr('href', 'C:\Users\florv\OneDrive\video_drole\video2.mp4');
       break;
 
     default:
       switch (now) {
         case "Soleil":
-          source.attr('src', '../video/sunny_video.mp4');
-          url.attr('href', '../video/sunny_video.mp4');
+          source.attr('src', 'C:/Users/florv/OneDrive/video_drole/video2.mp4');
+          url.attr('href', 'C:/Users/florv/OneDrive/video_drole/video2.mp4');
           break;
 
         case "Lune":

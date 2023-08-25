@@ -4,41 +4,10 @@
     //Le code écrit est en mode strict
 
     soleil();
-   clock();
 
    setInterval(soleil, 1000);
-   setInterval(clock, 1000);
-
-
 
   })();
-
-
-
-// Horloge
-
-function clock(){
-    //const date = new Date('March 23, 2019 6:10:10');
-    const date = new Date();
-    const hours = ((date.getHours() + 11) % 12 + 1);
-    const AM = date.getHours();
-    const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
-    const hour = hours * 30;
-    const minute = minutes * 6;
-    const second = seconds * 6;
-
-    $('.petite-aiguille').css('transform', `rotate(${hour}deg)`);
-    $('.grande-aiguille').css('transform', `rotate(${minute}deg)`);
-    $('.seconde').css('transform', `rotate(${second}deg)`);
-
-    $(".PM").html((AM < 12 ) ? `AM` : `PM`);
-}
-
-
-
-
-
 
     function soleil(){
 
@@ -46,8 +15,22 @@ function clock(){
         const date = new Date();
         var background = $('#background-image');
 
-        //var times = SunCalc.getTimes(new Date('May 6, 2023 0:52:00'), 49.7534248, 3.3643912);
-        //const date = new Date('May 6, 2023 0:52:00');
+        const hours = ((date.getHours() + 11) % 12 + 1);
+        const AM = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        const hour = hours * 30;
+        const minute = minutes * 6;
+        const second = seconds * 6;
+    
+        $('.petite-aiguille').css('transform', `rotate(${hour}deg)`);
+        $('.grande-aiguille').css('transform', `rotate(${minute}deg)`);
+        $('.seconde').css('transform', `rotate(${second}deg)`);
+    
+        $(".PM").html((AM < 12 ) ? `AM` : `PM`);
+
+        //var times = SunCalc.getTimes(new Date('August 7, 2023 21:52:00'), 49.7534248, 3.3643912);
+        //const date = new Date('August 7, 2023 21:52:00');
 
         var sunrise = times['sunrise'];
         var sunriseend= times['sunriseEnd']
@@ -238,6 +221,17 @@ function clock(){
             $('.btnStyle').removeClass('btn-show-TimeNight');
             $('#bloc-tableau').addClass('tableau-jour');
 
+            
+            $('#bloc-tableau form input').removeClass('integrationInputNight');
+            $('#bloc-tableau form input').addClass('integrationInputDay');
+
+            $('#bloc-tableau form input').removeClass('integrationInputSunset');
+            $('#bloc-tableau form input').removeClass('integrationInputNight');
+            $('#bloc-tableau form input').addClass('integrationInputDay');
+            $('.radioInput').addClass('radioInputDay');
+            $('.labelRadio').addClass('labelDay');
+            $('#blocCandidature').addClass('blocCandidatureDay');
+
         } else if (date >= goldenHour && date <= dusk) {
 
             background.addClass("background-crepuscule");
@@ -286,6 +280,26 @@ function clock(){
             $('#bloc-tableau').removeClass('tableau-jour');
             $('#bloc-tableau').removeClass('tableauNight');
             $('#bloc-tableau').addClass('tableauSunset');
+
+            $('#bloc-tableau form input').removeClass('integrationInputNight');
+            $('#bloc-tableau form input').removeClass('integrationInputDay');
+            $('#bloc-tableau form input').addClass('integrationInputSunset');
+            $('#bloc-tableau form input[type="radio"].radioInput + label').removeClass('integrationInputNight');
+            $('#bloc-tableau form input[type="radio"].radioInput + label').removeClass('integrationInputDay');
+            $('#bloc-tableau form input[type="radio"].radioInput + label').addClass('integrationInputSunset');
+            $('#bloc-tableau form input').addClass('integrationInputSunset');
+            $('#bloc-tableau form input').removeClass('integrationInputDay');
+
+            $('.radioInput').removeClass('radioInputDay');
+            $('.labelRadio').removeClass('labelDay');
+            $('#blocCandidature').removeClass('blocCandidatureDay');
+
+            $('.radioInput').addClass('radioInputSunset');
+            $('.labelRadio').addClass('labelSunset');
+            $('#blocCandidature').removeClass('blocCandidatureDay');
+            $('#blocCandidature').removeClass('blocCandidatureNight');
+            $('#blocCandidature').addClass('blocCandidatureSunset');
+
     
             }
 
@@ -317,6 +331,19 @@ function clock(){
             $('figcaption').removeClass('figcaptionTimeSunset');
 
             $('#bloc-tableau').addClass('tableauNight');
+            $('#bloc-tableau form input').addClass('integrationInputNight');
+            $('.radioInput').addClass('radioInputNight');
+            $('.labelRadio').addClass('labelNight');
+            $('.radioInput').removeClass('radioInputDay');
+            $('.labelRadio').removeClass('labelDay');
+            $('#bloc-tableau form input').removeClass('integrationInputSunset');
+            $('#bloc-tableau form input').removeClass('integrationInputDay');
+            $('.radioInput').removeClass('radioInputDay');
+            $('.labelRadio').removeClass('labelDay');
+            $('#blocCandidature').removeClass('blocCandidatureDay');
+            
+
+
             
             }
     // Vérification des valeurs pour dayName, date et monthName

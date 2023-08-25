@@ -532,7 +532,12 @@ body {
     padding-top: 25px;
     padding-bottom: 25px;
     margin: 50px;
+    
 
+}
+
+#tableau {
+    overflow-x:auto;
 }
 
 .table-wrapper {
@@ -547,6 +552,7 @@ body {
     padding-left: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow-x: auto;
 
 }
 
@@ -572,8 +578,85 @@ td {
 #bloc-mise-a-jour {
     margin-top: 2rem;
     margin-left: 2rem;
+    text-align: end;
 }
 
+/* bloc bouton ouverture du formulaire de candidature */
+
+#openFormBloc {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* formulaire */
+
+#blocCandidature {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#blocCandidature form {
+    width: 50%;
+}
+
+#blocCandidature h1 {
+    text-align: center;
+}
+
+.blocFormulaire {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 1vw;
+}
+
+.blocFormulaire label {
+    text-align: center;
+    padding: 1vw;
+}
+
+.blocFormulaireLigne {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+form input {
+    width: 100%;
+    min-width: 18vw;    
+}
+
+/****** input radio *******/
+
+/* bloc reponse */
+
+#blocReponse {
+    justify-content: end;
+    padding-bottom: 13px;
+}
+
+
+.inputBlocRadio {
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"].radioInput {
+    display: none;
+  }
+
+.labelRadio {
+    border-radius: 25%;
+}
+
+.blocButtonSubmit {
+    display: flex;
+    justify-content: center;
+}
 
 
 /* ------------------------------------------------- Mode-Jour ---------------------------------------------------------------*/
@@ -724,11 +807,52 @@ td {
 
 
 
+ .formReponseLegend{
+    text-align: center;
+    padding: 8px;
+ }
+
+
 .tableau-nuit {
     background-color: #0088ff1e;
 }
 
- 
+
+/* Formulaire jour */
+
+    /* Bloc formulaire */
+
+    .blocCandidatureSunset {
+        border-bottom : 1px solid #bcff57;
+        background: rgba(255, 118, 14, 0.35);
+        box-shadow: 1px 2px 5px 2px #ff9e27;
+        padding: 4vw;
+    }
+
+
+
+
+.radioInputDay + .labelDay {
+	background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    border: 1px solid #baefff;
+    
+}
+
+.radioInputDay:checked + .labelDay {
+    border: 1px dashed #fffcf2;
+    background: linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
+}
+
+.labelDay {
+    font-size: 16px;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px rgb(224, 237, 123);
+    font-family:Georgia;
+}
+
+
+
+
 
 
 
@@ -761,6 +885,38 @@ td {
     box-shadow: 1px 2px 5px 2px #ff9e27;
     color: #020705;
 }
+
+
+/* block */
+
+
+.integrationInputSunset {
+    padding: 5px;
+    font-size: 16px;
+    border-width: 2px;
+    border-color: 1px solid  #07541e;
+    background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+    color: #ff0000;
+    border-style: groove;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 0px rgb(255, 166, 64);
+}
+.integrationInputSunset:focus {
+    outline:none;
+}
+
+#label-integration-content {
+    flex: 0 0 207.6px;
+    text-align: center;
+}
+
+.integrationInputSunset::placeholder {
+    text-shadow: 1px 2px 5px rgb(255, 213, 3);
+    color: #f3375dfb;
+    text-shadow: none;
+}
+
+
 
 /* bloc-choix-video */
 
@@ -810,8 +966,7 @@ td {
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	border-radius:8px;
-	border: 1px solid #ffc003;
-	display:inline-block;
+    border: 1px solid #07541e;
 	cursor:pointer;
 	color:#020705;
 	font-family:Georgia;
@@ -845,7 +1000,7 @@ td {
     background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1);
     box-shadow: 5px -4px 15px 5px #ff8c21;
-	border: 1px solid #ffc003;
+	border: 1px solid #07541e;
     color: #020705;
     font-family:Georgia;
     font-size:16px;
@@ -853,6 +1008,11 @@ td {
     text-decoration:none;
     text-shadow : 2px 1px 1px #a46d36;
 }
+
+
+
+
+/* Tableau crépuscule */
 
 .tableauSunset  {
     background-color: rgba(255, 119, 0, 0.334);
@@ -875,22 +1035,60 @@ td {
 
 .tableauSunset th, .tableauSunset td {
     background-color: #e5eeee46;
-    color: rgb(0, 181, 42);
+    color: rgb(255, 232, 199);
     text-shadow : 1px 1px 1px #feffe0;
 }
 
-.tableauSunset th, .tableauSunset td a {
-    color: rgb(202, 255, 214);
+.tableauSunset th {
+    color: #1c1c1c;
+}
+
+.tableauSunset td a {
+    color: rgb(85, 113, 255);
 }
 
 
-.tableauSunset th, .tableauSunset td a:hover {
-    color: rgb(0, 255, 85);
+.tableauSunset td a:hover {
+    color: rgb(255, 91, 91);
 }
 .tableauSunset #bloc-mise-a-jour p {
-    color: rgb(0, 181, 42);
-    text-shadow : 1px 1px 1px #feffe0;
+    color: rgb(255, 115, 0);
+    text-shadow : 1px 1px 1px #ff3434;
 }
+
+
+/* Formulaire sunset  */
+
+    /* Bloc formulaire */
+
+    .blocCandidatureSunset {
+        border: 1px solid #baefff;
+        background: rgba(251, 175, 44, 0.245);
+        box-shadow: 1px 2px 5px 2px #ffefbb;
+        padding: 4vw;
+    }
+
+
+.radioInputSunset + .labelSunset {
+	background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+	border: 1px solid #07541e;
+
+
+}
+
+.radioInputSunset:checked + .labelSunset {
+    border: 1px dashed rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
+}
+
+.labelSunset {
+    font-size: 16px;
+    color: #020705;   
+    font-family:Georgia;
+    text-shadow: 2px 1px 1px #a46d36;
+}
+
+
 
 /* ------------------------------------------------- Mode-Nuit ---------------------------------------------------------------*/
 
@@ -1048,6 +1246,26 @@ td {
 
 }
 
+/* input radio night */
+
+
+
+  .radioInputNight + .labelNight {
+    background: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%) ;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.695);
+    text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.695);
+  }
+
+
+
+  .radioInputNight:checked + .labelNight {
+    border: 1px dashed #ccc;
+    background: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%)
+
+
+  }
+
 /* Tableau nuit */
 
 .tableauNight  {
@@ -1188,38 +1406,8 @@ td {
 
 
 
-/* ------------------------------------------------- Mode-Crépuscule --------------------------------------------------------*/
 
 
-
-/* block */
-
-
-.integrationInputSunset {
-    padding: 5px;
-    font-size: 16px;
-    border-width: 2px;
-    border-color: #07541e;
-    background-color: #ffb52b;
-    color: #ff0000;
-    border-style: groove;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px 0px rgb(255, 166, 64);
-}
-.integrationInputSunset:focus {
-    outline:none;
-}
-
-#label-integration-content {
-    flex: 0 0 207.6px;
-    text-align: center;
-}
-
-.integrationInputSunset::placeholder {
-    text-shadow: 1px 2px 5px rgb(255, 213, 3);
-    color: #f3375dfb;
-    text-shadow: none;
-}
 
 
 
@@ -1288,11 +1476,5 @@ figcaption {
     animation-fill-mode: forwards;
 }
 
-
-/* the moon */
-
-.test {
-    background-image: url(assets/image-background/);
-}
 
 

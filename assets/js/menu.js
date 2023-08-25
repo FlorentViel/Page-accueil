@@ -146,9 +146,6 @@ function updateYoutubeBtn() {
     const videoChoix = $('#choix-content-video');
     const btnChoixVideo = $('#choix-video');
     
-
-
-
     // blocks videos 
 
     const menuVideo = $('#menu-video');

@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
-    <title>Page d'Accueil personnalisée</title>
+    <title>Page d'Accueil personnalisée TEST</title>
 </head>
 <body>
 
@@ -26,7 +29,7 @@
         
                         <div class="flex-meteo-item">
         
-                            <h1 class="text-center mt-5">  Météo</h1>
+                            <h1 class="text-center mt-5">Météo</h1>
                             <span id="ville"></span>
             
                             <div id="temperature">
@@ -46,6 +49,7 @@
                         <div class="flex-item etat-soleil-bloc">
                             <h1 class="etat-soleil"></h1>
                         </div>
+
         
                     </div>
             </header>
@@ -69,7 +73,6 @@
                 </div>
                 <div>
                     <a target="_blank" href="../projet_vus/index.html">
-                        <div>Vu.js projet apprentissage</div>
                         <img class="logo"
                         src="assets/images/icon/dossier.png"
                         alt="Projet Vus.js">
@@ -106,6 +109,8 @@
                 </div>
 
             </div>
+
+            
 
             <div id ="session-video" class="none">
                 
@@ -166,90 +171,118 @@
 
             <div id="session-tableau" class="table-wrapper none">
                 <div id="bloc-tableau">
+                  <div id="app">
                     <table id="tableau">
-                        <thead>
-                            <tr>
-                                <th>Entreprise</th>
-                                <th>Adresse</th>
-                                <th>Numéro de tel.</th>
-                                <th>Lien site ou annonce</th>
-                                <th>Date d'appel</th>
-                                <th>Réponse</th>
-                            </tr>
-                        </thead>
+                      <thead>
                         <tr>
-                            <td>Constructions-3D</td>
-                            <td>59860 Bruay-sur-l'Escaut</td>
-                            <td>N/A</td>
-                            <td><a target="_blank" href="https://fr.indeed.com/viewjob?from=app-tracker-post_apply-appcard&hl=fr&jk=1839b94e8f2bf23f&tk=1h4o70e6kjijb800">Indeed offre</a></td>
-                            <td>07 juillet 2023</td>
-                            <td>Non</td>
+                          <th>Entreprise</th>
+                          <th>Adresse</th>
+                          <th>Numéro de tel.</th>
+                          <th>Lien site ou annonce</th>
+                          <th>Date d'appel</th>
+                          <th>Réponse</th>
+                          <th>Commentaire</th>
+                          <th>Supprimer candidature</th>
                         </tr>
-                        <tr>
-                            <td>Esens Consulting</td>
-                            <td>Adresse : 54 / 58 Rue Nationale, 59800 Lille</td>
-                            <td>03 66 72 89 70</td>
-                            <td>Pole emploi : Offre n° 8593658 /  <a target="_blank" href="https://fr.talent.com/view?platform=&action=&uit=&id=b9eab3b7495b&ost=true&source=pole_emploi&utm_medium=pole_emploi&ib=true&jobSeekerContext=&np=true&newRouting=true&pagetype=whitepage&at=">Talent.com offre</a></td>
-                            <td>18 juillet 2023</td>
-                            <td>Non</td>
+                      </thead>
+                      <tbody>
+                        <!-- Utilisez la directive v-for pour parcourir les candidatures et afficher les informations -->
+                        <tr v-for="(candidature, index) in candidatures" :key="candidature.id">
+                          <td>{{ candidature.entreprise }}</td>
+                          <td>{{ candidature.adresse }}</td>
+                          <td>{{ candidature.tel }}</td>
+                          <td><a :href="candidature.link" target="_blank">{{ candidature.link }}</a></td>
+                          <td>{{ candidature.date }}</td>
+                          <td>{{ candidature.reponse }}</td>
+                          <td>{{ candidature.commentaire }}</td>
+                          <td><button class="btnStyle" @click="deleteCandidature(index)">Supprimer</button></td>
                         </tr>
-                        <tr>
-                            <td>Studio RH</td>
-                            <td>Centre d’affaires REGUS
-                                253, Boulevard de Leeds
-                                59777 Euralille</td>
-                            <td>06 10 03 15 15</td>
-                            <td><a target="_blank" href="https://www.studiorh.net">https://www.studiorh.net</a></td>
-                            <td>27 juillet 2023</td>
-                            <td>Contact par téléphone le jour de la candidature. Plusieurs offre de disponible.</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
+                      </tbody>
                     </table>
-
+              
                     <div id="bloc-mise-a-jour">
-                        <p>Date de la dernière vérification d'offre : 27 juillet 2023</p>
+                      <p>Date de la dernière vérification d'offre : {{ lastUpdateDate }}</p>
                     </div>
+              
+                    <div id="openFormBloc" class="">
+                      <button class="btnStyle" @click="toggleMessage">{{ messageVisible ? 'Fermer le message' : 'Afficher le message' }}</button>
+                    </div>
+              
+                    <div id="blocCandidature" v-if="messageVisible">
+                      <form>
+                        <div>
 
+                            <h1>Ajouter une entreprise</h1>
+                            <div v-if="errorEntreprise">Erreur : Le champ entreprise ne peut pas être vide.</div>
+                            <div id="form" @submit.prevent="">
+                                <div class="blocFormulaireLigne">
+                                    <div class="blocFormulaire">
+                                        <label for="inputEntreprise">Entreprise</label>
+                                        <input v-model="newCandidature.entreprise" type="text" class="" id="inputEntreprise">
+                                    </div>
+                                    <div class="blocFormulaire">
+                                        <label for="inputAdresse">Adresse</label>
+                                        <input v-model="newCandidature.adresse" required type="text" class="integrationInputNight" id="">
+                                    </div>
+                                </div>
+                                <div class="blocFormulaireLigne">
+                                    <div class="blocFormulaire">
+                                        <label for="inputTel">Numéro de téléphone</label>
+                                        <input v-model="newCandidature.tel" required type="text" class="" id="inputTel">
+                                    </div>
+                                    <div class="blocFormulaire">
+                                        <label for="inputLink">Lien site ou annonce</label>
+                                        <input v-model="newCandidature.link" required type="url" class="" id="inputTel"
+                                        placeholder="https://example.com" pattern="https://.*" size="30">
+                                  </div>
+                                </div>
+                                <div class="blocFormulaireLigne">
+                                    <div class="blocFormulaire">
+                                        <label for="inputDate">Date</label>
+                                        <input v-model="newCandidature.date" required type="date" class="" id="inputdate">
+                                      </div>
+                                    <div id="blocReponse" class="blocFormulaire">
+                                     <legend class="formReponseLegend">Réponse</legend>
+                                        <div class="inputBlocRadio">
+                                            <input required type="radio" class="radioInput radioInputDay" id="oui" name="inputReponse" value="oui"
+                                            v-model="newCandidature.reponse">
+                                          <label class="labelRadio" for="oui">Oui</label>
+                                          <input required type="radio" class="radioInput radioInputDay" id="non" name="inputReponse" value="non"
+                                            v-model="newCandidature.reponse">
+                                          <label class="labelRadio" for="non" checked>Non</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                              <div class="blocFormulaire">
+                                <label for="inputCommentary">Commentaire?</label>
+                                <input v-model="newCandidature.commentaire" type="text" class="" id="inputCommentary">
+                              </div>
+                              <div class="blocButtonSubmit">
+                                <button type="submit" @click.prevent="submitCandidature();" class="btnStyle"><i class=""></i> Ajouté la candidature à la liste</button>
+                              </div>
+                            </div>
+
+                            
+
+                        </div>
+                        
+                      </form>
+                    </div>
+                  </div>
                 </div>
-            </div>
-
-
-
-
-
-
+              </div>
+              
+            
+              <script src="https://unpkg.com/vue@3.2.22/dist/vue.global.js"></script>
+              <script>
+                // Votre code Vue.js ici
+                // ...
+              </script>
+            </body>
+            
+            </html>
+            
             <div id="bloc_group">
 
                 <div>
@@ -296,7 +329,7 @@
 
                 </div>
                 <div id="menu-info">
-                    <button class="btnStyle btn-deroulant-style" id="btn-menu-deroulant">Mode</button>
+                    <button class="btnStyle btn-deroulant-style" id="" @click.prevent="goToTable()">Mode</button>
                     <ul id="" class="style-menu none close">
                         <li id="web-affiche">
                             Affichage site web
@@ -315,10 +348,20 @@
 
         </footer>
     </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3.2.21/dist/vue.esm-bundler.js"></script>
+
+
     <script src="assets/jquery/jquery-3.6.4.min.js"></script>
     <script src="assets/js/suncalc-master/suncalc.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/meteo/meteo.js"></script>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/app.js"></script>
+
 </body>
 </html>
