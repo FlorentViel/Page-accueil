@@ -11,8 +11,12 @@
 
     function soleil(){
 
-        var times = SunCalc.getTimes(new Date(), 49.7534248, 3.3643912);
+        var times = SunCalc.getTimes(new Date(), 50.633, 3.0586);
         const date = new Date();
+
+        //var times = SunCalc.getTimes(new Date('August 7, 2023 02:52:00'), 49.7534248, 3.3643912);
+        //const date = new Date('August 7, 2023 02:52:00');
+
         var background = $('#background-image');
 
         const hours = ((date.getHours() + 11) % 12 + 1);
@@ -29,8 +33,7 @@
     
         $(".PM").html((AM < 12 ) ? `AM` : `PM`);
 
-        //var times = SunCalc.getTimes(new Date('August 7, 2023 21:52:00'), 49.7534248, 3.3643912);
-        //const date = new Date('August 7, 2023 21:52:00');
+
 
         var sunrise = times['sunrise'];
         var sunriseend= times['sunriseEnd']
@@ -341,6 +344,9 @@
             $('.radioInput').removeClass('radioInputDay');
             $('.labelRadio').removeClass('labelDay');
             $('#blocCandidature').removeClass('blocCandidatureDay');
+            $('#blocCandidature').addClass('blocCandidatureNight');
+            $('#blocCandidature').removeClass('blocCandidatureSunset');
+
             
 
 

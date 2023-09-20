@@ -2,7 +2,7 @@
 //Le code écrit est en mode strict
 
 
-let ville = "Moÿ-de-l'Aisne";
+let ville = "Lille";
 let meteo;
 // Appel initial de la fonction recevoirTemperature avec la fonction de rappel
 recevoirTemperature(ville, traiterTemperature);
@@ -33,7 +33,7 @@ function recevoirTemperature(ville, callback) {
 
 
 
-  //console.log(url);
+  console.log(url);
 
 
 

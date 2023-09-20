@@ -822,10 +822,10 @@ input[type="radio"].radioInput {
 
     /* Bloc formulaire */
 
-    .blocCandidatureSunset {
-        border-bottom : 1px solid #bcff57;
-        background: rgba(255, 118, 14, 0.35);
-        box-shadow: 1px 2px 5px 2px #ff9e27;
+    .blocCandidatureDay {
+        border-bottom : 1px solid #eafffe;
+        background: rgba(14, 255, 251, 0.35);
+        box-shadow: 1px 2px 5px 2px #ffffff;
         padding: 4vw;
     }
 
@@ -1278,6 +1278,16 @@ input[type="radio"].radioInput {
     box-shadow: 1px 2px 5px 2px #000000;
 
 }
+
+/* Formulaire jour */
+
+    /* Bloc formulaire */
+
+    .blocCandidatureNight {
+        background: rgba(112, 126, 246, 0.35);
+        box-shadow: 1px 2px 5px 2px #000000;
+        padding: 4vw;
+    }
 
 .tableauNight th {
     font-style: normal;
