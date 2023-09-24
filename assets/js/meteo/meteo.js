@@ -2,7 +2,7 @@
 //Le code écrit est en mode strict
 
 
-let ville = "Lille";
+let ville = "Moÿ-de-l'aisne";
 let meteo;
 // Appel initial de la fonction recevoirTemperature avec la fonction de rappel
 recevoirTemperature(ville, traiterTemperature);
@@ -86,6 +86,25 @@ function traiterTemperature(reponse) {
   video(now, meteo);
         
   switch (weatherId){
+     case 300: 
+    case "Soleil":
+      weather = 'Brouillard léger';
+
+      console.log(weather);
+
+      document.querySelector('#icon-meteo').src="assets/images/icon/day_light_rain.png";
+      document.querySelector('#icon-meteo').alt=weather;
+      document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+
+      break;
+    case "Lune":
+      weather = 'Brouillard léger';
+
+      document.querySelector('#icon-meteo').src="assets/images/icon/night_light_rain.png";
+      document.querySelector('#icon-meteo').alt=weather;
+      document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+
+      break;
 
     case 800: 
 

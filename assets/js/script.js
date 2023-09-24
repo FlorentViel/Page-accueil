@@ -234,6 +234,8 @@
             $('.radioInput').addClass('radioInputDay');
             $('.labelRadio').addClass('labelDay');
             $('#blocCandidature').addClass('blocCandidatureDay');
+            $('#google_input_bar').addClass('integrationInputDay');
+            $('#google_btn_search').addClass('custom-search-submit-day'); 
 
         } else if (date >= goldenHour && date <= dusk) {
 

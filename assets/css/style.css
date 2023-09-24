@@ -1,54 +1,36 @@
+/* Déclarez les variables CSS pour les couleurs, la police et la taille de texte */
+/* Couleurs */
 :root {
+    --white : rgba(252, 252, 252, 1); ;
+    --entete-border-bottom-color-day: #baefff;
+    --entete-background-color-day: rgba(251, 175, 44, 0.245);
+    --entete-box-shadow-color-day: #ffefbb;
+    --box-shadow-color-day: #ebf0ff;
+    --gradient-start-color-day: rgba(252, 252, 252, 0.5);
+    --gradient-end-color-day: rgba(129, 182, 249, 0.5);
+    --border-color-day: #baefff;
+    --text-color-day: #256aff;
+    --background-color-day: rgba(252, 252, 252, 0.5);
+    --btn-box-shadow-color-day: #ebf0ff;
+    --btn-gradient-start-color-day: rgba(252, 252, 252, 1);
+    --btn-gradient-end-color-day: rgba(129, 182, 249, 1);
+    --btn-border-color-day: #baefff;
+    --btn-background-color-day: rgba(252, 252, 252, 1);
+    --btn-button-hover-background-color-day: rgba(0, 209, 254, 1);
+    --btn-text-shadow-day: #fff7a4;
 
-    /* Paramètre jour/nuit/couché de soleil, par défaut valeur nuit */
-
-    /* entete class */
-
-    --enteteborder : ;
-    --entetebg : ;
-    --enteteshadow : rgba(255, 118, 14, 0.35) ;
-    --colorentete: #020705 ;
-    --colorglobal : ;
-
-    /* menu / bloc class */
-
-    --menu: ;
-    --menuwebkit : ;
-    --menumoz : ;
-    --menulinear : ;
-    --menuBg: rgb(63,67,218);
-    --filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
-    --textShadow : 2px 1px 1px #283966;
-    --menushadow : 5px -4px 15px 5px #000; 
-    --menuBorder : 1px solid #4e6096; 
-
-    /* show btn */
-    
-    --btnShow: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShowwebkit : -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShowmoz : -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShowlinear :-o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    --btnShowBg :rgb(63,67,218);
-    
-
-    /* Mode nuit paramètre */
-
-    /* image-background */
-
-
-    /* Mode jour paramètre  */
-
-    /* image-background */
-
-
-     
-
-    /* Mode crépuscule */
-
-
-
-    
+    --btn-hover-gradient-start-color-day: rgba(0, 209, 254, 1);
+    --btn-hover-gradient-end-color-day: rgba(128, 184, 247, 1);
+    --btn-hover-background-color-day: rgba(0, 209, 254, 1);
+    --btn-hover-button-hover-background-color-day: rgba(0, 209, 254, 1);
 }
+
+/* Police */
+:root {
+  --font-family: Georgia, serif;
+  --font-size: 16px;
+}
+
 
 
 * {
@@ -224,16 +206,44 @@ body {
 
 }
 
-.etat-soleil-bloc {
-    /*position: relative;
-    background-color: aqua;
-    width: 50px;
-    height: 50px;
-    margin-left: auto;
-    padding: 6px;
-    text-align: center;
-    */
+/* google recherche  */
+
+/* Style pour le conteneur du formulaire */
+.custom-search-container {
+    /* Ajoutez ici les styles que vous souhaitez appliquer au conteneur */
+    display: flex; /* Utilisez un affichage flexible pour aligner les éléments horizontalement */
+    height: 35px;
+    width: 50vw;
+    margin: auto;
+    padding: 5vw;
 }
+
+/* Style pour le champ de texte de recherche */
+.custom-search-input {
+    /* Ajoutez ici les styles que vous souhaitez appliquer au champ de texte */
+    width: 200px; /* Exemple de largeur */
+    flex-grow: 1; /* Faites en sorte que le champ de texte prenne le reste de l'espace disponible */
+}
+
+.custom-search-form input {
+    /* Annulez les styles indésirables ici */
+    width: auto; /* Réinitialise la largeur à la valeur par défaut */
+    min-width: auto; /* Réinitialise la largeur minimale à la valeur par défaut */
+    /* Ajoutez d'autres styles spécifiques au formulaire de recherche ici */
+}
+
+/* Style pour le bouton de soumission */
+.custom-search-submit {
+    /* Ajoutez ici les styles que vous souhaitez appliquer au bouton de soumission */
+    background-color: #007bff; /* Exemple de couleur de fond */
+    color: #fff; /* Exemple de couleur du texte */
+    font-size: 12px; /* Taille de la police du texte */
+    padding: 5px 10px; /* Espacement interne (padding) pour le bouton */
+    border: none; /* Supprimer la bordure du bouton */
+    cursor: pointer; /* Curseur de souris en forme de main */
+    flex-shrink: 0; /* Empêche le bouton de réduire sa taille pour s'adapter à l'espace disponible */
+}
+
 
 .listsoleil{
     list-style: none;
@@ -342,6 +352,17 @@ body {
     margin: 1rem;
     justify-content: space-between;
 }
+
+/* Lorsque la souris survole un lien */
+.logo {
+    transition: transform 0.5s; /* Ajoutez une transition pour une animation fluide */
+  }
+  
+  .logo:hover {
+    transform: translate(0,-25px)
+}
+  
+  
 
 /* bloc site */
 
@@ -625,7 +646,7 @@ td {
 }
 
 
-form input {
+#blocCandidature form input {
     width: 100%;
     min-width: 18vw;    
 }
@@ -665,78 +686,77 @@ input[type="radio"].radioInput {
 /* entete */
 
 .EnteteTimeDay {
-    border-bottom : 1px solid #baefff;
-    background: rgba(251, 175, 44, 0.245);
-    box-shadow: 1px 2px 5px 2px #ffefbb;
-    color: #ffffff;
+    border-bottom : var(--entete-border-bottom-color-day);
+    background: var(--entete-background-color-day);
+    box-shadow: 1px 2px 5px 2px var(--entete-box-shadow-color-day);
+    color: var(--white);
 }
 
 /* bloc-choix-video */
 
 .block-choix-video-TimeDay{
-    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
-	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
-    background: -webkit-linear-gradient(90deg, rgba(252,252,252,0.50) 0%, rgba(129,182,249,0.50) 100%);
-    background: -moz-linear-gradient(90deg, rgba(252,252,252,0.50) 0%, rgba(129,182,249,0.50) 100%);
-    background: -o-linear-gradient(90deg, rgba(252,252,252,0.50) 0%, rgba(129,182,249,0.50) 100%);
-    background: rgba(252,252,252,0.50);
-    background: linear-gradient(90deg, rgba(252,252,252,0.50) 0%, rgba(129,182,249,0.50) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
-    box-shadow: 5px -4px 15px 5px #ebf0ff;
-	border: 1px solid #baefff;
-    color: #256aff;
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    text-decoration:none;
+    -moz-box-shadow: 16px 0px 0px 2px var(--box-shadow-color-day);
+    -webkit-box-shadow: 16px 0px 0px 2px var(--box-shadow-color-day);
+    background: -webkit-linear-gradient(90deg, var(--gradient-start-color-day) 0%, var(--gradient-end-color-day) 100%);
+    background: -moz-linear-gradient(90deg, var(--gradient-start-color-day) 0%, var(--gradient-end-color-day) 100%);
+    background: -o-linear-gradient(90deg, var(--gradient-start-color-day) 0%, var(--gradient-end-color-day) 100%);
+    background: var(--background-color-day);
+    background: linear-gradient(90deg, var(--gradient-start-color-day) 0%, var(--gradient-end-color-day) 100%);
+    box-shadow: 5px -4px 15px 5px var(--box-shadow-color-day);
+    border: 1px solid var(--border-color-day);
+    color: var(--text-color-day);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Tumbnail  */
 
 .figureTimeDay {
-    border: thin #baefff solid;
+    border: thin var(--border-color-day) solid;
 }
 
 /* figcaption */
 
 .figcaptionTimeDay {
-    background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
-    color:#256aff;
+    background: linear-gradient(90deg, var(--btn-gradient-start-color-day), var(--btn-gradient-end-color-day) 100%);
+    color: var(--text-color-day);
 }
 
 /* btn video  */
 
 
 .btn-show-TimeDay{
-    -moz-box-shadow: 5px -4px 15px 5px #ebf0ff;
-	-webkit-box-shadow: 5px -4px 15px 5px #ebf0ff;
-	box-shadow: 5px -4px 15px 5px #ebf0ff;
-	background: -webkit-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
-	background: -moz-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
-	background: -o-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
-	background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
-	background-color : rgba(252,252,252,1);
+    -moz-box-shadow: 5px -4px 15px 5px var(--btn-box-shadow-color-day);
+    -webkit-box-shadow: 5px -4px 15px 5px var(--btn-box-shadow-color-day);
+    box-shadow: 5px -4px 15px 5px var(--btn-box-shadow-color-day);
+    background: -webkit-linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+    background: -moz-linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+    background: -o-linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+    background: linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+    background-color: var(--btn-background-color-day);
+    border: 1px solid var(--btn-border-color-day);
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	border-radius:8px;
-	border: 1px solid #baefff;
 	display:inline-block;
 	cursor:pointer;
-	color:#256aff;
+	color:var(--text-color-day);
 	font-family:Georgia;
 	font-size:14px;
 	font-weight:bold;
 	padding:8px 12px;
 	text-decoration:none;
-	text-shadow: 2px 1px 1px #fff7a4;
+	text-shadow: 2px 1px 1px var(--btn-text-shadow-day);
 }
 
 .btn-show-TimeDay:hover {
-    background: rgba(0,209,254,1);
-    background: -moz-linear-gradient(0deg, rgba(0,209,254,1) 0%, rgba(128,184,247,1) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
-    background: linear-gradient(90deg, rgba(0,209,254,1) 28%, rgba(128,184,247,1) 100%);
+    background: -webkit-linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
+    background: -moz-linear-gradient(0deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
+    background: -o-linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
+    background: linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
 }
 
@@ -745,12 +765,34 @@ input[type="radio"].radioInput {
 	top:1px;
 }
 
+
+/* Google recherche day */
+ 
+.custom-search-submit-day {
+        background: -webkit-linear-gradient(90deg, var(--btn-gradient-start-color-day), var(--btn-gradient-end-color-day));
+        border: 1px solid var(--border-color-day);
+        color: var(--text-color-day);
+        box-shadow: 0px 0px 5px rgba(235,240,255,.72);
+        text-shadow: 0px 0px 5px rgba(248,255,113,.75);
+        font-size: 16px;
+
+
+
+}
+.custom-search-submit-day:hover {
+    background: rgba(0,209,254,1);
+
+
+
+}
+
+
 .integrationInputDay {
     padding: 5px;
     font-size: 16px;
     border-width: 2px;
-    border-color: #baefff;
-    background-color: #fff;
+    border-color: var(--border-color-day);
+    background-color: var(--white);
     color: #11d3ff;
     border-style: groove;
     border-radius: 5px;
@@ -820,6 +862,9 @@ input[type="radio"].radioInput {
 
 /* Formulaire jour */
 
+
+
+
     /* Bloc formulaire */
 
     .blocCandidatureDay {
@@ -850,8 +895,26 @@ input[type="radio"].radioInput {
     font-family:Georgia;
 }
 
+/* Foooter */
 
-
+.blockTimeDay {
+    -moz-box-shadow: 16px 0px 0px 2px #ebf0ff;
+	-webkit-box-shadow: 16px 0px 0px 2px #ebf0ff;
+    background: (90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: -moz-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: -o-linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    background: rgba(252,252,252,1);
+    background: linear-gradient(90deg, rgba(252,252,252,1) 0%, rgba(129,182,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+    box-shadow: 5px -4px 15px 5px #ebf0ff;
+	border: 1px solid #baefff;
+    color: #256aff;
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    text-shadow : 2px 1px 1px #fff7a4;
+}
 
 
 

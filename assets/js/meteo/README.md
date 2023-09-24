@@ -14,6 +14,7 @@
 | 800   |  `Clear`  | `clear sky`               |
 | 800   |  `Clear`  | `clear sky`               |
 | 800   |  `Clear`  | `clear sky`               |
+| 300   | `Drizzle` | `light intensity drizzle` |   
 
 
 

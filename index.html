@@ -9,7 +9,13 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
-    <title>Page d'Accueil personnalisée TEST</title>
+    <script target="_blank" async src="https://cse.google.com/cse.js?cx=44f3a51b7ec03451d">
+    </script>
+    <title>Page d'Accueil personnalisée Alpha</title>
+    <script>
+
+</script>
+
 </head>
 <body>
 
@@ -53,62 +59,63 @@
         
                     </div>
             </header>
+
+
+            <section>
+                <style>
+                    
+                </style>
+                
+                <form onsubmit="redirectToSearchResults(this.querySelector('input').value); return false;" target="_blank" class="custom-search-container">
+                    <input id="google_input_bar" type="text" name="q" class="custom-search-input" size="40" placeholder="Rechercher...">
+                    <input id="google_btn_search" type="submit" value="Google" class="custom-search-submit">
+                </form>
+                
+                
+            </section>
+
+
+            
         
             <div id="fav-site-bloc" class="flex">
-                <div>
-                    <a target="_blank" href="http://localhost/site/cv/cv.html">
-                        <div>CV</div>
-                        <img class="logo"
-                        src="assets/images/icon/dossier.png"
-                        alt="CV">
+                <div class="fav-icon-item">
+                    <a target="_blank" href="https://www.linkedin.com/in/votreprofillinkedin">
+                        <img class="logo" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
                     </a>
                 </div>
                 <div>
-                    <a target="_blank" href="../porfolio/index.html">
-                        <div>Porfolio</div>
-                        <img class="logo"
-                        src="assets/images/icon/dossier.png"
-                        alt="Porfolio">
+                    <a target="_blank" href="https://twitter.com/home">
+                        <img class="logo" src="https://www.jesus-forain.fr/uploads/blogPostImage/300/212/logo-x.com.jpg" alt="X.com">
                     </a>
                 </div>
                 <div>
-                    <a target="_blank" href="../projet_vus/index.html">
-                        <img class="logo"
-                        src="assets/images/icon/dossier.png"
-                        alt="Projet Vus.js">
+                    <a target="_blank" href="https://www.twitch.tv/votrechainedetwitch">
+                        <img class="logo" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://www.deviantart.com">
-                        <img class="logo"
-                        src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg"
-                        alt="Deviantart">
+                        <img class="logo" src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg" alt="Deviantart">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://technomagie.forumsrpg.com">
-                        <img class="logo"
-                        src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png"
-                        alt="Deviantart">
+                        <img class="logo" src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png" alt="Techomagie Forum">
+                    </a>
+                </div>
+                <!-- Conserver les liens existants, en les laissant vides si vous souhaitez les garder -->
+                <div>
+                    <a target="_blank" href="">
+                        <img class="logo" src="" alt="A garder">
                     </a>
                 </div>
                 <div>
-                    <a target="_blank" href=https://www.google.com/search?client=opera&q=intégrer+barre+de+recherche+google+html&sourceid=opera&ie=UTF-8&oe=UTF-8#imgrc=aYchgcsnxsBE4M">
-                        <img class="logo"
-                        src=""
-                        alt="A garder">
+                    <a target="_blank" href="">
+                        <img class="logo" src="" alt="A garder">
                     </a>
                 </div>
-
-                <div>
-                    <a target="_blank" href="https://developers.google.com/youtube/iframe_api_reference?hl=fr#:~:text=Si%20vous%20souhaitez%20mettre%20en,à%20appeler%20la%20fonction%20stopVideo%20.">
-                        <img class="logo"
-                        src=""
-                        alt="A garder">
-                    </a>
-                </div>
-
             </div>
+            
 
             
 
@@ -352,14 +359,13 @@
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue@3.2.21/dist/vue.esm-bundler.js"></script>
-
-
     <script src="assets/jquery/jquery-3.6.4.min.js"></script>
     <script src="assets/js/suncalc-master/suncalc.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/meteo/meteo.js"></script>
-
+    <script src="assets/js/audio.js"></script>
+    <script src="assets/js/google_script.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/app.js"></script>
 
