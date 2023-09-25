@@ -1,12 +1,41 @@
 
-// Function add event listener
+
+    $(document).ready(function() {
+      
+// Définissez une promesse pour l'API YouTube
+var youtubeAPIReadyPromise = new Promise(function(resolve) {
+  // Vérifiez régulièrement si l'API YouTube est prête
+  function checkAPI() {
+    if (typeof YT !== "undefined" && YT.Player) {
+      resolve();
+    } else {
+      // Réessayez dans 100 millisecondes (ajustez si nécessaire)
+      setTimeout(checkAPI, 100);
+    }
+  }
+
+  checkAPI();
+});
+
+
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 
+tag.onload = function() {
+  // Résolvez la promesse lorsque l'API YouTube est chargée
+  youtubeAPIReadyPromise.then(function() {
+    onYouTubeIframeAPIReady();
+  });
+};
+
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// ...
+
+
 
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
@@ -90,6 +119,74 @@ function updateYoutubeBtn() {
 
 }
 
+// ... (votre code existant)
+
+// Définissez une constante pour l'élément que vous souhaitez observer
+const sessionVideo = $('#session-video');
+
+// Définissez les options pour l'observateur (ajustez-les selon vos besoins)
+const observerOptions = {
+  root: null, // utilise la fenêtre comme conteneur par défaut
+  rootMargin: '0px', // aucune marge autour de la fenêtre
+  threshold: 0.5, // déclenche l'observation lorsque 50 % de l'élément est visible
+};
+
+// Fonction pour charger la vidéo lorsque l'élément est visible
+function loadVideoWhenVisible(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Charger la vidéo ici, par exemple :
+      player.loadVideoById(currentIdVideo);
+      // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
+      observer.unobserve(entry.target);
+    }
+  });
+}
+
+// Créez une instance de l'observateur
+const observer = new IntersectionObserver(loadVideoWhenVisible, observerOptions);
+
+// Observez l'élément que vous souhaitez surveiller (dans ce cas, sessionVideo)
+observer.observe(sessionVideo.get(0)); // Utilisez get(0) pour obtenir l'élément DOM sous-jacent
+
+// Variable de contrôle pour suivre si la vidéo doit être lue lorsqu'elle est visible
+let shouldPlayVideoWhenVisible = false;
+
+// ...
+
+// Fonction pour charger la vidéo lorsque l'élément est visible
+function loadVideoWhenVisible(entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      if (shouldPlayVideoWhenVisible) {
+        // Charger et lire la vidéo si shouldPlayVideoWhenVisible est vrai
+        player.loadVideoById(currentIdVideo);
+        player.playVideo();
+        // Réinitialiser shouldPlayVideoWhenVisible pour éviter la lecture automatique
+        shouldPlayVideoWhenVisible = false;
+      }
+      // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
+      observer.unobserve(entry.target);
+    }
+  });
+}
+
+// Lorsque l'utilisateur met en pause la vidéo manuellement
+function pauseVideoManually() {
+  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+    player.pauseVideo();
+  }
+}
+
+// Lorsque l'utilisateur souhaite jouer la vidéo manuellement
+function playVideoManually() {
+  shouldPlayVideoWhenVisible = true;
+  // Si la vidéo est déjà chargée, jouez-la immédiatement
+  if (player.getPlayerState() === YT.PlayerState.CUED || player.getPlayerState() === YT.PlayerState.PAUSED) {
+    player.playVideo();
+  }
+}
+
 
 
 
@@ -125,7 +222,6 @@ function updateYoutubeBtn() {
     // youtube 
 
     const youtubeMenu =$('#youtube-affiche');
-    const sessionVideo =$('#session-video');
 
 
     // Tableau 
@@ -401,6 +497,7 @@ tableauMenu.on('click', function(e) {
         }
     }
 
+    });
 
 
 
