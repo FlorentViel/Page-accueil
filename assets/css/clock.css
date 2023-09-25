@@ -1,0 +1,186 @@
+
+
+
+#bloc-horloge {
+    height: auto;
+    width: 180px;
+    position: fixed;
+    bottom: 20px;
+    right: 2vw;
+    text-align: center;
+}
+
+.PM {
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    padding-left: 43px;
+}
+
+/* bloc horloge */
+
+.center-clock{
+    right: 48vw!important;
+    bottom: 25vw!important;
+}
+
+
+/* cadre horloge */
+ 
+#horloge-background {
+    /*background-image: url('https://www.monhorloge.fr/wp-content/uploads/2020/01/free-clock-faces-template-1024x1024.png');
+    background-size: contain;*/
+    opacity: 0.5;
+    background-color: aliceblue;
+    opacity: 0.5;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid rgb(0, 0, 0);
+    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+    transform: translate(10%, 0%);
+
+}
+
+/* aguille */
+
+/* Petit et grande Aiguille */
+
+.grande-aiguille, .petite-aiguille {
+    position: absolute;
+    height: 47px; width: 3.21px;
+    margin: auto;
+    top: -27%; left: 0;	bottom: 0; right: 0;
+    background: black;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+}
+
+/* Uniquement grande Aiguille */
+
+.grande-aiguille {
+    position: absolute;
+    height: 67px;
+    width: 2.5px;
+    top: -38%;
+    left: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    transform: rotate(90deg);
+}
+
+/* L'aiguille des secondes */
+
+.seconde {
+    position: absolute;
+    height: 46px;
+    width: 2px;
+    margin: auto;
+    top: -26%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    background: #ff4b3e;
+    transform-origin: bottom center;
+    transform: rotate(180deg);
+}
+
+.dot {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 width: 2px;
+	 height: 2px;
+	 border-radius: 50%;
+	 background: white;
+	 border: 2px solid #1b1b1b;
+	 margin: auto;
+}
+
+
+
+.chiffre {
+    position: absolute;
+    font-size: 22px; /* Taille de la police des chiffres */
+    color: black; /* Couleur des chiffres */
+    font-family: Arial, sans-serif; /* Police de caractères des chiffres */
+    width: 20px;
+    text-align: center;
+}
+
+.chiffre12 {
+    top: 8px;
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.chiffre1 {
+    top: 15px;
+    left: 114px;
+    transform: rotate(31deg);
+}
+
+.chiffre2 {
+    top: 42px;
+    left: 141px;
+    transform: rotate(55deg);
+}
+
+.chiffre3 {
+    top: 77px;
+    left: 150px;
+    transform: rotate(90deg);
+}
+
+.chiffre4 {
+    top: 112px;
+    left: 141px;
+    transform: rotate(112deg);
+
+}
+
+.chiffre5 {
+    top: 138px;
+    left: 116px;
+    transform: rotate(136deg);
+
+}
+
+.chiffre6 {
+    top: 146px;
+    left: 80px;
+    transform: rotate(180deg);
+}
+
+.chiffre7 {
+    top: 137px;
+    left: 44px;
+    transform: rotate(210deg);
+}
+
+.chiffre8 {
+    top: 113px;
+    left: 17px;
+    transform: rotate(240deg);
+}
+
+.chiffre9 {
+    top: 77px;
+    right: 151px;
+    transform: rotate(260deg);
+
+}
+
+.chiffre10 {
+    top: 45px;
+    right: 143px;
+    transform: rotate(297deg);
+}
+
+.chiffre11 {
+    top: 17px;
+    right: 117px;
+    transform: rotate(330deg);
+}

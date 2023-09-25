@@ -1,6 +1,9 @@
 /* Déclarez les variables CSS pour les couleurs, la police et la taille de texte */
 /* Couleurs */
 :root {
+
+    /* varDay */
+
     --white : rgba(252, 252, 252, 1); ;
     --entete-border-bottom-color-day: #baefff;
     --entete-background-color-day: rgba(251, 175, 44, 0.245);
@@ -23,6 +26,37 @@
     --btn-hover-gradient-end-color-day: rgba(128, 184, 247, 1);
     --btn-hover-background-color-day: rgba(0, 209, 254, 1);
     --btn-hover-button-hover-background-color-day: rgba(0, 209, 254, 1);
+
+    /* varSunset*/
+
+    --entete-border-color-sunset: #bcff57;
+    --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
+    --entete-box-shadow-color-sunset: #ff9e27;
+    --entete-text-color-sunset: #020705;
+    
+    --integration-border-color-sunset: #07541e;
+    --integration-background-gradient-start-sunset: rgba(254, 166, 84, 1);
+    --integration-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
+    --integration-color-sunset: #ff0000;
+    --integration-box-shadow-color-sunset: rgb(255, 166, 64);
+    
+    --custom-search-button-background-gradient-start-sunset: rgba(254, 166, 84, 1);
+    --custom-search-button-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
+    --custom-search-button-border-color-sunset: #07541e;
+    --custom-search-button-box-shadow-color-sunset: #ff8c21;
+    --custom-search-button-text-color-sunset: #020705;
+    
+    --block-choix-video-background-gradient-start-sunset: rgba(254, 166, 84, 0.50);
+    --block-choix-video-background-gradient-end-sunset: rgba(255, 138, 13, 0.50);
+    --block-choix-video-box-shadow-color-sunset: #ff8c21;
+    --block-choix-video-border-color-sunset: #ffc003;
+    --block-choix-video-text-color-sunset: #020705;
+    
+    --figcaption-background-gradient-start-sunset: rgba(254, 166, 84, 1);
+    --figcaption-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
+    --figcaption-text-color-sunset: #020705;
+
+
 }
 
 /* Police */
@@ -235,8 +269,6 @@ body {
 /* Style pour le bouton de soumission */
 .custom-search-submit {
     /* Ajoutez ici les styles que vous souhaitez appliquer au bouton de soumission */
-    background-color: #007bff; /* Exemple de couleur de fond */
-    color: #fff; /* Exemple de couleur du texte */
     font-size: 12px; /* Taille de la police du texte */
     padding: 5px 10px; /* Espacement interne (padding) pour le bouton */
     border: none; /* Supprimer la bordure du bouton */
@@ -244,101 +276,14 @@ body {
     flex-shrink: 0; /* Empêche le bouton de réduire sa taille pour s'adapter à l'espace disponible */
 }
 
+.custom-search-submit:active {
+    top: 1px;
+    position: relative;
+}
+
 
 .listsoleil{
     list-style: none;
-}
-
-#bloc-horloge {
-    height: auto;
-    width: 180px;
-    position: fixed;
-    bottom: 20px;
-    right: 2vw;
-    text-align: center;
-}
-
-.PM {
-    font-size: 28px;
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    padding-left: 43px;
-}
-
-/* bloc horloge */
-
-
-/* cadre horloge */
- 
-#horloge-background {
-    background-image: url('https://www.monhorloge.fr/wp-content/uploads/2020/01/free-clock-faces-template-1024x1024.png');
-    opacity: 0.5;
-    background-size: contain;
-    background-color: aliceblue;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
-    transform: translate(10%, 0%);
-
-}
-
-/* aguille */
-
-/* Petit et grande Aiguille */
-
-.grande-aiguille, .petite-aiguille {
-    position: absolute;
-    height: 47px; width: 3.21px;
-    margin: auto;
-    top: -27%; left: 0;	bottom: 0; right: 0;
-    background: black;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-    transform-origin: bottom center;
-    transform: rotate(0deg);
-}
-
-/* Uniquement grande Aiguille */
-
-.grande-aiguille {
-    position: absolute;
-    height: 67px;
-    width: 2.5px;
-    top: -38%;
-    left: 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-    transform: rotate(90deg);
-}
-
-/* L'aiguille des secondes */
-
-.seconde {
-    position: absolute;
-    height: 46px;
-    width: 2px;
-    margin: auto;
-    top: -26%;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 4px;
-    background: #ff4b3e;
-    transform-origin: bottom center;
-    transform: rotate(180deg);
-}
-
-.dot {
-	 position: absolute;
-	 top: 0;
-	 left: 0;
-	 right: 0;
-	 bottom: 0;
-	 width: 2px;
-	 height: 2px;
-	 border-radius: 50%;
-	 background: white;
-	 border: 2px solid #1b1b1b;
-	 margin: auto;
 }
 
 
@@ -768,7 +713,7 @@ input[type="radio"].radioInput {
 
 /* Google recherche day */
  
-.custom-search-submit-day {
+.custom-search-submit-Day {
         background: -webkit-linear-gradient(90deg, var(--btn-gradient-start-color-day), var(--btn-gradient-end-color-day));
         border: 1px solid var(--border-color-day);
         color: var(--text-color-day);
@@ -779,7 +724,7 @@ input[type="radio"].radioInput {
 
 
 }
-.custom-search-submit-day:hover {
+.custom-search-submit-Day:hover {
     background: rgba(0,209,254,1);
 
 
@@ -943,27 +888,27 @@ input[type="radio"].radioInput {
 /************************************************* Mode-Crepuscule ***********************************************************/
 
 .EnteteTimeSunset {
-    border-bottom : 1px solid #bcff57;
-    background: rgba(255, 118, 14, 0.35);
-    box-shadow: 1px 2px 5px 2px #ff9e27;
-    color: #020705;
+    border-bottom: 1px solid var(--entete-border-color-sunset);
+    background: var(--entete-background-color-sunset);
+    box-shadow: 1px 2px 5px 2px var(--entete-box-shadow-color-sunset);
+    color: var(--entete-text-color-sunset);
 }
 
 
 /* block */
 
-
 .integrationInputSunset {
     padding: 5px;
     font-size: 16px;
     border-width: 2px;
-    border-color: 1px solid  #07541e;
-    background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
-    color: #ff0000;
+    border-color: 1px solid var(--integration-border-color-sunset);
+    background: linear-gradient(90deg, var(--integration-background-gradient-start-sunset) 5%, var(--integration-background-gradient-end-sunset) 100%);
+    color: var(--integration-color-sunset);
     border-style: groove;
     border-radius: 5px;
-    box-shadow: 0px 1px 5px 0px rgb(255, 166, 64);
+    box-shadow: 0px 1px 5px 0px var(--integration-box-shadow-color-sunset);
 }
+
 .integrationInputSunset:focus {
     outline:none;
 }
@@ -979,26 +924,50 @@ input[type="radio"].radioInput {
     text-shadow: none;
 }
 
+.custom-search-submit-Sunset {
+    background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var(--custom-search-button-background-gradient-end-sunset) 100%);
+    background-color: var(--custom-search-button-background-gradient-start-sunset);
+    border: 1px solid var(--custom-search-button-border-color-sunset);
+    box-shadow: 5px -4px 15px 5px var(--custom-search-button-box-shadow-color-sunset);
+    color: var(--custom-search-button-text-color-sunset);
+    -moz-box-shadow: 1px solid #ffc003;
+	-webkit-box-shadow: 1px solid #ffc003;
+	box-shadow: 5px -4px 15px 5px #ff8c21;
+    text-shadow: 2px 1px 1px #a46d36;
+    border: 1px solid #07541e;
+    font-size: 16px;
+    color:#020705;
+
+
+
+
+}
+.custom-search-submit-Sunset:hover {
+    background: rgb(255,183,115);
+
+
+}
+
+
+
 
 
 /* bloc-choix-video */
 
 .block-choix-video-TimeSunset{
-    -moz-box-shadow: 5px -4px 15px 5px #ff8c21;
-	-webkit-box-shadow: 5px -4px 15px 5px #ff8c21;
-    background: -webkit-linear-gradient(90deg, rgba(254,166,84,0.50) 5%, rgba(255, 138, 13, 0.50) 100%);
-    background: -moz-linear-gradient(90deg, rgba(254,166,84,0.50) 5%, rgba(255, 138, 13, 0.50) 100%);
-    background: -o-linear-gradient(90deg, rgba(254,166,84,0.50) 5%, rgba(255, 138, 13, 0.50) 100%);
-    background: rgba(254,166,84,0.50);
-    background: (90deg, rgba(254,166,84,0.50) 5%, rgba(255, 138, 13, 0.50) 100%);
+    -moz-box-shadow: 5px -4px 15px 5px var(--block-choix-video-box-shadow-color-sunset);
+    -webkit-box-shadow: 5px -4px 15px 5px var(--block-choix-video-box-shadow-color-sunset);
+    background: -webkit-linear-gradient(90deg, var(--block-choix-video-background-gradient-start-sunset) 5%, var(--block-choix-video-background-gradient-end-sunset) 100%);
+    background: -moz-linear-gradient(90deg, var(--block-choix-video-background-gradient-start-sunset) 5%, var(--block-choix-video-background-gradient-end-sunset) 100%);
+    background: -o-linear-gradient(90deg, var(--block-choix-video-background-gradient-start-sunset) 5%, var(--block-choix-video-background-gradient-end-sunset) 100%);
+    background: var(--block-choix-video-background-gradient-start-sunset);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea65484",endColorstr="#f7752e92",GradientType=1);
-    box-shadow: 5px -4px 15px 5px #ff8c21;
-	border: 1px solid #ffc003;
-    color: #020705;
-    font-family:Georgia;
-    font-size:16px;
-    font-weight:bold;
-    text-decoration:none;
+    border: 1px solid var(--block-choix-video-border-color-sunset);
+    color: var(--block-choix-video-text-color-sunset);
+    font-family: Georgia;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Tumbnail  */
@@ -1309,6 +1278,33 @@ input[type="radio"].radioInput {
 
 }
 
+.custom-search-submit-Night {
+	background: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+	background-color: rgb(63,67,218);
+    border: 1px solid #4e6096;
+    box-shadow: 5px -4px 15px 5px #4e6096;
+    -moz-box-shadow: 1px solid #000;
+	-webkit-box-shadow: 1px solid #000;
+	box-shadow: 5px -4px 15px 5px #000;
+    text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.695);
+    font-size: 16px;
+    color: var(--white);
+
+
+
+
+}
+.custom-search-submit-Night:hover {
+    background: rgb(63,67,218);
+    background: -webkit-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    background: -moz-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    background: -o-linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    background: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f3fda', endColorstr='#9b78c1',GradientType=0);
+
+}
+
+
 /* input radio night */
 
 
@@ -1373,6 +1369,8 @@ input[type="radio"].radioInput {
     color: rgb(60, 73, 255);
 
 }
+
+
 
 /*---------------------------------------------------FOOTER--------------------------------------------------------------*/
 
@@ -1474,15 +1472,6 @@ input[type="radio"].radioInput {
     text-align: center;
 
 }
-
-
-
-
-
-
-
-
-
 
 /* thumbnail videi */
 

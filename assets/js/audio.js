@@ -1,10 +1,10 @@
 
   $(document).ready(function() {
-    var hoverSound = new Audio("../assets/sound/click-21156.mp3"); // Créez l'élément audio en dehors de la fonction clic
+    var hoverSound = new Audio("assets/sound/click-21156.mp3"); // Créez l'élément audio en dehors de la fonction clic
     var hasInteracted = false; // Variable pour suivre si l'utilisateur a interagi
     
     // Gérez la lecture du son lorsque l'utilisateur clique sur n'importe quel élément .logo
-    $(".logo").click(function() {
+    $(".click").click(function() {
       // Créez l'élément audio une seule fois
       if (!hasInteracted) {
         hasInteracted = true; // Marquez l'interaction

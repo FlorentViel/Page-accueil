@@ -91,14 +91,13 @@ function updateYoutubeBtn() {
 }
 
 
-  
-
 
 
       
     // all const 
 
     //const menu 
+
 
     //all btn 
 
@@ -107,6 +106,8 @@ function updateYoutubeBtn() {
     const show =$('#show');
     const choixVideoBtn =$('#video-btn');
     const accept =$('#valide');
+    const clockBtn = $('#bloc-horloge');
+
 
     // menu footer
 
@@ -115,6 +116,10 @@ function updateYoutubeBtn() {
 
     const webcontener =$('#fav-site-bloc');
     const webAffiche =$('#web-affiche');
+
+    // section google 
+
+    const googleSection = $('#google-section');
 
 
     // youtube 
@@ -172,12 +177,24 @@ function updateYoutubeBtn() {
     $(show).on('click', showbtn);
     $(btnChoixVideo).on('click', choixvideo);
     $(choixVideoBtn).on('click', modeVideo);
+    $(clockBtn).on('click' , zoomClock);
     
 
 
     // <iframe width="887" height="499" loading="lazy" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 // Assurez-vous que vous avez inclus la bibliothèque jQuery dans votre code
+
+  function zoomClock(){
+    clockBtn.toggleClass("center-clock");
+    googleSection.toggleClass("none");
+    webcontener.toggleClass("none");
+    blocVideo.toggleClass("none");
+    videoChoix.toggleClass("none");
+    menuVideo.toggleClass("none");
+    cadreVideo.toggleClass("none");
+    sessionVideo.toggleClass("none");
+  }
 
  function openMenu() {
     

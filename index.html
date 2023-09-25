@@ -8,6 +8,7 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/clock.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
     <script target="_blank" async src="https://cse.google.com/cse.js?cx=44f3a51b7ec03451d">
     </script>
@@ -61,17 +62,13 @@
             </header>
 
 
-            <section>
-                <style>
-                    
-                </style>
-                
+            <section id="google-section">
+             
                 <form onsubmit="redirectToSearchResults(this.querySelector('input').value); return false;" target="_blank" class="custom-search-container">
                     <input id="google_input_bar" type="text" name="q" class="custom-search-input" size="40" placeholder="Rechercher...">
-                    <input id="google_btn_search" type="submit" value="Google" class="custom-search-submit">
+                    <input id="google_btn_search" type="submit" value="Google" class="custom-search-submit click">
                 </form>
-                
-                
+                    
             </section>
 
 
@@ -79,34 +76,34 @@
         
             <div id="fav-site-bloc" class="flex">
                 <div class="fav-icon-item">
-                    <a target="_blank" href="https://www.linkedin.com/in/votreprofillinkedin">
-                        <img class="logo" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
+                    <a target="_blank" href="https://www.linkedin.com/feed/?nis=true">
+                        <img class="logo click" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://twitter.com/home">
-                        <img class="logo" src="https://www.jesus-forain.fr/uploads/blogPostImage/300/212/logo-x.com.jpg" alt="X.com">
+                        <img class="logo click" src="https://www.jesus-forain.fr/uploads/blogPostImage/300/212/logo-x.com.jpg" alt="X.com">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://www.twitch.tv/votrechainedetwitch">
-                        <img class="logo" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
+                        <img class="logo click" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://www.deviantart.com">
-                        <img class="logo" src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg" alt="Deviantart">
+                        <img class="logo click" src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg" alt="Deviantart">
                     </a>
                 </div>
                 <div>
                     <a target="_blank" href="https://technomagie.forumsrpg.com">
-                        <img class="logo" src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png" alt="Techomagie Forum">
+                        <img class="logo click" src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png" alt="Techomagie Forum">
                     </a>
                 </div>
                 <!-- Conserver les liens existants, en les laissant vides si vous souhaitez les garder -->
                 <div>
                     <a target="_blank" href="">
-                        <img class="logo" src="" alt="A garder">
+                        <img class="logo click" src="" alt="A garder">
                     </a>
                 </div>
                 <div>
@@ -301,6 +298,19 @@
                                     <span class="petite-aiguille"></span>
                                     <span class="seconde"></span>
                                     <span class="dot"></span>
+
+                                    <div class="chiffre chiffre12">12</div>
+                                    <div class="chiffre chiffre1">1</div>
+                                    <div class="chiffre chiffre2">2</div>
+                                    <div class="chiffre chiffre3">3</div>
+                                    <div class="chiffre chiffre4">4</div>
+                                    <div class="chiffre chiffre5">5</div>
+                                    <div class="chiffre chiffre6">6</div>
+                                    <div class="chiffre chiffre7">7</div>
+                                    <div class="chiffre chiffre8">8</div>
+                                    <div class="chiffre chiffre9">9</div>
+                                    <div class="chiffre chiffre10">10</div>
+                                    <div class="chiffre chiffre11">11</div>
                                 </div>
                             </div>
                     </div>

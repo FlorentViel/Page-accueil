@@ -88,6 +88,9 @@
         };
 
 
+
+
+
         const dayIndex = date.getDay();
         const dayName = days[dayIndex];
 
@@ -235,7 +238,7 @@
             $('.labelRadio').addClass('labelDay');
             $('#blocCandidature').addClass('blocCandidatureDay');
             $('#google_input_bar').addClass('integrationInputDay');
-            $('#google_btn_search').addClass('custom-search-submit-day'); 
+            $('#google_btn_search').addClass('custom-search-submit-Day'); 
 
         } else if (date >= goldenHour && date <= dusk) {
 
@@ -304,6 +307,10 @@
             $('#blocCandidature').removeClass('blocCandidatureDay');
             $('#blocCandidature').removeClass('blocCandidatureNight');
             $('#blocCandidature').addClass('blocCandidatureSunset');
+            $('#google_input_bar').removeClass('integrationInputDay');
+            $('#google_input_bar').addClass('integrationInputSunset');
+            $('#google_btn_search').addClass('custom-search-submit-Sunset'); 
+
 
     
             }
@@ -348,8 +355,13 @@
             $('#blocCandidature').removeClass('blocCandidatureDay');
             $('#blocCandidature').addClass('blocCandidatureNight');
             $('#blocCandidature').removeClass('blocCandidatureSunset');
+            $('#google_input_bar').removeClass('integrationInputDay');
+            $('#google_input_bar').removeClass('integrationInputSunset');
+            $('#google_input_bar').addClass('integrationInputNight');
+            $('#google_btn_search').addClass('custom-search-submit-Night'); 
+            $('#google_btn_search').removeClass('custom-search-submit-Sunset'); 
+            $('#google_btn_search').removeClass('custom-search-submit-Day'); 
 
-            
 
 
             
