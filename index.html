@@ -61,6 +61,21 @@
                     </div>
             </header>
 
+            <nav id="nav-menu" class="">
+                <div id="nav-deroulant-conteneur">
+                    <span class="nav-item" id="web-affiche">
+                        <a href="#fav-site-bloc">Préférence site web</a>
+                    </span>
+                    <span class="nav-item" id="youtube-affiche">
+                        <a href="#session-video">Affichage Youtube</a>
+                    </span>  
+                    <span id="tableau-affiche" class="nav-item">
+                        <a href="#session-tableau"> Affichage Tableau recherche d'emploi</a>
+                       
+                    </span>   
+                </div>
+            </nav>
+
 
             <section id="google-section">
              
@@ -97,7 +112,7 @@
                 </div>
                 <div>
                     <a target="_blank" href="https://technomagie.forumsrpg.com">
-                        <img class="logo click" src="https://i.servimg.com/u/f65/16/46/38/98/sans_202.png" alt="Techomagie Forum">
+                        <img class="logo click" src="https://i.servimg.com/u/f65/16/46/38/98/black-12.png" alt="Techomagie Forum">
                     </a>
                 </div>
                 <!-- Conserver les liens existants, en les laissant vides si vous souhaitez les garder -->
@@ -318,53 +333,15 @@
             
             </div>
           
+            <footer class="footer">
+                <div id="background-menu" class="">
+    
+                </div>
+            </footer>
                       
         </div>
 
-        <footer class="footer">
-            <div id="background-menu" class="">
-                <div id ="menu-affichage">
-                    <div id="menu-deroulant-conteneur">
-                        <button class="btnStyle btn-deroulant-style" id="btn-menu-deroulant">Mode</button>
-                        <div class="menu-conteneur">
-                            <ul id="menu-deroulant" class="style-menu none close">
-                                <li class="menu-item" id="web-affiche">
-                                    Affichage site web
-                                </li>
-                                <li class="separator"></li>
-                                <li class="menu-item" id="youtube-affiche">
-                                    Affichage Youtube
-                                </li>  
-                                <li class="separator"></li>
-                                <li id="tableau-affiche">
-                                    Affichage Tableau recherche d'emploi
-                                </li>               
-                            </ul>
-                        </div>
-                    </div>
 
-
-                </div>
-                <div id="menu-info">
-                    <button class="btnStyle btn-deroulant-style" id="" @click.prevent="goToTable()">Mode</button>
-                    <ul id="" class="style-menu none close">
-                        <li id="web-affiche">
-                            Affichage site web
-                        </li>
-                        <li id="youtube-affiche">
-                            Affichage Youtube
-                        </li>     
-              
-                    </ul>
-                </div>
-
-            </div>
-
-            
-
-
-        </footer>
-    </div>
 
 
     <script src="https://unpkg.com/vue@next"></script>

@@ -11,11 +11,11 @@
 
     function soleil(){
 
-        var times = SunCalc.getTimes(new Date(), 50.633, 3.0586);
-        const date = new Date();
+        //var times = SunCalc.getTimes(new Date(), 50.633, 3.0586);
+        //const date = new Date();
 
-        //var times = SunCalc.getTimes(new Date('August 7, 2023 02:52:00'), 49.7534248, 3.3643912);
-        //const date = new Date('August 7, 2023 02:52:00');
+        var times = SunCalc.getTimes(new Date('August 7, 2023 02:52:00'), 49.7534248, 3.3643912);
+        const date = new Date('August 7, 2023 20:52:00');
 
         var background = $('#background-image');
 
@@ -198,12 +198,6 @@
             background.addClass("background-jour");
             background.removeClass("background-crepuscule");
             background.removeClass("background-nuit");
-            $('#background-menu').addClass('blockTimeDay');
-            $('#background-menu').removeClass('blockTimeSunset');
-            $('#background-menu').removeClass('blockTimeNight');
-            $('#menu-deroulant').addClass('blockTimeDay');
-            $('#menu-deroulant').removeClass('blockTimeNight');
-            $('#menu-deroulant').removeClass('blockTimeSunset');
             $('#navBar').addClass('EnteteTimeDay');
             $('#navBar').removeClass('EnteteTimeSunset');
             $('#navBar').removeClass('EnteteTimeNight');
@@ -248,7 +242,7 @@
 
             $('#background-menu').addClass('blockTimeSunset');
             $('#background-menu').removeClass('blockTimeDay');
-            $('#background-menut').removeClass('blockTimeNight');
+            $('#background-menu').removeClass('blockTimeNight');
             $('#menu-deroulant').addClass('blockTimeSunset');
             $('#menu-deroulant').removeClass('blockTimeDay');
             $('#menu-deroulant').removeClass('blockTimeNight');
