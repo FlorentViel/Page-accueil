@@ -220,6 +220,9 @@
             $('.btnStyle').removeClass('btn-show-TimeSunset');
             $('.btnStyle').removeClass('btn-show-TimeNight');
             $('#bloc-tableau').addClass('tableau-jour');
+            $('.nav-item').addClass('nav-itemDay');
+            $('.nav-item').removeClass('nav-itemSunset');
+            $('.nav-item').removeClass('nav-itemNight');
 
             
             $('#bloc-tableau form input').removeClass('integrationInputNight');
@@ -239,10 +242,6 @@
             background.addClass("background-crepuscule");
             background.removeClass("background-jour");
             background.removeClass("background-nuit");    
-
-            $('#background-menu').addClass('blockTimeSunset');
-            $('#background-menu').removeClass('blockTimeDay');
-            $('#background-menu').removeClass('blockTimeNight');
             $('#menu-deroulant').addClass('blockTimeSunset');
             $('#menu-deroulant').removeClass('blockTimeDay');
             $('#menu-deroulant').removeClass('blockTimeNight');
@@ -252,37 +251,30 @@
             $('#in').addClass('integrationInputSunset');
             $('#in').removeClass('integrationInputDay');
             $('#in').removeClass('integrationInputNight');
-
             $('#label-integration-content').addClass('labelSunset');
             $('#label-integration-content').removeClass('labelDay');
             $('#label-integration-content').removeClass('labelNight');
-
             $('#bloc-choix-video').addClass('block-choix-video-TimeSunset');
             $('#bloc-choix-video').removeClass('block-choix-video-TimeDay');
             $('#bloc-choix-video').removeClass('block-choix-video-TimeNight');
             $('figure').addClass('figureTimeSunset');
             $('figure').removeClass('figureTimeDay');
             $('figure').removeClass('figureTimeNight');
-
-            
             $('figcaption').addClass('figcaptionTimeSunset');
             $('figcaption').removeClass('figcaptionTimeDay');
             $('figcaption').removeClass('figcaptionTimeNight');
-
             $('.btnStyle').addClass('btn-show-TimeSunset');
             $('.btnStyle').removeClass('btn-show-TimeDay');
             $('.btnStyle').removeClass('btn-show-TimeNight');
-            
-
             $('#in').addClass('integrationInputSunset');
             $('#in').removeClass('integrationInputDay');
             $('#in').removeClass('integrationInputNight');
-
-
             $('#bloc-tableau').removeClass('tableau-jour');
             $('#bloc-tableau').removeClass('tableauNight');
             $('#bloc-tableau').addClass('tableauSunset');
-
+            $('.nav-item').removeClass('nav-itemDay');
+            $('.nav-item').addClass('nav-itemSunset');
+            $('.nav-item').removeClass('nav-itemNight');
             $('#bloc-tableau form input').removeClass('integrationInputNight');
             $('#bloc-tableau form input').removeClass('integrationInputDay');
             $('#bloc-tableau form input').addClass('integrationInputSunset');
@@ -305,6 +297,9 @@
             $('#google_input_bar').addClass('integrationInputSunset');
             $('#google_btn_search').addClass('custom-search-submit-Sunset'); 
 
+            $('#horloge-background').addClass('horloge-backgroundSunset');
+
+
 
     
             }
@@ -314,7 +309,6 @@
             background.addClass("background-nuit");
             background.removeClass("background-crepuscule");
             background.removeClass("background-jour");
-            $('#background-menu').addClass('blockTimeNight');
             $('#menu-deroulant').addClass('blockTimeNight');
             $('#menu-deroulant').removeClass('blockTimeDay');
             $('#navBar').addClass('EnteteTimeNight');
@@ -336,8 +330,16 @@
             $('figcaption').removeClass('figcaptionTimeDay');
             $('figcaption').removeClass('figcaptionTimeSunset');
 
+            $('.nav-item').removeClass('nav-itemDay');
+            $('.nav-item').removeClass('nav-itemSunset');
+            $('.nav-item').addClass('nav-itemNight');
+
             $('#bloc-tableau').addClass('tableauNight');
             $('#bloc-tableau form input').addClass('integrationInputNight');
+            $('#bloc-tableau').removeClass('tableauSunset');
+            $('#bloc-tableau form input').removeClass('integrationInputSunset');
+            $('#bloc-tableau').removeClass('tableauDay');
+            $('#bloc-tableau form input').removeClass('integrationInpuDay');
             $('.radioInput').addClass('radioInputNight');
             $('.labelRadio').addClass('labelNight');
             $('.radioInput').removeClass('radioInputDay');
@@ -355,6 +357,10 @@
             $('#google_btn_search').addClass('custom-search-submit-Night'); 
             $('#google_btn_search').removeClass('custom-search-submit-Sunset'); 
             $('#google_btn_search').removeClass('custom-search-submit-Day'); 
+
+            $('#horloge-background').removeClass('horloge-backgroundSunset');
+            $('#horloge-background').addClass('horloge-backgroundNight');
+
 
 
 

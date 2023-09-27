@@ -1,86 +1,79 @@
-const CandidatureDB = "CandidatureDB";
+const AgendaDB = "AgendaDB"; // Nom de la base de données Agenda
 
-
-
-//retourner sur la base de donnée local
-
-function getLocalDB(){
-    if((!localStorage).getItem(CandidatureDB)){
-        localStorage.setItem(CandidatureDB), JSON.stringify([])
+// Retourner la base de données locale de l'agenda
+function getLocalDB() {
+    if (!localStorage.getItem(AgendaDB)) {
+        localStorage.setItem(AgendaDB, JSON.stringify([]));
     }
 
-    return JSON.parse(localStorage).getItem(CandidatureDB)
+    return JSON.parse(localStorage.getItem(AgendaDB));
 }
 
-
-// mettre à jour la base de donnée
-
-function upadateDB(db){
-    localStorage.setItem(CandidatureDB, JSON.stringify(db))
+// Mettre à jour la base de données de l'agenda
+function updateDB(db) {
+    localStorage.setItem(AgendaDB, JSON.stringify(db));
 }
 
-
-// function ajout d'une candidature
-
-function addCandidature(candidature){
+// Fonction d'ajout d'une entrée d'agenda
+function addAgendaEntry(entry) {
     const db = getLocalDB();
 
-    candidature.id = Date.now()+"";
-    db.push(candidature);
-    upadateDB(db);
+    entry.id = Date.now() + "";
+    db.push(entry);
+    updateDB(db);
 }
 
-function updateCandidature(candidature){
+// Fonction de mise à jour d'une entrée d'agenda
+function updateAgendaEntry(entry) {
     const db = getLocalDB();
-    const upadateDb = db.map(function(curCandidature){
-        if(curCandidature.id == candidature.id){
+    const updatedDb = db.map(function (curEntry) {
+        if (curEntry.id === entry.id) {
             return {
-                entreprise : candidature.entreprise,
-                adresse : candidature.adresse,
-                tel : candidature.tel,
-                link : candidature.link,
-                date : candidature.date,
-                reponse : candidature.reponse,
-                commentaire : candidature.commentary,
-                id : candidature.id
-            }
-        };
+                AgendaEntreprise: entry.AgendaEntreprise,
+                AgendaObject: entry.AgendaObject,
+                AgendaAdresse: entry.AgendaAdresse,
+                AgendaDate: entry.AgendaDate,
+                AgendaHeureDebut: entry.AgendaHeureDebut,
+                AgendaHeureFin: entry.AgendaHeureFin,
+                AgendaDatelimite: entry.AgendaDatelimite,
+                AgendaLien: entry.AgendaLien,
+                AgendaCommentary: entry.AgendaCommentary,
+                id: entry.id
+            };
+        }
+        return curEntry;
+    });
 
-        return curCandidature
-    })
-
-    upadateDB(upadateDb);
+    updateDB(updatedDb);
 }
 
-// function pour supprimer une candidature
-
-function deleteCandidature(candidature) {
+// Fonction pour supprimer une entrée d'agenda
+function deleteAgendaEntry(entryId) {
     const db = getLocalDB();
-    const upadateDB = db.filter(function(curCandidature){
-        return curCandidature.id != candidature.id;
+    const updatedDb = db.filter(function (curEntry) {
+        return curEntry.id !== entryId;
+    });
+
+    updateDB(updatedDb);
+}
+
+// Fonction pour récupérer une entrée d'agenda par son ID
+function getAgendaEntry(entryId) {
+    const db = getLocalDB();
+    const filteredDb = db.filter((entry) => entry.id === entryId);
+    if (filteredDb.length > 0) {
+        return filteredDb[0];
     }
-    )
-    upadateDB(upadateDb);
+
+    return null;
 }
 
-function getCandidature(id){
+// Fonction pour rechercher des entrées d'agenda par le nom de l'entreprise
+function searchAgendaEntriesByEntreprise(entreprise) {
     const db = getLocalDB();
-    var filterDB = db.filter((data)=> data.id == id)
-    if(filterDB.lenght > 0){
-        return filterDB[0]
-    }
+    const filteredDb = db.filter((entry) => {
+        return entry.AgendaEntreprise.toLowerCase().includes(entreprise.toLowerCase());
+    });
 
-    return null
+    return filteredDb;
 }
-
-// function pour rechercher un étudiant
-
-function searchCandidatureByName(entreprise){
-    const db = getLocalDB();
-    const filterDB = db.filter((data)=>{
-        return data.nom.toLowerCase().includes(entreprise.toLowerCase());
-    })
-
-    return filterDB;
-}
-

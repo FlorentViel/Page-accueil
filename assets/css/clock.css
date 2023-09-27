@@ -4,17 +4,17 @@
 #bloc-horloge {
     height: auto;
     width: 180px;
-    position: fixed;
-    bottom: 20px;
-    right: 2vw;
+    position: relative;
     text-align: center;
 }
 
 .PM {
     font-size: 28px;
     font-family: 'Times New Roman', Times, Georgia, serif;
-    padding-left: 43px;
-}
+    position: absolute;
+    z-index: 1;
+    top: 59px;
+    right: 47px;}
 
 /* bloc horloge */
 
@@ -29,17 +29,18 @@
 #horloge-background {
     /*background-image: url('https://www.monhorloge.fr/wp-content/uploads/2020/01/free-clock-faces-template-1024x1024.png');
     background-size: contain;*/
-    opacity: 0.5;
-    background-color: aliceblue;
-    opacity: 0.5;
+    opacity: 0.8;
+    /*background-color: aliceblue;*/
+    opacity: 0.8;
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    border: 5px solid rgb(0, 0, 0);
-    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+    /*border: 5px solid rgb(0, 0, 0);
+    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);*/
     transform: translate(10%, 0%);
 
 }
+
 
 /* aguille */
 
@@ -50,7 +51,7 @@
     height: 47px; width: 3.21px;
     margin: auto;
     top: -27%; left: 0;	bottom: 0; right: 0;
-    background: black;
+    /*background: black;*/
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     transform-origin: bottom center;
     transform: rotate(0deg);
@@ -184,3 +185,50 @@
     right: 117px;
     transform: rotate(330deg);
 }
+
+
+/* horloge-day */
+
+
+/* horloge-sunset */
+
+.horloge-backgroundSunset {
+
+    background-color:rgba(254,166,84,1);
+	background: -moz-linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var( --custom-search-button-background-gradient-end-sunset) 100%);
+    background: -o-linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var( --custom-search-button-background-gradient-end-sunset)100%);
+	background: -webkit-linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var( --custom-search-button-background-gradient-end-sunset) 100%);
+	background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var( --custom-search-button-background-gradient-end-sunset) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1); 
+    border-radius: 50%;
+    border: 5px solid var(--integration-border-color-sunset);
+    box-shadow: inset 2px 3px 8px 0 var(--integration-box-shadow-color-sunset);
+
+}
+
+.cadreSunset .grande-aiguille, .petite-aiguille {
+    background-color: var(--text-color-sunset);
+    opacity: 1;
+}
+
+.cadreSunset .seconde {
+    background-color: var(--integration-color-sunset);
+    opacity: 1;
+}
+
+/* horloge-night */
+
+.horloge-backgroundNight {
+
+	
+	background: var(--btn-background-gradient-night);
+
+    border-radius: 50%;
+    border: 5px solid var(--entete-border-bottom-color-night);
+    box-shadow: inset 2px 3px 8px 0 var(--black);
+
+}
+
+
+
+
