@@ -11,10 +11,10 @@
 .PM {
     font-size: 28px;
     font-family: 'Times New Roman', Times, Georgia, serif;
-    position: absolute;
+    position: relative;
     z-index: 1;
     top: 59px;
-    right: 47px;}
+    }
 
 /* bloc horloge */
 
@@ -27,16 +27,11 @@
 /* cadre horloge */
  
 #horloge-background {
-    /*background-image: url('https://www.monhorloge.fr/wp-content/uploads/2020/01/free-clock-faces-template-1024x1024.png');
-    background-size: contain;*/
     opacity: 0.8;
-    /*background-color: aliceblue;*/
     opacity: 0.8;
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    /*border: 5px solid rgb(0, 0, 0);
-    box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);*/
     transform: translate(10%, 0%);
 
 }
@@ -55,6 +50,7 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     transform-origin: bottom center;
     transform: rotate(0deg);
+    z-index: 99;
 }
 
 /* Uniquement grande Aiguille */
@@ -65,8 +61,9 @@
     width: 2.5px;
     top: -38%;
     left: 0;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     transform: rotate(90deg);
+    z-index: 99;
+
 }
 
 /* L'aiguille des secondes */
@@ -105,7 +102,6 @@
 .chiffre {
     position: absolute;
     font-size: 22px; /* Taille de la police des chiffres */
-    color: black; /* Couleur des chiffres */
     font-family: Arial, sans-serif; /* Police de caractères des chiffres */
     width: 20px;
     text-align: center;
@@ -120,74 +116,94 @@
 .chiffre1 {
     top: 15px;
     left: 114px;
-    transform: rotate(31deg);
 }
 
 .chiffre2 {
     top: 42px;
     left: 141px;
-    transform: rotate(55deg);
 }
 
 .chiffre3 {
     top: 77px;
     left: 150px;
-    transform: rotate(90deg);
 }
 
 .chiffre4 {
     top: 112px;
     left: 141px;
-    transform: rotate(112deg);
 
 }
 
 .chiffre5 {
     top: 138px;
     left: 116px;
-    transform: rotate(136deg);
 
 }
 
 .chiffre6 {
     top: 146px;
     left: 80px;
-    transform: rotate(180deg);
 }
 
 .chiffre7 {
     top: 137px;
     left: 44px;
-    transform: rotate(210deg);
 }
 
 .chiffre8 {
     top: 113px;
     left: 17px;
-    transform: rotate(240deg);
 }
 
 .chiffre9 {
     top: 77px;
     right: 151px;
-    transform: rotate(260deg);
 
 }
 
 .chiffre10 {
     top: 45px;
     right: 143px;
-    transform: rotate(297deg);
 }
 
 .chiffre11 {
     top: 17px;
     right: 117px;
-    transform: rotate(330deg);
 }
 
 
 /* horloge-day */
+
+.horloge-backgroundDay {
+
+    background-color: var(--background-color-day);
+	background: -moz-linear-gradient(90deg, var(--btn-gradient-start-color-day) 5%, var( --btn-gradient-end-color-day) 100%);
+    background: -o-linear-gradient(90deg, var(--btn-gradient-start-color-day) 5%, var( --btn-gradient-end-color-day)100%);
+	background: -webkit-linear-gradient(90deg, var(--btn-gradient-start-color-day) 5%, var( --btn-gradient-end-color-day) 100%);
+	background: linear-gradient(90deg, var(--btn-gradient-start-color-day) 5%, var( --btn-gradient-end-color-day) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea654",endColorstr="#f1f780",GradientType=1); 
+    border-radius: 50%;
+    border: 5px solid var(--border-color-day);
+    box-shadow: inset 2px 3px 8px 0 var(--btn-box-shadow-color-day);
+    color: var(--text-color-day);
+
+}
+
+.cadreDay .grande-aiguille  {
+    background-color: var(--box-shadow-color-day);
+    opacity: 1;
+}
+
+.cadreDay .petite-aiguille {
+    background-color: var(--box-shadow-color-day);
+    opacity: 1;
+}
+
+.cadreDay .seconde {
+    background-color: var(--text-color-day);
+    opacity: 1;
+}
+
 
 
 /* horloge-sunset */
@@ -227,6 +243,16 @@
     border: 5px solid var(--entete-border-bottom-color-night);
     box-shadow: inset 2px 3px 8px 0 var(--black);
 
+}
+
+.cadreNight .grande-aiguille, .petite-aiguille {
+    background-color: var(--white);
+    opacity: 1;
+}
+
+.cadreNight .seconde {
+    background-color: var(--integration-color-sunset);
+    opacity: 1;
 }
 
 

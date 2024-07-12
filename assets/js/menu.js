@@ -1,111 +1,54 @@
+$(document).ready(function() {
+  // Définissez une promesse pour l'API YouTube
+  var youtubeAPIReadyPromise = new Promise(function(resolve) {
+    // Vérifiez régulièrement si l'API YouTube est prête
+    function checkAPI() {
+      if (typeof YT !== "undefined" && YT.Player) {
+        resolve();
+      } else {
+        // Réessayez dans 100 millisecondes (ajustez si nécessaire)
+        setTimeout(checkAPI, 100);
+      }
+    }
+    checkAPI();
+  });
 
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.onload = function() {
+    // Résolvez la promesse lorsque l'API YouTube est chargée
+    youtubeAPIReadyPromise.then(function() {
+      onYouTubeIframeAPIReady();
+    });
+  };
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    $(document).ready(function() {
-      
-// Définissez une promesse pour l'API YouTube
-var youtubeAPIReadyPromise = new Promise(function(resolve) {
-  // Vérifiez régulièrement si l'API YouTube est prête
-  function checkAPI() {
-    if (typeof YT !== "undefined" && YT.Player) {
-      resolve();
-    } else {
-      // Réessayez dans 100 millisecondes (ajustez si nécessaire)
-      setTimeout(checkAPI, 100);
+  var player;
+  var currentIdVideo = 'jfKfPfyJRdk'; // ID de la vidéo par défaut
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: currentIdVideo,
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+      // Action à effectuer lorsque la vidéo se termine
     }
   }
-
-  checkAPI();
-});
-
-
-
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
-
-tag.onload = function() {
-  // Résolvez la promesse lorsque l'API YouTube est chargée
-  youtubeAPIReadyPromise.then(function() {
-    onYouTubeIframeAPIReady();
-  });
-};
-
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// ...
-
-
-
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-var currentIdVideo = 'jfKfPfyJRdk';
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '1000px',
-    width: '562.57px',
-    videoId: currentIdVideo,
-    events: {
-      //'onReady': onPlayerReady,
-      //'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
-// 4. The API will call this function when the video player is ready.
-//function onPlayerReady(event) {
-  //event.target.playVideo();
-  //}
-
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-//var done = false;
-//function onPlayerStateChange(event) {
-  //if (event.data == YT.PlayerState.PLAYING && !done) {
-    //setTimeout(stopVideo, 6000);
-    //done = true;
- // }
-//}
-function stopVideo() {
-  player.stopVideo();
-}
-
-
-
-function updateYoutubeBtn() {
-  // Sélectionner l'élément input et récupérer sa valeur
-
-  var youtubeUrl = $("#in").val();
-
-
-  if(getYoutubeVideoId(youtubeUrl) !== null ){
-    var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
-
-    // Mettre à jour la variable currentIdVideo avec l'ID de la vidéo YouTube récupérée
-
-    currentIdVideo = youtubeVideoId;
-
-    // Sélectionner l'élément avec l'ID "videoYoutube" et mettre à jour son contenu HTML avec la valeur de l'input
-
-    player.loadVideoById(youtubeVideoId);
-
-  }
-
-  else if(getYoutubeVideoId(youtubeUrl) == null ) {
-
-    alert('Erreur de saisi');
-
-  }
-
-
-
-  // Extraire le nom de la vidéo à partir de l'URL
-  //var youtubeVideoName = youtubeUrl.match(/watch\?v=(.*)/)[1];
-
-  // Afficher la valeur de l'URL et le nom de la vidéo
 
   function getYoutubeVideoId(url) {
     var youtubeRegex = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
@@ -117,7 +60,98 @@ function updateYoutubeBtn() {
     }
   }
 
-}
+  function updateYoutubeBtn() {
+    var youtubeUrl = $("#in").val();
+    var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
+
+    if (youtubeVideoId !== null) {
+      if (isDuplicateVideo(youtubeVideoId)) {
+        // Afficher le message d'erreur pour les doublons
+        showError("#duplicate-error-message");
+      } else {
+        currentIdVideo = youtubeVideoId;
+        player.loadVideoById(youtubeVideoId);
+
+        // Sauvegarder le lien de la vidéo dans le localStorage
+        saveVideoLink(youtubeUrl, youtubeVideoId);
+
+        // Afficher le message de validation
+        $("#validation-message").removeClass("none").addClass("block");
+        $("#error-message").addClass("none").removeClass("block");
+        $("#duplicate-error-message").addClass("none").removeClass("block");
+      }
+    } else {
+      // Afficher le message d'erreur
+      showError("#error-message");
+    }
+  }
+
+  function isDuplicateVideo(videoId) {
+    var videos = JSON.parse(localStorage.getItem('videos')) || [];
+    return videos.some(video => video.videoId === videoId);
+  }
+
+  function saveVideoLink(url, videoId) {
+    var videos = JSON.parse(localStorage.getItem('videos')) || [];
+    videos.push({ url: url, videoId: videoId });
+    localStorage.setItem('videos', JSON.stringify(videos));
+    displaySavedVideos();
+  }
+
+  function deleteVideoLink(videoId) {
+    var videos = JSON.parse(localStorage.getItem('videos')) || [];
+    videos = videos.filter(video => video.videoId !== videoId);
+    localStorage.setItem('videos', JSON.stringify(videos));
+    displaySavedVideos();
+  }
+
+  function displaySavedVideos() {
+    var videos = JSON.parse(localStorage.getItem('videos')) || [];
+    var videoList = $('#bloc-thumbnail');
+    videoList.empty();
+    videos.forEach(function(video) {
+      var thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/0.jpg`;
+      var videoItem = `
+        <div class="video-item" data-url="${video.url}" data-id="${video.videoId}">
+          <a href="#" class="video-link">
+            <img src="${thumbnailUrl}" alt="Miniature de la vidéo" style="width: 150px;">
+          </a>
+          <button class="delete-video-btn">Supprimer</button>
+        </div>
+      `;
+      videoList.append(videoItem);
+    });
+
+    // Ajouter un gestionnaire d'événements pour les miniatures
+    $('.video-link').on('click', function(e) {
+      e.preventDefault();
+      var videoUrl = $(this).parent().data('url');
+      $('#in').val(videoUrl);
+      currentIdVideo = getYoutubeVideoId(videoUrl);
+      player.cueVideoById(currentIdVideo); // Utilisez cueVideoById pour charger la vidéo sans la lire automatiquement
+      player.playVideo(); // Jouez la vidéo après l'avoir chargée
+    });
+
+    // Ajouter un gestionnaire d'événements pour les boutons de suppression
+    $('.delete-video-btn').on('click', function(e) {
+      e.stopPropagation();
+      var videoId = $(this).parent().data('id');
+      deleteVideoLink(videoId);
+    });
+  }
+
+  function showError(selector) {
+    $(selector).removeClass("none").addClass("block show");
+    setTimeout(function() {
+      $(selector).removeClass("show").addClass("none");
+    }, 5000);
+  }
+
+  // Afficher les vidéos sauvegardées au chargement de la page
+  displaySavedVideos();
+
+  // Ajoutez un gestionnaire d'événements pour le nouveau bouton
+  $('#save-video-btn').on('click', updateYoutubeBtn);
 
 // ... (votre code existant)
 
@@ -260,81 +294,95 @@ function playVideoManually() {
     // EventListener
 
 
-    if (classMenu.hasClass('open')){
-      $(footerMenuitem).on('click', closeMenu);
-    }
-
-    else if(!classMenu.hasClass('open')){
-      $(footerMenuitem).on('click', openMenu);
-    }
-
     $(accept).on('click', updateYoutubeBtn);
     $(hide).on('click', hideVideoBtn);
     $(show).on('click', showbtn);
     $(btnChoixVideo).on('click', choixvideo);
     $(choixVideoBtn).on('click', modeVideo);
-    $(clockBtn).on('click' , zoomClock);
     
-
-
     // <iframe width="887" height="499" loading="lazy" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-// Assurez-vous que vous avez inclus la bibliothèque jQuery dans votre code
 
-  function zoomClock(){
-    clockBtn.toggleClass("center-clock");
-    googleSection.toggleClass("none");
-    webcontener.toggleClass("none");
-    blocVideo.toggleClass("none");
-    videoChoix.toggleClass("none");
-    menuVideo.toggleClass("none");
-    cadreVideo.toggleClass("none");
-    sessionVideo.toggleClass("none");
-  }
+    $(".bloc").click(function() {
+      var bloc = $(this);
 
- function openMenu() {
-    
-    classMenu.toggleClass("close open none block");
+      // Vérifier si le bloc a la classe slidein
+      if (bloc.hasClass("slidein")) {
+          // Retirez la classe slidein pour arrêter l'animation
+          bloc.removeClass("slidein");
+      } else {
+          // Ajoutez la classe slidein pour démarrer l'animation
+          bloc.addClass("slidein");
+      }
+  });
 
- };
-
-
- 
-
- function closeMenu() {
-
-  classMenu.removeClass('open');
-  classMenu.addClass("close");
-
-
-
-
-
-    }
 
     webAffiche.on('click', function() {
 
+      if (webcontener.hasClass('flex') || webcontener.hasClass("flex2")) {
+        inputblocshow.addClass("none");
+        blocVideo.addClass("none");
+        videoChoix.addClass("none");
+        menuVideo.addClass("none");
+        cadreVideo.addClass("none");
+        sessionVideo.addClass("none");
+        sessionVideo.removeClass("flex");
+        blocTableau.addClass("none");
+        blocTableau.removeClass("flex");
+        googleSection.removeClass("none");
 
-    if (webcontener.hasClass('flex')  || webcontener.hasClass("flex2") )  {
-      webcontener.addClass("none");
-      webcontener.removeClass("flex");
-      webcontener.removeClass('flex2');
+        webcontener.removeClass("OpacityAnimationIn");
+        webcontener.addClass("OpacityAnimation");
 
-    } 
+
+        setTimeout(function() {
+          webcontener.addClass("none");
+          webcontener.removeClass("flex flex2 OpacityAnimation OpacityAnimationIn");
+      }, 500);
+
+    }
     
-    else if(webcontener.hasClass("none") || webcontener.hasClass("none2") ){
+    
+    else if (webcontener.hasClass("none") || webcontener.hasClass("none2")) {
       webcontener.addClass("flex");
       webcontener.removeClass("none");
       webcontener.removeClass('none2');
+      googleSection.remove("none");
+      sessionVideo.addClass("none");
+      sessionVideo.removeClass("flex");
+      blocTableau.addClass("none");
+      blocTableau.removeClass("flex");
+      googleSection.removeClass("none");
+      sessionVideo.removeClass("flex flex2 OpacityAnimation");
 
-    } 
+      // Ajoutez une classe pour la translation vers la droite avec opacité initiale de 0
+      webcontener.addClass("OpacityAnimationIn");
 
-    
+
+      
+  }
 
     if(webcontener.hasClass('flex') && webcontener.hasClass('none')){
         webcontener.removeClass('none');
         inputblocshow.addClass("none");
-        menuVideo.removeClass("none");
+        blocVideo.addClass("none");
+        videoChoix.addClass("none");
+        menuVideo.addClass("none");
+        cadreVideo.addClass("none");
+        sessionVideo.addClass("none");
+        blocTableau.addClass("none");
+        blocTableau.removeClass("flex");
+        googleSection.removeClass("none");
+
+        webcontener.addClass("OpacityAnimation");
+        webcontener.removeClass("OpacityAnimationIn");
+
+
+        setTimeout(function() {
+          webcontener.removeClass("OpacityAnimation");
+        }, 500);
+
+
         $('#video-youtube').removeClass('fullscreen');
         $('#bloc-horloge').removeClass('none');
         $('video').removeClass('fullscreen');
@@ -354,12 +402,56 @@ youtubeMenu.on('click', function(e) {
 
   //sessionVideo.toggleClass("flex none")
     
-  if (sessionVideo.css("display") == "flex") {
-        sessionVideo.addClass("none");
-        sessionVideo.removeClass("flex");
-    } else {
+  if ( sessionVideo.hasClass('flex')) {
+    
+        googleSection.removeClass("none");
+        blocTableau.addClass("none");
+        blocTableau.removeClass("flex");
+
+        // Ajoutez une classe pour l'animation de sortie
+        sessionVideo.addClass("OpacityAnimation");
+        sessionVideo.removeClass("OpacityAnimationIn");
+
+        // À la fin de l'animation, masquez complètement le bloc et supprimez les classes d'animation
+        setTimeout(function() {
+            sessionVideo.addClass("none");
+            sessionVideo.removeClass("flex flex2 OpacityAnimation");
+        }, 500);
+        
+  
+        
+
+      
+        
+
+
+    } else if(sessionVideo.hasClass("none") || sessionVideo.hasClass("none2")){
       sessionVideo.removeClass("none");
       sessionVideo.addClass("flex");
+      webcontener.addClass("none");
+      webcontener.removeClass("flex");
+      googleSection.addClass("none");      
+      blocTableau.addClass("none");
+      blocTableau.removeClass("flex");
+      blocVideo.removeClass("flex");
+      blocVideo.addClass("none");
+      blocChoixVideo.addClass("none");
+      blocChoixVideo.removeClass("bloc flex");
+      menuVideo.addClass("bloc");
+      menuVideo.removeClass("none");
+      videoYoutube.addClass("flex");
+      videoYoutube.removeClass("none");
+
+      
+
+      console.log('sessionNone');
+
+            // Ajoutez une classe pour la translation vers la droite avec opacité initiale de 0
+            sessionVideo.addClass("OpacityAnimationIn");
+            sessionVideo.removeClass("OpacityAnimation");
+
+
+
     }
 });
 
@@ -368,7 +460,12 @@ tableauMenu.on('click', function(e) {
   if (blocTableau.hasClass('flex') || blocTableau.hasClass('flex2'))  {
     blocTableau.addClass("none");
     blocTableau.removeClass("flex");
-    blocTableau.removeClass("flex2");
+    sessionVideo.addClass("none");
+    sessionVideo.removeClass("flex");
+    webcontener.addClass("none");
+    webcontener.removeClass("flex");
+    webcontener.removeClass("flex");
+    googleSection.removeClass("none");
 
   } 
   
@@ -376,6 +473,11 @@ tableauMenu.on('click', function(e) {
     blocTableau.addClass("flex");
     blocTableau.removeClass("none");
     blocTableau.removeClass("none2");
+    webcontener.removeClass("flex");
+    webcontener.addClass("none");
+    sessionVideo.addClass("none");
+    sessionVideo.removeClass("flex");
+    googleSection.addClass("none");
 
   }
 });
@@ -390,7 +492,6 @@ tableauMenu.on('click', function(e) {
     function hideVideoBtn() {
 
         menuVideo.addClass("fade");
-        $('#bloc-horloge').addClass('fade');
         $('#video-youtube').addClass('fullscreen');
         $('video').addClass('fullscreen');
         $(webcontener).addClass("fade");
@@ -405,8 +506,6 @@ tableauMenu.on('click', function(e) {
             menuVideo.addClass("none");
             inputblocshow.removeClass("none");
             menuVideo.removeClass("fade");
-            $('#bloc-horloge').addClass('none');
-            $('#bloc-horloge').removeClass('fade');
             $(webcontener).removeClass("fade");
             $(webcontener).addClass("none2");
             $(webcontener).removeClass('flex2');
@@ -414,8 +513,8 @@ tableauMenu.on('click', function(e) {
             $(blocTableau).removeClass("fade")
 
 
-            if($(blocTableau).hasClass("none")){
-          
+            if($(blocTableau).hasClass("none2")){
+              $(blocTableau).removeClass("none2")
             }
 
             else{
@@ -444,10 +543,7 @@ tableauMenu.on('click', function(e) {
         $(webcontener).removeClass("flex");
         $(webcontener).addClass('flex2');
         $(blocTableau).removeClass("none2")
-        $(blocTableau).removeClass("flex");
-        $(blocTableau).addClass('flex2');
-
-
+        
 
         if(!$('#video-youtube').hasClass('simplescreen')){
             $('#video-youtube').addClass('simplescreen');

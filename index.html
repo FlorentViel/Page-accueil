@@ -13,125 +13,76 @@
     <script target="_blank" async src="https://cse.google.com/cse.js?cx=44f3a51b7ec03451d">
     </script>
     <title>Page d'Accueil personnalisée Alpha</title>
-    <script>
-
-</script>
-
 </head>
-<body>
 
+<body>
     <div id="background">
         <div id="background-image" class="">
-
             <header>
-
-                <div id="navBar" class="bg"> 
-
-
+                <div id="navBar" class="bg">
                     <div id="bloc_group" class="flex-item">
-
                         <div>
                             <div id="bloc-horloge">
-                                <span class="PM"></span>
-                                    <div id="horloge-background" class="">
-                                        <div id="cadre" class="cadreSunset">
-                                            <span class="grande-aiguille"></span>
-                                            <span class="petite-aiguille"></span>
-                                            <span class="seconde"></span>
-                                            <span class="dot"></span>
-        
-                                            <div class="chiffre chiffre12">12</div>
-                                            <div class="chiffre chiffre1">1</div>
-                                            <div class="chiffre chiffre2">2</div>
-                                            <div class="chiffre chiffre3">3</div>
-                                            <div class="chiffre chiffre4">4</div>
-                                            <div class="chiffre chiffre5">5</div>
-                                            <div class="chiffre chiffre6">6</div>
-                                            <div class="chiffre chiffre7">7</div>
-                                            <div class="chiffre chiffre8">8</div>
-                                            <div class="chiffre chiffre9">9</div>
-                                            <div class="chiffre chiffre10">10</div>
-                                            <div class="chiffre chiffre11">11</div>
-                                        </div>
+                                <div id="horloge-background">
+                                    <div id="cadre" class="">
+                                        <span class="PM"></span>
+                                        <span class="grande-aiguille"></span>
+                                        <span class="petite-aiguille"></span>
+                                        <span class="seconde"></span>
+                                        <span class="dot"></span>
+                                        <div class="chiffre chiffre12">12</div>
+                                        <div class="chiffre chiffre1">1</div>
+                                        <div class="chiffre chiffre2">2</div>
+                                        <div class="chiffre chiffre3">3</div>
+                                        <div class="chiffre chiffre4">4</div>
+                                        <div class="chiffre chiffre5">5</div>
+                                        <div class="chiffre chiffre6">6</div>
+                                        <div class="chiffre chiffre7">7</div>
+                                        <div class="chiffre chiffre8">8</div>
+                                        <div class="chiffre chiffre9">9</div>
+                                        <div class="chiffre chiffre10">10</div>
+                                        <div class="chiffre chiffre11">11</div>
                                     </div>
+                                </div>
                             </div>
-                        </div>    
-                    
+                        </div>
                     </div>
-
-
-             
-        
-                 
                     <div class="flex-item flex-meteo">
-        
                         <div class="flex-meteo-item">
                             <img id="icon-meteo"/>
                         </div>
-        
                         <div class="flex-meteo-item">
-        
                             <h1 class="text-center mt-5">Météo</h1>
                             <span id="ville"></span>
-            
                             <div id="temperature">
-                                <span id="temperature_label">
-                                Aucune donnée
-                                </span> °C
+                                <span id="temperature_label">Aucune donnée</span> °C
                             </div>
-            
                             <div>
                                 <span id ="wind"></span>
                             </div>
                         </div>
                     </div>
-
-                    
-
-        
                     <div class="flex-item"><h1 class="date"></h1>
                         <div class="etat-soleil-bloc">
                             <h1 class="etat-soleil"></h1>
-                        </div>        
+                        </div>
                     </div>
-        
-   
-                    </div>
-
-                
-
-
+                </div>
             </header>
-
             <nav id="nav-menu" class="">
                 <div id="nav-deroulant-conteneur">
-                    <span class="nav-item" id="web-affiche">
-                        <a href="#fav-site-bloc">Préférence site web</a>
-                    </span>
-                    <span class="nav-item" id="youtube-affiche">
-                        <a href="#session-video">Youtube</a>
-                    </span>  
-                    <span id="tableau-affiche" class="nav-item">
-                        <a href="#session-tableau"> Agenda</a>
-                       
-                    </span>   
+                    <span class="nav-item" id="web-affiche">Préférence site web</span>
+                    <span class="nav-item" id="youtube-affiche">Youtube</span>
+                    <span id="tableau-affiche" class="nav-item">Agenda</span>
                 </div>
             </nav>
-
-
-            <section id="google-section">
-             
-                <form onsubmit="redirectToSearchResults(this.querySelector('input').value); return false;" target="_blank" class="custom-search-container">
+            <section id="google-section" class="gcse-search">
+                <form onsubmit="redirectToSearchResults(this.querySelector('input').value); return false;" target="_blank" class="custom-search-container" autocomplete="off">
                     <input id="google_input_bar" type="text" name="q" class="custom-search-input" size="40" placeholder="Rechercher...">
                     <input id="google_btn_search" type="submit" value="Google" class="custom-search-submit click">
                 </form>
-                    
             </section>
-
-
-            
-        
-            <div id="fav-site-bloc" class="flex">
+            <div id="fav-site-bloc" class="flex bloc">
                 <div class="fav-icon-item">
                     <a target="_blank" href="https://www.linkedin.com/feed/?nis=true">
                         <img class="logo click" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
@@ -169,28 +120,27 @@
                     </a>
                 </div>
             </div>
-            
-            <div id ="session-video" class="none">
-                
+            <div id="session-video" class="none bloc">
                 <div id="menu-video">
-                    
                     <span id="integration-youtube" class="">
                         <div class="flex">
                             <label id="label-integration-content" for="video">Intégrer une vidéo</label>
                         </div>
-    
                         <input type="text" placeholder="Collez le lien d'intégration youtube" id="in">
                         <input type="button" id="valide" class="btnStyle" value="Afficher vidéo youtube">
+                        <!-- Nouveau bouton pour valider la nouvelle adresse -->
+                        <input type="button" id="save-video-btn" class="btnStyle" value="Sauvegarder la vidéo">
+                        <!-- Message de validation -->
+                        <div id="validation-message" class="none">Vidéo sauvegardée avec succès!</div>
+                        <!-- Message d'erreur -->
+                        <div id="error-message" class="none">Erreur de saisie. Veuillez entrer une URL valide.</div>
+                        <!-- Message d'erreur pour les doublons -->
+                        <div id="duplicate-error-message" class="none">Erreur : La vidéo est déjà enregistrée.</div>
                     </span>
-
-                    
                     <input type="button" id="choix-video" class="none btnStyle" value="Choissez une video">
                     <input type="button" id="video-btn" class=" btnStyle" value="Passez en mode video">
                     <input type="button" id="hide" class="btnStyle" value="Cachez les formulaires">
-        
                 </div>
-
-                
                 <div id="bloc-video" class="none">
                     <div id="content-video" class="">
                         <video id="video" loading="lazy" controls width="1000" height="562.57">                    
@@ -200,33 +150,18 @@
                     <div id="bloc-choix-video" class="none">
                         <div>Choisez une vidéo</div>
                         <div id="bloc-thumbnail">
-                            <figure><img id="Image1" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_day.png" alt="Détente jour">
-                                <figcaption>Détente jour</figcaption>
-                            </figure>
-                            <figure><img id="Image2" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_night.png" alt="Détente nuit">
-                                <figcaption>Détente nuit</figcaption>
-                            </figure>
-                            <figure><img id="Image3" class="thumbnail" src="assets/images/thumbnail/thumbnail_video_rain.png" alt="Détente pluie">
-                                <figcaption>Détente pluie</figcaption>
-                            </figure>
-                            <figure><img id="Image4" class="thumbnail" src="assets/images/thumbnail/thumbnail_summer_forest.png" alt="Spyro forêt d'été">
-                                <figcaption>Détente pluie</figcaption>
-                            </figure>
+                            <!-- Ajoutez ce conteneur pour afficher les vidéos sauvegardées -->
+                            <div id="video-list"></div>
                         </div>
-
                     </div>
                 </div>
-                
                 <div id="video-youtube">
-                 
-                    <div id ="player"></div>
+                    <div id="player"></div>
                 </div>
-
-                <div id="bloc-cacher" class="none">
+                <div id="bloc-cacher" class="none bloc">
                     <input type="button" id="show" class="btnStyle" value="Réafficher le formulaire">
                 </div>
             </div>
-
             <div id="session-tableau" class="table-wrapper none">
                 <div id="bloc-tableau">
                     <div id="app">
@@ -247,7 +182,7 @@
                             </thead>
                             <tbody>
                                 <!-- Utilisez la directive v-for pour parcourir les entrées d'agenda et afficher les informations -->
-                                <tr v-for="(agendaEntry, index) in agendaEntries" :key="agendaEntry.id">
+                                <tr v-for="(agendaEntry, index) in agendaEntries" :key="agendaEntry.id" :class="getRowClass(agendaEntry)">
                                     <td>{{ agendaEntry.AgendaEntreprise }}</td>
                                     <td>{{ agendaEntry.AgendaObject }}</td>
                                     <td>{{ agendaEntry.AgendaAdresse }}</td>
@@ -258,13 +193,13 @@
                                     <td><a :href="agendaEntry.AgendaLien" target="_blank">{{ agendaEntry.AgendaLien }}</a></td>
                                     <td>{{ agendaEntry.AgendaCommentary }}</td>
                                     <td><button class="btnStyle" @click="deleteAgendaEntry(index)">Supprimer</button></td>
-                                </tr>
-                                
+                                  </tr>
+                                                                
                             </tbody>
                         </table>
             
                         <div id="bloc-mise-a-jour">
-                            <p>Prochaine rendez-vous à : {{ firstUpdateDate }}</p>
+                            <p>Prochaine rendez-vous à : {{ nextAppointmentDate}}</p>
                         </div>
             
                         <div id="openFormBloc" class="">
@@ -346,10 +281,6 @@
               </script>
             </body>
             
-            </html>
-            
-
-          
             <footer class="footer">
                 <div id="background-menu" class="">
     
@@ -360,15 +291,16 @@
 
 
 
-
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue@3.2.21/dist/vue.esm-bundler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intersection-observer@2.0.0/dist/intersection-observer.js"></script>
     <script src="assets/jquery/jquery-3.6.4.min.js"></script>
     <script src="assets/js/suncalc-master/suncalc.js"></script>
+    <script src="youtube.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/meteo/meteo.js"></script>
+    <script src="assets/js/moon.js"></script>
     <script src="assets/js/audio.js"></script>
     <script src="assets/js/google_script.js"></script>
     <script src="assets/js/api.js"></script>

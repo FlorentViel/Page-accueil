@@ -4,7 +4,7 @@
 
     /* varDay */
 
-    --white : rgba(252, 252, 252, 1); ;
+    --white : rgba(252, 252, 252, 1);
     --entete-border-bottom-color-day: #baefff;
     --entete-background-color-day: rgba(251, 175, 44, 0.245);
     --entete-box-shadow-color-day: #ffefbb;
@@ -13,7 +13,7 @@
     --gradient-end-color-day: rgba(129, 182, 249, 0.5);
     --border-color-day: #baefff;
     --text-color-day: #256aff;
-    --background-color-day: rgba(252, 252, 252, 0.5);
+    --background-color-day: rgb(252, 252, 252);
     --btn-box-shadow-color-day: #ebf0ff;
     --btn-gradient-start-color-day: rgba(252, 252, 252, 1);
     --btn-gradient-end-color-day: rgba(129, 182, 249, 1);
@@ -21,6 +21,9 @@
     --btn-background-color-day: rgba(252, 252, 252, 1);
     --btn-button-hover-background-color-day: rgba(0, 209, 254, 1);
     --btn-text-shadow-day: #fff7a4;
+    
+
+    
 
     --btn-hover-gradient-start-color-day: rgba(0, 209, 254, 1);
     --btn-hover-gradient-end-color-day: rgba(128, 184, 247, 1);
@@ -33,6 +36,9 @@
     --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
     --entete-box-shadow-color-sunset: #ff9e27;
     --text-color-sunset: #020705;
+
+    --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+
     
     --integration-border-color-sunset: #07541e;
     --integration-background-gradient-start-sunset: rgba(254, 166, 84, 1);
@@ -44,7 +50,6 @@
     --custom-search-button-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
     --custom-search-button-border-color-sunset: #07541e;
     --custom-search-button-box-shadow-color-sunset: #ff8c21;
-    --custom-search-button-text-color-sunset: #020705;
     
     --block-choix-video-background-gradient-start-sunset: rgba(254, 166, 84, 0.50);
     --block-choix-video-background-gradient-end-sunset: rgba(255, 138, 13, 0.50);
@@ -52,11 +57,6 @@
     --block-choix-video-border-color-sunset: #ffc003;
     --block-choix-video-text-color-sunset: #020705;
     
-    --figcaption-background-gradient-start-sunset: rgba(254, 166, 84, 1);
-    --figcaption-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
-    --figcaption-text-color-sunset: #020705;
-
-
     /* varNight */
 
     --black :#000;
@@ -117,10 +117,11 @@
 
 }
 
-body {
-    background-size: contain;
-    background-color: #bfdff8;
-    background-size: auto;
+html {
+
+    position: relative;
+    min-height: 100vh;
+
 }
 
 .background-jour {
@@ -173,9 +174,19 @@ body {
 
 #background-image {
 
-    background-position: center;
+    position: relative;    
+
     
-    
+}
+
+.background-Image {
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    min-height: 100vh;
+    object-fit: cover; /* Utilisez object-fit: cover; pour simuler le comportement "cover" */
 }
 
 
@@ -334,14 +345,14 @@ margin-left: 2vw;
 margin-right: 2vw;
 }
 
-#nav-deroulant-conteneur .nav-item a {
+#nav-deroulant-conteneur .nav-item  {
     padding-right: 8px;
     padding-left: 8px;
     text-decoration: none;  
     font-size: 28px;
     }
 
-    #nav-deroulant-conteneur .nav-item a:hover {
+    #nav-deroulant-conteneur .nav-item:hover {
         text-decoration:underline;
         }
 
@@ -381,6 +392,8 @@ margin-right: 2vw;
     border: none; /* Supprimer la bordure du bouton */
     cursor: pointer; /* Curseur de souris en forme de main */
     flex-shrink: 0; /* Empêche le bouton de réduire sa taille pour s'adapter à l'espace disponible */
+    font-weight: bold;
+
 }
 
 .custom-search-submit:active {
@@ -389,9 +402,40 @@ margin-right: 2vw;
 }
 
 
+
 .listsoleil{
     list-style: none;
 }
+
+
+/* animation */
+
+.OpacityAnimation {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.OpacityAnimationIn {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 
 /* Liste site */
@@ -402,37 +446,34 @@ margin-right: 2vw;
     position: relative;
     flex-wrap: wrap;
     margin: 1rem;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-/* Lorsque la souris survole un lien */
-.logo {
-    transition: transform 0.5s; /* Ajoutez une transition pour une animation fluide */
-  }
-  
-  .logo:hover {
-    transform: translate(0,-25px)
-}
+
   
   
 
 /* bloc site */
 
 #fav-site-bloc > div {
-    flex : 1 1 250px;
+    flex : 0 0 150px;
 }
 
 
 .logo {
-    width: 250px;
-    height: 250px;
+    width: 100px;
+    height: 100px;
     opacity: 0.50;
     border: 2px solid #1b1b1b;
     z-index: 2;
+    transition: transform 0.5s; /* Ajoutez une transition pour une animation fluide */
+
 }
 
 .logo:hover {
     opacity: 1;
+    transform: translate(0,-25px)
+
 }
 
 /* bloc-video */
@@ -471,6 +512,30 @@ margin-right: 2vw;
 
 
 
+#error-message {
+    padding: 0.5rem;
+    color: white;
+    width: auto;
+    max-width: 160px;
+    position: absolute;
+    top: -60px;
+    margin-left: 1rem;
+    border-radius: 15%;
+    transition: all 0.5s;
+}
+
+.error-sunset{
+    background: linear-gradient(90deg, rgba(254,166,84,1) 5%, rgba(255, 138, 13, 0.788) 100%);
+}
+
+.error-night{
+    background: var(--btn-hover-gradient-night);
+
+}
+
+.error-day {
+    background: var(--btn-hover-gradient-day);
+}
 
 #menu-video {
     opacity: 1;
@@ -508,6 +573,7 @@ margin-right: 2vw;
     align-items: center;
     margin-top: 50px;
     flex-direction: column;
+    position: relative;
 }
 
 
@@ -648,6 +714,25 @@ td {
 }
 
 
+
+/* class prochain rendez-vous */
+
+.nextAppointment {
+    background-color: green;
+}
+
+.currentAppointment {
+    background-color: rgba(247, 247, 88, 0.503);
+}
+
+
+/* class rendez-vous passé */
+
+.pastDate {
+    background-color: rgba(170, 13, 13, 0.329);
+}
+
+
 #bloc-mise-a-jour {
     margin-top: 2rem;
     margin-left: 2rem;
@@ -747,10 +832,18 @@ input[type="radio"].radioInput {
 /* navItemDay  */
 
 
-.nav-itemDay a {
+.nav-itemDay {
     color: var(--white);
     text-shadow: 0px 0px 5px rgb(224, 237, 123);
     background-color: #023a3b14;
+    box-shadow: 1px 2px 5px 2px var(--black);
+
+
+}
+
+.nav-itemDay:hover{
+
+    box-shadow: inset 1px 0px 0px 2px var(--black);
 
 }
 
@@ -813,7 +906,6 @@ input[type="radio"].radioInput {
 	text-decoration:none;
 	text-shadow: 2px 1px 1px var(--btn-text-shadow-day);
 }
-
 .btn-show-TimeDay:hover {
     background: -webkit-linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
     background: -moz-linear-gradient(0deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
@@ -1064,7 +1156,7 @@ input[type="radio"].radioInput {
     
 }
 
-.nav-itemSunset a {
+.nav-itemSunset {
     color: var(--text-color-sunset);
 }
 
@@ -1127,14 +1219,13 @@ input[type="radio"].radioInput {
 .custom-search-submit-Sunset {
     background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var(--custom-search-button-background-gradient-end-sunset) 100%);
     background-color: var(--custom-search-button-background-gradient-start-sunset);
-    border: 1px solid var(--custom-search-button-border-color-sunset);
+    border: 1px solid var(--white);
     box-shadow: 5px -4px 15px 5px var(--custom-search-button-box-shadow-color-sunset);
-    color: var(--custom-search-button-text-color-sunset);
+    color: var(--block-choix-video-text-color-sunset);
     -moz-box-shadow: 1px solid #ffc003;
 	-webkit-box-shadow: 1px solid #ffc003;
 	box-shadow: 5px -4px 15px 5px #ff8c21;
     text-shadow: 2px 1px 1px #a46d36;
-    border: 1px solid #07541e;
     font-size: 16px;
     color:var(--text-color-sunset);
 
@@ -1352,7 +1443,7 @@ input[type="radio"].radioInput {
 
 }
 
-.nav-itemNight a {
+.nav-itemNight {
     color: var(--white);
 }
 
@@ -1716,4 +1807,28 @@ figcaption {
 }
 
 
+#moon-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    background: #000;
+}
 
+#moon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+}

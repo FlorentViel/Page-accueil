@@ -276,6 +276,50 @@ function traiterTemperature(reponse) {
             break;
       }
 
+      case 600:
+
+
+      switch(now){
+        case "Soleil":
+          weather = 'Neige';
+
+          document.querySelector('#icon-meteo').src="assets/images/icon/snow_weather.png";
+          document.querySelector('#icon-meteo').alt=weather;
+          document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+          break;
+
+          case "Lune":
+            weather = 'Neige';
+  
+            document.querySelector('#icon-meteo').src="assets/images/icon/snowingcloudwith_moon.png";
+            document.querySelector('#icon-meteo').alt=weather;
+            document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+  
+            break;
+      }
+
+      case 601:
+
+      switch(now){
+        case "Soleil":
+          weather = 'Neige';
+
+          document.querySelector('#icon-meteo').src="assets/images/icon/snow_weather.png";
+          document.querySelector('#icon-meteo').alt=weather;
+          document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+          break;
+
+          case "Lune":
+            weather = 'Neige';
+  
+            document.querySelector('#icon-meteo').src="assets/images/icon/snowingcloudwithmoon.png";
+            document.querySelector('#icon-meteo').alt=weather;
+            document.querySelector('#temperature_label').innerHTML = weather + ' </br> ' + temperature.toFixed(0);
+  
+            break;
+      }
+
+
       break;
 
       default:

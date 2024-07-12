@@ -11,6 +11,7 @@
 | 500   |  `Rain`   | `light Rain`              |
 | 501   |  `Rain`   | `moderate`                |
 | 502   |  `Rain`   | `heavy intensity rain`    |
+| 601   |  `Snow`   | `snow`                    |
 | 800   |  `Clear`  | `clear sky`               |
 | 800   |  `Clear`  | `clear sky`               |
 | 800   |  `Clear`  | `clear sky`               |

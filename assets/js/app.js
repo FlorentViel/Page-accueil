@@ -1,206 +1,210 @@
 const app = Vue.createApp({
-  data() {
+    data() {
       return {
-          messageVisible: false,
-          errorEntreprise: false,
-          newAgendaEntry: {
-              AgendaEntreprise: "",
-              AgendaObject: "",
-              AgendaAdresse:"",
-              AgendaDate: "",
-              AgendaHeureDebut: "",
-              AgendaHeureFin: "",
-              AgendaDatelimite: "",
-              AgendaLien: "",
-              AgendaCommentary: "",
-          },
-          agendaEntries: [],
+        messageVisible: false,
+        errorEntreprise: false,
+        newAgendaEntry: {
+          AgendaEntreprise: "",
+          AgendaObject: "",
+          AgendaAdresse: "",
+          AgendaDate: "",
+          AgendaHeureDebut: "",
+          AgendaHeureFin: "",
+          AgendaDatelimite: "",
+          AgendaLien: "",
+          AgendaCommentary: "",
+        },
+        agendaEntries: [],
       };
-  },
-  computed: {
-    firstUpdateDate() {
-        if (this.agendaEntries.length === 0) {
-            return "Aucune entrée d'agenda réalisée";
-        }
-
-        const sortedEntries = this.agendaEntries.slice().sort((a, b) =>
-            new Date(a.AgendaDate + " " + a.AgendaHeureDebut) - new Date(b.AgendaDate + " " + b.AgendaHeureDebut)
-        );
-        const firstEntry = sortedEntries[0];
-
-        // Validation des dates
-        const startDate = new Date(firstEntry.AgendaDate);
-        const endDate = new Date(firstEntry.AgendaDatelimite);
-        const startTime = firstEntry.AgendaHeureDebut;
-        const endTime = firstEntry.AgendaHeureFin;
-
-        if (
-            startDate >= endDate || // La date de début doit être inférieure à la date limite
-            (startTime >= endTime && startDate.toString() === endDate.toString()) // L'heure de début doit être inférieure à l'heure de fin
-        ) {
-            alert("Veuillez vérifier les dates et heures !");
-            return; // Ne pas ajouter l'entrée si les validations échouent
-        }
-
-        // Parsez la date et l'heure de début de l'entrée en utilisant new Date()
-        const entryDateTime = new Date(firstEntry.AgendaDate + " " + firstEntry.AgendaHeureDebut);
-        const monthIndex = entryDateTime.getMonth();
-        const dayIndex = entryDateTime.getDay();
-
-        // Utilisez les dictionnaires pour obtenir les noms des mois et des jours en français
-        const months = {
-            0: 'Janvier',
-            1: 'Février',
-            2: 'Mars',
-            3: 'Avril',
-            4: 'Mai',
-            5: 'Juin',
-            6: 'Juillet',
-            7: 'Août',
-            8: 'Septembre',
-            9: 'Octobre',
-            10: 'Novembre',
-            11: 'Décembre'
-        };
-
-        const days = {
-            0: 'Dimanche',
-            1: 'Lundi',
-            2: 'Mardi',
-            3: 'Mercredi',
-            4: 'Jeudi',
-            5: 'Vendredi',
-            6: 'Samedi'
-        };
-
-        const monthName = months[monthIndex];
-        const dayName = days[dayIndex];
-
-        const Nowhours = entryDateTime.getHours();
-        const Nowsminutes = entryDateTime.getMinutes();
-
-        const formattedDate = `${dayName}, ${entryDateTime.getDate()} ${monthName} ${entryDateTime.getFullYear()} à ${Nowhours}h${Nowsminutes}m`;
-
-        return formattedDate;
     },
-},
-
-
-
-  methods: {
+    computed: {
+      nextAppointmentDate() {
+        if (this.agendaEntries.length === 0) {
+          return "Aucun rendez-vous prévu";
+        }
+  
+        const currentDate = new Date();
+        const sortedEntries = this.agendaEntries
+          .filter(entry => {
+            const entryDateTime = new Date(
+              entry.AgendaDate + " " + entry.AgendaHeureDebut
+            );
+            return entryDateTime > currentDate;
+          })
+          .sort((a, b) =>
+            new Date(a.AgendaDate + " " + a.AgendaHeureDebut) -
+            new Date(b.AgendaDate + " " + b.AgendaHeureDebut)
+          );
+  
+        if (sortedEntries.length === 0) {
+          return "Aucun rendez-vous futur prévu";
+        }
+  
+        const nextAppointment = sortedEntries[0];
+  
+        const formattedDate = this.formatDate(nextAppointment.AgendaDate);
+        const formattedStartTime = this.formatTime(nextAppointment.AgendaHeureDebut);
+  
+        const formattedDateTime = `${formattedDate} à ${formattedStartTime}`;
+  
+        return formattedDateTime;
+      },
+    },
+    methods: {
       toggleMessage() {
-          this.messageVisible = !this.messageVisible;
+        this.messageVisible = !this.messageVisible;
       },
       submitAgendaEntry() {
+        const startDate = new Date(`${this.newAgendaEntry.AgendaDate}T${this.newAgendaEntry.AgendaHeureDebut}`);
+        const endDate = new Date(`${this.newAgendaEntry.AgendaDatelimite}T${this.newAgendaEntry.AgendaHeureFin}`)
+        const startTime = this.newAgendaEntry.AgendaHeureDebut;
+        const endTime = this.newAgendaEntry.AgendaHeureFin;
 
-          // Validation des dates
-          const startDate = new Date(this.newAgendaEntry.AgendaDate);
-          const endDate = new Date(this.newAgendaEntry.AgendaDatelimite);
-          const startTime = this.newAgendaEntry.AgendaHeureDebut;
-          const endTime = this.newAgendaEntry.AgendaHeureFin;
-
-          if (
-            (startDate > endDate && startTime >= endTime) || // La date de début doit être strictement inférieure à la date limite et l'heure de début doit être inférieure à l'heure de fin
-            (startTime >= endTime && startDate.toString() === endDate.toString()) || // L'heure de début doit être inférieure à l'heure de fin
-            !this.newAgendaEntry.AgendaAdresse // Vérification que l'adresse n'est pas vide
+        startDate.setHours(0, 0, 0, 0);
+        endDate.setHours(0, 0, 0, 0);
+      
+  
+        const formattedStartDate = this.formatDate(startDate);
+        const formattedEndDate = this.formatDate(endDate);
+        const formattedStartTime = this.formatTime(startTime);
+        const formattedEndTime = this.formatTime(endTime);
+  
+        if (
+          !startDate ||
+          !endDate ||
+          !startTime ||
+          !endTime ||
+          !this.newAgendaEntry.AgendaAdresse ||
+          !this.newAgendaEntry.AgendaEntreprise
         ) {
-            alert("Veuillez vérifier les dates, heures, et l'adresse !");
-            return; // Ne pas ajouter l'entrée si les validations échouent
-          }
+          alert("Veuillez remplir tous les champs obligatoires !");
+          return;
+        }
+  
+        if (isNaN(endDate.getTime())) {
+          alert("Veuillez entrer une date valide pour AgendaDatelimite !");
+          return;
+        }
+  
+        if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(endTime)) {
+          alert("Veuillez entrer une heure valide pour AgendaHeureFin (format HH:mm) !");
+          return;
+        }
+  
+        if (endDate < startDate) {
+          console.log(startDate);
+          console.log(endDate);
+          alert("La date de fin (AgendaDatelimite) doit être ultérieure à la date de début (AgendaDate) !");
+          return;
+        }
+
+        console.log(startDate);
+        console.log(endDate);
         
-          if (
-              this.newAgendaEntry.AgendaEntreprise !== "" &&
-              this.newAgendaEntry.AgendaEntreprise !== null
-          ) {
-              this.agendaEntries.push({ ...this.newAgendaEntry });
-              this.errorEntreprise = false;
+  
+        if (
+          (formattedStartDate > formattedEndDate && formattedStartTime >= formattedEndTime) ||
+          (formattedStartTime >= formattedEndTime && formattedStartDate.toString() === endDate.toString()) ||
+          !this.newAgendaEntry.AgendaAdresse
+        ) {
+          alert("Veuillez vérifier les dates, heures, et l'adresse !");
+          return;
+        }
+  
+        if (
+          this.newAgendaEntry.AgendaEntreprise !== "" &&
+          this.newAgendaEntry.AgendaEntreprise !== null
+        ) {
+          this.agendaEntries.push({ ...this.newAgendaEntry });
+          this.errorEntreprise = false;
+  
+          this.resetForm();
+  
+          localStorage.setItem("agendaEntries", JSON.stringify(this.agendaEntries));
+        } else {
+          this.errorEntreprise = true;
+        }
 
-              // Réinitialiser le formulaire après la soumission
-              this.resetForm();
 
-              // Enregistrer les entrées d'agenda dans le stockage local (facultatif)
-              localStorage.setItem("agendaEntries", JSON.stringify(this.agendaEntries));
-          } else {
-              this.errorEntreprise = true;
-              console.log("Pas de donnée dans l'entreprise");
-              console.log(this.errorEntreprise);
-          }
       },
       resetForm() {
-          // Réinitialiser les valeurs du formulaire après la soumission
-          this.newAgendaEntry = {
-              AgendaEntreprise: "",
-              AgendaObject: "",
-              AgendaAdresse:"",
-              AgendaDate: "",
-              AgendaHeureDebut: "",
-              AgendaHeureFin: "",
-              AgendaDatelimite: "",
-              AgendaLien: "",
-              AgendaCommentary: "",
-          };
+        this.newAgendaEntry = {
+          AgendaEntreprise: "",
+          AgendaObject: "",
+          AgendaAdresse: "",
+          AgendaDate: "",
+          AgendaHeureDebut: "",
+          AgendaHeureFin: "",
+          AgendaDatelimite: "",
+          AgendaLien: "",
+          AgendaCommentary: "",
+        };
       },
       deleteAgendaEntry(index) {
-          this.agendaEntries.splice(index, 1);
-          localStorage.setItem("agendaEntries", JSON.stringify(this.agendaEntries));
+        this.agendaEntries.splice(index, 1);
+        localStorage.setItem("agendaEntries", JSON.stringify(this.agendaEntries));
+      },
+      formatDate(date) {
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        };
+  
+        return new Date(date).toLocaleDateString('fr-FR', options);
+      },
+      formatTime(time) {
+        const [hours, minutes] = time.split(':');
+        return `${hours}h${minutes}`;
       },
 
-         // Méthode pour formater la date (sans les secondes)
-    formatDate(date) {
+  isCurrentAppointment(agendaEntry) {
+    const currentDate = new Date();
+    const startDate = new Date(agendaEntry.AgendaDate + " " + agendaEntry.AgendaHeureDebut);
+    const endDate = new Date(agendaEntry.AgendaDatelimite + " " + agendaEntry.AgendaHeureFin);
 
-      const days = {
-        0: 'Dimanche',
-        1: 'Lundi',
-        2: 'Mardi',
-        3: 'Mercredi',
-        4: 'Jeudi',
-        5: 'Vendredi',
-        6: 'Samedi'
-    };
 
-    const months = {
-      0: 'Janvier',
-      1: 'Février',
-      2: 'Mars',
-      3: 'Avril',
-      4: 'Mai',
-      5: 'Juin',
-      6: 'Juillet',
-      7: 'Août',
-      8: 'Septembre',
-      9: 'Octobre',
-      10: 'Novembre',
-      11: 'Décembre'
-  };
-    
-
-      const entryDate = new Date(date);
-      const dayName = days[entryDate.getDay()];
-      const monthName = months[entryDate.getMonth()];
-      const formattedDate = `${dayName}, ${entryDate.getDate()} ${monthName} ${entryDate.getFullYear()}`;
-      return formattedDate;
-  },
-
-  // Méthode pour formater l'heure (sans les secondes)
-  formatTime(time) {
-      const [hours, minutes] = time.split(':');
-      const formattedTime = `${hours}h ${minutes}m`;
-      return formattedTime;
+    return startDate <= currentDate && endDate >= currentDate;
   },
 
 
-      
+  // Fonction pour déterminer si un rendez-vous est passé
+  isPastDate(agendaEntry) {
+    const currentDate = new Date();
+    const endDate = new Date(agendaEntry.AgendaDatelimite + " " + agendaEntry.AgendaHeureFin);
+
+    return endDate < currentDate;
   },
-  mounted() {
-      // Récupérer les entrées d'agenda depuis le stockage local lors de la première exécution
+
+
+
+  // Fonction pour obtenir la classe CSS en fonction de l'état du rendez-vous
+  getRowClass(agendaEntry) {
+    if (this.isCurrentAppointment(agendaEntry)) {
+      return "currentAppointment";
+    } 
+      else if (this.isPastDate(agendaEntry)) {
+      return "pastDate";
+    } else {
+      return ""; // Aucune classe par défaut
+    }
+  }
+    },
+    mounted() {
       const storedAgendaEntries = localStorage.getItem("agendaEntries");
       if (storedAgendaEntries) {
-          this.agendaEntries = JSON.parse(storedAgendaEntries);
+        this.agendaEntries = JSON.parse(storedAgendaEntries);
+    
+        // Triez les entrées par date
+        this.agendaEntries.sort((a, b) => {
+          const dateA = new Date(a.AgendaDate + " " + a.AgendaHeureDebut);
+          const dateB = new Date(b.AgendaDate + " " + b.AgendaHeureDebut);
+          return dateA - dateB;
+        });
       }
-
-      // Afficher les entrées d'agenda déjà postées dans la console
-      console.log("Entrées d'agenda déjà postées : ", this.agendaEntries);
-  },
-});
-
-app.mount("#app");
+    },
+  });
+  
+  app.mount("#app");
+  

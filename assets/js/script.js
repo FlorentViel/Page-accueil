@@ -106,14 +106,10 @@
         else if(date>= nadir && date <= nightEnd || isNaN(night) == true  && isNaN(nightEnd) == true && date <= nauticalDawn ){
         
             etat = 1;
+            actuel = 'Lune';
+
             $(".etat-soleil").html(`Nadir`);
 
-            if(isNaN(nightEnd) == true){
-                actuel = 'Lune';
-            }
-            else {
-                actuel = 'Lune';
-            }
         }
 
         else if (date >= nightEnd && date <= nauticalDawn && isNaN(nauticalDawn) == false) {
@@ -151,6 +147,7 @@
         else if (date >= goldenhourend && date <= solarnoon || isNaN(sunsetstart) == true && date <= solarnoon  ) {
             $(".etat-soleil").html("Matin");
             actuel = 'Soleil';
+            console.log(goldenhourend);
 
         }
         
@@ -186,12 +183,7 @@
         else if (date >= nauticaldusk && date <= night || isNaN(night) == true && date >= nauticaldusk 
         && date <= nadir || isNaN(night) == true && Nowhours <= 23 ) {
             $(".etat-soleil").html("Crépuscule astronomique");
-
-            if (isNaN(night) == true) {
-                actuel = 'Lune';
-            } else {
-                actuel = 'Lune';
-            }
+            actuel = 'Lune';
         }
         
         if (date >= sunrise && date <= goldenHour) {
@@ -236,6 +228,25 @@
             $('#blocCandidature').addClass('blocCandidatureDay');
             $('#google_input_bar').addClass('integrationInputDay');
             $('#google_btn_search').addClass('custom-search-submit-Day'); 
+            $('#blocCandidature').removeClass('blocCandidatureNight');
+            $('#google_input_bar').removeClass('integrationInputNight');
+            $('#google_btn_search').removeClass('custom-search-submit-Night'); 
+            $('#blocCandidature').removeClass('blocCandidatureSunset');
+            $('#google_input_bar').removeClass('integrationInputSunset');
+            $('#google_btn_search').removeClass('custom-search-submit-Sunset'); 
+
+
+            $('#horloge-background').addClass('horloge-backgroundDay');
+            $('#horloge-background').removeClass('horloge-backgroundSunset');
+            $('#horloge-background').removeClass('horloge-backgroundNight');
+            $('#cadre').addClass('cadreDay');
+            $('#cadre').removeClass('cadreSunset');
+            $('#cadre').removeClass('cadreNight');
+            $('#error-message').addClass('error-day');
+            $('#error-message').removeClass('error-sunset');
+            $('#error-message').removeClass('error-night');
+
+
 
         } else if (date >= goldenHour && date <= dusk) {
 
@@ -297,8 +308,15 @@
             $('#google_input_bar').addClass('integrationInputSunset');
             $('#google_btn_search').addClass('custom-search-submit-Sunset'); 
 
+            $('#horloge-background').removeClass('horloge-backgroundDay');
             $('#horloge-background').addClass('horloge-backgroundSunset');
-
+            $('#horloge-background').removeClass('horloge-backgroundNight');
+            $('#cadre').removeClass('cadreDay');
+            $('#cadre').addClass('cadreSunset');
+            $('#cadre').removeClass('cadreNight');
+            $('#error-message').addClass('error-sunset');
+            $('#error-message').removeClass('error-day');
+            $('#error-message').removeClass('error-night');
 
 
     
@@ -360,17 +378,20 @@
 
             $('#horloge-background').removeClass('horloge-backgroundSunset');
             $('#horloge-background').addClass('horloge-backgroundNight');
+            $('#horloge-background').removeClass('horloge-backgroundDay');
+            $('#cadre').removeClass('cadreDay');
+            $('#cadre').removeClass('cadreSunset');
+            $('#cadre').addClass('cadreNight');
+            $('#error-message').removeClass('error-day');
+            $('#error-message').removeClass('error-sunset');
+            $('#error-message').addClass('error-night');
 
-
-
-
-            
             }
     // Vérification des valeurs pour dayName, date et monthName
     $('.date').html((dayName !== undefined && date.getDate !== undefined && monthName !== undefined) ? `${dayName + ' ' + date.getDate() + ' ' + monthName + ' ' + date.getFullYear()}` : "Une erreur est survenue");
 
 // Changement de la couleur du texte en fonction de l'heure du jour
-document.querySelector('.PM').style.color = (date >= sunrise && date <= sunset) ? "rgb(251, 175, 44)" : "rgb(46, 18, 173)";
+document.querySelector('.PM').style.color = (date >= sunrise && date <= sunset) ? "rgb(251, 175, 251)" : "rgb(0, 18, 0)";
 
 // Changement de la couleur de fond en fonction de l'heure du jour
 //document.querySelector('.bg').style.backgroundColor = (date >= dawn && date <= sunset) ? "rgba(251, 175, 44, 0.245)" : "rgba(75, 63, 246, 0.245)";
