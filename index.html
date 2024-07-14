@@ -94,7 +94,7 @@
                     </a>
                 </div>
                 <div>
-                    <a target="_blank" href="https://www.twitch.tv/votrechainedetwitch">
+                    <a target="_blank" href="https://www.twitch.tv">
                         <img class="logo click" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
                     </a>
                 </div>
@@ -143,7 +143,12 @@
                     <div class="choix-title"><h2>Choissez une vidéo</h2></div>
                     <div id="bloc-thumbnail">
                         <!-- Ajoutez ce conteneur pour afficher les vidéos sauvegardées -->
-                        <div id="video-list"></div>
+                        <div id="video-list" class="video-list">
+                            <!-- Ajoutez une classe pour les éléments de vidéo -->
+                            <div class="video-item" @click="playVideo"> <!-- Ajoutez un gestionnaire d'événements -->
+                                ...
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="video-youtube">

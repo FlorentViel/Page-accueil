@@ -189,13 +189,17 @@ $(document).ready(function() {
   // Conservez uniquement les fonctions pour le choix de vidéo YouTube
   function choixvideo() {
     if ($('#bloc-choix-video').hasClass("none")) {
-      $('#bloc-choix-video').removeClass("none");
-      $('#bloc-choix-video').addClass("block");
+      $('#bloc-choix-video').removeClass("none").addClass("OpacityAnimationIn");
+      setTimeout(function() {
+        $('#bloc-choix-video').removeClass("OpacityAnimationIn");
+      }, 500); // Durée de l'animation
       $('#choix-video').val("Fermez le menu");
     } else {
-      $('#bloc-choix-video').addClass("none");
-      $('#bloc-choix-video').removeClass("block");
-      $('#choix-video').val("Choissez une video");
+      $('#bloc-choix-video').addClass("OpacityAnimation");
+      setTimeout(function() {
+        $('#bloc-choix-video').addClass("none").removeClass("OpacityAnimation");
+        $('#choix-video').val("Choissez une video");
+      }, 500); // Durée de l'animation
     }
   }
 
@@ -629,6 +633,19 @@ tableauMenu.on('click', function(e) {
   $('#show').on('click', function() {
     $('#menu-video').removeClass('none');
   });
+
+  // Fonction pour jouer la vidéo et lancer l'animation
+  function playVideo() {
+    $('#bloc-choix-video').addClass('OpacityAnimation');
+    setTimeout(function() {
+      $('#bloc-choix-video').addClass('none');
+      $('#bloc-choix-video').removeClass('OpacityAnimation');
+      $('#choix-video').val("Choissez une video"); // Changer l'état du bouton
+    }, 500); // Durée de l'animation
+  }
+
+  // Ajoutez un gestionnaire d'événements pour les éléments de vidéo
+  $('.video-item').on('click', playVideo);
 
 });
 
