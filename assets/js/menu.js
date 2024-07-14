@@ -26,6 +26,7 @@ $(document).ready(function() {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   var player;
+  var playerReady = false;
   var currentIdVideo = 'jfKfPfyJRdk'; // ID de la vidéo par défaut
 
   function onYouTubeIframeAPIReady() {
@@ -41,6 +42,7 @@ $(document).ready(function() {
   }
 
   function onPlayerReady(event) {
+    playerReady = true;
     event.target.playVideo();
   }
 
@@ -60,6 +62,28 @@ $(document).ready(function() {
     }
   }
 
+  function afficherVideo() {
+    var youtubeUrl = $("#in").val();
+    var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
+
+    if (youtubeVideoId !== null) {
+      if (playerReady && player && typeof player.loadVideoById === 'function') {
+        currentIdVideo = youtubeVideoId;
+        player.loadVideoById(youtubeVideoId);
+
+        // Afficher le message de validation
+        $("#validation-message").removeClass("none").addClass("block");
+        $("#error-message").addClass("none").removeClass("block");
+        $("#duplicate-error-message").addClass("none").removeClass("block");
+      } else {
+        console.error("Le lecteur YouTube n'est pas prêt.");
+      }
+    } else {
+      // Afficher le message d'erreur
+      showError("#error-message");
+    }
+  }
+
   function updateYoutubeBtn() {
     var youtubeUrl = $("#in").val();
     var youtubeVideoId = getYoutubeVideoId(youtubeUrl);
@@ -69,16 +93,20 @@ $(document).ready(function() {
         // Afficher le message d'erreur pour les doublons
         showError("#duplicate-error-message");
       } else {
-        currentIdVideo = youtubeVideoId;
-        player.loadVideoById(youtubeVideoId);
+        if (playerReady && player && typeof player.loadVideoById === 'function') {
+          currentIdVideo = youtubeVideoId;
+          player.loadVideoById(youtubeVideoId);
 
-        // Sauvegarder le lien de la vidéo dans le localStorage
-        saveVideoLink(youtubeUrl, youtubeVideoId);
+          // Sauvegarder le lien de la vidéo dans le localStorage
+          saveVideoLink(youtubeUrl, youtubeVideoId);
 
-        // Afficher le message de validation
-        $("#validation-message").removeClass("none").addClass("block");
-        $("#error-message").addClass("none").removeClass("block");
-        $("#duplicate-error-message").addClass("none").removeClass("block");
+          // Afficher le message de validation
+          $("#validation-message").removeClass("none").addClass("block");
+          $("#error-message").addClass("none").removeClass("block");
+          $("#duplicate-error-message").addClass("none").removeClass("block");
+        } else {
+          console.error("Le lecteur YouTube n'est pas prêt.");
+        }
       }
     } else {
       // Afficher le message d'erreur
@@ -116,7 +144,7 @@ $(document).ready(function() {
           <a href="#" class="video-link">
             <img src="${thumbnailUrl}" alt="Miniature de la vidéo" style="width: 150px;">
           </a>
-          <button class="delete-video-btn">Supprimer</button>
+          <button class="btnStyle delete-video-btn">Supprimer</button>
         </div>
       `;
       videoList.append(videoItem);
@@ -127,9 +155,13 @@ $(document).ready(function() {
       e.preventDefault();
       var videoUrl = $(this).parent().data('url');
       $('#in').val(videoUrl);
-      currentIdVideo = getYoutubeVideoId(videoUrl);
-      player.cueVideoById(currentIdVideo); // Utilisez cueVideoById pour charger la vidéo sans la lire automatiquement
-      player.playVideo(); // Jouez la vidéo après l'avoir chargée
+      var youtubeVideoId = getYoutubeVideoId(videoUrl);
+      if (playerReady && player && typeof player.loadVideoById === 'function') {
+        currentIdVideo = youtubeVideoId;
+        player.loadVideoById(currentIdVideo); // Charge et joue la vidéo
+      } else {
+        console.error("Le lecteur YouTube n'est pas prêt.");
+      }
     });
 
     // Ajouter un gestionnaire d'événements pour les boutons de suppression
@@ -150,76 +182,98 @@ $(document).ready(function() {
   // Afficher les vidéos sauvegardées au chargement de la page
   displaySavedVideos();
 
-  // Ajoutez un gestionnaire d'événements pour le nouveau bouton
+  // Ajoutez un gestionnaire d'événements pour les boutons
+  $('#afficher-video-btn').on('click', afficherVideo);
   $('#save-video-btn').on('click', updateYoutubeBtn);
 
-// ... (votre code existant)
-
-// Définissez une constante pour l'élément que vous souhaitez observer
-const sessionVideo = $('#session-video');
-
-// Définissez les options pour l'observateur (ajustez-les selon vos besoins)
-const observerOptions = {
-  root: null, // utilise la fenêtre comme conteneur par défaut
-  rootMargin: '0px', // aucune marge autour de la fenêtre
-  threshold: 0.5, // déclenche l'observation lorsque 50 % de l'élément est visible
-};
-
-// Fonction pour charger la vidéo lorsque l'élément est visible
-function loadVideoWhenVisible(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // Charger la vidéo ici, par exemple :
-      player.loadVideoById(currentIdVideo);
-      // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
-      observer.unobserve(entry.target);
+  // Conservez uniquement les fonctions pour le choix de vidéo YouTube
+  function choixvideo() {
+    if ($('#bloc-choix-video').hasClass("none")) {
+      $('#bloc-choix-video').removeClass("none");
+      $('#bloc-choix-video').addClass("block");
+      $('#choix-video').val("Fermez le menu");
+    } else {
+      $('#bloc-choix-video').addClass("none");
+      $('#bloc-choix-video').removeClass("block");
+      $('#choix-video').val("Choissez une video");
     }
-  });
-}
+  }
 
-// Créez une instance de l'observateur
-const observer = new IntersectionObserver(loadVideoWhenVisible, observerOptions);
+  // Ajoutez un gestionnaire d'événements pour le bouton de choix de vidéo
+  $('#choix-video').on('click', choixvideo);
 
-// Observez l'élément que vous souhaitez surveiller (dans ce cas, sessionVideo)
-observer.observe(sessionVideo.get(0)); // Utilisez get(0) pour obtenir l'élément DOM sous-jacent
+  // Ajoutez un gestionnaire d'événements pour les autres boutons existants
+  $('#hide').on('click', hideVideoBtn);
+  $('#show').on('click', showbtn);
+  $('#accept').on('click', updateYoutubeBtn);
 
-// Variable de contrôle pour suivre si la vidéo doit être lue lorsqu'elle est visible
-let shouldPlayVideoWhenVisible = false;
+  // ... (rest of the code remains unchanged)
 
-// ...
+  // Définissez une constante pour l'élément que vous souhaitez observer
+  const sessionVideo = $('#session-video');
 
-// Fonction pour charger la vidéo lorsque l'élément est visible
-function loadVideoWhenVisible(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      if (shouldPlayVideoWhenVisible) {
-        // Charger et lire la vidéo si shouldPlayVideoWhenVisible est vrai
+  // Définissez les options pour l'observateur (ajustez-les selon vos besoins)
+  const observerOptions = {
+    root: null, // utilise la fenêtre comme conteneur par défaut
+    rootMargin: '0px', // aucune marge autour de la fenêtre
+    threshold: 0.5, // déclenche l'observation lorsque 50 % de l'élément est visible
+  };
+
+  // Fonction pour charger la vidéo lorsque l'élément est visible
+  function loadVideoWhenVisible(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Charger la vidéo ici, par exemple :
         player.loadVideoById(currentIdVideo);
-        player.playVideo();
-        // Réinitialiser shouldPlayVideoWhenVisible pour éviter la lecture automatique
-        shouldPlayVideoWhenVisible = false;
+        // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
+        observer.unobserve(entry.target);
       }
-      // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
-      observer.unobserve(entry.target);
+    });
+  }
+
+  // Créez une instance de l'observateur
+  const observer = new IntersectionObserver(loadVideoWhenVisible, observerOptions);
+
+  // Observez l'élément que vous souhaitez surveiller (dans ce cas, sessionVideo)
+  observer.observe(sessionVideo.get(0)); // Utilisez get(0) pour obtenir l'élément DOM sous-jacent
+
+  // Variable de contrôle pour suivre si la vidéo doit être lue lorsqu'elle est visible
+  let shouldPlayVideoWhenVisible = false;
+
+  // ...
+
+  // Fonction pour charger la vidéo lorsque l'élément est visible
+  function loadVideoWhenVisible(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (shouldPlayVideoWhenVisible) {
+          // Charger et lire la vidéo si shouldPlayVideoWhenVisible est vrai
+          player.loadVideoById(currentIdVideo);
+          player.playVideo();
+          // Réinitialiser shouldPlayVideoWhenVisible pour éviter la lecture automatique
+          shouldPlayVideoWhenVisible = false;
+        }
+        // Arrêtez d'observer une fois la vidéo chargée si vous le souhaitez
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  // Lorsque l'utilisateur met en pause la vidéo manuellement
+  function pauseVideoManually() {
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+      player.pauseVideo();
     }
-  });
-}
-
-// Lorsque l'utilisateur met en pause la vidéo manuellement
-function pauseVideoManually() {
-  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-    player.pauseVideo();
   }
-}
 
-// Lorsque l'utilisateur souhaite jouer la vidéo manuellement
-function playVideoManually() {
-  shouldPlayVideoWhenVisible = true;
-  // Si la vidéo est déjà chargée, jouez-la immédiatement
-  if (player.getPlayerState() === YT.PlayerState.CUED || player.getPlayerState() === YT.PlayerState.PAUSED) {
-    player.playVideo();
+  // Lorsque l'utilisateur souhaite jouer la vidéo manuellement
+  function playVideoManually() {
+    shouldPlayVideoWhenVisible = true;
+    // Si la vidéo est déjà chargée, jouez-la immédiatement
+    if (player.getPlayerState() === YT.PlayerState.CUED || player.getPlayerState() === YT.PlayerState.PAUSED) {
+      player.playVideo();
+    }
   }
-}
 
 
 
@@ -286,7 +340,6 @@ function playVideoManually() {
     const menuVideo = $('#menu-video');
     const blocVideo = $('#bloc-video');
     const inputblocshow = $('#bloc-cacher');
-    const cadreVideo = $('#video');
     
 
 
@@ -298,7 +351,6 @@ function playVideoManually() {
     $(hide).on('click', hideVideoBtn);
     $(show).on('click', showbtn);
     $(btnChoixVideo).on('click', choixvideo);
-    $(choixVideoBtn).on('click', modeVideo);
     
     // <iframe width="887" height="499" loading="lazy" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -324,7 +376,6 @@ function playVideoManually() {
         blocVideo.addClass("none");
         videoChoix.addClass("none");
         menuVideo.addClass("none");
-        cadreVideo.addClass("none");
         sessionVideo.addClass("none");
         sessionVideo.removeClass("flex");
         blocTableau.addClass("none");
@@ -368,7 +419,6 @@ function playVideoManually() {
         blocVideo.addClass("none");
         videoChoix.addClass("none");
         menuVideo.addClass("none");
-        cadreVideo.addClass("none");
         sessionVideo.addClass("none");
         blocTableau.addClass("none");
         blocTableau.removeClass("flex");
@@ -553,47 +603,34 @@ tableauMenu.on('click', function(e) {
 
     }
 
-    // function pour passer en mode youtube ou en mode video 
-
-    function modeVideo() {
-        if (blocVideo.hasClass("none") && !videoYoutube.hasClass("none")) {
-            videoYoutube.addClass("none");
-            blocVideo.removeClass("none");
-            btnChoixVideo.removeClass("none");
-            integrationYoutube.addClass("none");
-            stopVideo();
-            choixVideoBtn.val("Passez en mode youtube");
-        } else if (!blocVideo.hasClass("none") && videoYoutube.hasClass("none")) {
-            videoYoutube.removeClass("none");
-            blocVideo.addClass("none");
-            btnChoixVideo.addClass("none");
-            integrationYoutube.removeClass("none");
-            choixVideoBtn.val("Passez en mode vidéo");
-            cadreVideo[0].pause();
-        }
-    }
-    
-    
-
     // fonction pour afficher le menu de choix de vidéo lié 
 
     function choixvideo() {
         if (blocChoixVideo.hasClass("none")) {
             blocChoixVideo.removeClass("none");
             blocChoixVideo.hasClass("block")
-            cadreVideo.addClass("none");
             videoChoix.addClass("none");
             btnChoixVideo.val("Fermez le menu");
         } else if (!blocChoixVideo.hasClass("none")) {
             blocChoixVideo.addClass("none");
-            cadreVideo.removeClass("none");
             blocChoixVideo.removeClass("block")
             btnChoixVideo.val("Choissez une video");
             videoChoix.addClass("none");
         }
     }
 
-    });
+      // Ajoutez un gestionnaire d'événements pour le bouton de choix de vidéo
+  $('#choix-video').on('click', choixvideo);
+
+  // Ajoutez un gestionnaire d'événements pour les autres boutons existants
+  $('#hide').on('click', function() {
+    $('#menu-video').addClass('none');
+  });
+  $('#show').on('click', function() {
+    $('#menu-video').removeClass('none');
+  });
+
+});
 
 
 

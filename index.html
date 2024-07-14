@@ -127,32 +127,23 @@
                             <label id="label-integration-content" for="video">Intégrer une vidéo</label>
                         </div>
                         <input type="text" placeholder="Collez le lien d'intégration youtube" id="in">
-                        <input type="button" id="valide" class="btnStyle" value="Afficher vidéo youtube">
-                        <!-- Nouveau bouton pour valider la nouvelle adresse -->
+                        <input type="button" id="afficher-video-btn" class="btnStyle" value="Afficher vidéo youtube">
                         <input type="button" id="save-video-btn" class="btnStyle" value="Sauvegarder la vidéo">
                         <!-- Message de validation -->
-                        <div id="validation-message" class="none">Vidéo sauvegardée avec succès!</div>
+                        <div id="validation-message" class="error none">Vidéo sauvegardée avec succès!</div>
                         <!-- Message d'erreur -->
-                        <div id="error-message" class="none">Erreur de saisie. Veuillez entrer une URL valide.</div>
+                        <div id="error-message" class="error none">Erreur de saisie. Veuillez entrer une URL valide.</div>
                         <!-- Message d'erreur pour les doublons -->
-                        <div id="duplicate-error-message" class="none">Erreur : La vidéo est déjà enregistrée.</div>
+                        <div id="duplicate-error-message" class="error none">Erreur : La vidéo est déjà enregistrée.</div>
                     </span>
-                    <input type="button" id="choix-video" class="none btnStyle" value="Choissez une video">
-                    <input type="button" id="video-btn" class=" btnStyle" value="Passez en mode video">
+                    <input type="button" id="choix-video" class="btnStyle" value="Choissez une video">
                     <input type="button" id="hide" class="btnStyle" value="Cachez les formulaires">
                 </div>
-                <div id="bloc-video" class="none">
-                    <div id="content-video" class="">
-                        <video id="video" loading="lazy" controls width="1000" height="562.57">                    
-                            video.
-                        </video>
-                    </div>
-                    <div id="bloc-choix-video" class="none">
-                        <div>Choisez une vidéo</div>
-                        <div id="bloc-thumbnail">
-                            <!-- Ajoutez ce conteneur pour afficher les vidéos sauvegardées -->
-                            <div id="video-list"></div>
-                        </div>
+                <div id="bloc-choix-video" class="none">
+                    <div class="choix-title"><h2>Choissez une vidéo</h2></div>
+                    <div id="bloc-thumbnail">
+                        <!-- Ajoutez ce conteneur pour afficher les vidéos sauvegardées -->
+                        <div id="video-list"></div>
                     </div>
                 </div>
                 <div id="video-youtube">
@@ -296,7 +287,6 @@
     <script src="https://cdn.jsdelivr.net/npm/intersection-observer@2.0.0/dist/intersection-observer.js"></script>
     <script src="assets/jquery/jquery-3.6.4.min.js"></script>
     <script src="assets/js/suncalc-master/suncalc.js"></script>
-    <script src="youtube.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/meteo/meteo.js"></script>

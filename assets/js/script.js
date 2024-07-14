@@ -128,8 +128,6 @@
             $(".etat-soleil").html("Début de l'Aube");
             actuel = 'Soleil';
             etat = 2;
-            console.log('test');
-
         }
         
         else if (date >= sunrise && date <= sunriseend && isNaN(sunriseend) == false) {
@@ -147,7 +145,6 @@
         else if (date >= goldenhourend && date <= solarnoon || isNaN(sunsetstart) == true && date <= solarnoon  ) {
             $(".etat-soleil").html("Matin");
             actuel = 'Soleil';
-            console.log(goldenhourend);
 
         }
         
@@ -165,8 +162,6 @@
         else if (date >= sunsetstart && date <= sunset && isNaN(sunsetstart) == false ) {
             $(".etat-soleil").html("Couché de soleil");
             actuel = 'Soleil';
-            console.log('test');
-
         }
         
         else if (date >= sunset && date <= dusk) {
@@ -242,9 +237,12 @@
             $('#cadre').addClass('cadreDay');
             $('#cadre').removeClass('cadreSunset');
             $('#cadre').removeClass('cadreNight');
-            $('#error-message').addClass('error-day');
-            $('#error-message').removeClass('error-sunset');
-            $('#error-message').removeClass('error-night');
+            $('.error').addClass('error-day');
+            $('.error').removeClass('error-sunset');
+            $('.error').removeClass('error-night');
+            $('#video-youtube').addClass('video-cadre-day');
+            $('#video-youtube').removeClass('video-cadre-sunset');
+            $('#video-youtube').removeClass('video-cadre-night');
 
 
 
@@ -314,9 +312,12 @@
             $('#cadre').removeClass('cadreDay');
             $('#cadre').addClass('cadreSunset');
             $('#cadre').removeClass('cadreNight');
-            $('#error-message').addClass('error-sunset');
-            $('#error-message').removeClass('error-day');
-            $('#error-message').removeClass('error-night');
+            $('.error').addClass('error-sunset');
+            $('.error').removeClass('error-day');
+            $('.error').removeClass('error-night');
+            $('#video-youtube').addClass('video-cadre-sunset');
+            $('#video-youtube').removeClass('video-cadre-day');
+            $('#video-youtube').removeClass('video-cadre-night');
 
 
     
@@ -382,9 +383,12 @@
             $('#cadre').removeClass('cadreDay');
             $('#cadre').removeClass('cadreSunset');
             $('#cadre').addClass('cadreNight');
-            $('#error-message').removeClass('error-day');
-            $('#error-message').removeClass('error-sunset');
-            $('#error-message').addClass('error-night');
+            $('.error').removeClass('error-day');
+            $('.error').removeClass('error-sunset');
+            $('.error').addClass('error-night');
+            $('#video-youtube').addClass('video-cadre-night');
+            $('#video-youtube').removeClass('video-cadre-sunset');
+            $('#video-youtube').removeClass('video-cadre-day');
 
             }
     // Vérification des valeurs pour dayName, date et monthName
