@@ -607,24 +607,27 @@ tableauMenu.on('click', function(e) {
 
     }
 
-    // fonction pour afficher le menu de choix de vidéo lié 
+      // fonction pour afficher le menu de choix de vidéo lié 
 
-    function choixvideo() {
-        if (blocChoixVideo.hasClass("none")) {
-            blocChoixVideo.removeClass("none");
-            blocChoixVideo.hasClass("block")
-            videoChoix.addClass("none");
-            btnChoixVideo.val("Fermez le menu");
-        } else if (!blocChoixVideo.hasClass("none")) {
-            blocChoixVideo.addClass("none");
-            blocChoixVideo.removeClass("block")
-            btnChoixVideo.val("Choissez une video");
-            videoChoix.addClass("none");
-        }
-    }
+      function choixvideo() {
+        const isNone = blocChoixVideo.hasClass("none");
+        
+        blocChoixVideo.toggleClass("none", !isNone);
+        blocChoixVideo.toggleClass("block", isNone);
+        blocChoixVideo.toggleClass("OpacityAnimationIn", isNone);
+        blocChoixVideo.toggleClass("OpacityAnimation", !isNone);
+      
+        videoChoix.addClass("none");
+        btnChoixVideo.val(isNone ? "Fermez le menu" : "Choissez une video");
+      
+        // Après l'animation, ajuster les classes
+        setTimeout(() => {
+          blocChoixVideo.removeClass("OpacityAnimation OpacityAnimationIn");
+        }, 500); // Durée de l'animation en millisecondes
+      }
+    $('#choix-video').on('click', choixvideo);
 
-      // Ajoutez un gestionnaire d'événements pour le bouton de choix de vidéo
-  $('#choix-video').on('click', choixvideo);
+
 
   // Ajoutez un gestionnaire d'événements pour les autres boutons existants
   $('#hide').on('click', function() {

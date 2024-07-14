@@ -200,12 +200,18 @@ html {
 }
 
 .block{
-    display: block!important;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.5s, diplay 0.5s;
+
     
 }
 
 .none {
-    display: none!important;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s, diplay 0.5s;
+
 }
 
 .none2 {
@@ -407,8 +413,7 @@ margin-right: 2vw;
 }
 
 
-/* animation */
-
+/* Ajoutez les styles d'animation */
 .OpacityAnimation {
     animation: fadeOut 0.5s forwards;
 }
@@ -416,9 +421,11 @@ margin-right: 2vw;
 @keyframes fadeOut {
     from {
         opacity: 1;
+        display: block;
     }
     to {
         opacity: 0;
+        display: none;
     }
 }
 
@@ -429,9 +436,11 @@ margin-right: 2vw;
 @keyframes fadeIn {
     from {
         opacity: 0;
+        display: none;
     }
     to {
         opacity: 1;
+        display: block;
     }
 }
 
@@ -1877,3 +1886,6 @@ figure {
     left: 0;
     background: #000;
 }
+
+
+
