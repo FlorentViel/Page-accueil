@@ -375,6 +375,9 @@ $(document).ready(function() {
 
     webAffiche.on('click', function() {
 
+
+
+
       if (webcontener.hasClass('flex') || webcontener.hasClass("flex2")) {
         inputblocshow.addClass("none");
         blocVideo.addClass("none");
@@ -385,6 +388,9 @@ $(document).ready(function() {
         blocTableau.addClass("none");
         blocTableau.removeClass("flex");
         googleSection.removeClass("none");
+        btnChoixVideo.val("Fermez le menu");
+
+        
 
         webcontener.removeClass("OpacityAnimationIn");
         webcontener.addClass("OpacityAnimation");
@@ -409,6 +415,7 @@ $(document).ready(function() {
       blocTableau.removeClass("flex");
       googleSection.removeClass("none");
       sessionVideo.removeClass("flex flex2 OpacityAnimation");
+      btnChoixVideo.val("Choissez une video");
 
       // Ajoutez une classe pour la translation vers la droite avec opacité initiale de 0
       webcontener.addClass("OpacityAnimationIn");
@@ -496,13 +503,9 @@ youtubeMenu.on('click', function(e) {
       videoYoutube.addClass("flex");
       videoYoutube.removeClass("none");
 
-      
-
-      console.log('sessionNone');
-
-            // Ajoutez une classe pour la translation vers la droite avec opacité initiale de 0
-            sessionVideo.addClass("OpacityAnimationIn");
-            sessionVideo.removeClass("OpacityAnimation");
+      // Ajoutez une classe pour la translation vers la droite avec opacité initiale de 0
+      sessionVideo.addClass("OpacityAnimationIn");
+      sessionVideo.removeClass("OpacityAnimation");
 
 
 
@@ -512,14 +515,23 @@ youtubeMenu.on('click', function(e) {
 tableauMenu.on('click', function(e) {
   
   if (blocTableau.hasClass('flex') || blocTableau.hasClass('flex2'))  {
-    blocTableau.addClass("none");
-    blocTableau.removeClass("flex");
     sessionVideo.addClass("none");
     sessionVideo.removeClass("flex");
     webcontener.addClass("none");
     webcontener.removeClass("flex");
     webcontener.removeClass("flex");
     googleSection.removeClass("none");
+
+    blocTableau.removeClass("OpacityAnimationIn");
+    blocTableau.addClass("OpacityAnimation");
+
+    btnChoixVideo.val("Fermez le menu");
+
+    setTimeout(function() {
+      blocTableau.addClass("none");
+      blocTableau.removeClass("flex  OpacityAnimation OpacityAnimationIn");
+  }, 500);
+
 
   } 
   
@@ -532,6 +544,10 @@ tableauMenu.on('click', function(e) {
     sessionVideo.addClass("none");
     sessionVideo.removeClass("flex");
     googleSection.addClass("none");
+
+    blocTableau.addClass("OpacityAnimationIn");
+
+    btnChoixVideo.val("Choissez une video");
 
   }
 });
@@ -613,7 +629,7 @@ tableauMenu.on('click', function(e) {
         const isNone = blocChoixVideo.hasClass("none");
         
         blocChoixVideo.toggleClass("none", !isNone);
-        blocChoixVideo.toggleClass("block", isNone);
+        blocChoixVideo.toggleClass("flex", isNone);
         blocChoixVideo.toggleClass("OpacityAnimationIn", isNone);
         blocChoixVideo.toggleClass("OpacityAnimation", !isNone);
       
@@ -642,7 +658,7 @@ tableauMenu.on('click', function(e) {
     $('#bloc-choix-video').addClass('OpacityAnimation');
     setTimeout(function() {
       $('#bloc-choix-video').addClass('none');
-      $('#bloc-choix-video').removeClass('OpacityAnimation');
+      $('#bloc-choix-video').removeClass('OpacityAnimation flex');
       $('#choix-video').val("Choissez une video"); // Changer l'état du bouton
     }, 500); // Durée de l'animation
   }

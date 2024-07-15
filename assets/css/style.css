@@ -193,6 +193,8 @@ html {
 
 .flex{
     display: flex!important;
+    opacity: 1;
+    transition: opacity 0.5s, diplay 0.5s;
 }
 
 .flex2 {
@@ -200,7 +202,7 @@ html {
 }
 
 .block{
-    display: block;
+    display: block!important;
     opacity: 1;
     transition: opacity 0.5s, diplay 0.5s;
 
@@ -209,7 +211,7 @@ html {
 
 .none {
     opacity: 0;
-    display: none;
+    display: none!important;
     transition: opacity 0.5s, diplay 0.5s;
 
 }
@@ -671,10 +673,13 @@ margin-right: 2vw;
 #bloc-choix-video {
     margin-right: auto;
     margin-left: auto;
-    /*max-width: 85vw;*/
+    flex-direction: column;
+    max-width: 85vw;
     width: 1000px;
     height: 562px;
     overflow: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
 
 }
 
