@@ -387,16 +387,13 @@ $(document).ready(function() {
         sessionVideo.removeClass("flex");
         blocTableau.addClass("none");
         blocTableau.removeClass("flex");
-        googleSection.removeClass("none");
         btnChoixVideo.val("Fermez le menu");
-
-        
-
         webcontener.removeClass("OpacityAnimationIn");
         webcontener.addClass("OpacityAnimation");
 
 
         setTimeout(function() {
+          googleSection.removeClass("OpacityAnimationIn");
           webcontener.addClass("none");
           webcontener.removeClass("flex flex2 OpacityAnimation OpacityAnimationIn");
       }, 500);
@@ -414,6 +411,7 @@ $(document).ready(function() {
       blocTableau.addClass("none");
       blocTableau.removeClass("flex");
       googleSection.removeClass("none");
+      googleSection.addClass("OpacityAnimationIn flex");
       sessionVideo.removeClass("flex flex2 OpacityAnimation");
       btnChoixVideo.val("Choissez une video");
 
@@ -465,7 +463,7 @@ youtubeMenu.on('click', function(e) {
     
   if ( sessionVideo.hasClass('flex')) {
     
-        googleSection.removeClass("none");
+        googleSection.removeClass("none OpacityAnimation OpacityAnimationIn flex");
         blocTableau.addClass("none");
         blocTableau.removeClass("flex");
 
@@ -491,7 +489,8 @@ youtubeMenu.on('click', function(e) {
       sessionVideo.addClass("flex");
       webcontener.addClass("none");
       webcontener.removeClass("flex");
-      googleSection.addClass("none");      
+      googleSection.addClass("none");   
+      googleSection.removeClass("flex");
       blocTableau.addClass("none");
       blocTableau.removeClass("flex");
       blocVideo.removeClass("flex");
@@ -627,11 +626,15 @@ tableauMenu.on('click', function(e) {
 
       function choixvideo() {
         const isNone = blocChoixVideo.hasClass("none");
-        
         blocChoixVideo.toggleClass("none", !isNone);
         blocChoixVideo.toggleClass("flex", isNone);
+        videoYoutube.toggleClass("none", isNone);
+        videoYoutube.toggleClass("flex", !isNone);
+        
         blocChoixVideo.toggleClass("OpacityAnimationIn", isNone);
         blocChoixVideo.toggleClass("OpacityAnimation", !isNone);
+        videoYoutube.toggleClass("OpacityAnimationIn", !isNone);
+        videoYoutube.toggleClass("OpacityAnimation", isNone);
       
         videoChoix.addClass("none");
         btnChoixVideo.val(isNone ? "Fermez le menu" : "Choissez une video");
@@ -639,6 +642,7 @@ tableauMenu.on('click', function(e) {
         // Après l'animation, ajuster les classes
         setTimeout(() => {
           blocChoixVideo.removeClass("OpacityAnimation OpacityAnimationIn");
+          videoYoutube.removeClass("OpacityAnimation OpacityAnimationIn");
         }, 500); // Durée de l'animation en millisecondes
       }
     $('#choix-video').on('click', choixvideo);
@@ -656,7 +660,10 @@ tableauMenu.on('click', function(e) {
   // Fonction pour jouer la vidéo et lancer l'animation
   function playVideo() {
     $('#bloc-choix-video').addClass('OpacityAnimation');
+    videoYoutube.addClass("OpacityAnimationIn");
     setTimeout(function() {
+      videoYoutube.removeClass("OpacityAnimationIn none");
+      videoYoutube.addClass("flex");
       $('#bloc-choix-video').addClass('none');
       $('#bloc-choix-video').removeClass('OpacityAnimation flex');
       $('#choix-video').val("Choissez une video"); // Changer l'état du bouton
