@@ -34,7 +34,8 @@
 
     --entete-border-color-sunset: #bcff57;
     --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
-    --entete-box-shadow-color-sunset: #ff9e27;
+    --entete-box-shadow-color-sunset: rgba(255, 158, 39, 0.349);
+    --navBar-box-shadow-color-sunset: #e7880bdb;
     --text-color-sunset: #020705;
 
     --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
@@ -877,16 +878,15 @@ input[type="radio"].radioInput {
     background-color: #023a3b14;
     box-shadow: 1px 2px 5px 2px var(--black);
     text-shadow: 0px 0px 5px var(--btn-text-shadow-day);
-
-
+    transition: box-shadow 0.5s; /* Ajoutez la transition sur la propriété box-shadow */
 }
 
-.nav-itemDay:hover{
-
-    box-shadow: inset 1px 0px 0px 2px var(--black);
+.nav-itemDay:hover {
+    box-shadow: 1px 0px 0px 2px var(--black);
+    color: var(--text-color-day);
+    transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
 
 }
-
 /* bloc-choix-video */
 
 .block-choix-video-TimeDay{
@@ -1189,15 +1189,19 @@ input[type="radio"].radioInput {
 /* nav-itemSunset */
 
 .nav-itemSunset {
-    color: var(--white);
-    text-shadow: 0px 0px 5px var(--white);
-    background-color: #023a3b14;
-    
+    color: var(--text-color-sunset);
+    text-shadow: 0px 0px 3px var(--white);
+    box-shadow: 1px 1px 5px 2px var(--navBar-box-shadow-color-sunset);
+    transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
+    background-color: #191b1c14;
     
 }
 
-.nav-itemSunset {
-    color: var(--text-color-sunset);
+.nav-itemSunset:hover {
+    color: var(--custom-search-button-box-shadow-color-sunset);
+    text-shadow: none;
+    transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
+    box-shadow: 1px 2px 5px 2px var(--navBar-box-shadow-color-sunset), inset 1px 0px 0px 2px var(--navBar-box-shadow-color-sunset);
 }
 
 
@@ -1475,12 +1479,14 @@ input[type="radio"].radioInput {
     text-shadow: 0px 0px 5px var(--black);
     background-color: #023a3b14;
     box-shadow: 1px 2px 5px 2px var(--black);
+    transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
 }
 
 .nav-itemNight:hover{
 
     box-shadow: 1px 0px 0px 2px var(--black);
-
+    color: var(--entete-border-bottom-color-night);
+    transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
 }
 
 .nav-itemNight {

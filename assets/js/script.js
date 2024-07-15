@@ -15,7 +15,7 @@
         const date = new Date();
 
         //var times = SunCalc.getTimes(new Date('August 7, 2023 02:52:00'), 49.7534248, 3.3643912);
-        //const date = new Date('August 7, 2023 20:52:00');
+        //const date = new Date('August 7, 2023 23:52:00');
 
         var background = $('#background-image');
 
