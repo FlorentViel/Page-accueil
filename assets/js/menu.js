@@ -178,9 +178,9 @@ $(document).ready(function() {
   }
 
   function showError(selector) {
-    $(selector).removeClass("none").addClass("block show");
+    $(selector).removeClass("OpacityAnimation none").addClass("OpacityAnimationIn");
     setTimeout(function() {
-      $(selector).removeClass("show").addClass("none");
+      $(selector).removeClass("OpacityAnimationIn").addClass("OpacityAnimation");
     }, 5000);
   }
 
