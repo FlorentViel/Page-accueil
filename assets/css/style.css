@@ -35,7 +35,7 @@
     --entete-border-color-sunset: #bcff57;
     --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
     --entete-box-shadow-color-sunset: rgba(255, 158, 39, 0.349);
-    --navBar-box-shadow-color-sunset: #e7880bdb;
+    --navBar-box-shadow-color-sunset: #e7a90b96;
     --text-color-sunset: #020705;
 
     --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
@@ -416,37 +416,6 @@ margin-right: 2vw;
 }
 
 
-/* Ajoutez les styles d'animation */
-.OpacityAnimation {
-    animation: fadeOut 0.5s forwards;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        display: block;
-    }
-    to {
-        opacity: 0;
-        display: none;
-    }
-}
-
-.OpacityAnimationIn {
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        display: none;
-    }
-    to {
-        opacity: 1;
-        display: block;
-    }
-}
-
 
 
 /* Liste site */
@@ -538,35 +507,6 @@ margin-right: 2vw;
     background: linear-gradient(90deg, var(--btn-gradient-start-color-day), var(--btn-gradient-end-color-day) 100%);
     color: var(--text-color-day);
 }
-
-#menu-video {
-    opacity: 1;
-}
-
-.fade {
-    -webkit-animation: fadeoutVideo ;
-    animation: fadeoutVideo;
-    animation-duration: 1.29s;
-    animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes fadeoutVideo {
-    from { opacity: 1; 
-    }
-      to { opacity: 0; 
-    }
-}
-@keyframes fadeoutVideo {
-    from { opacity: 1;  
-    }
-      to { opacity: 0; 
-    }
-}
-
-
-
-
-
 
 
 #session-video {
@@ -1191,7 +1131,7 @@ input[type="radio"].radioInput {
 .nav-itemSunset {
     color: var(--text-color-sunset);
     text-shadow: 0px 0px 3px var(--white);
-    box-shadow: 1px 1px 5px 2px var(--navBar-box-shadow-color-sunset);
+    box-shadow: 1px 1px 5px 2px var(--custom-search-button-box-shadow-color-sunset);
     transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
     background-color: #191b1c14;
     
@@ -1201,7 +1141,7 @@ input[type="radio"].radioInput {
     color: var(--custom-search-button-box-shadow-color-sunset);
     text-shadow: none;
     transition: all 0.5s; /* Ajoutez la transition sur la propriété color */
-    box-shadow: 1px 2px 5px 2px var(--navBar-box-shadow-color-sunset), inset 1px 0px 0px 2px var(--navBar-box-shadow-color-sunset);
+    box-shadow: 1px 2px 5px 2px var(--custom-search-button-box-shadow-color-sunset), inset 1px 0px 0px 2px var(--navBar-box-shadow-color-sunset);
 }
 
 
@@ -1264,11 +1204,10 @@ input[type="radio"].radioInput {
     background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var(--custom-search-button-background-gradient-end-sunset) 100%);
     background-color: var(--custom-search-button-background-gradient-start-sunset);
     border: 1px solid var(--white);
-    box-shadow: 5px -4px 15px 5px var(--custom-search-button-box-shadow-color-sunset);
+    box-shadow: 3px 0px 15px 3px var(--custom-search-button-box-shadow-color-sunset);
     color: var(--block-choix-video-text-color-sunset);
     -moz-box-shadow: 1px solid #ffc003;
 	-webkit-box-shadow: 1px solid #ffc003;
-	box-shadow: 5px -4px 15px 5px #ff8c21;
     text-shadow: 2px 1px 1px #a46d36;
     font-size: 16px;
     color:var(--text-color-sunset);

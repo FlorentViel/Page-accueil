@@ -72,9 +72,12 @@ $(document).ready(function() {
         player.loadVideoById(youtubeVideoId);
 
         // Afficher le message de validation
-        $("#validation-message").removeClass("none").addClass("block");
         $("#error-message").addClass("none").removeClass("block");
         $("#duplicate-error-message").addClass("none").removeClass("block");
+
+        showError("#validation-message");
+
+
       } else {
         console.error("Le lecteur YouTube n'est pas prêt.");
       }
@@ -92,6 +95,8 @@ $(document).ready(function() {
       if (isDuplicateVideo(youtubeVideoId)) {
         // Afficher le message d'erreur pour les doublons
         showError("#duplicate-error-message");
+        $("#validation-message").addClass("none").removeClass("block");
+        $("#error-message").addClass("none").removeClass("block");
       } else {
         if (playerReady && player && typeof player.loadVideoById === 'function') {
           currentIdVideo = youtubeVideoId;
@@ -203,15 +208,7 @@ $(document).ready(function() {
     }
   }
 
-  // Ajoutez un gestionnaire d'événements pour le bouton de choix de vidéo
-  $('#choix-video').on('click', choixvideo);
 
-  // Ajoutez un gestionnaire d'événements pour les autres boutons existants
-  $('#hide').on('click', hideVideoBtn);
-  $('#show').on('click', showbtn);
-  $('#accept').on('click', updateYoutubeBtn);
-
-  // ... (rest of the code remains unchanged)
 
   // Définissez une constante pour l'élément que vous souhaitez observer
   const sessionVideo = $('#session-video');
@@ -292,8 +289,9 @@ $(document).ready(function() {
 
     const elementMenu =$('#menu-affichage');
     const hide = $('#hide');
+
     const show =$('#show');
-    const choixVideoBtn =$('#video-btn');
+    const choixVideoBtn = $('#video-btn');
     const accept =$('#valide');
     const clockBtn = $('#bloc-horloge');
 
@@ -348,15 +346,7 @@ $(document).ready(function() {
 
 
 
-    // EventListener
 
-
-    $(accept).on('click', updateYoutubeBtn);
-    $(hide).on('click', hideVideoBtn);
-    $(show).on('click', showbtn);
-    $(btnChoixVideo).on('click', choixvideo);
-    
-    // <iframe width="887" height="499" loading="lazy" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
     $(".bloc").click(function() {
@@ -552,12 +542,6 @@ tableauMenu.on('click', function(e) {
 });
 
 
-
-
-
-
-
-
     function hideVideoBtn() {
 
         menuVideo.addClass("fade");
@@ -565,6 +549,7 @@ tableauMenu.on('click', function(e) {
         $('video').addClass('fullscreen');
         $(webcontener).addClass("fade");
         $(blocTableau).addClass("fade")
+        
 
         if($('#video-youtube').hasClass('simplescreen')){
             $('#video-youtube').removeClass('simplescreen');
@@ -605,6 +590,7 @@ tableauMenu.on('click', function(e) {
 
         inputblocshow.addClass("none");
         menuVideo.removeClass("none");
+        menuVideo.addClass("fadeIn");
         $('#video-youtube').removeClass('fullscreen');
         $('#bloc-horloge').removeClass('none');
         $('video').removeClass('fullscreen');
@@ -616,6 +602,10 @@ tableauMenu.on('click', function(e) {
 
         if(!$('#video-youtube').hasClass('simplescreen')){
             $('#video-youtube').addClass('simplescreen');
+
+            setTimeout(function(){
+                $('#video-youtube').removeClass('simplescreen');
+            }, 500);
         }
 
 
@@ -645,17 +635,6 @@ tableauMenu.on('click', function(e) {
           videoYoutube.removeClass("OpacityAnimation OpacityAnimationIn");
         }, 500); // Durée de l'animation en millisecondes
       }
-    $('#choix-video').on('click', choixvideo);
-
-
-
-  // Ajoutez un gestionnaire d'événements pour les autres boutons existants
-  $('#hide').on('click', function() {
-    $('#menu-video').addClass('none');
-  });
-  $('#show').on('click', function() {
-    $('#menu-video').removeClass('none');
-  });
 
   // Fonction pour jouer la vidéo et lancer l'animation
   function playVideo() {
@@ -670,8 +649,26 @@ tableauMenu.on('click', function(e) {
     }, 500); // Durée de l'animation
   }
 
-  // Ajoutez un gestionnaire d'événements pour les éléments de vidéo
-  $('.video-item').on('click', playVideo);
+      // EventListener
+
+      $('#choix-video').on('click', choixvideo);
+      $('#show').on('click', function() {
+        $('#menu-video').removeClass('none');
+      });
+    // Ajoutez un gestionnaire d'événements pour les éléments de vidéo
+      $('.video-item').on('click', playVideo);
+      $(accept).on('click', updateYoutubeBtn);
+      $(hide).on('click', hideVideoBtn);
+      $(show).on('click', showbtn);
+      $(btnChoixVideo).on('click', choixvideo);
+
+      $('#choix-video').on('click', choixvideo);
+
+      // Ajoutez un gestionnaire d'événements pour les autres boutons existants
+      $('#show').on('click', showbtn);
+      $('#accept').on('click', updateYoutubeBtn);
+    
+      
 
 });
 

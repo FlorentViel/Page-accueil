@@ -1,0 +1,91 @@
+/* Animation */
+
+#menu-video {
+    
+    height: calc-size(auto);
+
+}
+
+
+
+/* Video animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        display: none;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        display: block;
+        transform: scale(1);
+    }
+}   
+
+.fadeIn {
+    -webkit-animation: fadeIn 1.29s forwards;
+    animation: fadeIn 1.29s forwards;
+    animation-duration: 1.29s;
+    animation-fill-mode: forwards;
+    height: calc-size(auto)!;
+}
+
+.fade {
+    -webkit-animation: fadeoutVideo;
+    animation: fadeoutVideo;
+    animation-duration: 1.29s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeoutVideo {
+    from { opacity: 1; 
+        height: auto;
+    }
+      to { opacity: 0; 
+          height: 0;
+    }
+}
+@keyframes fadeoutVideo {
+    from { opacity: 1; 
+        height: auto;
+    }
+      to { opacity: 0; 
+          height: 0;
+    }
+}
+
+
+/* OpacityAnimation */
+
+
+/* Ajoutez les styles d'animation */
+.OpacityAnimation {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        display: block;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.OpacityAnimationIn {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        display: none;
+    }
+    to {
+        opacity: 1;
+        display: block;
+    }
+}
+
