@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/animation.css">
     <link rel="stylesheet" href="assets/css/clock.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
     <script target="_blank" async src="https://cse.google.com/cse.js?cx=44f3a51b7ec03451d">
     </script>
-    <title>Page d'Accueil personnalisée Alpha</title>
+    <title>Page d'Accueil personnalisée beta</title>
 </head>
 
 <body>
@@ -63,10 +64,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-item"><h1 class="date"></h1>
+                    <div class="flex-item">
+                        <h1 class="date"></h1>
                         <div class="etat-soleil-bloc">
                             <h1 class="etat-soleil"></h1>
+                            <button id="clearLocalStorage" class="btn-clear">✖</button>
+                            <button id="requestLocation" class="btn-request">O</button>
                         </div>
+                        <div id="alert-message" class="alert-message"></div>
                     </div>
                 </div>
             </header>

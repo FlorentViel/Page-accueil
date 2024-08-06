@@ -1,7 +1,52 @@
 //var test = SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height);
 
- (function(){'use strict';
-    //Le code écrit est en mode strict
+document.addEventListener('DOMContentLoaded', function() {
+    function showAlert(message) {
+        const alertMessage = document.getElementById('alert-message');
+        if (alertMessage) {
+            alertMessage.textContent = message;
+            setTimeout(() => {
+                alertMessage.textContent = '';
+            }, 3000);
+        } else {
+            alert("L'élément alert-message n'a pas été trouvé dans le DOM.");
+            console.error("L'élément alert-message n'a pas été trouvé dans le DOM.");
+        }
+    }
+
+    function getLocationAndStore() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                localStorage.setItem('latitude', position.coords.latitude);
+                localStorage.setItem('longitude', position.coords.longitude);
+                showAlert('Géolocalisation mise à jour.');
+                soleil(); // Appeler la fonction soleil après avoir stocké les coordonnées
+            }, function(error) {
+                console.error("Erreur de géolocalisation : ", error);
+                showAlert('Erreur de géolocalisation.');
+            });
+        } else {
+            console.error("La géolocalisation n'est pas supportée par ce navigateur.");
+            showAlert('La géolocalisation n\'est pas supportée par ce navigateur.');
+        }
+    }
+
+    function clearLocalStorage() {
+        localStorage.removeItem('latitude');
+        localStorage.removeItem('longitude');
+        showAlert('LocalStorage effacé.');
+        console.log("LocalStorage cleared");
+    }
+
+    document.getElementById('clearLocalStorage').addEventListener('click', clearLocalStorage);
+    document.getElementById('requestLocation').addEventListener('click', getLocationAndStore);
+
+    // Vérifiez si les coordonnées sont déjà dans le localStorage
+    if (!localStorage.getItem('latitude') || !localStorage.getItem('longitude')) {
+        getLocationAndStore();
+    } else {
+        soleil();
+    }
 
     soleil();
 
@@ -11,8 +56,12 @@
 
     function soleil(){
 
-        var times = SunCalc.getTimes(new Date(), 50.633, 3.0586);
+        const latitude = localStorage.getItem('latitude') || 50.633;
+        const longitude = localStorage.getItem('longitude') || 3.0586;
+        var times = SunCalc.getTimes(new Date(), latitude, longitude);
         const date = new Date();
+
+        
 
         //var times = SunCalc.getTimes(new Date('August 7, 2023 02:52:00'), 49.7534248, 3.3643912);
         //const date = new Date('August 7, 2023 23:52:00');
@@ -243,6 +292,13 @@
             $('#video-youtube').addClass('video-cadre-day');
             $('#video-youtube').removeClass('video-cadre-sunset');
             $('#video-youtube').removeClass('video-cadre-night');
+            $('#clearLocalStorage').addClass('btn-clearDay');
+            $('#clearLocalStorage').removeClass('btn-clearSunset');
+            $('#clearLocalStorage').removeClass('btn-clearNight');
+            $('#requestLocation').addClass('btn-requestDay');
+            $('#requestLocation').removeClass('btn-requestSunset');
+            $('#requestLocation').removeClass('btn-requestNight');
+
 
 
 
@@ -319,6 +375,15 @@
             $('#video-youtube').removeClass('video-cadre-day');
             $('#video-youtube').removeClass('video-cadre-night');
 
+            $('#clearLocalStorage').addClass('btn-clearSunset');
+            $('#clearLocalStorage').removeClass('btn-clearDay');
+            $('#clearLocalStorage').removeClass('btn-clearNight');
+            $('#requestLocation').addClass('btn-requestSunset');
+            $('#requestLocation').removeClass('btn-requestDay');
+            $('#requestLocation').removeClass('btn-requestNight');
+
+
+
 
     
             }
@@ -363,10 +428,6 @@
             $('.labelRadio').addClass('labelNight');
             $('.radioInput').removeClass('radioInputDay');
             $('.labelRadio').removeClass('labelDay');
-            $('#bloc-tableau form input').removeClass('integrationInputSunset');
-            $('#bloc-tableau form input').removeClass('integrationInputDay');
-            $('.radioInput').removeClass('radioInputDay');
-            $('.labelRadio').removeClass('labelDay');
             $('#blocCandidature').removeClass('blocCandidatureDay');
             $('#blocCandidature').addClass('blocCandidatureNight');
             $('#blocCandidature').removeClass('blocCandidatureSunset');
@@ -389,6 +450,12 @@
             $('#video-youtube').addClass('video-cadre-night');
             $('#video-youtube').removeClass('video-cadre-sunset');
             $('#video-youtube').removeClass('video-cadre-day');
+            $('#clearLocalStorage').addClass('btn-clearNight');
+            $('#clearLocalStorage').removeClass('btn-clearDay');
+            $('#clearLocalStorage').removeClass('btn-clearSunset');
+            $('#requestLocation').addClass('btn-requestNight');
+            $('#requestLocation').removeClass('btn-requestDay');
+            $('#requestLocation').removeClass('btn-requestSunset');
 
             }
     // Vérification des valeurs pour dayName, date et monthName
