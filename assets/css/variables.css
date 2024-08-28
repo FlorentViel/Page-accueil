@@ -2,6 +2,8 @@
 /* Couleurs */
 :root {
 
+    --font-family: 'Montserrat', sans-serif;
+
     /* varDay */
 
     --white : rgba(252, 252, 252, 1);
@@ -83,6 +85,10 @@
     /* Bouton */
     --btn-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
     --btn-hover-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+
+
+    /* label sunset */
+    --label-sunset-color: rgb(255,183,115);
 
     /* Input nuit */
     --integration-input-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%);

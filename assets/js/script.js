@@ -1,6 +1,5 @@
 //var test = SunCalc.getTimes(/*Date*/ date, /*Number*/ latitude, /*Number*/ longitude, /*Number (default=0)*/ height);
 
-document.addEventListener('DOMContentLoaded', function() {
     function showAlert(message) {
         const alertMessage = document.getElementById('alert-message');
         if (alertMessage) {
@@ -52,12 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
    setInterval(soleil, 1000);
 
-  })();
 
     function soleil(){
 
-        const latitude = localStorage.getItem('latitude') || 50.633;
-        const longitude = localStorage.getItem('longitude') || 3.0586;
+        const latitude = localStorage.getItem('latitude') || 49.7534248;
+        const longitude = localStorage.getItem('longitude') || 3.3643912;
         var times = SunCalc.getTimes(new Date(), latitude, longitude);
         const date = new Date();
 
@@ -229,7 +227,6 @@ document.addEventListener('DOMContentLoaded', function() {
             $(".etat-soleil").html("Crépuscule astronomique");
             actuel = 'Lune';
         }
-        
         if (date >= sunrise && date <= goldenHour) {
             background.addClass("background-jour");
             background.removeClass("background-crepuscule");
@@ -298,6 +295,15 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#requestLocation').addClass('btn-requestDay');
             $('#requestLocation').removeClass('btn-requestSunset');
             $('#requestLocation').removeClass('btn-requestNight');
+            $('#city-input').addClass('integrationInputDay');
+            $('#city-input').removeClass('integrationInputSunset');
+            $('#city-input').removeClass('integrationInputNight');
+            $('.city-label').addClass('labelDay');
+            $('.city-label').removeClass('labelSunset');
+            $('.city-label').removeClass('labelNight');
+
+
+
 
 
 
@@ -381,11 +387,21 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#requestLocation').addClass('btn-requestSunset');
             $('#requestLocation').removeClass('btn-requestDay');
             $('#requestLocation').removeClass('btn-requestNight');
+            $('#city-form').removeClass('cityDay');
+            $('#city-form').removeClass('cityNight');
+            $('#city-form').addClass('citySunset');
+            $('.city-label').addClass('labelSunset');
+            $('.city-label').removeClass('labelDay');
+            $('.city-label').removeClass('labelNight');
+            $('#city-input').removeClass('integrationInputDay');
+            $('#city-input').removeClass('integrationInputNight');
+            $('#city-input').addClass('integrationInputSunset')
+            $('.btnTimeSet').addClass('btnTimeSetSunset');
+            $('.btnTimeSet').removeClass('btnTimeSetDay');
+            $('.btnTimeSet').removeClass('btnTimeSetNight');
 
 
 
-
-    
             }
 
             else{
@@ -456,22 +472,29 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#requestLocation').addClass('btn-requestNight');
             $('#requestLocation').removeClass('btn-requestDay');
             $('#requestLocation').removeClass('btn-requestSunset');
+            $('#city-input').removeClass('integrationInputDay');
+            $('#city-input').removeClass('integrationInputSunset');
+            $('#city-input').addClass('integrationInputNight');
+            $('.city-label').addClass('labelNight');
+            $('.city-label').removeClass('labelDay');
+            $('.city-label').removeClass('labelSunset');
+            $('.btnTimeSet').addClass('btnTimeSetNight');
+            $('.btnTimeSet').removeClass('btnTimeSetDay');
+            $('.btnTimeSet').removeClass('btnTimeSetSunset');
+            $('.btnTimeSet').removeClass('btnTimeSetNight');
 
             }
     // Vérification des valeurs pour dayName, date et monthName
     $('.date').html((dayName !== undefined && date.getDate !== undefined && monthName !== undefined) ? `${dayName + ' ' + date.getDate() + ' ' + monthName + ' ' + date.getFullYear()}` : "Une erreur est survenue");
 
-// Changement de la couleur du texte en fonction de l'heure du jour
-document.querySelector('.PM').style.color = (date >= sunrise && date <= sunset) ? "rgb(251, 175, 251)" : "rgb(0, 18, 0)";
+    // Changement de la couleur du texte en fonction de l'heure du jour
+    document.querySelector('.PM').style.color = (date >= sunrise && date <= sunset) ? "rgb(251, 175, 251)" : "rgb(0, 18, 0)";
 
-// Changement de la couleur de fond en fonction de l'heure du jour
-//document.querySelector('.bg').style.backgroundColor = (date >= dawn && date <= sunset) ? "rgba(251, 175, 44, 0.245)" : "rgba(75, 63, 246, 0.245)";
+    // Changement de la couleur de fond en fonction de l'heure du jour
+    //document.querySelector('.bg').style.backgroundColor = (date >= dawn && date <= sunset) ? "rgba(251, 175, 44, 0.245)" : "rgba(75, 63, 246, 0.245)";
 
-// Retour de la valeur de la variable actuel (peut-être à utiliser ailleurs dans votre code)
-
+    // Retour de la valeur de la variable actuel (peut-être à utiliser ailleurs dans votre code)
         }
-
-
 
 
     

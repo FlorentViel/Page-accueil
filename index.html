@@ -66,10 +66,10 @@
                     </div>
                     <div class="flex-item">
                         <h1 class="date"></h1>
+                        <button id="clearLocalStorage" class="btn-clear btnTimeSet">✖</button>
+                        <button id="requestLocation" class="btn-request btnTimeSet">O</button>
                         <div class="etat-soleil-bloc">
                             <h1 class="etat-soleil"></h1>
-                            <button id="clearLocalStorage" class="btn-clear">✖</button>
-                            <button id="requestLocation" class="btn-request">O</button>
                         </div>
                         <div id="alert-message" class="alert-message"></div>
                     </div>
@@ -89,42 +89,55 @@
                 </form>
             </section>
             <div id="fav-site-bloc" class="flex bloc">
-                <div class="fav-icon-item">
-                    <a target="_blank" href="https://www.linkedin.com">
-                        <img class="logo click" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
-                    </a>
+
+                <form id="city-form">
+                    <label for="city-input" class="city-label">Choisissez une ville :</label>
+                    <input type="text" id="city-input" class="google-search-box" placeholder="Entrez le nom de la ville">
+                    <button type="submit" class="btnStyle">Valider</button>
+                </form>
+
+                <div id="list-fav-site" class="flex ">
+
+                    <div class="fav-icon-item">
+                        <a target="_blank" href="https://www.linkedin.com">
+                            <img class="logo click" src="https://img.freepik.com/vecteurs-premium/logo-linkedin-carre-isole-fond-blanc_469489-892.jpg" alt="LinkedIn">
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://twitter.com/home">
+                            <img class="logo click" src="https://www.jesus-forain.fr/uploads/blogPostImage/300/212/logo-x.com.jpg" alt="X.com">
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://www.twitch.tv">
+                            <img class="logo click" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://www.deviantart.com">
+                            <img class="logo click" src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg" alt="Deviantart">
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://technomagie.forumsrpg.com">
+                            <img class="logo click" src="https://i.servimg.com/u/f65/16/46/38/98/black-12.png" alt="Techomagie Forum">
+                        </a>
+                    </div>
+                    <!-- Conserver les liens existants, en les laissant vides si vous souhaitez les garder -->
+                    <div>
+                        <a target="_blank" href="http://localhost:5173">
+                            <img class="logo click" src="assets/images/icon/localhost-5173.jpg" alt="A garder">
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="">
+                            <img class="logo" src="" alt="A garder">
+                        </a>
+                    </div>
+
                 </div>
-                <div>
-                    <a target="_blank" href="https://twitter.com/home">
-                        <img class="logo click" src="https://www.jesus-forain.fr/uploads/blogPostImage/300/212/logo-x.com.jpg" alt="X.com">
-                    </a>
-                </div>
-                <div>
-                    <a target="_blank" href="https://www.twitch.tv">
-                        <img class="logo click" src="https://play-lh.googleusercontent.com/QLQzL-MXtxKEDlbhrQCDw-REiDsA9glUH4m16syfar_KVLRXlzOhN7tmAceiPerv4Jg" alt="Twitch">
-                    </a>
-                </div>
-                <div>
-                    <a target="_blank" href="https://www.deviantart.com">
-                        <img class="logo click" src="https://logo-marque.com/wp-content/uploads/2020/11/DeviantArt-Embleme.jpg" alt="Deviantart">
-                    </a>
-                </div>
-                <div>
-                    <a target="_blank" href="https://technomagie.forumsrpg.com">
-                        <img class="logo click" src="https://i.servimg.com/u/f65/16/46/38/98/black-12.png" alt="Techomagie Forum">
-                    </a>
-                </div>
-                <!-- Conserver les liens existants, en les laissant vides si vous souhaitez les garder -->
-                <div>
-                    <a target="_blank" href="http://localhost:5173">
-                        <img class="logo click" src="assets/images/icon/localhost-5173.jpg" alt="A garder">
-                    </a>
-                </div>
-                <div>
-                    <a target="_blank" href="">
-                        <img class="logo" src="" alt="A garder">
-                    </a>
-                </div>
+
+                
             </div>
             <div id="session-video" class="none bloc">
                 <div id="menu-video">

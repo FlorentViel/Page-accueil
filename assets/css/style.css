@@ -12,6 +12,7 @@
 * {
     margin: 0 ;
     padding: 0;
+    font-family: var(--font-family);
 
 }
 
@@ -321,7 +322,9 @@ margin-right: 2vw;
     }
 
 /* button clear / request */
-.btn-clear, .btn-request {
+
+
+.btnTimeSet{
     background: none;
     border: none;
     font-size: 1rem;
@@ -329,28 +332,28 @@ margin-right: 2vw;
     margin-left: 10px;
 }
 
-.btn-clearDay, .btn-requestDay {
+.btnTimeSetDay {
     color: var(--white);
 }
 
-.btn-clearSunset, .btn-requestSunset {
+.bbtnTimeSetSunset {
     color: var(--text-color-sunset);
 }
 
-.btn-clearNight, .btn-requestNight {
+.btnTimeSetNight {
     color: var(--text-color-night);
 }
 
-.btn-clearDay:hover, .btn-requestDay:hover {
+.btnTimeSetDay:hover{
     color: var(--btn-hover-gradient-start-color-day);
 }
 
-.btn-clearSunset:hover, .btn-requestSunset:hover {
-    color: var(--text-color-sunset);
+.btnTimeSetSunset:hover {
+    color: var(--label-sunset-color);
 }
 
-.btn-clearNight:hover, .btn-requestNight:hover {
-    color: var(--text-color-night);
+.btnTimeSetNight:hover {
+    color: var(--label-night-color);
 }
 
 .alert-message {
@@ -366,16 +369,59 @@ margin-right: 2vw;
     flex-wrap: wrap;
     margin: 1rem;
     justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+
 }
-
-
-  
-  
 
 /* bloc site */
 
 #fav-site-bloc > div {
     flex : 0 0 150px;
+}
+
+#city-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.city-label {
+    font-size: 1.5rem;
+}
+
+.city-input {
+    color: var(--white);
+}
+
+.cityDay {
+    color: var(--white);
+}
+
+.cityDay, label {
+    color: var(--white);
+}
+
+.cityDay, input::placeholder {
+    color: var(--text-color-day);
+}
+
+.citySunset {
+    color: var(--integration-color-sunset);
+}
+
+.cityNight {
+    color: var(--text-color-night);
+}
+
+#list-fav-site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 1rem;
 }
 
 
@@ -1004,12 +1050,9 @@ input[type="radio"].radioInput {
 }
 
 .labelDay {
-    font-size: 16px;
     color: #ffffff;
     text-shadow: 0px 0px 5px rgb(224, 237, 123);
-    font-family:Georgia;
 }
-
 /* Foooter */
 
 .blockTimeDay {
@@ -1131,6 +1174,7 @@ input[type="radio"].radioInput {
 #label-integration-content {
     flex: 0 0 207.6px;
     text-align: center;
+    font-size: 16px;
 }
 
 .integrationInputSunset::placeholder {
@@ -1331,10 +1375,9 @@ input[type="radio"].radioInput {
 }
 
 .labelSunset {
-    font-size: 16px;
-    color: #020705;   
-    font-family:Georgia;
-    text-shadow: 2px 1px 1px #a46d36;
+    color: var(--label-sunset-color);   
+    text-shadow: 1px 1px 1px #000;
+
 }
 
 
@@ -1483,10 +1526,9 @@ input[type="radio"].radioInput {
 }
 
 .labelNight {
-    font-size: 16px;
     color: var(--white);
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.695);
-    font-family: Georgia;}
+}
 
 
 /* Styles pour le bouton de recherche personnalisé en mode nuit */
