@@ -1,0 +1,719 @@
+/* Audio CSS avec thèmes jour/crépuscule/nuit */
+
+/* Variables pour les thèmes (utilisant les variables existantes) */
+:root {
+  /* Mode Jour */
+  --audio-bg-day: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+  --audio-text-day: #256aff;
+  --audio-accent-day: #00d1fe;
+  --audio-shadow-day: rgba(186, 239, 255, 0.6);
+  --audio-button-day: linear-gradient(45deg, rgba(252, 252, 252, 1), rgba(129, 182, 249, 1));
+  --audio-button-hover-day: linear-gradient(45deg, rgba(0, 209, 254, 1), rgba(128, 184, 247, 1));
+  --audio-border-day: #baefff;
+  
+  /* Mode Crépuscule */
+  --audio-bg-sunset: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+  --audio-text-sunset: #020705;
+  --audio-accent-sunset: #ff8c21;
+  --audio-shadow-sunset: rgba(255, 166, 64, 0.6);
+  --audio-button-sunset: linear-gradient(45deg, rgba(254, 166, 84, 1), rgba(255, 138, 13, 0.788));
+  --audio-button-hover-sunset: linear-gradient(45deg, rgba(255, 183, 115, 1), rgba(137, 128, 247, 1));
+  --audio-border-sunset: #07541e;
+  
+  /* Mode Nuit */
+  --audio-bg-night: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+  --audio-text-night: #ffffff;
+  --audio-accent-night: #6c5ffa;
+  --audio-shadow-night: rgba(0, 0, 0, 0.6);
+  --audio-button-night: linear-gradient(45deg, rgba(63, 67, 218, 1), rgba(111, 34, 195, 1));
+  --audio-button-hover-night: linear-gradient(45deg, rgba(63, 67, 218, 1), rgba(155, 120, 193, 1));
+  --audio-border-night: #000000;
+}
+
+/* Conteneur principal de l'audio */
+#bloc-choix-audio {
+  background: var(--audio-bg-day);
+  color: var(--audio-text-day);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px var(--audio-shadow-day);
+  border: 2px solid var(--audio-border-day);
+  transition: all 0.5s ease;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* Titre de l'audio */
+#bloc-choix-audio .title {
+  font-size: clamp(20px, 2.5vw, 32px);
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 10px var(--audio-accent-day);
+  animation: glow 2s ease-in-out infinite alternate;
+  color: var(--audio-text-day);
+  font-weight: bold;
+}
+
+/* Conteneur principal */
+#bloc-choix-audio .container {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px var(--audio-accent-day); }
+  to { text-shadow: 0 0 20px var(--audio-accent-day), 0 0 30px var(--audio-accent-day); }
+}
+
+/* Conteneur du chat */
+#bloc-choix-audio .cat-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(120px, 15vh, 200px);
+  margin: 10px 0;
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 15px;
+  padding: 10px;
+  border: none;
+  box-sizing: border-box;
+}
+
+#bloc-choix-audio .cat-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(circle, var(--audio-shadow-day) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* Le chat ASCII */
+#bloc-choix-audio #cat {
+  text-align: center;
+  line-height: 1.2;
+  filter: drop-shadow(0 0 8px var(--audio-accent-day));
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: clamp(12px, 1.4vw, 16px);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  white-space: pre;
+  font-family: 'Courier New', monospace;
+  transform: scale(0.8);
+  transform-origin: center;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  color: white;
+}
+
+/* Contrôles */
+#bloc-choix-audio .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#bloc-choix-audio .control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+#bloc-choix-audio .control-group label {
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--audio-text-day);
+  font-weight: bold;
+  text-shadow: 0 0 3px var(--audio-shadow-day);
+}
+
+/* Sliders */
+#bloc-choix-audio .control-group input[type="range"] {
+  width: clamp(80px, 8vw, 120px);
+  accent-color: var(--audio-accent-day);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  height: 6px;
+  cursor: pointer;
+}
+
+#bloc-choix-audio .control-group input[type="range"]::-webkit-slider-thumb {
+  background: var(--audio-accent-day);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--audio-shadow-day);
+  width: clamp(14px, 1.2vw, 18px);
+  height: clamp(14px, 1.2vw, 18px);
+}
+
+/* Boutons */
+#bloc-choix-audio button {
+  background: var(--audio-button-day);
+  border: none;
+  color: var(--audio-text-day);
+  padding: 8px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: clamp(12px, 1.1vw, 15px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--audio-shadow-day);
+  text-shadow: 0 0 3px var(--audio-shadow-day);
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+#bloc-choix-audio button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--audio-shadow-day);
+  background: var(--audio-button-hover-day);
+}
+
+#bloc-choix-audio button:active {
+  transform: translateY(0);
+}
+
+/* Select de musique */
+#bloc-choix-audio select {
+  background: var(--audio-button-day);
+  border: none;
+  color: var(--audio-text-day);
+  padding: 8px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: clamp(12px, 1.1vw, 15px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--audio-shadow-day);
+  text-shadow: 0 0 3px var(--audio-shadow-day);
+  max-width: 140px;
+}
+
+#bloc-choix-audio select:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--audio-shadow-day);
+  background: var(--audio-button-hover-day);
+}
+
+#bloc-choix-audio select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--audio-shadow-day);
+}
+
+/* Affichage de la vitesse */
+#bloc-choix-audio .speed-display {
+  font-size: clamp(13px, 1.3vw, 18px);
+  color: var(--audio-text-day);
+  margin-top: 10px;
+  text-shadow: 0 0 3px var(--audio-shadow-day);
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Mode Crépuscule */
+#bloc-choix-audio.sunset {
+  background: var(--audio-bg-sunset);
+  color: var(--audio-text-sunset);
+  box-shadow: 0 4px 15px var(--audio-shadow-sunset);
+  border-color: var(--audio-border-sunset);
+}
+
+#bloc-choix-audio.sunset .title {
+  text-shadow: 0 0 10px var(--audio-accent-sunset);
+  color: var(--audio-text-sunset);
+}
+
+#bloc-choix-audio.sunset #cat {
+  filter: drop-shadow(0 0 8px var(--audio-accent-sunset));
+  color: #90EE90;
+  text-shadow: 0 0 5px #90EE90;
+}
+
+#bloc-choix-audio.sunset .control-group label {
+  color: var(--audio-text-sunset);
+  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+}
+
+#bloc-choix-audio.sunset .control-group input[type="range"] {
+  accent-color: var(--audio-accent-sunset);
+}
+
+#bloc-choix-audio.sunset .control-group input[type="range"]::-webkit-slider-thumb {
+  background: var(--audio-accent-sunset);
+  box-shadow: 0 0 8px var(--audio-shadow-sunset);
+}
+
+#bloc-choix-audio.sunset button {
+  background: var(--audio-button-sunset);
+  color: var(--audio-text-sunset);
+  box-shadow: 0 2px 8px var(--audio-shadow-sunset);
+  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+}
+
+#bloc-choix-audio.sunset button:hover {
+  box-shadow: 0 4px 12px var(--audio-shadow-sunset);
+  background: var(--audio-button-hover-sunset);
+}
+
+#bloc-choix-audio.sunset .speed-display {
+  color: var(--audio-text-sunset);
+  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+}
+
+#bloc-choix-audio.sunset .cat-container {
+  background: linear-gradient(135deg, rgba(254, 166, 84, 0.4) 0%, rgba(255, 138, 13, 0.3) 50%, rgba(255, 183, 115, 0.2) 100%);
+  border: none;
+}
+
+#bloc-choix-audio.sunset .cat-container::before {
+  background: radial-gradient(circle, var(--audio-shadow-sunset) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#bloc-choix-audio.sunset select {
+  background: var(--audio-button-sunset);
+  color: var(--audio-text-sunset);
+  box-shadow: 0 2px 8px var(--audio-shadow-sunset);
+  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+}
+
+#bloc-choix-audio.sunset select:hover {
+  box-shadow: 0 4px 12px var(--audio-shadow-sunset);
+  background: var(--audio-button-hover-sunset);
+}
+
+#bloc-choix-audio.sunset select:focus {
+  box-shadow: 0 0 0 2px var(--audio-shadow-sunset);
+}
+
+/* Mode Nuit */
+#bloc-choix-audio.night {
+  background: var(--audio-bg-night);
+  color: var(--audio-text-night);
+  box-shadow: 0 4px 15px var(--audio-shadow-night);
+  border-color: var(--audio-border-night);
+}
+
+#bloc-choix-audio.night .title {
+  text-shadow: 0 0 10px var(--audio-accent-night);
+  color: var(--audio-text-night);
+}
+
+#bloc-choix-audio.night #cat {
+  filter: drop-shadow(0 0 8px var(--audio-accent-night));
+}
+
+#bloc-choix-audio.night .control-group label {
+  color: var(--audio-text-night);
+  text-shadow: 0 0 3px var(--audio-shadow-night);
+}
+
+#bloc-choix-audio.night .control-group input[type="range"] {
+  accent-color: var(--audio-accent-night);
+}
+
+#bloc-choix-audio.night .control-group input[type="range"]::-webkit-slider-thumb {
+  background: var(--audio-accent-night);
+  box-shadow: 0 0 8px var(--audio-shadow-night);
+}
+
+#bloc-choix-audio.night button {
+  background: var(--audio-button-night);
+  color: var(--audio-text-night);
+  box-shadow: 0 2px 8px var(--audio-shadow-night);
+  text-shadow: 0 0 3px var(--audio-shadow-night);
+}
+
+#bloc-choix-audio.night button:hover {
+  box-shadow: 0 4px 12px var(--audio-shadow-night);
+  background: var(--audio-button-hover-night);
+}
+
+#bloc-choix-audio.night .speed-display {
+  color: var(--audio-text-night);
+  text-shadow: 0 0 3px var(--audio-shadow-night);
+}
+
+#bloc-choix-audio.night .cat-container {
+  background: linear-gradient(135deg, rgba(75, 63, 246, 0.4) 0%, rgba(111, 34, 195, 0.3) 50%, rgba(63, 67, 218, 0.2) 100%);
+  border: none;
+}
+
+#bloc-choix-audio.night .cat-container::before {
+  background: radial-gradient(circle, var(--audio-shadow-night) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#bloc-choix-audio.night select {
+  background: var(--audio-button-night);
+  color: var(--audio-text-night);
+  box-shadow: 0 2px 8px var(--audio-shadow-night);
+  text-shadow: 0 0 3px var(--audio-shadow-night);
+}
+
+#bloc-choix-audio.night select:hover {
+  box-shadow: 0 4px 12px var(--audio-shadow-night);
+  background: var(--audio-button-hover-night);
+}
+
+#bloc-choix-audio.night select:focus {
+  box-shadow: 0 0 0 2px var(--audio-shadow-night);
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 600px) {
+  #bloc-choix-audio .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  #bloc-choix-audio .control-group {
+    flex-direction: row;
+    gap: 8px;
+    min-width: auto;
+  }
+  
+  #bloc-choix-audio .control-group input[type="range"] {
+    width: 60px;
+  }
+  
+  #bloc-choix-audio {
+    padding: 15px;
+  }
+  
+  #bloc-choix-audio .title {
+    font-size: 18px;
+  }
+  
+  #bloc-choix-audio #cat {
+    font-size: 12px;
+  }
+  
+  #bloc-choix-audio button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+  
+  #bloc-choix-audio select {
+    font-size: 9px;
+    max-width: 100px;
+  }
+}
+
+/* Animation d'entrée */
+#bloc-choix-audio.OpacityAnimationIn {
+  animation: fadeInAudio 0.5s ease-in-out;
+}
+
+@keyframes fadeInAudio {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animation de sortie */
+#bloc-choix-audio.OpacityAnimation {
+  animation: fadeOutAudio 0.5s ease-in-out;
+}
+
+@keyframes fadeOutAudio {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+/* Mode grand écran pour le bloc audio */
+#bloc-choix-audio.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  max-width: none;
+  min-width: auto;
+  margin: 0;
+  border-radius: 0;
+  backdrop-filter: blur(20px);
+  animation: fullscreenAudio 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+@keyframes fullscreenAudio {
+  from {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Bouton pour sortir du grand écran */
+#bloc-choix-audio.fullscreen .exit-fullscreen-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+#bloc-choix-audio.fullscreen .exit-fullscreen-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Adaptation du bouton de sortie aux thèmes */
+#bloc-choix-audio.fullscreen.day .exit-fullscreen-btn {
+  color: var(--text-color-day);
+  background: rgba(129, 182, 249, 0.3);
+  text-shadow: 0 0 5px var(--text-color-day);
+}
+
+#bloc-choix-audio.fullscreen.day .exit-fullscreen-btn:hover {
+  background: rgba(129, 182, 249, 0.5);
+  box-shadow: 0 0 10px var(--text-color-day);
+}
+
+#bloc-choix-audio.fullscreen.sunset .exit-fullscreen-btn {
+  color: var(--text-color-sunset);
+  background: rgba(255, 138, 13, 0.3);
+  text-shadow: 0 0 5px var(--text-color-sunset);
+}
+
+#bloc-choix-audio.fullscreen.sunset .exit-fullscreen-btn:hover {
+  background: rgba(255, 138, 13, 0.5);
+  box-shadow: 0 0 10px var(--text-color-sunset);
+}
+
+#bloc-choix-audio.fullscreen.night .exit-fullscreen-btn {
+  color: var(--text-color-night);
+  background: rgba(75, 63, 246, 0.3);
+  text-shadow: 0 0 5px var(--text-color-night);
+}
+
+#bloc-choix-audio.fullscreen.night .exit-fullscreen-btn:hover {
+  background: rgba(75, 63, 246, 0.5);
+  box-shadow: 0 0 10px var(--text-color-night);
+}
+
+/* Ajustements pour le mode grand écran */
+#bloc-choix-audio.fullscreen .cat-container {
+  height: clamp(400px, 60vh, 800px);
+  min-height: 400px;
+  max-height: 80vh;
+}
+
+#bloc-choix-audio.fullscreen .title {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+#bloc-choix-audio.fullscreen .controls {
+  margin-top: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#bloc-choix-audio.fullscreen .control-group input[type="range"] {
+  width: clamp(120px, 12vw, 180px);
+}
+
+#bloc-choix-audio.fullscreen button,
+#bloc-choix-audio.fullscreen select {
+  font-size: clamp(16px, 1.5vw, 20px);
+  padding: 12px 20px;
+  min-width: 100px;
+}
+
+/* Taille de police du chat en grand écran */
+#bloc-choix-audio.fullscreen #cat {
+  font-size: clamp(18px, 2.5vw, 32px) !important;
+  transform: scale(1.2) !important;
+}
+
+/* Couleur du chat en mode crépuscule - blanc avec ombre orange */
+#bloc-choix-audio.sunset #cat {
+  color: #FFFFFF;
+  text-shadow: 0 0 8px rgba(255, 138, 13, 0.8);
+}
+
+/* Animations de couleur du background pendant la musique */
+@keyframes musicPulseDay {
+  0%, 100% {
+    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+  }
+  25% {
+    background: linear-gradient(135deg, rgba(129, 182, 249, 0.95) 0%, rgba(186, 239, 255, 0.95) 50%, rgba(252, 252, 252, 0.95) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(186, 239, 255, 0.95) 0%, rgba(252, 252, 252, 0.95) 50%, rgba(129, 182, 249, 0.95) 100%);
+  }
+  75% {
+    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+  }
+}
+
+@keyframes musicPulseSunset {
+  0%, 100% {
+    background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+  }
+  25% {
+    background: linear-gradient(135deg, rgba(255, 138, 13, 0.95) 0%, rgba(255, 183, 115, 0.95) 50%, rgba(254, 166, 84, 0.95) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(255, 183, 115, 0.95) 0%, rgba(254, 166, 84, 0.95) 50%, rgba(255, 138, 13, 0.95) 100%);
+  }
+  75% {
+    background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+  }
+}
+
+@keyframes musicPulseNight {
+  0%, 100% {
+    background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+  }
+  25% {
+    background: linear-gradient(135deg, rgba(111, 34, 195, 0.95) 0%, rgba(63, 67, 218, 0.95) 50%, rgba(75, 63, 246, 0.95) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(63, 67, 218, 0.95) 0%, rgba(75, 63, 246, 0.95) 50%, rgba(111, 34, 195, 0.95) 100%);
+  }
+  75% {
+    background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+  }
+}
+
+/* Classes pour activer les animations de musique */
+#bloc-choix-audio.day.music-playing {
+  animation: musicPulseDay 3s ease-in-out infinite;
+}
+
+#bloc-choix-audio.sunset.music-playing {
+  animation: musicPulseSunset 3s ease-in-out infinite;
+}
+
+#bloc-choix-audio.night.music-playing {
+  animation: musicPulseNight 3s ease-in-out infinite;
+}
+
+/* Animation de changement de couleur de bas en haut autour du chat */
+@keyframes catContainerPulseDay {
+  0%, 100% {
+    background: linear-gradient(to top, rgba(129, 182, 249, 0.4) 0%, rgba(186, 239, 255, 0.3) 50%, rgba(0, 209, 254, 0.2) 100%);
+  }
+  25% {
+    background: linear-gradient(to top, rgba(186, 239, 255, 0.4) 0%, rgba(0, 209, 254, 0.3) 50%, rgba(129, 182, 249, 0.2) 100%);
+  }
+  50% {
+    background: linear-gradient(to top, rgba(0, 209, 254, 0.4) 0%, rgba(129, 182, 249, 0.3) 50%, rgba(186, 239, 255, 0.2) 100%);
+  }
+  75% {
+    background: linear-gradient(to top, rgba(129, 182, 249, 0.4) 0%, rgba(186, 239, 255, 0.3) 50%, rgba(0, 209, 254, 0.2) 100%);
+  }
+}
+
+@keyframes catContainerPulseSunset {
+  0%, 100% {
+    background: linear-gradient(to top, rgba(255, 138, 13, 0.4) 0%, rgba(255, 183, 115, 0.3) 50%, rgba(255, 69, 0, 0.2) 100%);
+  }
+  25% {
+    background: linear-gradient(to top, rgba(255, 183, 115, 0.4) 0%, rgba(255, 69, 0, 0.3) 50%, rgba(255, 138, 13, 0.2) 100%);
+  }
+  50% {
+    background: linear-gradient(to top, rgba(255, 69, 0, 0.4) 0%, rgba(255, 138, 13, 0.3) 50%, rgba(255, 183, 115, 0.2) 100%);
+  }
+  75% {
+    background: linear-gradient(to top, rgba(255, 138, 13, 0.4) 0%, rgba(255, 183, 115, 0.3) 50%, rgba(255, 69, 0, 0.2) 100%);
+  }
+}
+
+@keyframes catContainerPulseNight {
+  0%, 100% {
+    background: linear-gradient(to top, rgba(111, 34, 195, 0.4) 0%, rgba(63, 67, 218, 0.3) 50%, rgba(155, 120, 193, 0.2) 100%);
+  }
+  25% {
+    background: linear-gradient(to top, rgba(63, 67, 218, 0.4) 0%, rgba(155, 120, 193, 0.3) 50%, rgba(111, 34, 195, 0.2) 100%);
+  }
+  50% {
+    background: linear-gradient(to top, rgba(155, 120, 193, 0.4) 0%, rgba(111, 34, 195, 0.3) 50%, rgba(63, 67, 218, 0.2) 100%);
+  }
+  75% {
+    background: linear-gradient(to top, rgba(111, 34, 195, 0.4) 0%, rgba(63, 67, 218, 0.3) 50%, rgba(155, 120, 193, 0.2) 100%);
+  }
+}
+
+/* Classes pour activer les animations du conteneur du chat */
+#bloc-choix-audio.day.music-playing .cat-container {
+  animation: catContainerPulseDay 2s ease-in-out infinite;
+}
+
+#bloc-choix-audio.sunset.music-playing .cat-container {
+  animation: catContainerPulseSunset 2s ease-in-out infinite;
+}
+
+#bloc-choix-audio.night.music-playing .cat-container {
+  animation: catContainerPulseNight 2s ease-in-out infinite;
+} 

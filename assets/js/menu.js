@@ -208,6 +208,22 @@ $(document).ready(function() {
     }
   }
 
+  function choixaudio() {
+    if ($('#bloc-choix-audio').hasClass("none")) {
+      $('#bloc-choix-audio').removeClass("none").addClass("OpacityAnimationIn");
+      setTimeout(function() {
+        $('#bloc-choix-audio').removeClass("OpacityAnimationIn");
+      }, 500); // Durée de l'animation
+      $('#choix-audio').val("Fermez l'audio");
+    } else {
+      $('#bloc-choix-audio').addClass("OpacityAnimation");
+      setTimeout(function() {
+        $('#bloc-choix-audio').addClass("none").removeClass("OpacityAnimation");
+        $('#choix-audio').val("Choissez un audio");
+      }, 500); // Durée de l'animation
+    }
+  }
+
 
 
   // Définissez une constante pour l'élément que vous souhaitez observer
@@ -335,12 +351,16 @@ $(document).ready(function() {
 
     const blocChoixVideo = $('#bloc-choix-video');
     const videoChoix = $('#choix-content-video');
+    const audioChoix = $('#choix-content-audio');
     const btnChoixVideo = $('#choix-video');
+    const blocChoixAudio = $('#bloc-choix-audio');
+    const btnChoixAudio = $('#choix-audio');
     
     // blocks videos 
 
     const menuVideo = $('#menu-video');
     const blocVideo = $('#bloc-video');
+    const blocAudio = $('#bloc-audio');
     const inputblocshow = $('#bloc-cacher');
     
 
@@ -378,6 +398,9 @@ $(document).ready(function() {
         blocTableau.addClass("none");
         blocTableau.removeClass("flex");
         btnChoixVideo.val("Fermez le menu");
+        blocChoixAudio.addClass("none");
+        blocChoixAudio.removeClass("flex");
+        btnChoixAudio.val("Fermez l'audio");
         webcontener.removeClass("OpacityAnimationIn");
         webcontener.addClass("OpacityAnimation");
 
@@ -467,11 +490,6 @@ youtubeMenu.on('click', function(e) {
             sessionVideo.removeClass("flex flex2 OpacityAnimation");
         }, 500);
         
-  
-        
-
-      
-        
 
 
     } else if(sessionVideo.hasClass("none") || sessionVideo.hasClass("none2")){
@@ -555,6 +573,15 @@ tableauMenu.on('click', function(e) {
             $('#video-youtube').removeClass('simplescreen');
         }
 
+        // Vérifier si le bloc audio est visible et le mettre en grand écran
+        if(!$('#bloc-choix-audio').hasClass('none')) {
+            $('#bloc-choix-audio').addClass('fullscreen');
+            $('.exit-fullscreen-btn').show();
+            // Recalculer la taille du chat en mode plein écran
+            if (typeof window.recalculateAudioSize === 'function') {
+                setTimeout(() => window.recalculateAudioSize(), 100);
+            }
+        }
 
         setTimeout(function(){
             menuVideo.addClass("none");
@@ -616,10 +643,22 @@ tableauMenu.on('click', function(e) {
 
       function choixvideo() {
         const isNone = blocChoixVideo.hasClass("none");
+        
+        // Fermer blocChoixAudio si il est ouvert
+        if (!blocChoixAudio.hasClass("none")) {
+          blocChoixAudio.addClass("none");
+          blocChoixAudio.removeClass("flex");
+          blocChoixAudio.removeClass("OpacityAnimationIn");
+          blocChoixAudio.addClass("OpacityAnimation");
+          btnChoixAudio.val("Choissez un audio");
+        }
+        
         blocChoixVideo.toggleClass("none", !isNone);
         blocChoixVideo.toggleClass("flex", isNone);
         videoYoutube.toggleClass("none", isNone);
         videoYoutube.toggleClass("flex", !isNone);
+        blocAudio.toggleClass("none", isNone);
+
         
         blocChoixVideo.toggleClass("OpacityAnimationIn", isNone);
         blocChoixVideo.toggleClass("OpacityAnimation", !isNone);
@@ -633,6 +672,36 @@ tableauMenu.on('click', function(e) {
         setTimeout(() => {
           blocChoixVideo.removeClass("OpacityAnimation OpacityAnimationIn");
           videoYoutube.removeClass("OpacityAnimation OpacityAnimationIn");
+        }, 500); // Durée de l'animation en millisecondes
+      }
+
+      function choixaudio() {
+        const isNone = blocChoixAudio.hasClass("none");
+        
+        // Fermer blocChoixVideo si il est ouvert
+        if (!blocChoixVideo.hasClass("none")) {
+          blocChoixVideo.addClass("none");
+          blocChoixVideo.removeClass("flex");
+          blocChoixVideo.removeClass("OpacityAnimationIn");
+          blocChoixVideo.addClass("OpacityAnimation");
+          btnChoixVideo.val("Choissez une video");
+        }
+        
+        blocChoixAudio.toggleClass("none", !isNone);
+        blocChoixAudio.toggleClass("flex", isNone);
+        blocAudio.toggleClass("none", isNone);
+        blocAudio.toggleClass("flex", !isNone);
+        videoYoutube.toggleClass("none", isNone);
+
+        blocChoixAudio.toggleClass("OpacityAnimationIn", isNone);
+        blocChoixAudio.toggleClass("OpacityAnimation", !isNone);
+
+        audioChoix.addClass("none");
+        btnChoixAudio.val(isNone ? "Fermez le menu" : "Choissez un audio");
+
+        setTimeout(() => {
+          blocChoixAudio.removeClass("OpacityAnimation OpacityAnimationIn");
+          audioChoix.removeClass("OpacityAnimation OpacityAnimationIn");
         }, 500); // Durée de l'animation en millisecondes
       }
 
@@ -652,6 +721,7 @@ tableauMenu.on('click', function(e) {
       // EventListener
 
       $('#choix-video').on('click', choixvideo);
+      $('#choix-audio').on('click', choixaudio);
       $('#show').on('click', function() {
         $('#menu-video').removeClass('none');
       });
@@ -661,6 +731,16 @@ tableauMenu.on('click', function(e) {
       $(hide).on('click', hideVideoBtn);
       $(show).on('click', showbtn);
       $(btnChoixVideo).on('click', choixvideo);
+      
+      // Gestion du bouton de sortie du grand écran
+      $('.exit-fullscreen-btn').on('click', function() {
+          $('#bloc-choix-audio').removeClass('fullscreen');
+          $('.exit-fullscreen-btn').hide();
+          // Recalculer la taille du chat quand on sort du mode plein écran
+          if (typeof window.recalculateAudioSize === 'function') {
+              setTimeout(() => window.recalculateAudioSize(), 100);
+          }
+      });
 
       $('#choix-video').on('click', choixvideo);
 

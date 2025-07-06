@@ -8,6 +8,7 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/audio.css">
     <link rel="stylesheet" href="assets/css/animation.css">
     <link rel="stylesheet" href="assets/css/clock.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
@@ -73,7 +74,7 @@
             <nav id="nav-menu" class="">
                 <div id="nav-deroulant-conteneur">
                     <span class="nav-item" id="web-affiche">Préférence site web</span>
-                    <span class="nav-item" id="youtube-affiche">Youtube</span>
+                    <span class="nav-item" id="youtube-affiche">Audio/Video</span>
                     <span id="tableau-affiche" class="nav-item">Agenda</span>
                 </div>
             </nav>
@@ -138,6 +139,7 @@
                         <div id="duplicate-error-message" class="error none">Erreur : La vidéo est déjà enregistrée.</div>
                     </span>
                     <input type="button" id="choix-video" class="btnStyle" value="Choissez une video">
+                    <input type="button" id="choix-audio" class="btnStyle" value="Choissez un audio">
                     <input type="button" id="hide" class="btnStyle" value="Cachez les formulaires">
                 </div>
                 <div id="bloc-choix-video" class="none">
@@ -154,6 +156,55 @@
                 </div>
                 <div id="video-youtube">
                     <div id="player"></div>
+                </div>
+                <div id="bloc-choix-audio" class="none">
+                    <button class="exit-fullscreen-btn" style="display: none;">✕ Sortir du grand écran</button>
+                    <div class="container">
+                        <h1 class="title">🐱 Spinning Cat (OIIA OIIA) 🐱</h1>
+                        <div class="cat-container">
+                            <div id="cat"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <div class="control-group">
+                                <label for="speed">Speed</label>
+                                <input type="range" id="speed" min="50" max="500" value="150" step="10">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="size">Size</label>
+                                <input type="range" id="size" min="12" max="24" value="17" step="1">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="volume">Volume</label>
+                                <input type="range" id="volume" min="0" max="100" value="50" step="5">
+                            </div>
+                            
+                            <div class="control-group">
+                                <label for="music">Music</label>
+                                <select id="musicSelect">
+                                    <option value="./audio/W&W - OIIA OIIA (Spinning Cat).mp3">OIIA OIIA (Spinning Cat)</option>
+                                    <option value="./audio/Crash Bandicoot 2 - Komodo Bros. Boss Music.mp3">Crash Bandicoot 2 - Komodo Bros</option>
+                                    <option value="./audio/Its TV Time! (BW2 Soundfont) - DELTARUNE.mp3">Its TV Time! (BW2 Soundfont) - DELTARUNE</option>
+                                    <option value="./audio/musique-2.mp3">Musique 2</option>
+                                    <option value="./audio/musique-3.mp3">Musique 3</option>
+                                </select>
+                            </div>
+                            
+                            <button id="pauseBtn">⏸️ Pause</button>
+                            <button id="reverseBtn">🔄 Reverse</button>
+                            <button id="audioBtn">🔇 Enable Audio</button>
+                        </div>
+                        
+                        <div class="speed-display" id="speedDisplay">Speed: 150ms</div>
+                    </div>
+
+                    <!-- Audio element -->
+                    <audio id="catSound" preload="auto" loop>
+                        <!-- Son OIIA OIIA Spinning Cat -->
+                        <source src="./audio/W&W - OIIA OIIA (Spinning Cat).mp3" type="audio/mpeg">
+                    </audio>
                 </div>
                 <div id="bloc-cacher" class="none">
                     <input type="button" id="show" class="btnStyle" value="Réafficher le formulaire">

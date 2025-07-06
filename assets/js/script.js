@@ -244,6 +244,11 @@
             $('#video-youtube').removeClass('video-cadre-sunset');
             $('#video-youtube').removeClass('video-cadre-night');
 
+            // Appliquer le thème au bloc audio si la fonction existe
+            if (typeof window.applyAudioTheme === 'function') {
+                window.applyAudioTheme();
+            }
+
 
 
         } else if (date >= goldenHour && date <= dusk) {
@@ -319,6 +324,11 @@
             $('#video-youtube').removeClass('video-cadre-day');
             $('#video-youtube').removeClass('video-cadre-night');
 
+            // Appliquer le thème au bloc audio si la fonction existe
+            if (typeof window.applyAudioTheme === 'function') {
+                window.applyAudioTheme();
+            }
+
 
     
             }
@@ -389,6 +399,11 @@
             $('#video-youtube').addClass('video-cadre-night');
             $('#video-youtube').removeClass('video-cadre-sunset');
             $('#video-youtube').removeClass('video-cadre-day');
+
+            // Appliquer le thème au bloc audio si la fonction existe
+            if (typeof window.applyAudioTheme === 'function') {
+                window.applyAudioTheme();
+            }
 
             }
     // Vérification des valeurs pour dayName, date et monthName

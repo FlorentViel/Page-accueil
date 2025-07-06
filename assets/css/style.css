@@ -105,23 +105,35 @@
 
 /* Police */
 :root {
-  --font-family: Georgia, serif;
+  --font-family: 'Courier New', monospace;
   --font-size: 16px;
 }
 
 
 
 * {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
 
+/* Annuler le padding de 48px s'il est appliqué */
+[style*="padding: 48px 0px"] {
+    padding: 0 !important;
 }
 
 html {
-
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
+}
 
+body {
+    font-family: var(--font-family)!important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .background-jour {
@@ -129,8 +141,6 @@ html {
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-
-
 }
 
 .background-crepuscule{
@@ -138,8 +148,6 @@ html {
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-
-    
 }
 
 .background-nuit{
@@ -147,7 +155,6 @@ html {
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-
 }
 
 /* Chargez une image Retina pour les écrans haute résolution */
@@ -157,7 +164,6 @@ html {
         background-size: cover;
         background-position: center;
         min-height: 100vh;
-    
     }
 }
 
@@ -168,7 +174,6 @@ html {
         background-size: cover;
         background-position: center;
         min-height: 100vh;
-    
     }
 }
 
@@ -370,7 +375,6 @@ margin-right: 2vw;
 .custom-search-container {
     /* Ajoutez ici les styles que vous souhaitez appliquer au conteneur */
     display: flex; /* Utilisez un affichage flexible pour aligner les éléments horizontalement */
-    height: 35px;
     width: 50vw;
     margin: auto;
     padding: 5vw;
@@ -616,17 +620,26 @@ margin-right: 2vw;
 
 
 
-#bloc-choix-video {
+#bloc-choix-video, #bloc-choix-audio {
     margin-right: auto;
     margin-left: auto;
     flex-direction: column;
     max-width: 85vw;
-    width: 1000px;
-    height: 562px;
-    overflow: auto;
+    min-width: 1000px;
+    max-width: 2500px;
+    min-height: 562px;
+    overflow: visible;
     margin-top: 35px;
     margin-bottom: 35px;
-
+    background: var(--gradient-start-color-day);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px var(--box-shadow-color-day);
+    border: 2px solid var(--border-color-day);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+    box-sizing: border-box;
 }
 
 
@@ -849,6 +862,60 @@ input[type="radio"].radioInput {
     font-size: var(--font-size);
     font-weight: bold;
     text-decoration: none;
+}
+
+/* Modernisation du bloc-choix-video avec thèmes */
+#bloc-choix-video.day {
+    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+    color: var(--text-color-day);
+    box-shadow: 0 4px 15px var(--box-shadow-color-day);
+    border-color: var(--border-color-day);
+}
+
+#bloc-choix-video.sunset {
+    background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+    color: var(--text-color-sunset);
+    box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-sunset);
+    border-color: var(--block-choix-video-border-color-sunset);
+}
+
+#bloc-choix-video.night {
+    background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+    color: var(--text-color-night);
+    box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-night);
+    border-color: var(--black);
+}
+
+/* Animation d'entrée pour le bloc-choix-video */
+#bloc-choix-video.OpacityAnimationIn {
+    animation: fadeInVideo 0.5s ease-in-out;
+}
+
+@keyframes fadeInVideo {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation de sortie pour le bloc-choix-video */
+#bloc-choix-video.OpacityAnimation {
+    animation: fadeOutVideo 0.5s ease-in-out;
+}
+
+@keyframes fadeOutVideo {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
 }
 
 /* Tumbnail  */
@@ -1746,8 +1813,6 @@ figure {
 
 #bloc-choix-video {
     padding: 1.5rem;
-
-
 }
 
 #bloc-thumbnail { 
@@ -1755,27 +1820,70 @@ figure {
     flex-wrap: wrap;
     max-width: 100%;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin-top: 1.5rem;
 }
-
-
 
 .thumbnail {
     max-width: 300px;
     max-height: 168.66px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .choix-title {
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.choix-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--text-color-day);
+    animation: glow 2s ease-in-out infinite alternate;
+    color: var(--text-color-day);
 }
 
 .video-item {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.video-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
+}
+
+/* Styles pour les thèmes du titre */
+#bloc-choix-video.day .choix-title h2 {
+    color: var(--text-color-day);
+    text-shadow: 0 0 10px var(--text-color-day);
+}
+
+#bloc-choix-video.sunset .choix-title h2 {
+    color: var(--text-color-sunset);
+    text-shadow: 0 0 10px var(--text-color-sunset);
+}
+
+#bloc-choix-video.night .choix-title h2 {
+    color: var(--text-color-night);
+    text-shadow: 0 0 10px var(--text-color-night);
 }
 
 
