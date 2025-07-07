@@ -34,7 +34,7 @@
 
     /* varSunset*/
 
-    --entete-border-color-sunset: #bcff57;
+    --entete-border-color-sunset: rgb(255, 166, 64);
     --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
     --entete-box-shadow-color-sunset: rgba(255, 158, 39, 0.349);
     --navBar-box-shadow-color-sunset: #e7a90b96;
@@ -43,7 +43,7 @@
     --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
 
     
-    --integration-border-color-sunset: #07541e;
+    --integration-border-color-sunset: #35343A;
     --integration-background-gradient-start-sunset: rgba(254, 166, 84, 1);
     --integration-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
     --integration-color-sunset: #ff0000;
@@ -51,7 +51,7 @@
     
     --custom-search-button-background-gradient-start-sunset: rgba(254, 166, 84, 1);
     --custom-search-button-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
-    --custom-search-button-border-color-sunset: #07541e;
+    --custom-search-button-border-color-sunset: #35343A;
     --custom-search-button-box-shadow-color-sunset: #ff8c21;
     
     --block-choix-video-background-gradient-start-sunset: rgba(254, 166, 84, 0.50);
