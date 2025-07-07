@@ -6,10 +6,13 @@
 #bloc-choix-audio {
   background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
   color: var(--text-color-day);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 15px var(--box-shadow-color-day);
-  border: 2px solid var(--border-color-day);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 
+    0 8px 32px rgba(129, 182, 249, 0.3),
+    0 4px 16px rgba(186, 239, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   transition: all 0.5s ease;
   overflow: visible;
   display: flex;
@@ -20,6 +23,28 @@
   box-sizing: border-box;
   font-family: var(--font-family);
   font-size: var(--font-size);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Effet de brillance sur le background */
+#bloc-choix-audio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: -1;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
 }
 
 /* Titre de l'audio */
@@ -63,11 +88,15 @@
   margin: 10px 0;
   overflow: hidden;
   width: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%);
-  border-radius: 15px;
-  padding: 10px;
-  border: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 20px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
+  backdrop-filter: blur(5px);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #bloc-choix-audio .cat-container::before {
@@ -228,8 +257,15 @@
 #bloc-choix-audio.sunset {
   background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
   color: var(--text-color-sunset);
-  box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-sunset);
-  border-color: var(--block-choix-video-border-color-sunset);
+  box-shadow: 
+    0 8px 32px rgba(255, 138, 13, 0.4),
+    0 4px 16px rgba(255, 183, 115, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+#bloc-choix-audio.sunset::before {
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
 }
 
 #bloc-choix-audio.sunset .title {
@@ -276,8 +312,11 @@
 }
 
 #bloc-choix-audio.sunset .cat-container {
-  background: linear-gradient(135deg, rgba(254, 166, 84, 0.4) 0%, rgba(255, 138, 13, 0.3) 50%, rgba(255, 183, 115, 0.2) 100%);
-  border: none;
+  background: linear-gradient(135deg, rgba(254, 166, 84, 0.3) 0%, rgba(255, 138, 13, 0.2) 50%, rgba(255, 183, 115, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 4px 8px rgba(255, 138, 13, 0.2);
 }
 
 #bloc-choix-audio.sunset .cat-container::before {
@@ -309,8 +348,15 @@
 #bloc-choix-audio.night {
   background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
   color: var(--text-color-night);
-  box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-night);
-  border-color: var(--black);
+  box-shadow: 
+    0 8px 32px rgba(75, 63, 246, 0.5),
+    0 4px 16px rgba(111, 34, 195, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+#bloc-choix-audio.night::before {
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
 }
 
 #bloc-choix-audio.night .title {
@@ -355,8 +401,11 @@
 }
 
 #bloc-choix-audio.night .cat-container {
-  background: linear-gradient(135deg, rgba(75, 63, 246, 0.4) 0%, rgba(111, 34, 195, 0.3) 50%, rgba(63, 67, 218, 0.2) 100%);
-  border: none;
+  background: linear-gradient(135deg, rgba(75, 63, 246, 0.3) 0%, rgba(111, 34, 195, 0.2) 50%, rgba(63, 67, 218, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    0 4px 8px rgba(75, 63, 246, 0.3);
 }
 
 #bloc-choix-audio.night .cat-container::before {
@@ -604,49 +653,49 @@
   text-shadow: 0 0 8px rgba(255, 138, 13, 0.8);
 }
 
-/* Animations de couleur du background pendant la musique */
+/* Animations de couleur du background pendant la musique - Version plus douce */
 @keyframes musicPulseDay {
   0%, 100% {
-    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
-  }
-  25% {
-    background: linear-gradient(135deg, rgba(129, 182, 249, 0.95) 0%, rgba(186, 239, 255, 0.95) 50%, rgba(252, 252, 252, 0.95) 100%);
+    box-shadow: 
+      0 8px 32px rgba(129, 182, 249, 0.3),
+      0 4px 16px rgba(186, 239, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
   50% {
-    background: linear-gradient(135deg, rgba(186, 239, 255, 0.95) 0%, rgba(252, 252, 252, 0.95) 50%, rgba(129, 182, 249, 0.95) 100%);
-  }
-  75% {
-    background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+    box-shadow: 
+      0 12px 40px rgba(129, 182, 249, 0.5),
+      0 6px 20px rgba(186, 239, 255, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 }
 
 @keyframes musicPulseSunset {
   0%, 100% {
-    background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
-  }
-  25% {
-    background: linear-gradient(135deg, rgba(255, 138, 13, 0.95) 0%, rgba(255, 183, 115, 0.95) 50%, rgba(254, 166, 84, 0.95) 100%);
+    box-shadow: 
+      0 8px 32px rgba(255, 138, 13, 0.4),
+      0 4px 16px rgba(255, 183, 115, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   50% {
-    background: linear-gradient(135deg, rgba(255, 183, 115, 0.95) 0%, rgba(254, 166, 84, 0.95) 50%, rgba(255, 138, 13, 0.95) 100%);
-  }
-  75% {
-    background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+    box-shadow: 
+      0 12px 40px rgba(255, 138, 13, 0.6),
+      0 6px 20px rgba(255, 183, 115, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 }
 
 @keyframes musicPulseNight {
   0%, 100% {
-    background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
-  }
-  25% {
-    background: linear-gradient(135deg, rgba(111, 34, 195, 0.95) 0%, rgba(63, 67, 218, 0.95) 50%, rgba(75, 63, 246, 0.95) 100%);
+    box-shadow: 
+      0 8px 32px rgba(75, 63, 246, 0.5),
+      0 4px 16px rgba(111, 34, 195, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   50% {
-    background: linear-gradient(135deg, rgba(63, 67, 218, 0.95) 0%, rgba(75, 63, 246, 0.95) 50%, rgba(111, 34, 195, 0.95) 100%);
-  }
-  75% {
-    background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+    box-shadow: 
+      0 12px 40px rgba(75, 63, 246, 0.7),
+      0 6px 20px rgba(111, 34, 195, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 }
 
