@@ -508,8 +508,8 @@ margin-right: 2vw;
 /* bloc-video */
 
 #bloc-video {
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* video-youtube block*/
@@ -517,8 +517,8 @@ margin-right: 2vw;
 #video-youtube {
     margin-top: 35px;
     margin-bottom: 35px;
-    width: 1000px;
-    height: 562.57px;
+    width: 55vw;
+    height: 35.125vw;
     padding: 1.5rem;
     border-width: 10px;
     border-style: solid;
@@ -569,30 +569,35 @@ margin-right: 2vw;
 
 
 @keyframes fullscreenvideo {
-    from { width: 1000px; height: 562px;
-
+    from { 
+        width: 55vw; 
+        height: 30.9375vw; /* 55vw * 9/16 = 30.9375vw pour maintenir le ratio 16:9 */
     }
-      to { width: 1249px; height: 702.5px;
+    to { 
+        width: 80vw; 
+        height: 45vw; /* 80vw * 9/16 = 45vw pour maintenir le ratio 16:9 */
     }
 }
 
 @keyframes simplescreenyoutube {
-    from { width: 1249px; height: 702.5px;
+    from { 
+        width: 80vw; 
+        height: 45vw;
     }
-    to { width: 1000px; height: 562px;
-
+    to { 
+        width: 55vw; 
+        height: 30.9375vw;
     }
-
 }
 
 @keyframes youtubetest {
     from { 
-        width: 1000px; 
-        height: 562px;
+        width: 55vw; 
+        height: 30.9375vw;
     }
     to { 
-        width: 1249px!important; 
-        height: 702.5px!important;
+        width: 80vw!important; 
+        height: 45vw!important;
     }
 }
 
