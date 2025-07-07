@@ -1,43 +1,15 @@
 /* Audio CSS avec thèmes jour/crépuscule/nuit */
 
-/* Variables pour les thèmes (utilisant les variables existantes) */
-:root {
-  /* Mode Jour */
-  --audio-bg-day: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
-  --audio-text-day: #256aff;
-  --audio-accent-day: #00d1fe;
-  --audio-shadow-day: rgba(186, 239, 255, 0.6);
-  --audio-button-day: linear-gradient(45deg, rgba(252, 252, 252, 1), rgba(129, 182, 249, 1));
-  --audio-button-hover-day: linear-gradient(45deg, rgba(0, 209, 254, 1), rgba(128, 184, 247, 1));
-  --audio-border-day: #baefff;
-  
-  /* Mode Crépuscule */
-  --audio-bg-sunset: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
-  --audio-text-sunset: #020705;
-  --audio-accent-sunset: #ff8c21;
-  --audio-shadow-sunset: rgba(255, 166, 64, 0.6);
-  --audio-button-sunset: linear-gradient(45deg, rgba(254, 166, 84, 1), rgba(255, 138, 13, 0.788));
-  --audio-button-hover-sunset: linear-gradient(45deg, rgba(255, 183, 115, 1), rgba(137, 128, 247, 1));
-  --audio-border-sunset: #07541e;
-  
-  /* Mode Nuit */
-  --audio-bg-night: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
-  --audio-text-night: #ffffff;
-  --audio-accent-night: #6c5ffa;
-  --audio-shadow-night: rgba(0, 0, 0, 0.6);
-  --audio-button-night: linear-gradient(45deg, rgba(63, 67, 218, 1), rgba(111, 34, 195, 1));
-  --audio-button-hover-night: linear-gradient(45deg, rgba(63, 67, 218, 1), rgba(155, 120, 193, 1));
-  --audio-border-night: #000000;
-}
+/* Audio CSS avec thèmes jour/crépuscule/nuit */
 
 /* Conteneur principal de l'audio */
 #bloc-choix-audio {
-  background: var(--audio-bg-day);
-  color: var(--audio-text-day);
+  background: linear-gradient(135deg, rgba(252, 252, 252, 0.95) 0%, rgba(129, 182, 249, 0.95) 50%, rgba(186, 239, 255, 0.95) 100%);
+  color: var(--text-color-day);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 15px var(--audio-shadow-day);
-  border: 2px solid var(--audio-border-day);
+  box-shadow: 0 4px 15px var(--box-shadow-color-day);
+  border: 2px solid var(--border-color-day);
   transition: all 0.5s ease;
   overflow: visible;
   display: flex;
@@ -46,6 +18,8 @@
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 }
 
 /* Titre de l'audio */
@@ -53,9 +27,9 @@
   font-size: clamp(20px, 2.5vw, 32px);
   margin-bottom: 15px;
   text-align: center;
-  text-shadow: 0 0 10px var(--audio-accent-day);
+  text-shadow: 0 0 10px var(--text-color-day);
   animation: glow 2s ease-in-out infinite alternate;
-  color: var(--audio-text-day);
+  color: var(--text-color-day);
   font-weight: bold;
 }
 
@@ -75,8 +49,8 @@
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px var(--audio-accent-day); }
-  to { text-shadow: 0 0 20px var(--audio-accent-day), 0 0 30px var(--audio-accent-day); }
+  from { text-shadow: 0 0 10px var(--text-color-day); }
+  to { text-shadow: 0 0 20px var(--text-color-day), 0 0 30px var(--text-color-day); }
 }
 
 /* Conteneur du chat */
@@ -103,7 +77,7 @@
   left: -5px;
   right: -5px;
   bottom: -5px;
-  background: radial-gradient(circle, var(--audio-shadow-day) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--box-shadow-color-day) 0%, transparent 70%);
   border-radius: 50%;
   animation: pulse 3s ease-in-out infinite;
   pointer-events: none;
@@ -118,7 +92,7 @@
 #bloc-choix-audio #cat {
   text-align: center;
   line-height: 1.2;
-  filter: drop-shadow(0 0 8px var(--audio-accent-day));
+  filter: drop-shadow(0 0 8px var(--text-color-day));
   transition: all 0.3s ease;
   font-weight: bold;
   font-size: clamp(12px, 1.4vw, 16px);
@@ -134,6 +108,7 @@
   height: auto;
   overflow: hidden;
   color: white;
+  animation: catAuraDay 3s ease-in-out infinite;
 }
 
 /* Contrôles */
@@ -158,15 +133,15 @@
 
 #bloc-choix-audio .control-group label {
   font-size: clamp(12px, 1.2vw, 16px);
-  color: var(--audio-text-day);
+  color: var(--text-color-day);
   font-weight: bold;
-  text-shadow: 0 0 3px var(--audio-shadow-day);
+  text-shadow: 0 0 3px var(--box-shadow-color-day);
 }
 
 /* Sliders */
 #bloc-choix-audio .control-group input[type="range"] {
   width: clamp(80px, 8vw, 120px);
-  accent-color: var(--audio-accent-day);
+  accent-color: var(--text-color-day);
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   height: 6px;
@@ -174,36 +149,36 @@
 }
 
 #bloc-choix-audio .control-group input[type="range"]::-webkit-slider-thumb {
-  background: var(--audio-accent-day);
+  background: var(--text-color-day);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 8px var(--audio-shadow-day);
+  box-shadow: 0 0 8px var(--box-shadow-color-day);
   width: clamp(14px, 1.2vw, 18px);
   height: clamp(14px, 1.2vw, 18px);
 }
 
 /* Boutons */
 #bloc-choix-audio button {
-  background: var(--audio-button-day);
-  border: none;
-  color: var(--audio-text-day);
+  background: linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+  border: 1px solid var(--btn-border-color-day);
+  color: var(--text-color-day);
   padding: 8px 15px;
   border-radius: 12px;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: clamp(12px, 1.1vw, 15px);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px var(--audio-shadow-day);
-  text-shadow: 0 0 3px var(--audio-shadow-day);
+  box-shadow: 0 2px 8px var(--btn-box-shadow-color-day);
+  text-shadow: 0 0 3px var(--btn-text-shadow-day);
   min-width: 70px;
   flex-shrink: 0;
 }
 
 #bloc-choix-audio button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--audio-shadow-day);
-  background: var(--audio-button-hover-day);
+  box-shadow: 0 4px 12px var(--btn-box-shadow-color-day);
+  background: linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
 }
 
 #bloc-choix-audio button:active {
@@ -212,90 +187,92 @@
 
 /* Select de musique */
 #bloc-choix-audio select {
-  background: var(--audio-button-day);
-  border: none;
-  color: var(--audio-text-day);
-  padding: 8px 15px;
+  background: linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+  border: 1px solid var(--btn-border-color-day);
+  color: var(--text-color-day);
+  padding: 10px 18px;
   border-radius: 12px;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-family);
   font-weight: bold;
-  font-size: clamp(12px, 1.1vw, 15px);
+  font-size: clamp(14px, 1.3vw, 18px);
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px var(--audio-shadow-day);
-  text-shadow: 0 0 3px var(--audio-shadow-day);
-  max-width: 140px;
+  box-shadow: 0 2px 8px var(--btn-box-shadow-color-day);
+  text-shadow: 0 0 3px var(--btn-text-shadow-day);
+  min-width: 160px;
+  max-width: 200px;
 }
 
 #bloc-choix-audio select:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--audio-shadow-day);
-  background: var(--audio-button-hover-day);
+  box-shadow: 0 4px 12px var(--btn-box-shadow-color-day);
+  background: linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
 }
 
 #bloc-choix-audio select:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--audio-shadow-day);
+  box-shadow: 0 0 0 2px var(--btn-box-shadow-color-day);
 }
 
 /* Affichage de la vitesse */
 #bloc-choix-audio .speed-display {
   font-size: clamp(13px, 1.3vw, 18px);
-  color: var(--audio-text-day);
+  color: var(--text-color-day);
   margin-top: 10px;
-  text-shadow: 0 0 3px var(--audio-shadow-day);
+  text-shadow: 0 0 3px var(--box-shadow-color-day);
   text-align: center;
   font-weight: bold;
 }
 
 /* Mode Crépuscule */
 #bloc-choix-audio.sunset {
-  background: var(--audio-bg-sunset);
-  color: var(--audio-text-sunset);
-  box-shadow: 0 4px 15px var(--audio-shadow-sunset);
-  border-color: var(--audio-border-sunset);
+  background: linear-gradient(135deg, rgba(254, 166, 84, 0.95) 0%, rgba(255, 138, 13, 0.95) 50%, rgba(255, 183, 115, 0.95) 100%);
+  color: var(--text-color-sunset);
+  box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-sunset);
+  border-color: var(--block-choix-video-border-color-sunset);
 }
 
 #bloc-choix-audio.sunset .title {
-  text-shadow: 0 0 10px var(--audio-accent-sunset);
-  color: var(--audio-text-sunset);
+  text-shadow: 0 0 10px var(--text-color-sunset);
+  color: var(--text-color-sunset);
 }
 
 #bloc-choix-audio.sunset #cat {
-  filter: drop-shadow(0 0 8px var(--audio-accent-sunset));
+  filter: drop-shadow(0 0 8px var(--block-choix-video-box-shadow-color-sunset));
   color: #90EE90;
   text-shadow: 0 0 5px #90EE90;
+  animation: catAuraSunset 3s ease-in-out infinite;
 }
 
 #bloc-choix-audio.sunset .control-group label {
-  color: var(--audio-text-sunset);
-  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+  color: var(--text-color-sunset);
+  text-shadow: 0 0 3px var(--block-choix-video-box-shadow-color-sunset);
 }
 
 #bloc-choix-audio.sunset .control-group input[type="range"] {
-  accent-color: var(--audio-accent-sunset);
+  accent-color: var(--block-choix-video-box-shadow-color-sunset);
 }
 
 #bloc-choix-audio.sunset .control-group input[type="range"]::-webkit-slider-thumb {
-  background: var(--audio-accent-sunset);
-  box-shadow: 0 0 8px var(--audio-shadow-sunset);
+  background: var(--block-choix-video-box-shadow-color-sunset);
+  box-shadow: 0 0 8px var(--block-choix-video-box-shadow-color-sunset);
 }
 
 #bloc-choix-audio.sunset button {
-  background: var(--audio-button-sunset);
-  color: var(--audio-text-sunset);
-  box-shadow: 0 2px 8px var(--audio-shadow-sunset);
-  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+  background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var(--custom-search-button-background-gradient-end-sunset) 100%);
+  color: var(--text-color-sunset);
+  box-shadow: 0 2px 8px var(--custom-search-button-box-shadow-color-sunset);
+  text-shadow: 0 0 3px var(--text-color-sunset);
 }
 
 #bloc-choix-audio.sunset button:hover {
-  box-shadow: 0 4px 12px var(--audio-shadow-sunset);
-  background: var(--audio-button-hover-sunset);
+  box-shadow: 0 4px 12px var(--custom-search-button-box-shadow-color-sunset);
+  background: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
 }
 
 #bloc-choix-audio.sunset .speed-display {
-  color: var(--audio-text-sunset);
-  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+  color: var(--text-color-sunset);
+  text-shadow: 0 0 3px var(--block-choix-video-box-shadow-color-sunset);
 }
 
 #bloc-choix-audio.sunset .cat-container {
@@ -304,72 +281,77 @@
 }
 
 #bloc-choix-audio.sunset .cat-container::before {
-  background: radial-gradient(circle, var(--audio-shadow-sunset) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--block-choix-video-box-shadow-color-sunset) 0%, transparent 70%);
   pointer-events: none;
 }
 
 #bloc-choix-audio.sunset select {
-  background: var(--audio-button-sunset);
-  color: var(--audio-text-sunset);
-  box-shadow: 0 2px 8px var(--audio-shadow-sunset);
-  text-shadow: 0 0 3px var(--audio-shadow-sunset);
+  background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 5%, var(--custom-search-button-background-gradient-end-sunset) 100%);
+  color: var(--text-color-sunset);
+  box-shadow: 0 2px 8px var(--custom-search-button-box-shadow-color-sunset);
+  text-shadow: 0 0 3px var(--text-color-sunset);
+  padding: 10px 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
+  min-width: 160px;
+  max-width: 200px;
 }
 
 #bloc-choix-audio.sunset select:hover {
-  box-shadow: 0 4px 12px var(--audio-shadow-sunset);
-  background: var(--audio-button-hover-sunset);
+  box-shadow: 0 4px 12px var(--custom-search-button-box-shadow-color-sunset);
+  background: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
 }
 
 #bloc-choix-audio.sunset select:focus {
-  box-shadow: 0 0 0 2px var(--audio-shadow-sunset);
+  box-shadow: 0 0 0 2px var(--block-choix-video-box-shadow-color-sunset);
 }
 
 /* Mode Nuit */
 #bloc-choix-audio.night {
-  background: var(--audio-bg-night);
-  color: var(--audio-text-night);
-  box-shadow: 0 4px 15px var(--audio-shadow-night);
-  border-color: var(--audio-border-night);
+  background: linear-gradient(135deg, rgba(75, 63, 246, 0.95) 0%, rgba(111, 34, 195, 0.95) 50%, rgba(63, 67, 218, 0.95) 100%);
+  color: var(--text-color-night);
+  box-shadow: 0 4px 15px var(--block-choix-video-box-shadow-color-night);
+  border-color: var(--black);
 }
 
 #bloc-choix-audio.night .title {
-  text-shadow: 0 0 10px var(--audio-accent-night);
-  color: var(--audio-text-night);
+  text-shadow: 0 0 10px var(--text-color-night);
+  color: var(--text-color-night);
 }
 
 #bloc-choix-audio.night #cat {
-  filter: drop-shadow(0 0 8px var(--audio-accent-night));
+  filter: drop-shadow(0 0 8px var(--entete-border-bottom-color-night));
+  animation: catAuraNight 3s ease-in-out infinite;
 }
 
 #bloc-choix-audio.night .control-group label {
-  color: var(--audio-text-night);
-  text-shadow: 0 0 3px var(--audio-shadow-night);
+  color: var(--text-color-night);
+  text-shadow: 0 0 3px var(--black);
 }
 
 #bloc-choix-audio.night .control-group input[type="range"] {
-  accent-color: var(--audio-accent-night);
+  accent-color: var(--entete-border-bottom-color-night);
 }
 
 #bloc-choix-audio.night .control-group input[type="range"]::-webkit-slider-thumb {
-  background: var(--audio-accent-night);
-  box-shadow: 0 0 8px var(--audio-shadow-night);
+  background: var(--entete-border-bottom-color-night);
+  box-shadow: 0 0 8px var(--black);
 }
 
 #bloc-choix-audio.night button {
-  background: var(--audio-button-night);
-  color: var(--audio-text-night);
-  box-shadow: 0 2px 8px var(--audio-shadow-night);
-  text-shadow: 0 0 3px var(--audio-shadow-night);
+  background: var(--btn-background-gradient-night);
+  color: var(--text-color-night);
+  box-shadow: 0 2px 8px var(--black);
+  text-shadow: 0 0 3px var(--black);
 }
 
 #bloc-choix-audio.night button:hover {
-  box-shadow: 0 4px 12px var(--audio-shadow-night);
-  background: var(--audio-button-hover-night);
+  box-shadow: 0 4px 12px var(--black);
+  background: var(--btn-hover-gradient-night);
 }
 
 #bloc-choix-audio.night .speed-display {
-  color: var(--audio-text-night);
-  text-shadow: 0 0 3px var(--audio-shadow-night);
+  color: var(--text-color-night);
+  text-shadow: 0 0 3px var(--black);
 }
 
 #bloc-choix-audio.night .cat-container {
@@ -378,24 +360,28 @@
 }
 
 #bloc-choix-audio.night .cat-container::before {
-  background: radial-gradient(circle, var(--audio-shadow-night) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--black) 0%, transparent 70%);
   pointer-events: none;
 }
 
 #bloc-choix-audio.night select {
-  background: var(--audio-button-night);
-  color: var(--audio-text-night);
-  box-shadow: 0 2px 8px var(--audio-shadow-night);
-  text-shadow: 0 0 3px var(--audio-shadow-night);
+  background: var(--btn-background-gradient-night);
+  color: var(--text-color-night);
+  box-shadow: 0 2px 8px var(--black);
+  text-shadow: 0 0 3px var(--black);
+  padding: 10px 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
+  min-width: 160px;
+  max-width: 200px;
 }
 
 #bloc-choix-audio.night select:hover {
-  box-shadow: 0 4px 12px var(--audio-shadow-night);
-  background: var(--audio-button-hover-night);
+  box-shadow: 0 4px 12px var(--black);
+  background: var(--btn-hover-gradient-night);
 }
 
 #bloc-choix-audio.night select:focus {
-  box-shadow: 0 0 0 2px var(--audio-shadow-night);
+  box-shadow: 0 0 0 2px var(--black);
 }
 
 /* Responsive pour petits écrans */
@@ -433,8 +419,25 @@
   }
   
   #bloc-choix-audio select {
-    font-size: 9px;
-    max-width: 100px;
+    font-size: 12px;
+    min-width: 120px;
+    max-width: 150px;
+    padding: 8px 12px;
+  }
+  
+  /* Visualiseur audio pour petits écrans */
+  .audio-visualizer {
+    top: 5px;
+    right: 5px;
+    height: 30px;
+    width: 80px;
+    gap: 1px;
+    padding: 2px;
+  }
+  
+  .audio-bar {
+    min-width: 2px;
+    min-height: 2px;
   }
 }
 
@@ -561,9 +564,10 @@
 
 /* Ajustements pour le mode grand écran */
 #bloc-choix-audio.fullscreen .cat-container {
-  height: clamp(400px, 60vh, 800px);
-  min-height: 400px;
-  max-height: 80vh;
+  height: clamp(250px, 35vh, 350px);
+  min-height: 200px;
+  max-height: 45vh;
+  margin-bottom: 20px;
 }
 
 #bloc-choix-audio.fullscreen .title {
@@ -705,8 +709,54 @@
   }
 }
 
-/* Classes pour activer les animations du conteneur du chat */
-#bloc-choix-audio.day.music-playing .cat-container {
+/* Animations d'aura autour du chat - Version plus colorée */
+@keyframes catAuraDay {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 15px #00bfff) drop-shadow(0 0 25px #87ceeb) drop-shadow(0 0 35px #4169e1);
+  }
+  25% {
+    filter: drop-shadow(0 0 12px #00bfff) drop-shadow(0 0 20px #87ceeb) drop-shadow(0 0 30px #4169e1) drop-shadow(0 0 40px #00ffff);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #87ceeb) drop-shadow(0 0 18px #4169e1) drop-shadow(0 0 28px #00ffff) drop-shadow(0 0 38px #00bfff);
+  }
+  75% {
+    filter: drop-shadow(0 0 14px #4169e1) drop-shadow(0 0 22px #00ffff) drop-shadow(0 0 32px #00bfff) drop-shadow(0 0 42px #87ceeb);
+  }
+}
+
+@keyframes catAuraSunset {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px #ff6b35) drop-shadow(0 0 15px #ff8c42) drop-shadow(0 0 25px #ffa500) drop-shadow(0 0 35px #ff4500);
+  }
+  25% {
+    filter: drop-shadow(0 0 12px #ff8c42) drop-shadow(0 0 20px #ffa500) drop-shadow(0 0 30px #ff4500) drop-shadow(0 0 40px #ff6b35);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #ffa500) drop-shadow(0 0 18px #ff4500) drop-shadow(0 0 28px #ff6b35) drop-shadow(0 0 38px #ff8c42);
+  }
+  75% {
+    filter: drop-shadow(0 0 14px #ff4500) drop-shadow(0 0 22px #ff6b35) drop-shadow(0 0 32px #ff8c42) drop-shadow(0 0 42px #ffa500);
+  }
+}
+
+@keyframes catAuraNight {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px #8a2be2) drop-shadow(0 0 15px #9370db) drop-shadow(0 0 25px #9932cc) drop-shadow(0 0 35px #4b0082);
+  }
+  25% {
+    filter: drop-shadow(0 0 12px #9370db) drop-shadow(0 0 20px #9932cc) drop-shadow(0 0 30px #4b0082) drop-shadow(0 0 40px #8a2be2);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #9932cc) drop-shadow(0 0 18px #4b0082) drop-shadow(0 0 28px #8a2be2) drop-shadow(0 0 38px #9370db);
+  }
+  75% {
+    filter: drop-shadow(0 0 14px #4b0082) drop-shadow(0 0 22px #8a2be2) drop-shadow(0 0 32px #9370db) drop-shadow(0 0 42px #9932cc);
+  }
+}
+
+/* Classes pour activer les animations du conteneur du chat - DÉSACTIVÉES */
+/* #bloc-choix-audio.day.music-playing .cat-container {
   animation: catContainerPulseDay 2s ease-in-out infinite;
 }
 
@@ -716,4 +766,178 @@
 
 #bloc-choix-audio.night.music-playing .cat-container {
   animation: catContainerPulseNight 2s ease-in-out infinite;
+} */
+
+/* Visualiseur audio */
+.audio-visualizer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 40px;
+  width: 120px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.audio-bar {
+  flex: 1;
+  min-width: 3px;
+  min-height: 3px;
+  background: linear-gradient(to top, transparent, currentColor);
+  border-radius: 1px 1px 0 0;
+  transition: height 0.1s ease, opacity 0.1s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Couleurs du visualiseur selon les thèmes */
+#bloc-choix-audio.day .audio-visualizer .audio-bar {
+  color: var(--text-color-day);
+  box-shadow: 0 0 5px var(--text-color-day);
+}
+
+#bloc-choix-audio.sunset .audio-visualizer .audio-bar {
+  color: var(--text-color-sunset);
+  box-shadow: 0 0 5px var(--text-color-sunset);
+}
+
+#bloc-choix-audio.night .audio-visualizer .audio-bar {
+  color: var(--text-color-night);
+  box-shadow: 0 0 5px var(--text-color-night);
+}
+
+/* Animation du visualiseur en mode plein écran */
+#bloc-choix-audio.fullscreen .audio-visualizer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 120px;
+  width: 500px;
+  gap: 6px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
+
+#bloc-choix-audio.fullscreen .audio-bar {
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Styles pour le bouton de boucle */
+#bloc-choix-audio .control-btn {
+  background: linear-gradient(90deg, var(--btn-gradient-start-color-day) 0%, var(--btn-gradient-end-color-day) 100%);
+  color: var(--text-color-day);
+  border: 1px solid var(--btn-border-color-day);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: clamp(12px, 1.2vw, 16px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--btn-box-shadow-color-day);
+  text-shadow: 0 0 3px var(--btn-text-shadow-day);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+#bloc-choix-audio .control-btn.active {
+  background: linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
+  box-shadow: 0 4px 12px var(--btn-box-shadow-color-day);
+  transform: translateY(-1px);
+}
+
+#bloc-choix-audio .control-btn:hover {
+  background: linear-gradient(90deg, var(--btn-hover-gradient-start-color-day) 0%, var(--btn-hover-gradient-end-color-day) 100%);
+  box-shadow: 0 4px 12px var(--btn-box-shadow-color-day);
+  transform: translateY(-1px);
+}
+
+/* Styles pour les thèmes du bouton de boucle */
+#bloc-choix-audio.sunset .control-btn {
+  background: linear-gradient(90deg, var(--custom-search-button-background-gradient-start-sunset) 0%, var(--custom-search-button-background-gradient-end-sunset) 100%);
+  color: var(--text-color-sunset);
+  border-color: var(--custom-search-button-border-color-sunset);
+  box-shadow: 0 2px 8px var(--custom-search-button-box-shadow-color-sunset);
+  text-shadow: 0 0 3px var(--text-color-sunset);
+}
+
+#bloc-choix-audio.sunset .control-btn.active,
+#bloc-choix-audio.sunset .control-btn:hover {
+  background: linear-gradient(90deg, rgba(255,183,115,1) 0%, rgba(137,128,247,1) 100%);
+  box-shadow: 0 4px 12px var(--custom-search-button-box-shadow-color-sunset);
+}
+
+#bloc-choix-audio.night .control-btn {
+  background: var(--btn-background-gradient-night);
+  color: var(--text-color-night);
+  border-color: var(--black);
+  box-shadow: 0 2px 8px var(--black);
+  text-shadow: 0 0 3px var(--black);
+}
+
+#bloc-choix-audio.night .control-btn.active,
+#bloc-choix-audio.night .control-btn:hover {
+  background: var(--btn-hover-gradient-night);
+  box-shadow: 0 4px 12px var(--black);
+}
+
+/* Styles pour la checkbox de vitesse automatique */
+#bloc-choix-audio .checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: clamp(10px, 1vw, 14px);
+}
+
+#bloc-choix-audio .checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--text-color-day);
+}
+
+#bloc-choix-audio .checkbox-group label {
+  cursor: pointer;
+  color: var(--text-color-day);
+  font-weight: normal;
+  text-shadow: 0 0 3px var(--box-shadow-color-day);
+  margin: 0;
+}
+
+/* Styles pour les thèmes de la checkbox */
+#bloc-choix-audio.sunset .checkbox-group input[type="checkbox"] {
+  accent-color: var(--text-color-sunset);
+}
+
+#bloc-choix-audio.sunset .checkbox-group label {
+  color: var(--text-color-sunset);
+  text-shadow: 0 0 3px var(--block-choix-video-box-shadow-color-sunset);
+}
+
+#bloc-choix-audio.night .checkbox-group input[type="checkbox"] {
+  accent-color: var(--text-color-night);
+}
+
+#bloc-choix-audio.night .checkbox-group label {
+  color: var(--text-color-night);
+  text-shadow: 0 0 3px var(--black);
+}
+
+/* Désactiver le slider quand la vitesse automatique est activée */
+#bloc-choix-audio input[type="range"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 } 

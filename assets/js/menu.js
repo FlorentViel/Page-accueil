@@ -740,6 +740,9 @@ tableauMenu.on('click', function(e) {
           if (typeof window.recalculateAudioSize === 'function') {
               setTimeout(() => window.recalculateAudioSize(), 100);
           }
+          
+          // Afficher automatiquement les formulaires et boutons
+          showbtn();
       });
 
       $('#choix-video').on('click', choixvideo);

@@ -164,11 +164,16 @@
                         <div class="cat-container">
                             <div id="cat"></div>
                         </div>
+                        <div class="audio-visualizer"></div>
                         
                         <div class="controls">
                             <div class="control-group">
                                 <label for="speed">Speed</label>
                                 <input type="range" id="speed" min="50" max="500" value="150" step="10">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="autoSpeed" checked>
+                                    <label for="autoSpeed">Vitesse adaptée à la musique</label>
+                                </div>
                             </div>
                             
                             <div class="control-group">
@@ -185,11 +190,17 @@
                                 <label for="music">Music</label>
                                 <select id="musicSelect">
                                     <option value="./audio/W&W - OIIA OIIA (Spinning Cat).mp3">OIIA OIIA (Spinning Cat)</option>
+                                    <option value="./audio/Crash Bandicoot 1 - Cortex Boss Music.mp3">Crash Bandicoot 1 - Cortex Boss</option>
                                     <option value="./audio/Crash Bandicoot 2 - Komodo Bros. Boss Music.mp3">Crash Bandicoot 2 - Komodo Bros</option>
+                                    <option value="./audio/Crash Bandicoot 2 - Tiny Boss Music.mp3">Crash Bandicoot 2 - Tiny Boss</option>
+                                    <option value="./audio/Crash Bandicoot 2 - Skull Route 1 Air Crash.mp3">Crash Bandicoot 2 - Skull Route</option>
                                     <option value="./audio/Its TV Time! (BW2 Soundfont) - DELTARUNE.mp3">Its TV Time! (BW2 Soundfont) - DELTARUNE</option>
-                                    <option value="./audio/musique-2.mp3">Musique 2</option>
-                                    <option value="./audio/musique-3.mp3">Musique 3</option>
+                                    <option value="./audio/Creepy Nuts Bling-Bang-Bang-Born.mp3">Creepy Nuts - Bling-Bang-Bang-Born</option>
                                 </select>
+                            </div>
+                            
+                            <div class="control-group">
+                                <button id="loopBtn" class="control-btn">🔄 Boucle</button>
                             </div>
                             
                             <button id="pauseBtn">⏸️ Pause</button>
