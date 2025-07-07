@@ -1,0 +1,109 @@
+/* Déclarez les variables CSS pour les couleurs, la police et la taille de texte */
+/* Couleurs */
+:root {
+
+    --font-family: 'Montserrat', sans-serif;
+
+    /* varDay */
+
+    --white : rgba(252, 252, 252, 1);
+    --entete-border-bottom-color-day: #baefff;
+    --entete-background-color-day: rgba(251, 175, 44, 0.245);
+    --entete-box-shadow-color-day: #ffefbb;
+    --box-shadow-color-day: #ebf0ff;
+    --gradient-start-color-day: rgba(252, 252, 252, 0.5);
+    --gradient-end-color-day: rgba(129, 182, 249, 0.5);
+    --border-color-day: #baefff;
+    --text-color-day: #256aff;
+    --background-color-day: rgb(252, 252, 252);
+    --btn-box-shadow-color-day: #ebf0ff;
+    --btn-gradient-start-color-day: rgba(252, 252, 252, 1);
+    --btn-gradient-end-color-day: rgba(129, 182, 249, 1);
+    --btn-border-color-day: #baefff;
+    --btn-background-color-day: rgba(252, 252, 252, 1);
+    --btn-button-hover-background-color-day: rgba(0, 209, 254, 1);
+    --btn-text-shadow-day: #ecead0;
+    
+
+    
+
+    --btn-hover-gradient-start-color-day: rgba(0, 209, 254, 1);
+    --btn-hover-gradient-end-color-day: rgba(128, 184, 247, 1);
+    --btn-hover-background-color-day: rgba(0, 209, 254, 1);
+    --btn-hover-button-hover-background-color-day: rgba(0, 209, 254, 1);
+
+    /* varSunset*/
+
+    --entete-border-color-sunset: rgb(255, 166, 64);
+    --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
+    --entete-box-shadow-color-sunset: rgba(255, 158, 39, 0.349);
+    --navBar-box-shadow-color-sunset: #e7a90b96;
+    --text-color-sunset: #020705;
+
+    --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+
+    
+    --integration-border-color-sunset: #35343A;
+    --integration-background-gradient-start-sunset: rgba(254, 166, 84, 1);
+    --integration-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
+    --integration-color-sunset: #ff0000;
+    --integration-box-shadow-color-sunset: rgb(255, 166, 64);
+    
+    --custom-search-button-background-gradient-start-sunset: rgba(254, 166, 84, 1);
+    --custom-search-button-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
+    --custom-search-button-border-color-sunset: #35343A;
+    --custom-search-button-box-shadow-color-sunset: #ff8c21;
+    
+    --block-choix-video-background-gradient-start-sunset: rgba(254, 166, 84, 0.50);
+    --block-choix-video-background-gradient-end-sunset: rgba(255, 138, 13, 0.50);
+    --block-choix-video-box-shadow-color-sunset: #ff8c21;
+    --block-choix-video-border-color-sunset: #ffc003;
+    --block-choix-video-text-color-sunset: #020705;
+    
+    /* varNight */
+
+    --black :#000;
+    /* Définition des variables du mode nuit à partir du code ---Mode-Nuit--- */
+
+    /* Entête */
+    --entete-border-bottom-color-night: #6c5ffa;
+    --entete-background-color-night: rgba(75, 63, 246, 0.243);
+    --entete-box-shadow-color-night: #000;
+    
+    /* Nav-item */
+    --nav-item-background-color-night: #023a3b14;
+    
+    /* Block-choix-video */
+    --block-choix-video-background-gradient-night: rgba(63, 67, 218, 0.50);
+    --block-choix-video-box-shadow-color-night: #000;
+    --text-color-night: #ffffff; /* Répété ici pour correspondre à votre code */
+
+    /* Figcaption */
+    --figcaption-background-gradient-night: rgba(63, 67, 218, 1);
+    --figcaption-text-color-night: #fff;
+
+    /* Bouton */
+    --btn-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
+    --btn-hover-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+
+
+    /* label sunset */
+    --label-sunset-color: rgb(255,183,115);
+
+    /* Input nuit */
+    --integration-input-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%);
+    --placeholder-color-night: #1b1b1b;
+
+    /* Radio Input nuit */
+    --radio-input-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%);
+    --radio-input-checked-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
+    
+    /* Tableau nuit */
+    --tableau-background-color-night: rgba(75, 63, 246, 0.243);
+    --tableau-cell-background-color-night: #30104a46;
+
+    /* Bloc formulaire nuit */
+    --bloc-formulaire-background-color-night: rgba(112, 126, 246, 0.35);
+
+
+}

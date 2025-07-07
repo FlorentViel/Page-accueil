@@ -1,106 +1,4 @@
-/* Déclarez les variables CSS pour les couleurs, la police et la taille de texte */
-/* Couleurs */
-:root {
 
-    /* varDay */
-
-    --white : rgba(252, 252, 252, 1);
-    --entete-border-bottom-color-day: #baefff;
-    --entete-background-color-day: rgba(251, 175, 44, 0.245);
-    --entete-box-shadow-color-day: #ffefbb;
-    --box-shadow-color-day: #ebf0ff;
-    --gradient-start-color-day: rgba(252, 252, 252, 0.5);
-    --gradient-end-color-day: rgba(129, 182, 249, 0.5);
-    --border-color-day: #baefff;
-    --text-color-day: #256aff;
-    --background-color-day: rgb(252, 252, 252);
-    --btn-box-shadow-color-day: #ebf0ff;
-    --btn-gradient-start-color-day: rgba(252, 252, 252, 1);
-    --btn-gradient-end-color-day: rgba(129, 182, 249, 1);
-    --btn-border-color-day: #baefff;
-    --btn-background-color-day: rgba(252, 252, 252, 1);
-    --btn-button-hover-background-color-day: rgba(0, 209, 254, 1);
-    --btn-text-shadow-day: #ecead0;
-    
-
-    
-
-    --btn-hover-gradient-start-color-day: rgba(0, 209, 254, 1);
-    --btn-hover-gradient-end-color-day: rgba(128, 184, 247, 1);
-    --btn-hover-background-color-day: rgba(0, 209, 254, 1);
-    --btn-hover-button-hover-background-color-day: rgba(0, 209, 254, 1);
-
-    /* varSunset*/
-
-    --entete-border-color-sunset: #bcff57;
-    --entete-background-color-sunset: rgba(255, 118, 14, 0.35);
-    --entete-box-shadow-color-sunset: rgba(255, 158, 39, 0.349);
-    --navBar-box-shadow-color-sunset: #e7a90b96;
-    --text-color-sunset: #020705;
-
-    --btn-background-gradient-Sunset: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-
-    
-    --integration-border-color-sunset: #07541e;
-    --integration-background-gradient-start-sunset: rgba(254, 166, 84, 1);
-    --integration-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
-    --integration-color-sunset: #ff0000;
-    --integration-box-shadow-color-sunset: rgb(255, 166, 64);
-    
-    --custom-search-button-background-gradient-start-sunset: rgba(254, 166, 84, 1);
-    --custom-search-button-background-gradient-end-sunset: rgba(255, 138, 13, 0.788);
-    --custom-search-button-border-color-sunset: #07541e;
-    --custom-search-button-box-shadow-color-sunset: #ff8c21;
-    
-    --block-choix-video-background-gradient-start-sunset: rgba(254, 166, 84, 0.50);
-    --block-choix-video-background-gradient-end-sunset: rgba(255, 138, 13, 0.50);
-    --block-choix-video-box-shadow-color-sunset: #ff8c21;
-    --block-choix-video-border-color-sunset: #ffc003;
-    --block-choix-video-text-color-sunset: #020705;
-    
-    /* varNight */
-
-    --black :#000;
-    /* Définition des variables du mode nuit à partir du code ---Mode-Nuit--- */
-
-    /* Entête */
-    --entete-border-bottom-color-night: #6c5ffa;
-    --entete-background-color-night: rgba(75, 63, 246, 0.243);
-    --entete-box-shadow-color-night: #000;
-    
-    /* Nav-item */
-    --nav-item-background-color-night: #023a3b14;
-    
-    /* Block-choix-video */
-    --block-choix-video-background-gradient-night: rgba(63, 67, 218, 0.50);
-    --block-choix-video-box-shadow-color-night: #000;
-    --text-color-night: #ffffff; /* Répété ici pour correspondre à votre code */
-
-    /* Figcaption */
-    --figcaption-background-gradient-night: rgba(63, 67, 218, 1);
-    --figcaption-text-color-night: #fff;
-
-    /* Bouton */
-    --btn-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(111,34,195,1) 100%);
-    --btn-hover-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-
-    /* Input nuit */
-    --integration-input-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%);
-    --placeholder-color-night: #1b1b1b;
-
-    /* Radio Input nuit */
-    --radio-input-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,0.75) 0%, rgba(111,34,195,0.75) 100%);
-    --radio-input-checked-background-gradient-night: linear-gradient(0deg, rgba(63,67,218,1) 0%, rgba(155,120,193,1) 100%);
-    
-    /* Tableau nuit */
-    --tableau-background-color-night: rgba(75, 63, 246, 0.243);
-    --tableau-cell-background-color-night: #30104a46;
-
-    /* Bloc formulaire nuit */
-    --bloc-formulaire-background-color-night: rgba(112, 126, 246, 0.35);
-
-
-}
 
 
 /* Police */
@@ -114,8 +12,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
 
 /* Annuler le padding de 48px s'il est appliqué */
 [style*="padding: 48px 0px"] {
@@ -249,6 +145,8 @@ body {
     -ms-flex-align: center;
     align-items: center;
     text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     }
 
 
@@ -419,10 +317,53 @@ margin-right: 2vw;
     list-style: none;
 }
 
+.etat-soleil-bloc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+
+/* button clear / request */
 
 
+.btnTimeSet{
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
-/* Liste site */
+.btnTimeSetDay {
+    color: var(--white);
+}
+
+.bbtnTimeSetSunset {
+    color: var(--text-color-sunset);
+}
+
+.btnTimeSetNight {
+    color: var(--text-color-night);
+}
+
+.btnTimeSetDay:hover{
+    color: var(--btn-hover-gradient-start-color-day);
+}
+
+.btnTimeSetSunset:hover {
+    color: var(--label-sunset-color);
+}
+
+.btnTimeSetNight:hover {
+    color: var(--label-night-color);
+}
+
+.alert-message {
+    margin-top: 10px;
+    color: green;
+    font-size: 0.9rem;
+}
 
 /* bloc logo */
 
@@ -431,16 +372,59 @@ margin-right: 2vw;
     flex-wrap: wrap;
     margin: 1rem;
     justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+
 }
-
-
-  
-  
 
 /* bloc site */
 
 #fav-site-bloc > div {
     flex : 0 0 150px;
+}
+
+#city-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.city-label {
+    font-size: 1.5rem;
+}
+
+.city-input {
+    color: var(--white);
+}
+
+.cityDay {
+    color: var(--white);
+}
+
+.cityDay, label {
+    color: var(--white);
+}
+
+.cityDay, input::placeholder {
+    color: var(--text-color-day);
+}
+
+.citySunset {
+    color: var(--integration-color-sunset);
+}
+
+.cityNight {
+    color: var(--text-color-night);
+}
+
+#list-fav-site {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 1rem;
 }
 
 
@@ -1137,12 +1121,9 @@ input[type="radio"].radioInput {
 }
 
 .labelDay {
-    font-size: 16px;
     color: #ffffff;
     text-shadow: 0px 0px 5px rgb(224, 237, 123);
-    font-family:Georgia;
 }
-
 /* Foooter */
 
 .blockTimeDay {
@@ -1264,6 +1245,7 @@ input[type="radio"].radioInput {
 #label-integration-content {
     flex: 0 0 207.6px;
     text-align: center;
+    font-size: 16px;
 }
 
 .integrationInputSunset::placeholder {
@@ -1464,10 +1446,9 @@ input[type="radio"].radioInput {
 }
 
 .labelSunset {
-    font-size: 16px;
-    color: #020705;   
-    font-family:Georgia;
-    text-shadow: 2px 1px 1px #a46d36;
+    color: var(--label-sunset-color);   
+    text-shadow: 1px 1px 1px #000;
+
 }
 
 
@@ -1616,10 +1597,9 @@ input[type="radio"].radioInput {
 }
 
 .labelNight {
-    font-size: 16px;
     color: var(--white);
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.695);
-    font-family: Georgia;}
+}
 
 
 /* Styles pour le bouton de recherche personnalisé en mode nuit */

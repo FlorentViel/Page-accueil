@@ -74,7 +74,6 @@ $(document).ready(function() {
         // Afficher le message de validation
         $("#error-message").addClass("none").removeClass("block");
         $("#duplicate-error-message").addClass("none").removeClass("block");
-
         showError("#validation-message");
 
 
@@ -85,6 +84,9 @@ $(document).ready(function() {
       // Afficher le message d'erreur
       showError("#error-message");
     }
+
+    document.getElementById('in').value = ''; // Effacer le texte du champ de saisie
+
   }
 
   function updateYoutubeBtn() {
@@ -93,6 +95,7 @@ $(document).ready(function() {
 
     if (youtubeVideoId !== null) {
       if (isDuplicateVideo(youtubeVideoId)) {
+        
         // Afficher le message d'erreur pour les doublons
         showError("#duplicate-error-message");
         $("#validation-message").addClass("none").removeClass("block");
@@ -117,6 +120,7 @@ $(document).ready(function() {
       // Afficher le message d'erreur
       showError("#error-message");
     }
+    document.getElementById('in').value = ''; // Effacer le texte du champ de saisie
   }
 
   function isDuplicateVideo(videoId) {
@@ -206,6 +210,8 @@ $(document).ready(function() {
         $('#choix-video').val("Choissez une video");
       }, 500); // Durée de l'animation
     }
+    document.getElementById('in').value = ''; // Effacer le texte du champ de saisie
+
   }
 
   function choixaudio() {
