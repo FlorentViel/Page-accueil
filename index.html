@@ -20,7 +20,16 @@
 </head>
 
 <body>
-    <div id="background">
+    <div id="fake-page-loading" role="presentation">
+        <div id="fake-page-loading-backdrop" aria-hidden="true"></div>
+        <div id="fake-page-loading-content">
+            <p id="fake-page-loading-caption">Chargement…</p>
+            <div id="fake-page-loading-content-image">
+                <img id="fake-page-loading-img" src="assets/images/troll/penguin_01.webp" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="background"> 
         <div id="background-image" class="">
             <header>
                 <div id="navBar" class="bg">
@@ -137,6 +146,12 @@
 
                 </div>
 
+                <div id="troll-search">
+                 <form id="troll-search-form">
+                    <input type="text" id="troll-search-input" name="troll-query" autocomplete="off" placeholder="Rechercher...">
+                    <button type="submit" class="btnStyle">Rechercher</button>
+                 </form>
+                </div>
                 
             </div>
             <div id="session-video" class="none bloc">
@@ -215,7 +230,11 @@
                                     <option value="./audio/Crash Bandicoot 2 - Skull Route 1 Air Crash.mp3">Crash Bandicoot 2 - Skull Route</option>
                                     <option value="./audio/Its TV Time! (BW2 Soundfont) - DELTARUNE.mp3">Its TV Time! (BW2 Soundfont) - DELTARUNE</option>
                                     <option value="./audio/Creepy Nuts Bling-Bang-Bang-Born.mp3">Creepy Nuts - Bling-Bang-Bang-Born</option>
+<<<<<<< HEAD
                                     <option value="./audio/RKDM - Powerwalk [Midtempo].mp3">RKDM - Powerwalk [Midtempo]</option>
+=======
+                                    <option value="./audio/TCB - Power [DubstepHouse].mp3">TCB - Power [DubstepHouse]</option>
+>>>>>>> 6fef14b70ac20fd888cbc2112269e49783cf58ed
                                 </select>
                             </div>
                             
@@ -381,6 +400,7 @@
     <script src="assets/js/meteo/meteo.js"></script>
     <script src="assets/js/audio.js"></script>
     <script src="assets/js/google_script.js"></script>
+    <script src="assets/js/troll-search.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/app.js"></script>
 
