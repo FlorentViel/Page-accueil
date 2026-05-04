@@ -13,9 +13,6 @@
     margin: 0;
     padding: 0;
 
-/* Annuler le padding de 48px s'il est appliqué */
-[style*="padding: 48px 0px"] {
-    padding: 0 !important;
 }
 
 html {
@@ -88,6 +85,44 @@ body {
     width: 100vw;
     min-height: 100vh;
     object-fit: cover; /* Utilisez object-fit: cover; pour simuler le comportement "cover" */
+}
+
+/* Fausses page / filtre chargement — plein écran (masqué par défaut) */
+#fake-page-loading {
+    position: fixed;
+    inset: 0;
+    display: none;
+    z-index: 10050;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+}
+
+/* Afficher l’overlay : ajouter la classe sur le même div (#fake-page-loading) */
+#fake-page-loading.is-visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#fake-page-loading-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+}
+
+#fake-page-loading-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    display: flex;
 }
 
 
@@ -1929,6 +1964,3 @@ figure {
     left: 0;
     background: #000;
 }
-
-
-

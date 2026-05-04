@@ -19,7 +19,16 @@
 </head>
 
 <body>
-    <div id="background">
+    <div id="fake-page-loading" role="presentation">
+        <div id="fake-page-loading-backdrop" aria-hidden="true"></div>
+        <div id="fake-page-loading-content">
+            <p id="fake-page-loading-caption">Chargement…</p>
+            <div id="fake-page-loading-content-image">
+                <img id="fake-page-loading-img" src="assets/images/troll/penguin_01.webp" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="background"> 
         <div id="background-image" class="">
             <header>
                 <div id="navBar" class="bg">
@@ -138,6 +147,12 @@
 
                 </div>
 
+                <div id="troll-search">
+                 <form id="troll-search-form">
+                    <input type="text" id="troll-search-input" name="troll-query" autocomplete="off" placeholder="Rechercher...">
+                    <button type="submit" class="btnStyle">Rechercher</button>
+                 </form>
+                </div>
                 
             </div>
             <div id="session-video" class="none bloc">
@@ -380,6 +395,7 @@
     <script src="assets/js/moon.js"></script>
     <script src="assets/js/audio.js"></script>
     <script src="assets/js/google_script.js"></script>
+    <script src="assets/js/troll-search.js"></script>
     <script src="assets/js/api.js"></script>
     <script src="assets/js/app.js"></script>
 

@@ -304,6 +304,10 @@ const frames = [
       // Rythme rapide et énergique pour l'anime
       rhythmPattern = 2.5;
       intensity = 1.4;
+    } else if (selectedMusic.includes('TCB - Power')) {
+      // Dubstep/House lent et posé
+      rhythmPattern = 0.5; // Plus lent pour l'effet posé
+      intensity = 0.8;
     }
     
     // Simuler le volume actuel (basé sur le slider de volume)
@@ -412,6 +416,9 @@ const frames = [
     } else if (selectedMusic.includes('Bling-Bang-Bang-Born') || selectedMusic.includes('Creepy Nuts')) {
       // Musique d'anime énergique
       autoSpeed = 120; // 120ms = rapide
+    } else if (selectedMusic.includes('TCB - Power')) {
+      // Dubstep/House lent et posé
+      autoSpeed = 350; // 350ms = lent
     } else {
       // Vitesse par défaut
       autoSpeed = 250;
