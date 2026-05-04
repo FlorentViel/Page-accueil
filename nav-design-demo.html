@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démonstration Designs Navigation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .demo-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .style-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .style-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .style-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .style-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-demo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-item-demo {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .description {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1 style="color: white; text-align: center; margin-bottom: 40px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+            🎨 Démonstration des Designs de Navigation
+        </h1>
+        
+        <div class="style-selector">
+            <button class="style-btn active" onclick="showStyle('glassmorphism')">Glassmorphism</button>
+            <button class="style-btn" onclick="showStyle('neumorphism')">Neumorphism</button>
+            <button class="style-btn" onclick="showStyle('gradient')">Gradient Moderne</button>
+            <button class="style-btn" onclick="showStyle('minimal')">Minimaliste</button>
+            <button class="style-btn" onclick="showStyle('cyberpunk')">Cyberpunk</button>
+            <button class="style-btn" onclick="showStyle('original')">Original</button>
+        </div>
+        
+        <!-- Design Glassmorphism -->
+        <div class="demo-section" id="glassmorphism-demo">
+            <h2 class="demo-title">✨ Glassmorphism</h2>
+            <div class="nav-menu-glassmorphism nav-demo">
+                <span class="nav-item-glassmorphism nav-item-demo">Préférence site web</span>
+                <span class="nav-item-glassmorphism nav-item-demo">Audio/Video</span>
+                <span class="nav-item-glassmorphism nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Effet de verre dépoli moderne avec transparence et flou. Parfait pour un design élégant et contemporain.
+            </p>
+        </div>
+        
+        <!-- Design Neumorphism -->
+        <div class="demo-section" id="neumorphism-demo" style="display: none;">
+            <h2 class="demo-title">🎯 Neumorphism</h2>
+            <div class="nav-menu-neumorphism nav-demo">
+                <span class="nav-item-neumorphism nav-item-demo">Préférence site web</span>
+                <span class="nav-item-neumorphism nav-item-demo">Audio/Video</span>
+                <span class="nav-item-neumorphism nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Style moderne avec ombres douces et effet 3D subtil. Design épuré et professionnel.
+            </p>
+        </div>
+        
+        <!-- Design Gradient -->
+        <div class="demo-section" id="gradient-demo" style="display: none;">
+            <h2 class="demo-title">🌈 Gradient Moderne</h2>
+            <div class="nav-menu-gradient nav-demo">
+                <span class="nav-item-gradient nav-item-demo">Préférence site web</span>
+                <span class="nav-item-gradient nav-item-demo">Audio/Video</span>
+                <span class="nav-item-gradient nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Dégradés colorés avec animations fluides. Design dynamique et attractif.
+            </p>
+        </div>
+        
+        <!-- Design Minimaliste -->
+        <div class="demo-section" id="minimal-demo" style="display: none;">
+            <h2 class="demo-title">⚪ Minimaliste</h2>
+            <div class="nav-menu-minimal nav-demo">
+                <span class="nav-item-minimal nav-item-demo">Préférence site web</span>
+                <span class="nav-item-minimal nav-item-demo">Audio/Video</span>
+                <span class="nav-item-minimal nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Design épuré avec animations subtiles. Élégant et moderne.
+            </p>
+        </div>
+        
+        <!-- Design Cyberpunk -->
+        <div class="demo-section" id="cyberpunk-demo" style="display: none;">
+            <h2 class="demo-title">🤖 Cyberpunk</h2>
+            <div class="nav-menu-cyberpunk nav-demo">
+                <span class="nav-item-cyberpunk nav-item-demo">Préférence site web</span>
+                <span class="nav-item-cyberpunk nav-item-demo">Audio/Video</span>
+                <span class="nav-item-cyberpunk nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Style futuriste avec effets lumineux et animations cyberpunk. Design unique et accrocheur.
+            </p>
+        </div>
+        
+        <!-- Design Original -->
+        <div class="demo-section" id="original-demo" style="display: none;">
+            <h2 class="demo-title">📜 Design Original</h2>
+            <div id="nav-deroulant-conteneur" class="nav-demo">
+                <span class="nav-item nav-item-demo">Préférence site web</span>
+                <span class="nav-item nav-item-demo">Audio/Video</span>
+                <span class="nav-item nav-item-demo">Agenda</span>
+            </div>
+            <p class="description">
+                Votre design actuel conservé pour référence. Simple et fonctionnel.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showStyle(style) {
+            // Masquer toutes les démos
+            const demos = document.querySelectorAll('.demo-section');
+            demos.forEach(demo => demo.style.display = 'none');
+            
+            // Afficher la démo sélectionnée
+            document.getElementById(style + '-demo').style.display = 'block';
+            
+            // Mettre à jour les boutons
+            const buttons = document.querySelectorAll('.style-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        // Ajouter des effets de clic pour les éléments de navigation
+        document.querySelectorAll('.nav-item-demo').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,129 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients pour les couleurs -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff1493;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff69b4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffb6c1;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ff69b4;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="hornGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffa500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd700;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Filtres pour les effets lumineux -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Aile gauche animée -->
+  <g id="leftWing" transform="translate(40, 60)">
+    <animateTransform attributeName="transform" type="rotate" 
+                      values="0 0 0; -15 0 0; 0 0 0" 
+                      dur="1s" repeatCount="indefinite"/>
+    <path d="M0,0 Q-20,-10 -30,0 Q-20,10 0,0 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+    <path d="M-10,-5 Q-25,-15 -35,-5 Q-25,5 -10,-5 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+  </g>
+  
+  <!-- Aile droite animée -->
+  <g id="rightWing" transform="translate(160, 60)">
+    <animateTransform attributeName="transform" type="rotate" 
+                      values="0 0 0; 15 0 0; 0 0 0" 
+                      dur="1s" repeatCount="indefinite"/>
+    <path d="M0,0 Q20,-10 30,0 Q20,10 0,0 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+    <path d="M10,-5 Q25,-15 35,-5 Q25,5 10,-5 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+  </g>
+  
+  <!-- Corps du poney -->
+  <g id="ponyBody" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="translate" 
+                      values="0,0; 0,-5; 0,0" 
+                      dur="2s" repeatCount="indefinite"/>
+    
+    <!-- Corps principal -->
+    <ellipse cx="100" cy="120" rx="35" ry="25" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="2"/>
+    
+    <!-- Tête -->
+    <ellipse cx="100" cy="80" rx="20" ry="18" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="2"/>
+    
+    <!-- Oreilles -->
+    <ellipse cx="85" cy="65" rx="5" ry="8" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <ellipse cx="115" cy="65" rx="5" ry="8" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    
+    <!-- Yeux -->
+    <circle cx="92" cy="75" r="2" fill="#000"/>
+    <circle cx="108" cy="75" r="2" fill="#000"/>
+    <circle cx="93" cy="74" r="1" fill="#fff"/>
+    <circle cx="109" cy="74" r="1" fill="#fff"/>
+    
+    <!-- Nez -->
+    <ellipse cx="100" cy="85" rx="3" ry="2" fill="#ff69b4"/>
+    
+    <!-- Corne animée -->
+    <g id="horn" transform="translate(100, 60)">
+      <animateTransform attributeName="transform" type="rotate" 
+                        values="0 0 0; 5 0 0; -5 0 0; 0 0 0" 
+                        dur="3s" repeatCount="indefinite"/>
+      <path d="M0,0 L-3,-15 L0,-25 L3,-15 Z" fill="url(#hornGradient)" stroke="#ffa500" stroke-width="1"/>
+      <circle cx="0" cy="-5" r="2" fill="#ffd700"/>
+    </g>
+    
+    <!-- Jambes -->
+    <rect x="85" y="140" width="4" height="20" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <rect x="95" y="140" width="4" height="20" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <rect x="105" y="140" width="4" height="20" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <rect x="115" y="140" width="4" height="20" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    
+    <!-- Queue -->
+    <g id="tail" transform="translate(130, 110)">
+      <animateTransform attributeName="transform" type="rotate" 
+                        values="0 0 0; 10 0 0; -10 0 0; 0 0 0" 
+                        dur="1.5s" repeatCount="indefinite"/>
+      <path d="M0,0 Q15,-10 25,0 Q15,10 0,0 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+      <path d="M5,-5 Q20,-15 30,-5 Q20,5 5,-5 Z" fill="url(#wingGradient)" stroke="#ff69b4" stroke-width="1"/>
+    </g>
+    
+    <!-- Crinière -->
+    <path d="M80,70 Q75,60 80,50 Q85,60 80,70" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M85,65 Q80,55 85,45 Q90,55 85,65" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M90,70 Q85,60 90,50 Q95,60 90,70" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M95,65 Q90,55 95,45 Q100,55 95,65" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M100,70 Q95,60 100,50 Q105,60 100,70" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M105,65 Q100,55 105,45 Q110,55 105,65" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M110,70 Q105,60 110,50 Q115,60 110,70" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M115,65 Q110,55 115,45 Q120,55 115,65" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+    <path d="M120,70 Q115,60 120,50 Q125,60 120,70" fill="url(#bodyGradient)" stroke="#ff1493" stroke-width="1"/>
+  </g>
+  
+  <!-- Particules magiques -->
+  <g id="particles">
+    <circle cx="50" cy="50" r="2" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="40" r="1.5" fill="#ff69b4">
+      <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="1.5;3;1.5" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="60" cy="150" r="1" fill="#ff1493">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="1;2;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="140" cy="160" r="1.5" fill="#ffd700">
+      <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="1.5;3;1.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg> 

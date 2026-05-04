@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/audio.css">
     <link rel="stylesheet" href="assets/css/animation.css">
     <link rel="stylesheet" href="assets/css/clock.css">
+    <link rel="stylesheet" href="assets/css/pony.css">
     <link rel="shortcut icon" href="assets/images/background/icon_page.gif" type="image/x-icon">
     <script target="_blank" async src="https://cse.google.com/cse.js?cx=44f3a51b7ec03451d">
     </script>
@@ -76,12 +77,10 @@
                     </div>
                 </div>
             </header>
-            <nav id="nav-menu" class="">
-                <div id="nav-deroulant-conteneur">
-                    <span class="nav-item" id="web-affiche">Préférence site web</span>
-                    <span class="nav-item" id="youtube-affiche">Audio/Video</span>
-                    <span id="tableau-affiche" class="nav-item">Agenda</span>
-                </div>
+            <nav id="nav-menu" class="nav-menu-glassmorphism">
+                <span class="nav-item-glassmorphism" id="web-affiche">Préférence site web</span>
+                <span class="nav-item-glassmorphism" id="youtube-affiche">Audio/Video</span>
+                <span id="tableau-affiche" class="nav-item-glassmorphism">Agenda</span>
             </nav>
             <section id="google-section" class="gcse-search">
                 <form onsubmit="redirectToSearchResults(this.querySelector('input').value); return false;" target="_blank" class="custom-search-container" autocomplete="off">
@@ -180,8 +179,9 @@
                     <div class="container">
                         <h1 class="title">🐱 Spinning Cat (OIIA OIIA) 🐱</h1>
                         <div class="cat-container">
-                            <div id="cat"></div>
+                            <pre id="cat"></pre>
                         </div>
+                        
                         <div class="audio-visualizer"></div>
                         
                         <div class="controls">
@@ -209,11 +209,13 @@
                                 <select id="musicSelect">
                                     <option value="./audio/W&W - OIIA OIIA (Spinning Cat).mp3">OIIA OIIA (Spinning Cat)</option>
                                     <option value="./audio/Crash Bandicoot 1 - Cortex Boss Music.mp3">Crash Bandicoot 1 - Cortex Boss</option>
+                                    <option value="./audio/Crash Bandicoot 1 - Koala Kong Boss Music.mp3">Crash Bandicoot 1 - Koala Kong Boss</option>
                                     <option value="./audio/Crash Bandicoot 2 - Komodo Bros. Boss Music.mp3">Crash Bandicoot 2 - Komodo Bros</option>
                                     <option value="./audio/Crash Bandicoot 2 - Tiny Boss Music.mp3">Crash Bandicoot 2 - Tiny Boss</option>
                                     <option value="./audio/Crash Bandicoot 2 - Skull Route 1 Air Crash.mp3">Crash Bandicoot 2 - Skull Route</option>
                                     <option value="./audio/Its TV Time! (BW2 Soundfont) - DELTARUNE.mp3">Its TV Time! (BW2 Soundfont) - DELTARUNE</option>
                                     <option value="./audio/Creepy Nuts Bling-Bang-Bang-Born.mp3">Creepy Nuts - Bling-Bang-Bang-Born</option>
+                                    <option value="./audio/RKDM - Powerwalk [Midtempo].mp3">RKDM - Powerwalk [Midtempo]</option>
                                 </select>
                             </div>
                             
@@ -371,12 +373,12 @@
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue@3.2.21/dist/vue.esm-bundler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intersection-observer@2.0.0/dist/intersection-observer.js"></script>
+
     <script src="assets/jquery/jquery-3.6.4.min.js"></script>
     <script src="assets/js/suncalc-master/suncalc.js"></script>
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/meteo/meteo.js"></script>
-    <script src="assets/js/moon.js"></script>
     <script src="assets/js/audio.js"></script>
     <script src="assets/js/google_script.js"></script>
     <script src="assets/js/api.js"></script>

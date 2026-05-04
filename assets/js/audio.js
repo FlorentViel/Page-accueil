@@ -134,8 +134,42 @@ const frames = [
     (＿／／
      ＼二)`
       ];
-  
-      let index = 0;
+
+// Frames du poney ASCII pour la musique Powerwalk
+const ponyFrames = [
+`%%%%%@@@@@@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%@@@@@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%@@@@@%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%@@@%%%%%%%%%%%%%%%%%%%%@@@@%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@@@%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%####%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%**##**%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%#*+*%%##%%%%%%%%%%%%%%%%%%@@@@@@@@
+%%%%%%%%%%%%%%%%%##*##%%#*%%%%%%%%%%%%%%%%%%@@@@@@@
+%%%%%%%%%%%##%%%%#####%%##%%%%#%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%######%%##%##*####%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%###*#%%#%%%%#%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%#%%**##%%%#%%%%#*#%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%#**###%%%%%%#%%%%%%%##%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%#*+#%%%%%%%%%%%%%%%%%%##%%%%%%%%%%%%%%%%%
+%%%%%%#####**%%%%%##%%%%%%%%%%%%%###%%%%%%%%%%%%%%%
+%%%%%%###%%##%%%%%#####%%%%%%%%%%%####%%%%%%%%%%%%%
+%%%%%%%%%%##%%%%%%%%##%%%%%%##%%###*+++#%%%%%%%%%%%
+%%%%%%%%%#######%%%%#%%%%%%%###%#####*++#%%%%%%%%%%
+%%%%%%%%######*#%%%%#%%%#%%%######%#%#**#%%%%%%%%%%
+%%%%%%%#+*#***#%%%%#%%%%%##%%%#*###*%%%##%%%%%%%%%%
+%%%%%%#**#%###%%%%###%%%%%#%%%%%######%%#%%%%%%%%%%
+%%%%%%%##%%%##%%%#*##%%%%%%%%%%%%###*#%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%##%%%###*#%%%%%%%%%%%%%
+%%%%###%%%%%%%%%%%%%#%%%%%%%%##%%%#*##%%%%%%%%%%%%%
+%%%%%###%%%%%%%%#%%##%%%%%%%%##%%%#**#%%%%%%%%%%%%%
+%%%%%%%%%%##%%%%%####%%%%%%%%###%%#%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%#####%%%%%%%%%###########%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%`
+];
+
+let index = 0;
   let isPaused = true; // En pause par défaut
       let isReversed = false;
       let animationInterval;
@@ -304,6 +338,10 @@ const frames = [
       // Rythme rapide et énergique pour l'anime
       rhythmPattern = 2.5;
       intensity = 1.4;
+    } else if (selectedMusic.includes('Powerwalk')) {
+      // Rythme midtempo pour la musique Powerwalk
+      rhythmPattern = 2.2;
+      intensity = 1.3;
     }
     
     // Simuler le volume actuel (basé sur le slider de volume)
@@ -374,12 +412,29 @@ const frames = [
           }
         }
       }
+
+function animateCharacter() {
+  if (!isPaused) {
+    $('.pony-container').hide();
+    $('.cat-container').show();
+    $catDiv.text(frames[index]);
+    if (index === 0 && audioEnabled) {
+      createCatSound();
+    }
+    if (isReversed) {
+      index = index - 1;
+      if (index < 0) index = frames.length - 1;
+    } else {
+      index = (index + 1) % frames.length;
+    }
+  }
+}
   
       function startAnimation() {
         if (animationInterval) {
           clearInterval(animationInterval);
         }
-        animationInterval = setInterval(animateCat, speed);
+        animationInterval = setInterval(animateCharacter, speed);
       }
   
       function updateSpeed() {
@@ -467,6 +522,12 @@ const frames = [
       }, 100);
     }
     
+    // Afficher le chat par défaut (musique OIIA OIIA)
+    $('.pony-container').hide();
+    $('.cat-container').show();
+    $catDiv.text(frames[0]);
+    index = 0;
+    
     // Relancer l'audio si il était en cours et que l'audio est activé
     if (!isPaused && audioEnabled) {
       $catSound[0].play().catch(e => console.log('Audio play failed:', e));
@@ -493,6 +554,12 @@ const frames = [
         
         // Réinitialiser le sélecteur de musique
     $musicSelect.val('./audio/W&W - OIIA OIIA (Spinning Cat).mp3');
+    
+    // Afficher le chat par défaut (musique OIIA OIIA)
+    $('.pony-container').hide();
+    $('.cat-container').show();
+    $catDiv.text(frames[0]);
+    index = 0;
       }
   
       function togglePause() {
@@ -689,9 +756,6 @@ const frames = [
   $speedSlider.prop('disabled', true); // Désactiver le slider par défaut
   updateAutoSpeed(); // Appliquer la vitesse automatique initiale
   
-  // Afficher le chat dès le début (première frame)
-  $catDiv.text(frames[0]);
-
   // Rendre la fonction globale pour qu'elle puisse être appelée depuis script.js
   window.applyAudioTheme = applyAudioTheme;
 

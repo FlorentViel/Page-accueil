@@ -106,5 +106,14 @@
     /* Bloc formulaire nuit */
     --bloc-formulaire-background-color-night: rgba(112, 126, 246, 0.35);
 
+    /* ===== Variables pour le Design Glassmorphism ===== */
+    --glassmorphism-bg: rgba(255, 255, 255, 0.15);
+    --glassmorphism-border: rgba(255, 255, 255, 0.3);
+    --glassmorphism-text: white;
+    --glassmorphism-shadow: rgba(0, 0, 0, 0.1);
+    --glassmorphism-hover-bg: rgba(255, 255, 255, 0.25);
+    --glassmorphism-hover-border: rgba(255, 255, 255, 0.5);
+    --glassmorphism-hover-shadow: rgba(0, 0, 0, 0.3);
+    --glassmorphism-shine: rgba(255, 255, 255, 0.4);
 
 }
